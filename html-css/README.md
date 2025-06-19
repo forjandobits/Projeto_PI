@@ -1,5 +1,5 @@
 <h1>Padrões de Desenvolvimento</h1>
-<p> – Aqui estão todos os padrões e instruções de como o código deve ser construído <br> – Os padrões HTML e alguns CSS serão revisionados com o tempo </p>
+<p> – Aqui estão todos os padrões e instruções de como o código deve ser construído <br> – Os códigos HTML e CSS serão revisionados com o tempo </p>
 
 
 <h3>Versões de Desenvolvimento</h3>
@@ -15,9 +15,8 @@
 
 <hr>
 
-<h3>Criação de variáveis para o CSS</h3>
-<p> – Nomeclatura das variáveis com base na sua função no código</p>
-
+<h3>Padrão para a criação de variáveis para o CSS</h3>
+<p> – Nomenclatura de variáveis conforme sua função no código</p>
 
 <i>
 
@@ -25,8 +24,10 @@
     --cor-titulo: blue;
     --cor-destaque: red;
     }
+
 </i>
-<p><sub>Observação : Todas as core que serão utilizadas, serão definidas no inicio da contrução do código CSS</sub></p>
+
+<p> – Observação : Todas as core que serão utilizadas, serão definidas no inicio da contrução do código CSS</p>
 
 <h3>Padrão de commit </h3>
 <p> – Exemplo : <strong>"/TEST - FE - Adicionar testes para componente Header"</strong></p>
@@ -36,77 +37,32 @@
 
 <i>
 
-    id = "exemplo-id"
-    class = "exemplo-class"
+    id = 'exemplo-id'
+    
+    class = 'exemplo-class'
 
 </i>
 
-<hr>
 
-<h3>Um espaço entre as tags de diferentes tipos (blocos de códigos)</h3>
 
-<i>      
-                       
-     <header id="fundo-header">
-
-      <h1><img src="img\dog-paw1.png" alt="imaem de cachorro" /> Pet Paws</h1>
-
-    </header>
-
-    <nav class="navegacao">
-
-      <a href="index.html">Quem somos</a>
-      <a href="servicos.html">serviços</a>
-      <a href="produtos.html">lojinha</a>
-      <a href="contato.html">contato</a>
-
-    </nav>
-
-    <main id="fonte">
-  
-      <section class="content conteudo-principal">
-
-        <article class="area-conteudo">
-          
-          <h1>Seu Pet em Primeiro Lugar</h1>
-          <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores
-          amigos!</p>
-          <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores
-          amigos!</p>
-
-        </article>
-        
-      </section>
-      
-    </main>
-
-</i>
-
-<hr>
-
-<h3>Padrão de aspas, aspas simples("")</h3>
+<h3>Padrão de aspas, aspas simples('')</h3>
 
 <i>
 
-    id = "exemplo-id"
-    class = "exemplo-class"
+    id = 'exemplo-id'
+
+    class = 'exemplo-class'
 
 </i>
+
 
 
 <hr>      
 
-<h3> Regra de Ouro:</h3>
-
-<p> – Se o conteúdo puder ser lido e fazer sentido por si só, fora do contexto atual da página, <br>
-    ele provavelmente é um &ltarticle&gt.</p>
-
-<br>
-
-<p> – Se o conteúdo for um agrupamento temático de outros conteúdos (que podem ser ou não &ltarticle&gt), <br>
-ou uma parte de um documento maior que não faz sentido sozinha, ele provavelmente é uma &ltsection&gt.</p>
 
 <h3>Padrão da estrutura HTML</h3>
+
+<p> – Um espaço entre as tags de diferentes tipos (blocos de códigos)</p>
 <i>
 
     <!DOCTYPE html>
@@ -122,13 +78,22 @@ ou uma parte de um documento maior que não faz sentido sozinha, ele provavelmen
 
     <body>
 
-    <header>
+    <header id='exemplo-id'>
 
-        <nav>
+        <nav class='exemplo-class'>
 
             <ul>
-                <li></li>
+
+                <li>
+                    <a href="index.html">Quem somos</a>
+                    <a href="servicos.html">serviços</a>
+                    <a href="produtos.html">lojinha</a>
+                    <a href="contato.html">contato</a>
+                </li>
+
             </ul>
+
+            <h1><img src="img\dog-paw1.png" alt="imagem de cachorro" /> Pet Paws</h1>
 
         </nav>
 
@@ -136,22 +101,66 @@ ou uma parte de um documento maior que não faz sentido sozinha, ele provavelmen
 
     <main>
 
-        <article id="exemplo-id">
+        <article id='exemplo-id'>
 
-            <section class="exemplo-class"></section>
-            <section class="exemplo-class"></section>
+            <section class='exemplo-class'>
+
+            <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores
+            amigos!</p>
+            
+            </section>
+
+            <section class='exemplo-class'>
+            
+            <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores
+            amigos!</p>
+
+            </section>
 
         </article>
 
-        <aside></aside>
+        <aside class='exemplo-class'>
+        
+        <img src="img\propaganda.jpg" />
+
+          <strong>
+          <h3>Com Duvida ?</h3>        
+          </strong>
+
+          <p>
+            Entre em contato ja !
+          </p>
+
+          <br />
+
+          <a href="contato.html">Contato </a>
+
+        </aside>
 
     </main>
 
-    <footer></footer>
+        <footer class='exemplo-class'>
+        
+        <p>&copy; 2025 - Todos os direitos reservados.</p>
+
+        </footer>
 
     </body>
 
     </html>
     
 </i>
+<hr>
+
+
+<h3> Regra de Ouro:</h3>
+
+<p> – Se o conteúdo puder ser lido e fazer sentido por si só, fora do contexto atual da página, <br>
+    ele provavelmente é um &ltarticle&gt.</p>
+
+<br>
+
+<p> – Se o conteúdo for um agrupamento temático de outros conteúdos (que podem ser ou não &ltarticle&gt), <br>
+ou uma parte de um documento maior que não faz sentido sozinha, ele provavelmente é uma &ltsection&gt.</p>
+
 <hr>
