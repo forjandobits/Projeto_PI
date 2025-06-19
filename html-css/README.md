@@ -1,9 +1,7 @@
 <h1>Padrões de Desenvolvimento</h1>
-<p> – Aqui estão todos os padrões e instruções de como o código deve ser construído <br> – Os códigos HTML e CSS serão revisionados com o tempo </p>
-
+<p> – Aqui estão todos os padrões e instruções de como o código deve ser construído <br> – Os códigos HTML e CSS serão revisados com o tempo </p>
 
 <h3>Versões de Desenvolvimento</h3>
-
 
 <strong>
 
@@ -15,7 +13,7 @@
 
 <hr>
 
-<h3>Padrão para a criação de variáveis para o CSS</h3>
+<h3>Padrão para a criação de variáveis no CSS</h3>
 <p> – Nomenclatura de variáveis conforme sua função no código</p>
 
 <i>
@@ -27,26 +25,14 @@
 
 </i>
 
-<p> – Observação : Todas as core que serão utilizadas, serão definidas no inicio da contrução do código CSS</p>
+<p> – Observação : Todas as cores utilizadas serão definidas no inicio da construção do código CSS</p>
 
 <h3>Padrão de commit </h3>
 <p> – Exemplo : <strong>"/TEST - FE - Adicionar testes para componente Header"</strong></p>
 
 
 <h3> Padrão para criação de id e class </h3>
-
-<i>
-
-    id = 'exemplo-id'
-    
-    class = 'exemplo-class'
-
-</i>
-
-
-
-<h3>Padrão de aspas, aspas simples('')</h3>
-
+    <p> – Criação com aspas simples('')</p>
 <i>
 
     id = 'exemplo-id'
@@ -54,12 +40,6 @@
     class = 'exemplo-class'
 
 </i>
-
-
-
-<hr>      
-
-
 <h3>Padrão da estrutura HTML</h3>
 
 <p> – Um espaço entre as tags de diferentes tipos (blocos de códigos)</p>
@@ -83,14 +63,12 @@
         <nav class='exemplo-class'>
 
             <ul>
-
-                <li>
-                    <a href="index.html">Quem somos</a>
-                    <a href="servicos.html">serviços</a>
-                    <a href="produtos.html">lojinha</a>
-                    <a href="contato.html">contato</a>
-                </li>
-
+                
+                <li> <a href="index.html">Quem somos</a> </li>
+                <li> <a href="servicos.html">serviços</a> </li>
+                <li> <a href="produtos.html">lojinha</a> </li>
+                <li> <a href="contato.html">contato</a> </li>
+                
             </ul>
 
             <h1><img src="img\dog-paw1.png" alt="imagem de cachorro" /> Pet Paws</h1>
@@ -104,45 +82,27 @@
         <article id='exemplo-id'>
 
             <section class='exemplo-class'>
-
-            <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores
-            amigos!</p>
-            
+                <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores amigos!</p>
             </section>
 
             <section class='exemplo-class'>
-            
-            <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores
-            amigos!</p>
-
+                <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores amigos!</p>
             </section>
 
         </article>
 
         <aside class='exemplo-class'>
-        
-        <img src="img\propaganda.jpg" />
-
-          <strong>
-          <h3>Com Duvida ?</h3>        
-          </strong>
-
-          <p>
-            Entre em contato ja !
-          </p>
-
-          <br />
+            <img src="img\propaganda.jpg" />
+          
+          <p>Entre em contato ja !</p>
 
           <a href="contato.html">Contato </a>
-
         </aside>
 
     </main>
 
         <footer class='exemplo-class'>
-        
-        <p>&copy; 2025 - Todos os direitos reservados.</p>
-
+            <p>&copy; 2025 - Todos os direitos reservados.</p>
         </footer>
 
     </body>
@@ -150,8 +110,8 @@
     </html>
     
 </i>
-<hr>
 
+<hr>
 
 <h3> Regra de Ouro:</h3>
 
