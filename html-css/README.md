@@ -47,35 +47,41 @@
 
     <!DOCTYPE html>
     <html lang="pt-br">
+
+
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Padrão estrutura HTML</title>
     </head>
 
+
     <body>
     <header id='exemplo-id'>
         <nav class='exemplo-class'>
-            <ul> 
+            <ul>
                 <li> <a href="index.html">Quem somos</a> </li>
                 <li> <a href="servicos.html">serviços</a> </li>
                 <li> <a href="produtos.html">lojinha</a> </li>
-                <li> <a href="contato.html">contato</a> </li>       
+                <li> <a href="contato.html">contato</a> </li>
             </ul>
             <h1><img src="img\dog-paw1.png" alt="imagem de cachorro" /> Pet Paws</h1>
         </nav>
     </header>
+
 
     <main>
         <article id='exemplo-id'>
             <section class='exemplo-class'>
                 <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores amigos!</p>
             </section>
-            
+
+
             <section class='exemplo-class'>
                 <p>Somos a Pet Paws, um pet shop apaixonado por cuidar dos seus melhores amigos!</p>
             </section>
         </article>
+
 
         <aside class='exemplo-class'>
             <img src="img\propaganda.jpg" />
@@ -84,11 +90,13 @@
         </aside>
     </main>
 
+
     <footer class='exemplo-class'>
         <p>&copy; 2025 - Todos os direitos reservados.</p>
     </footer>
     </body>
     </html>
+
 </i>
 
 <hr>
