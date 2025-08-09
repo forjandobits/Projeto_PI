@@ -1,6 +1,13 @@
 :root{
-  --titulo-h2: #30adea;
-  --titulo-header: #f1f2f3;
+  --titulo-azul: #30adea;
+  --sombra-clara: #7e7e7e;
+  --sombra-escura: #000000;
+  --background: #f1f2f3;
+  --background-cinza: #cfcfcf;
+  --background-azul: #30adea;
+  --background-hover: #2366bf;
+  --texto-padrao: #f1f2f3;
+  --texto-cinza: #8a8a8a;
 }
 
 * {
@@ -14,12 +21,12 @@ main {
 }
 
 .texto-login {
-  flex: 1;
-  color: white;
+  flex: 3;
+  color: var(--texto-padrao);
   display: flex;
   flex-direction: column;
   padding: 40px;
-  text-shadow: 0 0 5px #000;
+  text-shadow: 0 0 5px var(--sombra-escura);
 }
 
 .texto-login h1 {
@@ -34,58 +41,63 @@ main {
 
 .container-login {
   flex: 1;
-  color: white;
+  color: var(--texto-padrao);
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
 }
 
-.fundo-login /* Averiguando */{
-  background-image: url("../html-css/img/fundo-login.jpg");
+.fundo-login{
+  background: url("../html-css/img/fundo-login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .barra-lateral { 
-  background-color: #f1f2f3;
+  background-color: var(--background);
   padding: 20px;
   flex: 1;
-  margin-left: 45%;
+  /* margin-left: 45%; */
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
 .barra-lateral h2 {
   font-size: 40px;
-  margin: 150px 0;
-  color: var(--titulo-h2);
+  margin: 150px auto;
+  color: var(--titulo-azul);
 }
 
 .barra-lateral input {
-  display: block;
-  justify-content: center;
-  background-color: #cfcfcf;
-  color: #f1f2f3;
-  font-size: large;
+  /* display: block; */
+  /* justify-content: center; */
+  cursor: pointer;
+  background-color: var(--background-cinza);
+  color: var(--texto-padrao);
+  font-size: 1.5em;
   width: 90%;
-  padding: 20px;
+  padding: 5px 15px;
   margin-bottom: 20px;
+  /* margin-top: 10px; */
   border: none;
   border-radius: 25px;
-  box-shadow: 0 0 10px rgb(126, 126, 126);
+  box-shadow: 0 0 10px var(--sombra-clara);
 }
 
 .barra-lateral input::placeholder {
-  background-color: #cfcfcf;
-  color: #f1f2f3;
+  background-color: var(--background-cinza);
+  color: var(--texto-padrao);
 }
 
 .barra-lateral button {
-  color: #f1f2f3;
+  color: var(--texto-padrao);
   font-size: large;
-  background-color: #30adea;
-  box-shadow: 0 0 10px rgb(126, 126, 126);
+  background-color: var(--background-azul);
+  box-shadow: 0 0 10px var(--sombra-clara);
   padding: 10px;
   margin-top: 50px;
   border-radius: 4px;
@@ -96,12 +108,12 @@ main {
 }
 
 .barra-lateral button:hover {
-  background-color: #2366bf;
+  background-color: var(--background-hover);
 }
 
 .barra-lateral a {
   display: block;
   margin: 10px 0;
-  color: #8a8a8a;
+  color: var(--texto-cinza);
   font-size: 14px;
 }

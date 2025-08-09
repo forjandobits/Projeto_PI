@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,29 +9,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body class="fundo-login">
-    
-    <main >
+
+  <body> 
+    <main class="fundo-login">
+      
+
       <article class="texto-login">
-
-        <section>
-          <h1>HUMANAMENTE</h1>
-
+          <h1>HumanaMente</h1>
           <h3>Facilitando e Otimizando o gerenciamento da sua empresa.</h3>
-        </section>
-
       </article>
+
 
       <article class="container-login">
 
         <section class="barra-lateral">
           <h2>CONECTAR-SE</h2>
-
           <form>
-            <input type="text" id="cpf-login" placeholder="CPF" />
-            <input type="password" id="senha-login" placeholder="SENHA" />
-            <a href="link.com.br">ESQUECI MINHA SENHA</a>
-            <button type="button">ENTRAR</button>
+            <input type="text" id="cpf-login" placeholder="CPF" required/>
+            <input type="password" id="senha-login" placeholder="SENHA" required/>
+            <p class="erro"></p> <!-- "Preencha os dados corretamente" -->
+            <a href="link.com">ESQUECI MINHA SENHA</a>
+            <button type="button" id="botao-login">ENTRAR</button>
           </form>
         </section>
 
@@ -37,6 +37,5 @@
       
 
     </main>
-
   </body>
 </html>
