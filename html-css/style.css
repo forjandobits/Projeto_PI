@@ -43,9 +43,18 @@ main {
 }
 
 /* ========== 'Logo' (Pode ser usado para imagens especificas) ========== */
-/* .container-logo {
+.container-logo {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  border-radius: 10px;
+  width: 120px;
+}
+
+.texto-logo {
   position: relative;
-  width: 50px;height: 50px;
+  bottom: 125px;
+  left: 4px;
 }
 
 .logo {
@@ -53,8 +62,8 @@ main {
   bottom: 50px;
   left: 50px;
   width: 120px;
-  border-radius: 10px;
-} */
+  border-radius: 10px; 
+} 
 
 .texto-login {
   flex: 3;
