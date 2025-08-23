@@ -10,6 +10,19 @@
   --background-hover: #2366bf;
   --texto-padrao: #f1f2f3;
   --texto-cinza: #8a8a8a;
+
+  --fonte-grande: 4.375rem; /* 70px */
+  --fonte-media: 1.875rem;  /* 30px */
+  --fonte-pequena: 1.5rem;  /* 24px */
+  --fonte-botao: 1.125rem;  /* 18px */
+  --fonte-h2: 2.5rem;       /* 40px */
+
+  /*--fonte-muito-grande: 4.375rem; /* 70px */
+  /*--fonte-grande: 2.5rem; /* 40px */
+  /*--fonte-media: 1.875rem;  /* 30px */
+  /*--fonte-pequena: 1.5rem;  /* 24px */
+  /*--fonte-bem-pequena: 1.125rem;  /* 18px */
+  /*--fonte-minuscula: 0.875rem;  /* 14px */
 }
 
 /* ========== Seletor Geral ========== */
@@ -34,9 +47,15 @@ main {
 }
 
 /* ========== Imagem de fundo ========== */
+.containter-fundo {
+  position: relative;
+}
 
 .fundo-login{
-  background: url("../html-css/img/1572x1080.png");
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  opacity: 65%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -49,19 +68,20 @@ main {
   left: 50px;
   border-radius: 10px;
   width: 120px;
+  height: 120px;
 }
 
 .texto-logo {
   position: relative;
-  bottom: 125px;
+  bottom: 4px;
   left: 4px;
 }
 
 .logo {
-  position: fixed;
+  /* position: fixed; */
   bottom: 50px;
   left: 50px;
-  width: 120px;
+  width: 7.5rem;
   border-radius: 10px; 
 } 
 
@@ -75,13 +95,13 @@ main {
 }
 
 .texto-login h1 {
-  font-size: 70px;
+  font-size: var(--fonte-grande);
   font-family: 'Courier New', monospace;
   margin-bottom: 10px;
 }
 
 .texto-login h3 {
-  font-size: 30px;
+  font-size: var(--fonte-media);
 }
 
 /* ========== Area de Login Principal ========== */
@@ -97,7 +117,7 @@ main {
 }
 
 .barra-lateral h2 {
-  font-size: 40px;
+  font-size: var(--fonte-h2);
   margin: 150px auto;
   color: var(--titulo-azul);
 }
@@ -106,7 +126,7 @@ main {
   cursor: pointer;
   background-color: var(--background-cinza);
   color: var(--texto-padrao);
-  font-size: 1.5em;
+  font-size: var(--fonte-pequena);
   width: 90%;
   padding: 5px 15px;
   margin-bottom: 20px;
@@ -122,7 +142,7 @@ main {
 
 .barra-lateral button {
   color: var(--texto-padrao);
-  font-size: large;
+  font-size: var(--fonte-botao);
   background-color: var(--background-azul);
   box-shadow: 0 0 10px var(--sombra-clara);
   padding: 10px;
