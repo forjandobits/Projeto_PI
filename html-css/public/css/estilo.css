@@ -1,28 +1,22 @@
 /* ========== Variavéis ========== */
 
 :root{ 
-  --titulo-azul: #30adea;
-  --sombra-clara: #7e7e7e;
-  --sombra-escura: #000000;
-  --background: #f1f2f3;
-  --background-cinza: #cfcfcf;
-  --background-azul: #30adea;
-  --background-hover: #2366bf;
-  --texto-padrao: #f1f2f3;
-  --texto-cinza: #8a8a8a;
+  --cor-titulo-azul: #30adea;
+  --cor-sombra-clara: #7e7e7e;
+  --cor-sombra-escura: #000000;
+  --cor-background: #f1f2f3;
+  --cor-background-cinza: #cfcfcf;
+  --cor-background-azul: #30adea;
+  --cor-background-hover: #2366bf;
+  --cor-texto-padrao: #f1f2f3;
+  --cor-texto-cinza: #8a8a8a;
 
-  --fonte-grande: 4.375rem; /* 70px */
-  --fonte-media: 1.875rem;  /* 30px */
-  --fonte-pequena: 1.5rem;  /* 24px */
-  --fonte-botao: 1.125rem;  /* 18px */
-  --fonte-h2: 2.5rem;       /* 40px */
-
-  /*--fonte-muito-grande: 4.375rem; /* 70px */
-  /*--fonte-grande: 2.5rem; /* 40px */
-  /*--fonte-media: 1.875rem;  /* 30px */
-  /*--fonte-pequena: 1.5rem;  /* 24px */
-  /*--fonte-bem-pequena: 1.125rem;  /* 18px */
-  /*--fonte-minuscula: 0.875rem;  /* 14px */
+  --fonte-muito-grande: 4.375rem; /* 70px */
+  --fonte-grande: 2.5rem;         /* 40px */
+  --fonte-media: 1.875rem;        /* 30px */
+  --fonte-pequena: 1.5rem;        /* 24px */
+  --fonte-bem-pequena: 1.125rem;  /* 18px */
+  --fonte-minuscula: 0.875rem;    /* 14px */
 }
 
 /* ========== Seletor Geral ========== */
@@ -33,13 +27,17 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* ========== Area de estrutura geral so site ========== */
+
 main {
   display: flex;
 }
 
+/* ========== Container principal da tela de Login ========== */
+
 .container-login {
   flex: 1;
-  color: var(--texto-padrao);
+  color: var(--cor-texto-padrao);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +45,7 @@ main {
 }
 
 /* ========== Imagem de fundo ========== */
+
 .containter-fundo {
   position: relative;
 }
@@ -62,6 +61,7 @@ main {
 }
 
 /* ========== 'Logo' (Pode ser usado para imagens especificas) ========== */
+
 .container-logo {
   position: fixed;
   bottom: 50px;
@@ -78,7 +78,6 @@ main {
 }
 
 .logo {
-  /* position: fixed; */
   bottom: 50px;
   left: 50px;
   width: 7.5rem;
@@ -87,15 +86,15 @@ main {
 
 .texto-login {
   flex: 3;
-  color: var(--texto-padrao);
+  color: var(--cor-texto-padrao);
   display: flex;
   flex-direction: column;
   padding: 40px;
-  text-shadow: 0 0 8px var(--sombra-escura);
+  text-shadow: 0 0 8px var(--cor-sombra-escura);
 }
 
 .texto-login h1 {
-  font-size: var(--fonte-grande);
+  font-size: var(--fonte-muito-grande);
   font-family: 'Courier New', monospace;
   margin-bottom: 10px;
 }
@@ -107,7 +106,7 @@ main {
 /* ========== Area de Login Principal ========== */
 
 .barra-lateral { 
-  background-color: var(--background);
+  background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
   gap: 10px;
@@ -117,34 +116,34 @@ main {
 }
 
 .barra-lateral h2 {
-  font-size: var(--fonte-h2);
+  font-size: var(--fonte-grande);
   margin: 150px auto;
-  color: var(--titulo-azul);
+  color: var(--cor-titulo-azul);
 }
 
 .barra-lateral input {
   cursor: pointer;
-  background-color: var(--background-cinza);
-  color: var(--texto-padrao);
+  background-color: var(--cor-background-cinza);
+  color: var(--cor-texto-padrao);
   font-size: var(--fonte-pequena);
   width: 90%;
-  padding: 5px 15px;
+  padding: 10px 20px;
   margin-bottom: 20px;
   border: none;
-  border-radius: 25px;
-  box-shadow: 0 0 10px var(--sombra-clara);
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--cor-sombra-clara);
 }
 
 .barra-lateral input::placeholder {
-  background-color: var(--background-cinza);
-  color: var(--texto-padrao);
+  background-color: var(--cor-background-cinza);
+  color: var(--cor-texto-padrao);
 }
 
 .barra-lateral button {
-  color: var(--texto-padrao);
-  font-size: var(--fonte-botao);
-  background-color: var(--background-azul);
-  box-shadow: 0 0 10px var(--sombra-clara);
+  color: var(--cor-texto-padrao);
+  font-size: var(--fonte-bem-pequena);
+  background-color: var(--cor-background-azul);
+  box-shadow: 0 0 10px var(--cor-sombra-clara);
   padding: 10px;
   margin-top: 50px;
   border-radius: 4px;
@@ -155,12 +154,12 @@ main {
 }
 
 .barra-lateral button:hover {
-  background-color: var(--background-hover);
+  background-color: var(--cor-background-hover);
 }
 
 .barra-lateral a {
   display: block;
   margin: 10px 0;
-  color: var(--texto-cinza);
-  font-size: 14px;
+  color: var(--cor-texto-cinza);
+  font-size: var(--fonte-minuscula);
 }
