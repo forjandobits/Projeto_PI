@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,77 +8,110 @@
     <link rel="stylesheet" href="public/css/estilo.css">
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
 </head>
+
 <body>
     <header class="cabecalho-tela-inicial">
         logo
     </header>
 
+
+
     <main>
         <aside class="aside-tela-inicial">
-            <img src="" alt=""> <!-- seta -->
+            <img src="" alt="" class="hide"> <!-- seta -->
             <img src="" alt=""> <!-- imagem usuario -->
             <!-- sarão adicionados icones antes de cada elemento abaixo(a) -->
-            <a>início</a> 
-            <a>Solicitações</a>
-            <a>Recibos</a>
-            <a>Banco de Horas</a>
-            <a>Cadastro de Funcionários</a>
-            <a>Configurações</a>
-            <button tyae="button">Sair</button>
+            <button class="button-aside" class="button-aside">início</button>
+            <button class="button-aside" class="button-aside">Solicitações</button>
+            <button class="button-aside" class="button-aside">Recibos</button>
+            <button class="button-aside" class="button-aside">Banco de Horas</button>
+            <button class="button-aside" class="button-aside">Cadastro de Funcionários</button>
+            <button class="button-aside" class="button-aside">Configurações</button>
+            <button class="button-aside" class="button-aside">Sair</button>
         </aside>
 
         <article class="article-tela-inicial" role="list">
 
-            <section class="section-tela-inicial">
+            <div class='container-fundo'>
+                <img src='public/img/Cerebro.ico' class='fundo-pagina'>
+            </div>
+
+            <section>
 
                 <h2>Pendências</h2>
 
-                <figure class="div-tela-inicial">
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <a>pendencia 1</a>
-                </figure>
+                <div class="section-tela-inicial">
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>pendencia 1</a>
+                        </figcaption>
+                    </figure>
 
-                <figure class="div-tela-inicial">
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <a>Pendencia 2</a>
-                </figure>
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>pendencia 2</a>
+                        </figcaption>
+                    </figure>
 
-                <figure class="div-tela-inicial">
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <a>Pendencia 3</a>
-                </figure>
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>pendencia 3</a>
+                        </figcaption>
+                    </figure>
 
-                <figure class="div-tela-inicial">
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <figcaption class="card-body">
-                        <a class="card-title">Pendencia 4</a>
-                    </figcaption>
-                </figure>
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>pendencia 4</a>
+                        </figcaption>
+                    </figure>
+                </div>
 
             </section>
 
+            <br>
+
             <section>
                 <h2>Favoritos</h2>
-                <figure>
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <a>Favorito 1</a>
-                </figure>
-                <figure>
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <a>Favorito 2</a>
-                </figure>
-                <figure>
-                    <img src="" alt=""class="imagem-tela-inicial">
-                    <a>Favorito 3</a>
-                </figure>
-                <figure>
-                    <img src="" alt="" class="imagem-tela-inicial">
-                    <a>Favorito 4</a>
-                </figure>
+
+                <div class="section-tela-inicial">
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>favorito 1</a>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>favorito 2</a>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>favorito 3</a>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="div-tela-inicial">
+                        <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
+                        <figcaption class="card-texto">
+                            <a>favorito 4</a>
+                        </figcaption>
+                    </figure>
+                </div>
+
             </section>
 
         </article>
 
     </main>
 </body>
+
 </html>
