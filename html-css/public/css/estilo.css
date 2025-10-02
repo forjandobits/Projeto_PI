@@ -19,6 +19,10 @@
   --fonte-minuscula: 0.875rem;    /* 14px */
 }
 
+
+.pequena {
+  font-size: 200px;
+}
 /* ========== Seletor Geral ========== */
 
 * {
@@ -161,7 +165,7 @@ main {
   display: block;
   margin: 10px 0;
   color: var(--cor-texto-cinza);
-  font-size: var(--fonte-minuscula);
+  font-size: var(--fonte-bem-pequena);
 }
 
 /* ========== RECUPERAR SENHA ========== */
