@@ -1,0 +1,90 @@
+:root {
+    --cor-titulo-azul: #30adea;
+    --cor-sombra-clara: #7e7e7e;
+    --cor-sombra-escura: #000000;
+    --cor-background: #f1f2f3;
+    --cor-background-cinza: #cfcfcf;
+    --cor-background-azul: #93dbff;
+    --cor-background-hover: #2366bf;
+    --cor-texto-padrao: #f1f2f3;
+    --cor-texto-cinza: #8a8a8a;
+}
+
+/* Sidebar lateral */
+.sidebar {
+    width: 60px; /* Começa colapsada (apenas ícones visíveis) */
+    background-color: var(--cor-background); /* Cor de fundo escura */
+    color: var(--cor-titulo-azul); /* Cor dos textos e ícones */
+    height: 100vh; /* Altura total da tela */
+    overflow: hidden; /* Esconde conteúdo excedente */
+    position: fixed; /* Fixa no lado esquerdo */
+    transition: width 0.3s; /* Suaviza a expansão */
+    z-index: 1000; /* Fica acima do conteúdo principal */
+}
+
+/* Quando o mouse passa sobre a sidebar, ela expande */
+.sidebar:hover {
+    width: 250px;
+}
+
+/* Lista da navegação lateral */
+.sidebar ul {
+    list-style: none; /* Remove marcadores */
+    padding: 20px 0;
+}
+
+/* Cada item do menu lateral */
+.sidebar li {
+    padding: 15px 20px;
+    display: flex; /* Ícone e texto lado a lado */
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Efeito visual ao passar o mouse sobre o item */
+.sidebar li:hover {
+    background-color: var(--cor-background-azul); /* Cor um pouco mais clara */
+}
+
+/* Estilo do "ícone" (aqui usamos emojis) */
+.sidebar i {
+    margin-right: 10px; /* espaço entre os icones e o canto da pagina */
+    font-style: normal; /* Remove itálico */
+}
+
+/* Texto ao lado do ícone (contendo o link <a>) */
+.sidebar span {
+    white-space: nowrap; /* Não quebra linha */
+    overflow: hidden; /* Esconde conteúdo extra */
+    transition: opacity 0.2s, margin 0.2s; /* Suaviza aparecimento */
+    opacity: 0; /* Começa invisível */
+    margin-left: 0; /* Sem espaço inicialmente */
+}
+
+/* Quando a sidebar está expandida, mostra os textos */
+.sidebar:hover span {
+    opacity: 1; /* opacidade do texto quando expandido */
+    margin-left: 5px; /* Pequeno espaço entre ícone e texto */
+}
+
+/* Estilo para os links dentro do menu */
+.sidebar a {
+    color: var(--cor-titulo-azul); /* Mantém cor branca */
+    text-decoration: none; /* Remove sublinhado */
+    display: block; /* Ocupa toda a área clicável do span */
+    width: 100%; /* ocupa 100% do espaço do container */
+}
+
+/* Ajuste visual ao passar o mouse sobre o link */
+.sidebar a:hover {
+    text-decoration: underline; /* destaque no hover */
+}
+
+.botao {
+    border: 1px solid var(--cor-sombra-clara);
+    padding: 10px 20px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    position: fixed;
+}

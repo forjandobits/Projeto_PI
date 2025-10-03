@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Inicial</title>
     <link rel="stylesheet" href="public/css/estilo.css">
+    <link rel="stylesheet" href="public/css/sidebar.css">
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
 </head>
 
@@ -17,24 +18,25 @@
 
 
     <main>
-        <aside class="aside-tela-inicial">
-            <img src="" alt="" class="hide"> <!-- seta -->
+        <aside class="sidebar">
+            <div class="botao" id="botao-abrefecha"><img src="" alt="" class="hide">...</div> <!-- seta -->
             <img src="" alt=""> <!-- imagem usuario -->
             <!-- sarão adicionados icones antes de cada elemento abaixo(a) -->
-            <button class="button-aside" class="button-aside">início</button>
-            <button class="button-aside" class="button-aside">Solicitações</button>
-            <button class="button-aside" class="button-aside">Recibos</button>
-            <button class="button-aside" class="button-aside">Banco de Horas</button>
-            <button class="button-aside" class="button-aside">Cadastro de Funcionários</button>
-            <button class="button-aside" class="button-aside">Configurações</button>
-            <button class="button-aside" class="button-aside">Sair</button>
+
+            <ul>
+                <!-- Cada item da navegação compara a página atual com seu link -->
+                <li>🏠<span><a href="inicial.php">Início</a></span></li>
+                <li>📄<span><a href="documentos.php">Solicitações</a></span></li>
+                <li>📧<span><a href="mensagens.php">Recibos</a></span></li>
+                <li>📧<span><a href="mensagens.php">Banco de Horas</a></span></li>
+                <li>📧<span><a href="mensagens.php">Cadastro de Funcionários</a></span></li>
+                <li>⚙️<span><a href="configuracoes.php">Configurações</a></span>
+                <li>⚙️<span><a href="configuracoes.php">Sair</a></span></li>
+            </ul>
         </aside>
 
         <article class="article-tela-inicial" role="list">
 
-            <div class='container-fundo'>
-                <img src='public/img/Cerebro.ico' class='fundo-pagina'>
-            </div>
 
             <section>
 
