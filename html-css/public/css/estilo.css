@@ -168,10 +168,70 @@ main {
   font-size: var(--fonte-bem-pequena);
 }
 
-/* ========== RECUPERAR SENHA ========== */
+/* ==================  Inicio: "Colaboradores" ====================*/
 
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cor-background);
+  margin: 0;
+  padding: 20px;
+}
 
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.header h1 {
+  color: var(--cor-background-azul);
+}
 
+.btn-cadastrar {
+  background: var(--cor-background-azul);
+  color: var(--cor-texto-padrao);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background: var(--cor-background-azul);
+  color: var(--cor-texto-padrao)
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background: var(--cor-background-cinza);
+}
+
+/* Botões visualizar */
+.btn-visualizar {
+  background: var(--cor-background-azul);
+  border: none;
+  color: var(--cor-background);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-visualizar:hover {
+  background: var(--cor-background-azul);
+}
 
 
