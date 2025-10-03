@@ -13,27 +13,11 @@
   </head>
 
   <body>
-    <header class="cabecalho-tela-inicial">logo</header>
+    <header class="cabecalho-tela-inicial">
+        <!-- <img class="logo" src="./public/img/Logo Humanamente.png"> -->
+    </header>
 
     <main>
-
-
-      <aside class="aside-tela-inicial">
-        <img src="" alt="" class="hide" />
-        <!-- seta -->
-        <img src="" alt="" />
-        <!-- imagem usuario -->
-        <!-- sarão adicionados icones antes de cada elemento abaixo(a) -->
-        <button class="button-aside">início</button>
-        <button class="button-aside">Solicitações</button>
-        <button class="button-aside">Recibos</button>
-        <button class="button-aside">Banco de Horas</button>
-        <button class="button-aside">Cadastro de Funcionários</button>
-        <button class="button-aside">Configurações</button>
-        <button class="button-aside">Sair</button>
-      </aside>
-
-
       <article>
         <section>
           <h1 class="titulo-grande-h1">Cadastro de Funcionário</h1>
@@ -41,88 +25,107 @@
 
         <form class="form-cadastrar-func">
 
-            <div class="config-input-form1">
-                <label for="nome-completo">Nome Completo:</label>
-                <input
-                    type="text"
-                    id="nome-completo"
-                    name="nome-Funcionario"
-                    required
-                />
+            <div class="config-input-form-campo">
+              <div class="config-campo-medio">
+              <label for="nome-completo">Nome Completo:</label>
+              <input type="text" id="nome-completo" name="nome-Funcionario" required/>
+            </div>
 
-                <label for="telefone">Telefone:</label>
-                <input
-                    type="text"
-                    id="telefone"
-                    name="Telefone-Funcionario"
-                    required
-                />
+            <div class="config-campo-pequeno">
+              <label for="telefone">Telefone:</label>
+              <input type="text" id="telefone" name="Telefone-Funcionario" required />
+            </div>
+
           </div>
 
-          <div class="config-input-form-endereco">
-          <label for="rua">Nome da Rua:</label>
-          <input type="text" id="rua" name="NomeRua-Funcionario" required />
+          <div class="config-input-form-campo">
 
-          <label for="bairro">Nome do Bairro:</label>
-          <input type="text"
-            id="bairro"
-            name="NomeBairro-Funcionario"
-            required
-          />
-          
-          <label for="NumeroCasa">Número:</label>
-          <input type="number" id="NumeroCasa-Funcionario">
+            <div class="config-campo-grande">
+              <label for="rua">Rua:</label>
+              <input type="text" id="rua" name="NomeRua-Funcionario" required />
+            </div>
+
+            <div class="config-campo-medio">
+              <label for="NumeroCasa">Número:</label>
+              <input type="number" id="NumeroCasa-Funcionario" />
+            </div>
+
+            <div class="config-campo-grande">
+              <label for="bairro">Nome do Bairro:</label>
+              <input type="text" id="bairro" name="NomeBairro-Funcionario" required />
+            </div>
+
           </div>
-          
+                    
 
-          <label for="cidade">Cidade:</label>
-          <input
-            type="text"
-            id="cidade"
-            name="NomeCidade-Funcionario"
-            required
-          />
+          <div class="config-input-form-campo">
 
-          <label for="estado">Estado:</label>
-          <input
-            type="text"
-            id="estado"
-            name="NomeEstado-Funcionario"
-            required
-          />
+            <div class="config-campo-medio">
+              <label for="cidade">Cidade:</label>
+              <input  type="text"  id="cidade"  name="NomeCidade-Funcionario" required />
+            </div>
 
-          <label for="CEP">CEP:</label>
-          <input type="number" id="CEP" name="CEP-Funcionario" required />
+            <div class="config-campo-medio">
+              <label for="estado">Estado:</label>
+               <select id="estado" name="NomeEstado-Funcionario" required>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrido Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraiba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
 
-          <label for="dataNasc">Data de Nascimento:</label>
-          <input
-            type="date"
-            id="dataNasc"
-            name="DataNascimento-Funcionario"
-            required
-          />
+            <div class="config-campo-medio">
+              <label for="CEP">CEP:</label>
+              <input type="number" id="CEP" name="CEP-Funcionario" required />
+            </div>
+        </div>
 
-          <label for="gen">Genêro:</label>
-          <input type="text" id="gen" name="Genero-funcionario" required />
+        <div class="config-input-form-campo">
 
-          <label for="EstCivil">Estado Civil:</label>
-          <input
-            type="text"
-            id="EstCivil"
-            name="EstadoCivil-Funcionario"
-            required
-          />
+            <div class="config-campo-pequeno">
+              <label for="dataNasc">Data de Nascimento:</label>
+              <input type="date"  id="dataNasc"  name="DataNascimento-Funcionario"  required />
+            </div>
+
+            <div class="config-campo-medio">
+              <label for="gen">Genêro:</label>
+              <input type="text" id="gen" name="Genero-funcionario" required />
+            </div>
+
+              <label for="EstCivil">Estado Civil:</label>
+              <input  type="text"  id="EstCivil"  name="EstadoCivil-Funcionario"  required />
+            </div>
+          </div>
 
           <label for="CPF">CPF:</label>
           <input type="number" id="CPF" name="CPF-Funcionario" required />
 
           <label for="PPasep">Pis Pasep:</label>
-          <input
-            type="number"
-            id="PPasep"
-            name="PisPasep-Funcionario"
-            required
-          />
+          <input  type="number"  id="PPasep"  name="PisPasep-Funcionario"  required/>
 
           <label for="RG">RG:</label>
           <input type="text" id="RG" name="RG-Funcionario" required />
@@ -137,12 +140,7 @@
           <input type="number" id="CBO" name="CBO-Funcionario" required />
 
           <label for="Remuneracao">Remuneração:</label>
-          <input
-            type="number"
-            id="Remuneracao"
-            name="Remuneracao-Funcionario"
-            required
-          />
+          <input  type="number"  id="Remuneracao" name="Remuneracao-Funcionario"  required />
 
           <label for="Regime">Regime:</label>
           <input type="number" id="Regime" name="Regime-Funcionario" required />
@@ -157,12 +155,7 @@
           <input type="text" id="Agencia" name="Agencia-Funcionario" required />
 
           <label for="NumeroConta">Número da Conta:</label>
-          <input
-            type="number"
-            id="NumeroConta"
-            name="NumeroConta-Funcionario"
-            required
-          />
+          <input type="number" id="NumeroConta" name="NumeroConta-Funcionario"  required  />
 
           <input type="checkbox" id="CertidaoCasamento" name="CertidaoCasamento-Funcionario"/>
         <label for="CertidaoCasamento">Certidão de Casamento</label>

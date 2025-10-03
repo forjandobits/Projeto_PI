@@ -1,3 +1,11 @@
+/* ========== Seletor Geral ========== */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 /* ========== Variavéis ========== */
 
 :root {
@@ -25,42 +33,39 @@
   /* 14px */
 }
 
-/* ========== Seletor Geral ========== */
-
-* {
-  padding: 0;
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
 
 /* ========== Area de estrutura geral so site ========== */
-
+/* 
 main {
   display: flex;
-}
+} */
 
-figure {
+/* section{
+ text-align: center;
+} */
+
+/* figure {
   margin: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
-}
+} */
 
 
 /* ========== Container principal da tela de Login ========== */
 
-.container-login {
+/* .container-login {
   flex: 1;
   color: var(--cor-texto-padrao);
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-}
+} */
 
 /* ========== Imagem de fundo ========== */
 
-.containter-fundo {
+/* .containter-fundo {
   position: relative;
 }
 
@@ -82,11 +87,11 @@ figure {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
+} */
 
 /* ========== 'Logo' (Pode ser usado para imagens especificas) ========== */
 
-.container-logo {
+/* .container-logo {
   position: fixed;
   bottom: 50px;
   left: 50px;
@@ -99,16 +104,15 @@ figure {
   position: relative;
   bottom: 4px;
   left: 4px;
-}
+} */
 
-.logo {
-  bottom: 50px;
-  left: 50px;
+/* .logo {
+  display: flex;
   width: 7.5rem;
   border-radius: 10px;
-}
+} */
 
-.texto-login {
+/* .texto-login {
   flex: 3;
   color: var(--cor-texto-padrao);
   display: flex;
@@ -125,11 +129,11 @@ figure {
 
 .texto-login h3 {
   font-size: var(--fonte-media);
-}
+} */
 
 /* ========== Area de Login Principal ========== */
 
-.barra-lateral {
+/* .barra-lateral {
   background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
@@ -186,10 +190,10 @@ figure {
   margin: 10px 0;
   color: var(--cor-texto-cinza);
   font-size: var(--fonte-minuscula);
-}
+} */
 
 /* ========== Area de Tela Inicial ========== */
-
+/* 
 .cabecalho-tela-inicial {
   height: 150px;
   align-items: first baseline;
@@ -203,12 +207,12 @@ figure {
   display: flex;
   flex-direction: column;
   text-align: left;
-  height: calc(100vh - 190px);
-  width: 500px;
-  overflow: hidden;
-}
+  height: calc(100vh - 190px); */
+  /* width: 500px; */
+  /* overflow: hidden;
+} */
 
-.article-tela-inicial {
+/* .article-tela-inicial {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
@@ -274,34 +278,68 @@ figure {
 .button-aside:hover {
   transform: scale(1.1);
   color: var(--cor-background-azul);
-}
+} */
 
 /* ========== Area de Tela de cadastro de funcionario ========== */
 
 .titulo-grande-h1{
   margin: 30px;
   color: var(--cor-titulo-azul);
+  margin: auto;
+  text-align: center;
 }
 
-/* ========== Formulario cadastro de funcionario ========== */
-
 .form-cadastrar-func {
-  background-color: var( --cor-background-hover);
-  width: 800px;
-  margin: auto 50px;
+  /* background-color: var( --cor-background-hover); */
+  width: 60vw;
+  margin: auto;
   padding: 20px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.config-input-form1 {
+.config-input-form-campo {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap; /* se for preciso quebrar em telas menores */
+}
+
+.config-campo-grande {
   display: flex;
   flex-direction: column;
-  align-items: self-start;
+  flex: 2;
+  min-width: 300px;
 }
 
-.config-input-form-endereco {
-  /* display: flex; */
-  flex-direction: row;
+.config-campo-pequeno {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  min-width: 90px;
 }
+
+.config-campo-medio {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px; /* evita que fique esticado demais */
+}
+
+.config-campo-pequeno input {
+  width: 30%;
+  box-sizing: border-box; 
+}
+
+.config-campo-medio input,
+.config-campo-grande input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* ========== Formulario cadastro de funcionario ========== */
+
