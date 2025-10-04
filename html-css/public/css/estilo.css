@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+  /* box-sizing: border-box; */
 }
 
 /* ========== Variavéis ========== */
@@ -296,8 +297,14 @@ main {
   padding: 20px;
   border-radius: 5px;
   display: flex;
+  flex: 3;
   flex-direction: column;
   gap: 10px;
+  border: #0b5ed7 solid 2px;
+}
+
+.form-cadastrar-func label {
+  font-weight: bold;
 }
 
 .config-input-form-campo {
@@ -310,36 +317,62 @@ main {
 .config-campo-grande {
   display: flex;
   flex-direction: column;
-  flex: 2;
-  min-width: 300px;
+  min-width: 500px;
 }
 
 .config-campo-pequeno {
   display: flex;
   flex-direction: column;
-  flex: 2;
-  min-width: 90px;
+  width: 70px
 }
 
 .config-campo-medio {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-width: 150px;
-  max-width: 250px; /* evita que fique esticado demais */
+  min-width: 200px;
+  max-width: 300px;/* evita que fique esticado demais */
 }
 
 .config-campo-pequeno input {
-  width: 30%;
-  box-sizing: border-box; 
+  width: 100%;
 }
 
 .config-campo-medio input,
 .config-campo-grande input {
   width: 100%;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
+input[type=number], input[type=text], input[type=date], input[type=email], select{
+  font-size: var(--fonte-bem-pequena);
+}
 
 /* ========== Formulario cadastro de funcionario ========== */
 
+/* ========== Icon Formulario cadastro de funcionario ========== */
+/* .formulario-com-imagem {
+  /* display: flex; 
+  /* justify-content: space-between; 
+  /* align-items: flex-start; 
+  /* margin: auto; 
+} */
+
+.container-icone {
+  /* border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  border: #2366bf 2px solid;  */
+  /* flex: 1; */
+  position: relative;
+  max-width: 180px;
+  display: flex;
+}
+
+.icone-perfil {
+  /* display: flex;
+  width: 100px; 10rem = px */
+  width: 100%;
+  max-width: 150px;
+  border: 2px solid #0b5ed7;
+  border-radius: 8px;
+}
