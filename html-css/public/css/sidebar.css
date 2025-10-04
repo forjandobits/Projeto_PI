@@ -109,3 +109,53 @@
     background: rgba( 0, 0, 0, 0); /* Fundo branco do botão */
     cursor: pointer; /* Cursor de "mãozinha" ao passar por cima */
 }
+
+
+/* ============================= */
+/* Tabela Folha de Pagamento */
+/* ============================= */
+
+.lista {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lista tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 220px;
+}
+
+.lista table {
+    width: 80%;
+    height: auto;
+    table-layout: fixed;
+    /* largura fixa das colunas */
+    border-collapse: collapse;
+    /* remove espaçamento entre células */
+}
+
+.lista th,
+.lista td {
+    width: calc(100% / 4);
+    /* divide tabela em 3 colunas iguais */
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word;
+    /* quebra texto longo */
+}
+
+.lista thead {
+    font-size: 25px;
+    color: var(--marrom_escuro);
+}
+
+.lista tbody tr:nth-child(even) {
+    background: var(--marrom_claro);
+}
+
+.lista tbody tr:hover {
+    background: var(--verde_claro);
+}
