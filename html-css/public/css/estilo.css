@@ -174,7 +174,7 @@ body {
   font-family: Arial, sans-serif;
   background: var(--cor-background);
   margin: 0;
-  padding: 20px;
+  padding: 30px;
 }
 
 /* Cabeçalho */
@@ -186,16 +186,34 @@ body {
 
 .header h1 {
   color: var(--cor-background-azul);
+  font-size: 26px;
+  margin: 0;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px; /* tamanho da logo */
+}
+
+/* Botão cadastrar */
 .btn-cadastrar {
   background: var(--cor-background-azul);
-  color: var(--cor-texto-padrao);
+  color: var(--cor-background);
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 10px 25px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-cadastrar:hover {
+  background: var(--cor-background-hover);
 }
 
 /* Tabela */
@@ -207,31 +225,38 @@ table {
 
 thead {
   background: var(--cor-background-azul);
-  color: var(--cor-texto-padrao)
+  color: var(--cor-background);
 }
 
-th, td {
+th {
+  padding: 14px;
+  text-align: center;
+  font-size: 16px;
+}
+
+td {
   padding: 12px;
   text-align: center;
+  font-size: 15px;
+  color: var(--cor-sombra-escura);
 }
 
 tr:nth-child(even) {
-  background: var(--cor-background-cinza);
+  background: var(--cor-texto-cinza);
 }
 
-/* Botões visualizar */
+/* Botão visualizar */
 .btn-visualizar {
   background: var(--cor-background-azul);
   border: none;
-  color: var(--cor-background);
-  padding: 6px 12px;
-  border-radius: 6px;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .btn-visualizar:hover {
   background: var(--cor-background-azul);
 }
-
-
