@@ -10,81 +10,102 @@
     --cor-texto-cinza: #8a8a8a;
 }
 
-/* Sidebar lateral */
+
+/* ============================= */
+/* Estilo da barra lateral (sidebar) */
+/* ============================= */
 .sidebar {
-    width: 60px; /* Começa colapsada (apenas ícones visíveis) */
-    background-color: var(--cor-background); /* Cor de fundo escura */
-    color: var(--cor-titulo-azul); /* Cor dos textos e ícones */
-    height: 100vh; /* Altura total da tela */
-    overflow: hidden; /* Esconde conteúdo excedente */
-    position: fixed; /* Fixa no lado esquerdo */
-    transition: width 0.3s; /* Suaviza a expansão */
-    z-index: 1000; /* Fica acima do conteúdo principal */
+    width: 60px; /* A sidebar começa "colapsada", apenas mostrando ícones */
+    background-color: var(--cor-background); /* Cor de fundo definida na paleta */
+    color: var(--cor-titulo-azul); /* Cor inicial dos textos e ícones */
+    height: 100vh; /* Altura ocupa toda a tela (viewport height) */
+    overflow: hidden; /* Esconde o texto quando colapsada */
+    position: fixed; /* Fixa a sidebar no canto esquerdo, não rola junto com a página */
+    transition: width 0.3s; /* Anima a transição de largura ao expandir/fechar */
+    z-index: 1000; /* Garante que a sidebar fica acima do conteúdo */
 }
 
-/* Quando o mouse passa sobre a sidebar, ela expande */
-.sidebar:hover {
-    width: 250px;
+/* Quando a classe "open" é adicionada via JavaScript,
+   a sidebar expande para mostrar os textos */
+.sidebar.open {
+    width: 300px; /* Largura expandida */
 }
 
-/* Lista da navegação lateral */
+/* ============================= */
+/* Lista de navegação da sidebar */
+/* ============================= */
 .sidebar ul {
-    list-style: none; /* Remove marcadores */
-    padding: 20px 0;
+    list-style: none; /* Remove os marcadores padrões da lista */
+    padding: 40px 0;  /* Espaçamento do conteúdo em relação ao topo */
 }
 
-/* Cada item do menu lateral */
+/* ============================= */
+/* Cada item de navegação da lista */
+/* ============================= */
 .sidebar li {
-    padding: 15px 20px;
-    display: flex; /* Ícone e texto lado a lado */
-    align-items: center;
-    cursor: pointer;
+    padding: 20px 20px; /* Espaço interno do item (topo/lados) */
+    display: flex; /* Ícone e texto ficam lado a lado */
+    align-items: center; /* Alinha verticalmente ícone e texto */
+    cursor: pointer; /* Cursor de "mãozinha" ao passar por cima */
 }
 
-/* Efeito visual ao passar o mouse sobre o item */
+/* Quando o usuário passa o mouse sobre um item */
 .sidebar li:hover {
-    background-color: var(--cor-background-azul); /* Cor um pouco mais clara */
+    background-color: var(--cor-background-azul); /* Muda cor de fundo */
 }
 
+/* ============================= */
 /* Estilo do "ícone" (aqui usamos emojis) */
+/* ============================= */
 .sidebar i {
     margin-right: 10px; /* espaço entre os icones e o canto da pagina */
     font-style: normal; /* Remove itálico */
 }
 
-/* Texto ao lado do ícone (contendo o link <a>) */
+/* ============================= */
+/* Texto ao lado do ícone */
+/* ============================= */
 .sidebar span {
-    white-space: nowrap; /* Não quebra linha */
-    overflow: hidden; /* Esconde conteúdo extra */
-    transition: opacity 0.2s, margin 0.2s; /* Suaviza aparecimento */
-    opacity: 0; /* Começa invisível */
-    margin-left: 0; /* Sem espaço inicialmente */
+    white-space: nowrap; /* Impede que o texto quebre de linha */
+    overflow: hidden; /* Esconde texto enquanto colapsada */
+    transition: opacity 0.2s, margin 0.2s; /* Suaviza a aparição */
+    opacity: 0; /* Invisível por padrão */
+    margin-left: 0; /* Sem espaço enquanto invisível */
 }
 
-/* Quando a sidebar está expandida, mostra os textos */
-.sidebar:hover span {
-    opacity: 1; /* opacidade do texto quando expandido */
-    margin-left: 5px; /* Pequeno espaço entre ícone e texto */
+/* Quando a sidebar está expandida pelo botão,
+   os textos ficam visíveis */
+.sidebar.open span {
+    opacity: 1; /* Texto aparece */
+    margin-left: 5px; /* Espaçamento entre ícone e texto */
 }
 
-/* Estilo para os links dentro do menu */
+/* ============================= */
+/* Links dentro dos itens da lista */
+/* ============================= */
 .sidebar a {
-    color: var(--cor-titulo-azul); /* Mantém cor branca */
-    text-decoration: none; /* Remove sublinhado */
-    display: block; /* Ocupa toda a área clicável do span */
-    width: 100%; /* ocupa 100% do espaço do container */
+    color: var(--cor-background-hover); /* Azul escuro da paleta */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o link ocupar todo o espaço clicável */
+    width: 100%; /* Preenche o item inteiro */
+    font-size: 20px; /* Tamanho maior para melhor leitura */
 }
 
-/* Ajuste visual ao passar o mouse sobre o link */
+/* Quando passa o mouse sobre o link */
 .sidebar a:hover {
-    text-decoration: underline; /* destaque no hover */
+    text-decoration: underline; /* Destaca com sublinhado */
 }
 
+/* ============================= */
+/* Estilo do botão "☰" (toggle) */
+/* ============================= */
 .botao {
-    border: 1px solid var(--cor-sombra-clara);
-    padding: 10px 20px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    border-radius: 50%;
-    position: fixed;
+    border: 1px solid var(--cor-sombra-clara); /* Borda cinza clara */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    margin-left: 5px; /* Distância da borda esquerda da sidebar */
+    margin-bottom: 5px; /* Distância inferior */
+    border-radius: 50%; /* Botão arredondado (formato circular) */
+    position: fixed; /* Posicionado dentro da sidebar */
+    background: rgba( 0, 0, 0, 0); /* Fundo branco do botão */
+    cursor: pointer; /* Cursor de "mãozinha" ao passar por cima */
 }
