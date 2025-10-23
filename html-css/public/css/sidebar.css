@@ -100,11 +100,10 @@
 /* Estilo do botão "☰" (toggle) */
 /* ============================= */
 .botao {
-    border: 1px solid var(--cor-sombra-clara); /* Borda cinza clara */
+    border: none; /* Sem borda */
     padding: 10px 20px; /* Espaçamento interno do botão */
     margin-left: 5px; /* Distância da borda esquerda da sidebar */
     margin-bottom: 5px; /* Distância inferior */
-    border-radius: 50%; /* Botão arredondado (formato circular) */
     position: fixed; /* Posicionado dentro da sidebar */
     background: rgba( 0, 0, 0, 0); /* Fundo branco do botão */
     cursor: pointer; /* Cursor de "mãozinha" ao passar por cima */
