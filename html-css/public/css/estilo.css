@@ -188,6 +188,8 @@ body {
   color: var(--cor-background-azul);
   font-size: 26px;
   margin: 0;
+  padding-left: 120px;
+
 }
 
 .header-right {
@@ -231,7 +233,9 @@ thead {
 th {
   padding: 14px;
   text-align: center;
-  font-size: 16px;
+  font-size: 22px;
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
 }
 
 td {
@@ -239,10 +243,12 @@ td {
   text-align: center;
   font-size: 15px;
   color: var(--cor-sombra-escura);
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
 }
 
 tr:nth-child(even) {
-  background: var(--cor-texto-cinza);
+  background: var(--cor-background-cinza);
 }
 
 /* Botão visualizar */
