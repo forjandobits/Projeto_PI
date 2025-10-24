@@ -37,6 +37,9 @@
 
 main {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ========== Container principal da tela de Login ========== */
@@ -340,11 +343,11 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   height: 200px;
   border: #2366bf 2px solid;  
   /* flex: 1; */
-  position: absolute;
+  /* position: absolute; */
   max-width: 180px;
   display: flex;
-  top: 225px;
-  right: 1330px;
+  /* top: 225px; */
+  /* right: 1330px; */
 }
 
 .icone-perfil {
@@ -354,4 +357,15 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   max-width: 150px;
   border: 2px solid #0b5ed7;
   border-radius: 8px;
+}
+
+.form-com-imagem-linhas {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-imagem-linhas {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 100px;
 }

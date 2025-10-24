@@ -19,48 +19,39 @@
         <img src="public/img/Logo HM Cerebro.png" alt="" class="">
     </header>
 
+    <aside class="sidebar" id="sidebar">
+  
+        <button class="botao" id="botao-abrefecha">☰</button>
+
+
+        <img src="" alt="">
+
+        <ul>
+
+            <li>🏠<span><a href="inicial.php">Início</a></span></li>
+            <li>📄<span><a href="documentos.php">Solicitações</a></span></li>
+            <li>📧<span><a href="mensagens.php">Recibos</a></span></li>
+            <li>📧<span><a href="mensagens.php">Banco de Horas</a></span></li>
+            <li>📧<span><a href="mensagens.php">Cadastro de Funcionários</a></span></li>
+            <li>⚙️<span><a href="configuracoes.php">Configurações</a></span></li>
+            <li>⚙️<span><a href="configuracoes.php">Sair</a></span></li>
+        </ul>
+    </aside>
+
     <main>
-
-        <aside class="sidebar" id="sidebar">
-      
-            <button class="botao" id="botao-abrefecha">☰</button>
-
-   
-            <img src="" alt="">
-
-            <ul>
-
-                <li>🏠<span><a href="inicial.php">Início</a></span></li>
-                <li>📄<span><a href="documentos.php">Solicitações</a></span></li>
-                <li>📧<span><a href="mensagens.php">Recibos</a></span></li>
-                <li>📧<span><a href="mensagens.php">Banco de Horas</a></span></li>
-                <li>📧<span><a href="mensagens.php">Cadastro de Funcionários</a></span></li>
-                <li>⚙️<span><a href="configuracoes.php">Configurações</a></span></li>
-                <li>⚙️<span><a href="configuracoes.php">Sair</a></span></li>
-            </ul>
-        </aside>
-
-    
       <article class="container-form">
         <section>
           <h1 class="titulo-grande-h1">Cadastro de Funcionário</h1>
         </section>
 
         <div class="formulario-com-imagem">
-
-          
           <form class="form-cadastrar-func">
-            <div>
+            <div class="form-imagem-linhas">
               <div class="container-icone">
                 <img src="./public/img/Logo_Forjando_Bits.jpg" class="icone-perfil">
               </div>
-              <div>
-                
-              </div>
-            </div>
-            <div>
               
-              <div>
+              <div class="form-com-imagem-linhas">
                 <div class="config-input-form-campo">
                   <div class="config-campo-grande">
                   <label for="nome-completo">Nome Completo:</label>
@@ -71,33 +62,29 @@
                   <label for="telefone">Telefone:</label>
                   <input type="text" id="telefone" name="Telefone-Funcionario" required />
                 </div>
-              
+              </div>
 
-                <div class="config-input-form-campo">
-
-                  <div class="config-campo-grande">
-                    <label for="rua">Rua:</label>
-                    <input type="text" id="rua" name="NomeRua-Funcionario" required />
-                  </div>
-
-                  <div class="config-campo-pequeno">
-                    <label for="NumeroCasa">Número:</label>
-                    <input type="number" id="NumeroCasa-Funcionario" />
-                  </div>
-
+              <div class="config-input-form-campo">
+                <div class="config-campo-grande">
+                  <label for="rua">Rua:</label>
+                  <input type="text" id="rua" name="NomeRua-Funcionario" required />
                 </div>
-                        
-                <div class="config-input-form-campo">
 
-                  <div class="config-campo-medio">
-                    <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="NomeBairro-Funcionario" required />
-                  </div>
-                  <div>
-                    <div class="config-campo-medio">
-                    <label for="cidade">Cidade:</label>
-                    <input  type="text"  id="cidade"  name="NomeCidade-Funcionario" required />
-                  </div>
+                <div class="config-campo-pequeno">
+                  <label for="NumeroCasa">Número:</label>
+                  <input type="number" id="NumeroCasa-Funcionario" />
+                </div>
+              </div>
+                        
+              <div class="config-input-form-campo">
+                <div class="config-campo-medio">
+                  <label for="bairro">Bairro:</label>
+                  <input type="text" id="bairro" name="NomeBairro-Funcionario" required />
+                </div>
+
+                <div class="config-campo-medio">
+                  <label for="cidade">Cidade:</label>
+                  <input  type="text"  id="cidade"  name="NomeCidade-Funcionario" required />
                 </div>
 
                 <div class="config-campo-medio">
@@ -138,14 +125,10 @@
                   <input type="number" id="CEP" name="CEP-Funcionario" required />
                 </div>
               </div>
+              </div>
             </div>
-                
-            <!-- <div>
 
-              
-
-              <div class="config-input-form-campo">
-
+            <div class="config-input-form-campo">
                 <div class="config-campo-medio">
                   <label for="dataNasc">Data de Nascimento:</label>
                   <input type="date"  id="dataNasc"  name="DataNascimento-Funcionario"  required />
@@ -170,12 +153,9 @@
                   <label for="RG">RG:</label>
                   <input type="text" id="RG" name="RG-Funcionario" required />
                 </div>
-
               </div>
 
               <div class="config-input-form-campo">
-        
-
                 <div class="config-campo-medio">
                   <label for="PPasep">Pis Pasep:</label>
                   <input  type="number"  id="PPasep"  name="PisPasep-Funcionario"  required/>
@@ -200,7 +180,6 @@
                   <label for="Regime">Regime:</label>
                   <input type="number" id="Regime" name="Regime-Funcionario" required />
                 </div>
-
               </div>
 
               <div class="config-input-form-campo">
@@ -251,15 +230,10 @@
               
               <label for="Qtd-Filhos">Número:</label>
               <input type="number" id="Qtd-Filhos" name="Qtd-Filhos-Funcionario"/>
-            </div> So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada -->
-
+            </div> <!-- So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada-->
           </form>
-
       </div>
-
       </article>
-
-
     </main>
   </body>
 </html>
