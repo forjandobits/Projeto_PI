@@ -190,7 +190,7 @@ main {
   background-color: var(--cor-background);
 }
 
-.cabecalho-tela-inicial img{
+.cabecalho-tela-inicial img {
   padding-right: 45px;
   padding-top: 10px;
   width: 80px;
@@ -256,4 +256,106 @@ figure {
   flex-direction: column;
   gap: 5rem;
   flex: 3;
+}
+
+
+/* ========== Area de Folha de Pagamento ========== */
+
+
+.article-folha-pagamento {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+
+.lista {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lista tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 220px;
+}
+
+.lista table {
+  width: 80%;
+  height: auto;
+  table-layout: fixed;
+  /* largura fixa das colunas */
+  border-collapse: collapse;
+  /* remove espaçamento entre células */
+}
+
+.lista th,
+.lista td {
+  width: calc(100% / 5);
+  /* divide tabela em 3 colunas iguais */
+  padding: 10px;
+  text-align: center;
+  word-wrap: break-word;
+  /* quebra texto longo */
+}
+
+.lista thead {
+  font-size: 25px;
+  color: var(--cor-titulo-azul);
+}
+
+.lista tbody tr:nth-child(even) {
+  background: var(--cor-background-cinza);
+}
+
+.lista tbody tr:hover {
+  background: var(--cor-background-hover);
+}
+
+.filtro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px;
+  padding-top: 100px;
+}
+
+input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 50px;
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  font-size: (var(--fonte-media));
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+}
+
+.opcao-filtro {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 30px;
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  font-size: (var(--fonte-media));
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+}
+
+.opcao-filtro:hover {
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+}
+
+.opcao-filtro:focus-visible {
+  font-size: (var(--fonte-media));
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  background-color: var(--cor-background);
+  border-radius: 7px;
 }

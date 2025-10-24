@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
+    <title>Folha de Pagamento</title>
     <link rel="stylesheet" href="public/css/estilo.css">
     <link rel="stylesheet" href="public/css/sidebar.css">
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
@@ -13,7 +13,7 @@
 <body>
     <!-- Cabeçalho fixo da tela -->
     <header class="cabecalho-tela-inicial">
-        logo <!-- Aqui você pode trocar por uma imagem real da logo -->
+        <img src="public/img/Logo HM Cerebro.png">
     </header>
 
     <!-- Conteúdo principal da página -->
@@ -40,35 +40,40 @@
         </aside>
 
 
-        <article>
-            <form action="">
-                <select name="" id="" disabled="disabled"></select>
+        <article class="article-folha-pagamento">
+            <form method="GET" class="filtro">
+                <select id="opcao-filtro" class="opcao-filtro">
+                    <option value="1" default>Selecione Filtro</option>
+                    <option value="2">Data</option>
+                    <option value="3">Cargo</option>
+                    <option value="4">Colaborador</option>
+                </select>
 
-                <input type="text">
+                <input type="text" id="filtro" placeholder="Filtro">
 
                 <button>Novo +</button>
             </form>
 
             <section class="lista">
 
-            <table>
+                <table>
 
-                <thead>
-                    <tr>
-                        <th>Cliente</th>
-                        <th>Livros</th>
-                        <th>Data de Devolução</th>
-                        <th></th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cargo</th>
+                            <th>Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-                <tbody id="tabela-saida">
-                </tbody>
+                    <tbody id="tabela-saida">
+                    </tbody>
 
-            </table>
+                </table>
 
-        </section>
-        
+            </section>
+
         </article>
     </main>
 
