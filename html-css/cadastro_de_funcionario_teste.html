@@ -48,14 +48,20 @@
 
         <div class="formulario-com-imagem">
 
-          <div class="container-icone">
-            <img src="./public/img/Logo_Forjando_Bits.jpg" class="icone-perfil">
-          </div>
-
+          
           <form class="form-cadastrar-func">
-
-
-              <div class="config-input-form-campo">
+            <div>
+              <div class="container-icone">
+                <img src="./public/img/Logo_Forjando_Bits.jpg" class="icone-perfil">
+              </div>
+              <div>
+                
+              </div>
+            </div>
+            <div>
+              
+              <div>
+                <div class="config-input-form-campo">
                   <div class="config-campo-grande">
                   <label for="nome-completo">Nome Completo:</label>
                   <input type="text" id="nome-completo" name="nome-Funcionario" required/>
@@ -65,32 +71,33 @@
                   <label for="telefone">Telefone:</label>
                   <input type="text" id="telefone" name="Telefone-Funcionario" required />
                 </div>
-              </div>
+              
 
-              <div class="config-input-form-campo">
+                <div class="config-input-form-campo">
 
-                <div class="config-campo-grande">
-                  <label for="rua">Rua:</label>
-                  <input type="text" id="rua" name="NomeRua-Funcionario" required />
+                  <div class="config-campo-grande">
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" name="NomeRua-Funcionario" required />
+                  </div>
+
+                  <div class="config-campo-pequeno">
+                    <label for="NumeroCasa">Número:</label>
+                    <input type="number" id="NumeroCasa-Funcionario" />
+                  </div>
+
                 </div>
-
-                <div class="config-campo-pequeno">
-                  <label for="NumeroCasa">Número:</label>
-                  <input type="number" id="NumeroCasa-Funcionario" />
-                </div>
-
-              </div>
                         
-              <div class="config-input-form-campo">
+                <div class="config-input-form-campo">
 
-                <div class="config-campo-medio">
-                  <label for="bairro">Bairro:</label>
-                  <input type="text" id="bairro" name="NomeBairro-Funcionario" required />
-                </div>
-
-                <div class="config-campo-medio">
-                  <label for="cidade">Cidade:</label>
-                  <input  type="text"  id="cidade"  name="NomeCidade-Funcionario" required />
+                  <div class="config-campo-medio">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="NomeBairro-Funcionario" required />
+                  </div>
+                  <div>
+                    <div class="config-campo-medio">
+                    <label for="cidade">Cidade:</label>
+                    <input  type="text"  id="cidade"  name="NomeCidade-Funcionario" required />
+                  </div>
                 </div>
 
                 <div class="config-campo-medio">
@@ -131,6 +138,11 @@
                   <input type="number" id="CEP" name="CEP-Funcionario" required />
                 </div>
               </div>
+            </div>
+                
+            <!-- <div>
+
+              
 
               <div class="config-input-form-campo">
 
@@ -239,7 +251,7 @@
               
               <label for="Qtd-Filhos">Número:</label>
               <input type="number" id="Qtd-Filhos" name="Qtd-Filhos-Funcionario"/>
-            </div> <!-- So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada-->
+            </div> So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada -->
 
           </form>
 

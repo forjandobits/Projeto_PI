@@ -1,12 +1,3 @@
-/* ========== Seletor Geral ========== */
-
-* {
-  padding: 0;
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  /* box-sizing: border-box; */
-}
-
 /* ========== Variavéis ========== */
 
 :root {
@@ -15,7 +6,7 @@
   --cor-sombra-escura: #000000;
   --cor-background: #f1f2f3;
   --cor-background-cinza: #cfcfcf;
-  --cor-background-azul: #30adea;
+  /* --cor-background-azul: #30adea; */
   --cor-background-hover: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
@@ -34,39 +25,34 @@
   /* 14px */
 }
 
+/* ========== Seletor Geral ========== */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
 
 /* ========== Area de estrutura geral so site ========== */
-/* 
+
 main {
   display: flex;
-} */
-
-/* section{
- text-align: center;
-} */
-
-/* figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-} */
-
+}
 
 /* ========== Container principal da tela de Login ========== */
 
-/* .container-login {
+.container-login {
   flex: 1;
   color: var(--cor-texto-padrao);
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-} */
+}
 
 /* ========== Imagem de fundo ========== */
 
-/* .containter-fundo {
+.containter-fundo {
   position: relative;
 }
 
@@ -88,11 +74,11 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-} */
+}
 
 /* ========== 'Logo' (Pode ser usado para imagens especificas) ========== */
 
-/* .container-logo {
+.container-logo {
   position: fixed;
   bottom: 50px;
   left: 50px;
@@ -105,15 +91,16 @@ main {
   position: relative;
   bottom: 4px;
   left: 4px;
-} */
+}
 
-/* .logo {
-  display: flex;
+.logo {
+  bottom: 50px;
+  left: 50px;
   width: 7.5rem;
   border-radius: 10px;
-} */
+}
 
-/* .texto-login {
+.texto-login {
   flex: 3;
   color: var(--cor-texto-padrao);
   display: flex;
@@ -130,11 +117,11 @@ main {
 
 .texto-login h3 {
   font-size: var(--fonte-media);
-} */
+}
 
 /* ========== Area de Login Principal ========== */
 
-/* .barra-lateral {
+.ba-laarrteral {
   background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
@@ -171,7 +158,7 @@ main {
 .barra-lateral button {
   color: var(--cor-texto-padrao);
   font-size: var(--fonte-bem-pequena);
-  background-color: var(--cor-background-azul);
+  background-color: var(--cor-titulo-azul);
   box-shadow: 0 0 10px var(--cor-sombra-clara);
   padding: 10px;
   margin-top: 50px;
@@ -191,37 +178,34 @@ main {
   margin: 10px 0;
   color: var(--cor-texto-cinza);
   font-size: var(--fonte-minuscula);
-} */
+}
 
 /* ========== Area de Tela Inicial ========== */
-/* 
+
 .cabecalho-tela-inicial {
-  height: 150px;
-  align-items: first baseline;
+  height: 90px;
+  display: flex;
+  justify-content: right;
+  align-items: rigth;
   background-color: var(--cor-background);
 }
 
-.aside-tela-inicial {
-  background-color: var(--cor-background);
-  padding: 20px;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  height: calc(100vh - 190px); */
-  /* width: 500px; */
-  /* overflow: hidden;
-} */
+.cabecalho-tela-inicial img{
+  padding-right: 45px;
+  padding-top: 10px;
+  width: 80px;
+  height: 70px;
+  text-align: center;
+}
 
-/* .article-tela-inicial {
+.article-tela-inicial {
   display: flex;
   flex-direction: column;
-  gap: var(--gap);
+  gap: 10px;
   align-items: center;
   justify-content: center;
-  max-width: 1100px;
   width: 100%;
-  padding: 1rem;
+  padding: 100px;
 }
 
 .div-tela-inicial {
@@ -229,6 +213,7 @@ main {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
   overflow: hidden;
   display: flex;
+  border-radius: 5px;
   flex-direction: column;
   width: 150px;
   max-width: 360px;
@@ -249,6 +234,13 @@ main {
   gap: 15px;
 }
 
+figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .imagem-tela-inicial {
   width: 150px;
   height: 150px;
@@ -266,21 +258,6 @@ main {
   flex: 3;
 }
 
-.button-aside{
-  border: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 17px;
-  padding: 5px 10px;
-  margin: 10px;
-  width: 200px;
-  color: var(--cor-background-hover);
-}
-
-.button-aside:hover {
-  transform: scale(1.1);
-  color: var(--cor-background-azul);
-} */
-
 /* ========== Area de Tela de cadastro de funcionario ========== */
 
 .titulo-grande-h1{
@@ -293,7 +270,7 @@ main {
 .form-cadastrar-func {
   /* background-color: var( --cor-background-hover); */
   width: 60vw;
-  margin: auto;
+  margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
   display: flex;
@@ -350,22 +327,24 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 /* ========== Formulario cadastro de funcionario ========== */
 
 /* ========== Icon Formulario cadastro de funcionario ========== */
-/* .formulario-com-imagem {
-  /* display: flex; 
-  /* justify-content: space-between; 
-  /* align-items: flex-start; 
-  /* margin: auto; 
-} */
+.formulario-com-imagem {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin: auto; 
+}
 
 .container-icone {
   /* border-radius: 10px;
   width: 200px;
   height: 200px;
-  border: #2366bf 2px solid;  */
+  border: #2366bf 2px solid;  
   /* flex: 1; */
-  position: relative;
+  position: absolute;
   max-width: 180px;
   display: flex;
+  top: 225px;
+  right: 1330px;
 }
 
 .icone-perfil {
