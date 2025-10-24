@@ -60,13 +60,33 @@
 </head>
 <body>
 
-  <div class="header">
-    <h1>Colaboradores</h1>
-    <div class="cabecalho">
-      <button class="btn-cadastrar">Cadastrar</button>
-      <img src="public/img/Logo Humanamente.png" alt="logo" class="logo">
-    </div>
-  </div>
+<!-- Cabeçalho fixo da tela -->
+<header class="cabecalho-tela-inicial">
+    <img src="public/img/Logo HM Cerebro.png" alt="" class="">
+</header>
+
+<!-- Conteúdo principal da página -->
+<main>
+    <!-- Sidebar lateral (drawer) -->
+    <aside class="sidebar" id="sidebar">
+        <!-- Botão que abre/fecha a sidebar (toggle) -->
+        <button class="botao" id="botao-abrefecha">☰</button>
+
+        <!-- Espaço reservado para a imagem do usuário -->
+        <img src="" alt="">
+
+        <!-- Lista de navegação da sidebar -->
+        <ul>
+            <!-- Cada item da lista tem um ícone (emoji) + link de navegação -->
+            <li>🏠<span><a href="inicial.php">Início</a></span></li>
+            <li>📄<span><a href="documentos.php">Solicitações</a></span></li>
+            <li>📧<span><a href="mensagens.php">Recibos</a></span></li>
+            <li>📧<span><a href="mensagens.php">Banco de Horas</a></span></li>
+            <li>📧<span><a href="mensagens.php">Cadastro de Funcionários</a></span></li>
+            <li>⚙️<span><a href="configuracoes.php">Configurações</a></span></li>
+            <li>⚙️<span><a href="configuracoes.php">Sair</a></span></li>
+        </ul>
+    </aside>
 
   <table>
     <thead>
