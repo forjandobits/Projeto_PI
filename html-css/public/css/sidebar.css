@@ -1,13 +1,13 @@
 :root {
-    --cor-titulo-azul: #30adea;
-    --cor-sombra-clara: #7e7e7e;
-    --cor-sombra-escura: #000000;
-    --cor-background: #f1f2f3;
-    --cor-background-cinza: #cfcfcf;
-    --cor-background-azul: #93dbff;
-    --cor-background-hover: #2366bf;
-    --cor-texto-padrao: #f1f2f3;
-    --cor-texto-cinza: #8a8a8a;
+     --cor-titulo-azul: #30adea;
+  --cor-sombra-clara: #7e7e7e;
+  --cor-sombra-escura: #000000;
+  --cor-background: #f1f2f3;
+  --cor-background-cinza: #cfcfcf;
+  --cor-background-azul: #30adea;
+  --cor-background-hover: #2366bf;
+  --cor-texto-padrao: #f1f2f3;
+  --cor-texto-cinza: #8a8a8a;
 }
 
 
