@@ -1,3 +1,4 @@
+
 /* ========== Variavéis ========== */
 
 :root {
@@ -37,6 +38,13 @@
 
 main {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2{
+  color: var(--cor-titulo-azul);
 }
 
 /* ========== Container principal da tela de Login ========== */
@@ -268,6 +276,10 @@ figure {
   gap: 15px;
 }
 
+.article-folha-pagamento h2 {
+  font-size: var(--fonte-grande);
+}
+
 
 .lista {
   display: flex;
@@ -314,26 +326,15 @@ figure {
   background: var(--cor-background-hover);
 }
 
+
 .filtro {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding-left: 100px;
   padding-top: 100px;
+  gap: 10px;
 }
 
-input{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-  height: 50px;
-  color: var(--cor-titulo-azul);
-  background-color: var(--cor-background);
-  font-size: (var(--fonte-media));
-  border: 2px solid var(--cor-titulo-azul);
-  border-radius: 7px;
-}
 
 .opcao-filtro {
   display: flex;
@@ -350,6 +351,7 @@ input{
 .opcao-filtro:hover {
   color: var(--cor-background-hover);
   border: 2px solid var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
 }
 
 .opcao-filtro:focus-visible {
@@ -358,4 +360,51 @@ input{
   border: 2px solid var(--cor-background-hover);
   background-color: var(--cor-background);
   border-radius: 7px;
+}
+
+
+.input-filtro {
+  width: 700px;
+  height: 45px;
+  padding: 5px;
+  text-align: center;
+  font-size: var(--fonte-grande);
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+  margin: 5px 0px;
+}
+
+.input-filtro::placeholder {
+  font-size: var(--fonte-grande);
+  color: var(--cor-texto-cinza);
+}
+
+.input-filtro:hover{
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-filtro:focus{
+  outline: none;
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+}
+
+
+.button-filtro {
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-background);
+  font-size: 25px;
+}
+
+.button-filtro:hover{
+  background-color: var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
 }
