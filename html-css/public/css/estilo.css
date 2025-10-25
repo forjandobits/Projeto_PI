@@ -42,6 +42,12 @@ main {
   align-items: center;
 }
 
+.main-login {
+  display: flex;
+  flex-direction: row;
+  align-items: normal;
+}
+
 /* ========== Container principal da tela de Login ========== */
 
 .container-login {
@@ -124,7 +130,7 @@ main {
 
 /* ========== Area de Login Principal ========== */
 
-.ba-laarrteral {
+.barra-lateral {
   background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
@@ -327,6 +333,22 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   font-size: var(--fonte-bem-pequena);
 }
 
+.config-checkbox {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.checkbox label {
+  margin-right: 20px;
+}
+
 /* ========== Formulario cadastro de funcionario ========== */
 
 /* ========== Icon Formulario cadastro de funcionario ========== */
@@ -367,5 +389,5 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 .form-imagem-linhas {
   display: flex;
   flex-direction: row-reverse;
-  gap: 100px;
+  gap: 105px;
 }
