@@ -36,10 +36,12 @@
 /* ========== Area de estrutura geral so site ========== */
 
 main {
-  display: flex;
+  width: 80%;
+  margin: auto;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 h2 {
@@ -367,7 +369,7 @@ figure {
   height: 30px;
   padding: 5px;
   text-align: center;
-  font-size: var(--fonte-grande);
+  font-size: var(--fonte-media);
   color: var(--cor-titulo-azul);
   background-color: var(--cor-background);
   border: 2px solid var(--cor-titulo-azul);
@@ -376,7 +378,7 @@ figure {
 }
 
 .input-filtro::placeholder {
-  font-size: var(--fonte-grande);
+  font-size: var(--fonte-media);
   color: var(--cor-texto-cinza);
 }
 
@@ -392,11 +394,8 @@ figure {
   border: 2px solid var(--cor-background-hover);
 }
 
-
 .button-filtro {
-  display: flex;
-  align-items: rigth;
-  width: 100px;
+  width: 150px;
   height: 35px;
   border: none;
   border-radius: 7px;
@@ -408,4 +407,21 @@ figure {
 .button-filtro:hover {
   background-color: var(--cor-background-hover);
   transition: all 0.2s ease-in-out;
+}
+
+.titulo-folha-pagamento {
+  margin-left: 80px;
+  justify-content: left;
+  align-items: start;
+
+}
+
+.campo-esquerda {
+  display: flex;
+  justify-content: left;
+}
+
+.campo-direita {
+  display: flex;
+  justify-content: right;
 }

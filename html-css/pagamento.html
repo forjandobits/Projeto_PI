@@ -40,24 +40,31 @@
     <!-- Conteúdo principal da página -->
     <main>
 
-        <h2>Folhas de Pagamento</h2>
+        <h2 class="titulo-folha-pagamento">Folhas de Pagamento</h2>
 
+        
         <article class="article-folha-pagamento">
-
-
-
+            
             <form method="GET" class="filtro">
-                <select id="opcao-filtro" class="opcao-filtro">
-                    <option value="1" default>Selecione Filtro</option>
-                    <option value="2">Data</option>
-                    <option value="3">Cargo</option>
-                    <option value="4">Colaborador</option>
-                </select>
+                
+                <div class="campo-esquerda">
+                    <select id="opcao-filtro" class="opcao-filtro">
+                        <option value="1" default>Selecione Filtro</option>
+                        <option value="2">Data</option>
+                        <option value="3">Cargo</option>
+                        <option value="4">Colaborador</option>
+                    </select>
+                </div>
 
+                <div class="campo-direita">
+                    <button class="button-filtro">Cadastro</button>
+                </div>
+
+                
                 <input type="text" id="filtro" class="input-filtro" placeholder="Filtro">
-
+                
             </form>
-            <button class="button-filtro">Novo +</button>
+            
             <section class="lista-principal">
 
                 <table>
@@ -71,6 +78,7 @@
                     </thead>
 
                     <tbody id="tabela-saida">
+
                     </tbody>
 
                 </table>
