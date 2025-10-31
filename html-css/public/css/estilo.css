@@ -375,7 +375,6 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   background-color: var(--cor-titulo-azul);
   color: var(--cor-texto-padrao);
   border: none;
-  box-shadow: 0 0 3px var(--cor-sombra-escura);
 }
 
 .botao-Form-Funcionario button:hover {
