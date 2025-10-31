@@ -172,9 +172,10 @@ main {
 
 body {
   font-family: Arial, sans-serif;
-  background: var(--cor-background);
+  /* background: var(--cor-background); */
   margin: 0;
   padding: 30px;
+  margin-top: 150px ;
 }
 
 /* Cabeçalho */
@@ -203,6 +204,8 @@ body {
 .logo {
   height: 60px; /* tamanho da logo */
 }
+ 
+
 
 /* Botão cadastrar */
 .btn-cadastrar {
