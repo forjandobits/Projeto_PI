@@ -6,7 +6,7 @@
   --cor-sombra-escura: #000000;
   --cor-background: #f1f2f3;
   --cor-background-cinza: #cfcfcf;
-  /* --cor-background-azul: #30adea; */
+  --cor-background-azul: #30adea;
   --cor-background-hover: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
@@ -121,7 +121,7 @@ main {
 
 /* ========== Area de Login Principal ========== */
 
-.ba-laarrteral {
+.barra-lateral {
   background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
