@@ -270,14 +270,13 @@ figure {
 /* ========== Area de Tela de cadastro de funcionario ========== */
 
 .titulo-grande-h1{
-  margin: 30px;
+  margin-top: 30px;
   color: var(--cor-titulo-azul);
-  margin: auto;
+
   text-align: center;
 }
 
 .form-cadastrar-func {
-  /* background-color: var( --cor-background-hover); */
   width: 60vw;
   margin: 20px auto;
   padding: 20px;
@@ -286,7 +285,6 @@ figure {
   flex: 3;
   flex-direction: column;
   gap: 10px;
-  border: #0b5ed7 solid 2px;
 }
 
 .form-cadastrar-func label {
@@ -349,9 +347,41 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   margin-right: 20px;
 }
 
-/* ========== Formulario cadastro de funcionario ========== */
+.form-final {
+  display: flex;
+  flex-direction: column;
 
-/* ========== Icon Formulario cadastro de funcionario ========== */
+}
+.checkbox-final {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.botao-Form-Funcionario {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: auto; 
+  left: -30px;
+
+}
+
+.botao-Form-Funcionario button {
+  font-size: var(--fonte-bem-pequena);
+  padding-left: 25px; padding-right: 25px;
+  padding-top: 5px; padding-bottom: 5px;
+  border-radius: 5px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  border: none;
+  box-shadow: 0 0 3px var(--cor-sombra-escura);
+}
+
+.botao-Form-Funcionario button:hover {
+  background-color: var(--cor-background-hover);
+}
+
 .formulario-com-imagem {
   display: flex; 
   justify-content: space-between; 
@@ -360,25 +390,14 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 }
 
 .container-icone {
-  /* border-radius: 10px;
-  width: 200px;
-  height: 200px;
-  border: #2366bf 2px solid;  
-  /* flex: 1; */
-  /* position: absolute; */
   max-width: 180px;
   display: flex;
-  /* top: 225px; */
-  /* right: 1330px; */
 }
 
 .icone-perfil {
-  /* display: flex;
-  width: 100px; 10rem = px */
   width: 100%;
-  max-width: 150px;
-  border: 2px solid #0b5ed7;
-  border-radius: 8px;
+  max-width: 140px;
+  border-radius: 100px;
 }
 
 .form-com-imagem-linhas {
@@ -389,5 +408,5 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 .form-imagem-linhas {
   display: flex;
   flex-direction: row-reverse;
-  gap: 105px;
+  gap: 50px;
 }

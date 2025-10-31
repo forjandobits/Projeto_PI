@@ -15,28 +15,7 @@
   </head>
 
   <body>
-     <header class="cabecalho-tela-inicial">
-        <img src="public/img/Logo HM Cerebro.png" alt="" class="">
-    </header>
-
-    <aside class="sidebar" id="sidebar">
-  
-        <button class="botao" id="botao-abrefecha">☰</button>
-
-
-        <img src="" alt="">
-
-        <ul>
-
-            <li>🏠<span><a href="inicial.php">Início</a></span></li>
-            <li>📄<span><a href="documentos.php">Solicitações</a></span></li>
-            <li>📧<span><a href="mensagens.php">Recibos</a></span></li>
-            <li>📧<span><a href="mensagens.php">Banco de Horas</a></span></li>
-            <li>📧<span><a href="mensagens.php">Cadastro de Funcionários</a></span></li>
-            <li>⚙️<span><a href="configuracoes.php">Configurações</a></span></li>
-            <li>⚙️<span><a href="configuracoes.php">Sair</a></span></li>
-        </ul>
-    </aside>
+    
 
     <main>
       <article class="container-form">
@@ -50,7 +29,7 @@
             <div class="config-input-form-campo">
               <div class="form-imagem-linhas">
                 <div class="container-icone">
-                  <img src="./public/img/Logo_Forjando_Bits.jpg" class="icone-perfil">
+                  <img src="./public/img/Avatar.png" class="icone-perfil">
                 </div>
                 
                 <div class="form-com-imagem-linhas">
@@ -253,6 +232,21 @@
                 <input type="number" id="Qtd-Filhos" name="Qtd-Filhos-Funcionario"/>
               </div>
             </div> <!-- So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada-->
+
+            <div class="form-final">
+              <div class="checkbox-final">
+          
+                <label for="Pendencias">Possui pendencias?</label>
+                <input type="checkbox" id="Pendencias" name="Pendencias"/>
+
+                <input type="text" id="Possui-pedencias" name="Pendencias" required />
+
+              </div>
+            </div>
+
+            <div class="botao-Form-Funcionario">
+              <button><Strong>Salvar</Strong></button>
+            </div>
           </form>
       </div>
       </article>
