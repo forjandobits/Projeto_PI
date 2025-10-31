@@ -1,4 +1,3 @@
-
 /* ========== Variavéis ========== */
 
 :root {
@@ -43,8 +42,10 @@ main {
   align-items: center;
 }
 
-h2{
+h2 {
+  padding: 20px;
   color: var(--cor-titulo-azul);
+  font-size: var(--fonte-grande);
 }
 
 /* ========== Container principal da tela de Login ========== */
@@ -276,25 +277,21 @@ figure {
   gap: 15px;
 }
 
-.article-folha-pagamento h2 {
-  font-size: var(--fonte-grande);
-}
 
-
-.lista {
+.lista-principal {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.lista tr {
+.lista-principal tr {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 220px;
+  /* gap: 220px; */
 }
 
-.lista table {
+.lista-principal table {
   width: 80%;
   height: auto;
   table-layout: fixed;
@@ -303,26 +300,28 @@ figure {
   /* remove espaçamento entre células */
 }
 
-.lista th,
-.lista td {
+.lista-principal th,
+.lista-principal td {
+  color: var(--cor-background);
+  background-color: var(--cor-titulo-azul);
   width: calc(100% / 5);
-  /* divide tabela em 3 colunas iguais */
-  padding: 10px;
+  /* divide tabela em 5 colunas iguais */
+  /* padding: 10px; */
   text-align: center;
   word-wrap: break-word;
   /* quebra texto longo */
 }
 
-.lista thead {
-  font-size: 25px;
+.lista-principal thead {
+  font-size: var(--fonte-media);
   color: var(--cor-titulo-azul);
 }
 
-.lista tbody tr:nth-child(even) {
+.lista-principal tbody tr:nth-child(even) {
   background: var(--cor-background-cinza);
 }
 
-.lista tbody tr:hover {
+.lista-principal tbody tr:hover {
   background: var(--cor-background-hover);
 }
 
@@ -364,8 +363,8 @@ figure {
 
 
 .input-filtro {
-  width: 700px;
-  height: 45px;
+  width: 900px;
+  height: 30px;
   padding: 5px;
   text-align: center;
   font-size: var(--fonte-grande);
@@ -381,13 +380,13 @@ figure {
   color: var(--cor-texto-cinza);
 }
 
-.input-filtro:hover{
+.input-filtro:hover {
   color: var(--cor-background-hover);
   border: 2px solid var(--cor-background-hover);
   transition: all 0.2s ease-in-out;
 }
 
-.input-filtro:focus{
+.input-filtro:focus {
   outline: none;
   color: var(--cor-background-hover);
   border: 2px solid var(--cor-background-hover);
@@ -395,6 +394,8 @@ figure {
 
 
 .button-filtro {
+  display: flex;
+  align-items: rigth;
   width: 100px;
   height: 35px;
   border: none;
@@ -404,7 +405,7 @@ figure {
   font-size: 25px;
 }
 
-.button-filtro:hover{
+.button-filtro:hover {
   background-color: var(--cor-background-hover);
   transition: all 0.2s ease-in-out;
 }
