@@ -45,7 +45,7 @@ main {
 }
 
 h2 {
-  padding: 20px;
+  padding: 20px 0px;
   color: var(--cor-titulo-azul);
   font-size: var(--fonte-grande);
 }
@@ -216,7 +216,7 @@ h2 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 100px;
+  padding: 50px;
 }
 
 .div-tela-inicial {
