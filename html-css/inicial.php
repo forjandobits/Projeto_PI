@@ -12,12 +12,13 @@
 
 <body>
     <!-- Cabeçalho fixo da tela -->
-    <header class="cabecalho-tela-inicial">
-        <img src="public/img/Logo HM Cerebro.png" alt="" class="">
-    </header>
+    <?php include "./header.php" ?>
+    
 
     <!-- Conteúdo principal da página -->
     <main>
+
+        <!-- Menu Lateral (SideBar)-->
         <?php include "./sidebar.php" ?>
 
         <!-- Área de conteúdo principal (fora da sidebar) -->
@@ -78,11 +79,13 @@
                     </figure>
                 </div>
             </section>
-        </article>
-    </main>
 
+
+        </article>
+
+
+    </main>
     <!-- Importa o JavaScript que controla a sidebar -->
     <script src="public/js/sidebar.js"></script>
 </body>
-
 </html>

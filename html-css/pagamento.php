@@ -11,13 +11,14 @@
 </head>
 
 <body>
-    <!-- Cabeçalho fixo da tela -->
-    <header class="cabecalho-tela-inicial">
-        logo <!-- Aqui você pode trocar por uma imagem real da logo -->
-    </header>
+        <!-- Cabeçalho fixo da tela -->
+    <?php include "./header.php" ?>
+    
 
     <!-- Conteúdo principal da página -->
     <main>
+
+        <!-- Menu Lateral (SideBar)-->
        <?php include "./sidebar.php" ?>
 
 
@@ -51,8 +52,9 @@
         </section>
         
         </article>
-    </main>
 
+        
+    </main>
     <!-- Importa o JavaScript que controla a sidebar -->
     <script src="public/js/sidebar.js"></script>
 </body>
