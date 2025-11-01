@@ -38,7 +38,7 @@
     </aside>
 
     <!-- Conteúdo principal da página -->
-    <main>
+    <main class="main-pagamento">
 
         <h2 class="titulo-folha-pagamento">Folhas de Pagamento</h2>
 
