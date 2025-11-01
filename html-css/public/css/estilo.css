@@ -1,28 +1,30 @@
 /* ========== Variavéis ========== */
 
-:root{ 
+:root {
   --cor-titulo-azul: #30adea;
   --cor-sombra-clara: #7e7e7e;
   --cor-sombra-escura: #000000;
   --cor-background: #f1f2f3;
   --cor-background-cinza: #cfcfcf;
-  --cor-background-azul: #30adea;
+  --cor-background-azul: #30adea; 
   --cor-background-hover: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
 
-  --fonte-muito-grande: 4.375rem; /* 70px */
-  --fonte-grande: 2.5rem;         /* 40px */
-  --fonte-media: 1.875rem;        /* 30px */
-  --fonte-pequena: 1.5rem;        /* 24px */
-  --fonte-bem-pequena: 1.125rem;  /* 18px */
-  --fonte-minuscula: 0.875rem;    /* 14px */
+  --fonte-muito-grande: 4.375rem;
+  /* 70px */
+  --fonte-grande: 2.5rem;
+  /* 40px */
+  --fonte-media: 1.875rem;
+  /* 30px */
+  --fonte-pequena: 1.5rem;
+  /* 24px */
+  --fonte-bem-pequena: 1.125rem;
+  /* 18px */
+  --fonte-minuscula: 0.875rem;
+  /* 14px */
 }
 
-
-.pequena {
-  font-size: 200px;
-}
 /* ========== Seletor Geral ========== */
 
 * {
@@ -54,11 +56,21 @@ main {
   position: relative;
 }
 
-.fundo-login{
+.fundo-login {
   width: 100%;
   position: fixed;
   z-index: -1;
   opacity: 65%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.fundo-pagina {
+  width: 30%;
+  position: fixed;
+  z-index: -1;
+  opacity: 30%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -85,8 +97,8 @@ main {
   bottom: 50px;
   left: 50px;
   width: 7.5rem;
-  border-radius: 10px; 
-} 
+  border-radius: 10px;
+}
 
 .texto-login {
   flex: 3;
@@ -109,7 +121,7 @@ main {
 
 /* ========== Area de Login Principal ========== */
 
-.barra-lateral { 
+.ba-laarrteral {
   background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
@@ -146,7 +158,7 @@ main {
 .barra-lateral button {
   color: var(--cor-texto-padrao);
   font-size: var(--fonte-bem-pequena);
-  background-color: var(--cor-background-azul);
+  background-color: var(--cor-titulo-azul);
   box-shadow: 0 0 10px var(--cor-sombra-clara);
   padding: 10px;
   margin-top: 50px;
@@ -165,12 +177,201 @@ main {
   display: block;
   margin: 10px 0;
   color: var(--cor-texto-cinza);
-  font-size: var(--fonte-bem-pequena);
+  font-size: var(--fonte-minuscula);
+}
+
+/* ========== Area de Tela Inicial ========== */
+
+.cabecalho-tela-inicial {
+  height: 90px;
+  display: flex;
+  justify-content: right;
+  align-items: rigth;
+  background-color: var(--cor-background);
+}
+
+.cabecalho-tela-inicial img{
+  padding-right: 45px;
+  padding-top: 10px;
+  width: 80px;
+  height: 70px;
+  text-align: center;
+}
+
+.article-tela-inicial {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 100px;
+}
+
+.div-tela-inicial {
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  width: 150px;
+  max-width: 360px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.div-tela-inicial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+}
+
+.section-tela-inicial {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imagem-tela-inicial {
+  width: 150px;
+  height: 150px;
+  flex-direction: column;
+  border: 2px solid var(--cor-background-cinza);
+  text-align: center;
+  object-fit: cover;
+}
+
+.card-texto {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  flex: 3;
 }
 
 /* ==================  Inicio: "Colaboradores" ====================*/
 
-body {
+.container-recuperar {
+  font-family: Arial, sans-serif;
+  /* background: var(--cor-background); */
+  margin: 0;
+  padding: 30px;
+  margin-top: 150px ;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header h1 {
+  color: var(--cor-background-azul);
+  font-size: 30px;
+  margin: 0;
+  padding-left: 285px;
+  position: relative;
+  top: 30px;
+  
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px; /* tamanho da logo */
+}
+ 
+
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background: var(--cor-background-azul);
+  color: var(--cor-background);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  left: -100px;   /* desloca o botão para a esquerda, aumenta o valor se quiser mais */
+  cursor: pointer;
+  position: relative;
+  top: 30px;
+  margin-right: 200px;
+}
+
+.btn-cadastrar:hover {
+  background: var(--cor-background-hover);
+}
+
+/* Tabela */
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  margin-top: 70px;
+}
+
+thead {
+  background: var(--cor-background-azul);
+  color: var(--cor-background);
+}
+
+th {
+  padding: 14px;
+  text-align: center;
+  font-size: 22px;
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--cor-sombra-escura);
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
+}
+
+tr:nth-child(even) {
+  background: var(--cor-background-cinza);
+}
+
+/* Botão visualizar */
+.btn-visualizar {
+  background: var(--cor-background-azul);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn-visualizar:hover {
+  background: var(--cor-background-azul);
+}
+
+/*========================== Folha de Pagamento ============================ */
+
+
+.container-recuperar {
   font-family: Arial, sans-serif;
   /* background: var(--cor-background); */
   margin: 0;
