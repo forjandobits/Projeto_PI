@@ -9,101 +9,90 @@
 <body>
 
 <section>
-    <h1>Folha de Pagamento</h1>
+  <h1>Folha de Pagamento</h1>
+
+  <form id="filtro-funcionario">
+    <label for="filtro"><strong>Funcionário:</strong></label>
+    <input type="text" id="funcionario">
+  </form>
+
+  <label for="data"><strong>Mês Referente:</strong></label>
+  <input type="date" id="data-calendario" name="calendario">
+
+
+
 
 </section>
 
 <table>
   <thead>
     <tr>
+      <th>Cod.</th>
       <th>Evento</th>
       <th>Referência</th>
-      <th>Vencimentos</th>
-      <th>Descontos</th>]
+      <th>Vencimentos</th>]
+      <th>Descontos</th>
       <th>Bases</th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
+      <td><strong>00</strong></td>
       <td><strong>Salário Base</strong></td>
-      <td>30.000</td>
-      <td>5.800,00</td>
+      <td>2.000,00</td>
+      <td>2.000,00</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td><strong>Convênio</strong></td>''
+      <td><strong>01</strong></td>
+      <td><strong>Comissão</strong></td>
       <td></td>
       <td></td>
-      <td>250,00</td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
+      <td><strong>02</strong></td>
       <td><strong>INSS</strong></td>
-      <td>10.880</td>
+      <td>10,88</td>
       <td></td>
-      <td>630,81</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><strong>Imposto de Renda na Fonte</strong></td>
-      <td>27.500</td>
-      <td></td>
-      <td>523,53</td>
+      <td>0,91</td>
       <td></td>
     </tr>
     <tr>
-      <td><strong>Salário Contratual</strong></td>
+      <td><strong>03</strong></td>
+      <td><strong>Repouso Remuneração</strong></td>
+      <td>0,00</td>
       <td></td>
       <td></td>
       <td></td>
-      <td>5.800,00</td>
     </tr>
     <tr>
-      <td><strong>Base de INSS Mensal</strong></td>
+      <td><strong>04</strong></td>
+      <td><strong>FGTS</strong></td>
+      <td>27,50</td>
       <td></td>
       <td></td>
       <td></td>
-      <td>5.800,00</td>
     </tr>
-    <tr>
-      <td><strong>Base FGTS</strong></td>
+    <tr class="linha-totais">
+      <td colspan="2" ></td>   <!-- pula Cod. e Evento -->
+      <td class="totais-branco"><strong>Totais</strong></td>
+      <td>2.000,00</td>
+      <td>0.81</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td>5.800,00</td>
     </tr>
-    <tr>
-      <td><strong>Rendimento RAIS - Mês</strong></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>5.800,00</td>
-    </tr>
-    <tr>
-      <td><strong>Rendimento IRRF - Mês</strong></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>5.800,00</td>
-    </tr>
-    <tr>
-      <td><strong>Valor INSS Mensal</strong></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>630,81</td>
-    </tr>
-    <tr>
-      <td><strong>Valor IRRF Mensal</strong></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>525,53</td>
-    </tr>
+  
   </tbody>
 </table>
+
+  <div class="resumo-final">
+    <button id="btn-concluir">Concluir</button>
+    <span class="liquido">Líquido: 2.000,00</span>
+  </div>
+
 
 </body>
 </html>

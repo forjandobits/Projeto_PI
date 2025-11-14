@@ -406,7 +406,33 @@ tr:nth-child(even) {
   height: 60px; /* tamanho da logo */
 }
  
+/* deixa o quadrado do colspan branco */
+.linha-totais td[colspan="2"] {
+    background-color: white !important;
+}
 
+/* evita a borda da coluna Cod aparecer "passando" por baixo */
+.linha-totais td:first-child {
+    border-right: none !important;
+}
+
+/* remove a borda que ficava entrando na célula branca */
+.linha-totais td[colspan="2"] {
+    border-left: none !important;
+}
+
+/* =================================================================
+
+
+/* evita a borda da coluna Cod aparecer "passando" por baixo */
+.totais-branco td:first-child {
+    border-right: none !important;
+}
+
+/* remove a borda que ficava entrando na célula branca */
+.totais-branco td[colspan="2"] {
+    border-left: none !important;
+}
 
 /* Botão cadastrar */
 .btn-cadastrar {
@@ -459,9 +485,28 @@ td {
   border-right: 4px solid var(--cor-background);
 }
 
-tr:nth-child(even) {
-  background: var(--cor-background-cinza);
+table tbody tr:nth-child(even) {
+    background-color: var(--cor-background) /* linha clara */
 }
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--cor-background-cinza) /* linha escura */
+}
+
+.resumo-final {
+  display: flex;
+  justify-content: space-between; /* separa lado a lado */
+  align-items: center;
+  margin-top: 20px; /* espaço da tabela */
+  padding: 10px;
+}
+
+.resumo-final .liquido {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
 
 /* Botão visualizar */
 .btn-visualizar {
