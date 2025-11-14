@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folha de Pagamento</title>
+    <title>Histórico de Pagamentos</title>
     <link rel="stylesheet" href="public/css/estilo.css">
     <link rel="stylesheet" href="public/css/sidebar.css">
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
@@ -40,7 +40,7 @@
     <!-- Conteúdo principal da página -->
     <main class="main-pagamento">
 
-        <h2 class="titulo-folha-pagamento">Folhas de Pagamento</h2>
+        <h2>Histórico de Pagamentos</h2>
 
         
         <article class="article-folha-pagamento">
@@ -73,12 +73,13 @@
                         <tr>
                             <th>Nome</th>
                             <th>Cargo</th>
-                            <th>Data</th>
+                            <th>Mês Referencia</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody id="tabela-saida">
-
                     </tbody>
 
                 </table>

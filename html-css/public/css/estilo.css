@@ -8,6 +8,7 @@
   --cor-background-cinza: #cfcfcf;
   /* --cor-background-azul: #30adea; */
   --cor-background-hover: #2366bf;
+  --cor-background-hover-claro: #c5deff;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
 
@@ -294,10 +295,11 @@ figure {
 }
 
 .lista-principal tr {
+  height: 40px;
+  line-height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* gap: 220px; */
 }
 
 .lista-principal table {
@@ -309,8 +311,7 @@ figure {
   /* remove espaçamento entre células */
 }
 
-.lista-principal th,
-.lista-principal td {
+.lista-principal th {
   color: var(--cor-background);
   background-color: var(--cor-titulo-azul);
   width: calc(100% / 5);
@@ -318,6 +319,18 @@ figure {
   /* padding: 10px; */
   text-align: center;
   word-wrap: break-word;
+  /* quebra texto longo */
+}
+.lista-principal th:nth-child(4), th:nth-child(5){
+  background-color: #ffffff;
+}
+
+.lista-principal td {
+  width: calc(100% / 5);
+  /* divide tabela em 5 colunas iguais */
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 17px;
   /* quebra texto longo */
 }
 
@@ -331,7 +344,12 @@ figure {
 }
 
 .lista-principal tbody tr:hover {
-  background: var(--cor-background-hover);
+  background: var(--cor-background-hover-claro);
+}
+
+.lista-principal th:not(:last-child),
+td:not(:last-child) {
+  border-right: 1px solid var(--cor-background);
 }
 
 
@@ -373,10 +391,11 @@ figure {
 
 .input-filtro {
   width: 900px;
-  height: 30px;
+  height: 25px;
   padding: 5px;
   text-align: center;
-  font-size: 15px; /* assecibilidade 35px */
+  font-size: 25px;
+  /* assecibilidade 35px */
   color: var(--cor-titulo-azul);
   background-color: var(--cor-background);
   border: 2px solid var(--cor-titulo-azul);
@@ -385,7 +404,8 @@ figure {
 }
 
 .input-filtro::placeholder {
-  font-size: 25px; /* assecibilidade 35px */
+  font-size: 25px;
+  /* assecibilidade 35px */
   color: var(--cor-texto-cinza);
 }
 
@@ -416,12 +436,6 @@ figure {
   transition: all 0.2s ease-in-out;
 }
 
-.titulo-folha-pagamento {
-  margin-left: 80px;
-  justify-content: left;
-  align-items: start;
-
-}
 
 .campo-esquerda {
   display: flex;
