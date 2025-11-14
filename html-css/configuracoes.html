@@ -8,48 +8,66 @@
 </head>
 <body>
     <main>
-        <h1>Configurações</h1>
-        
-        <form action="" id="form-configuracoes">
-            <article>
-                <section class="section-tema">
-                    <input type="radio" name="tema" id="tema-claro">
-                    <label for="tema-claro"><h2>Tema Claro:</h2></label>
-                    <img src="" alt="exemplo tema claro">
-                </section>
-                <section class="section-tema">
-                    <input type="radio" name="tema" id="tema-escuro">
-                    <label for="tema-escuro"><h2>Tema Escuro:</h2></label>
-                    <img src="" alt="exemplo tema escuro">
-                </section>
-            </article>
-            <article>
-                <section class="section-tema">
-                    <input type="radio" name="tema" id="tema-contraste">
-                    <label for="tema-contraste"><h2>Alto Contraste:</h2></label>
-                    <img src="" alt="exemplo de alto contraste">
-                </section>
-                <section class="section-fontes">
+        <article class="article-configuracoes">
+            <h2>Configurações</h2>
 
-                </section>
-            </article>
-            <article class="">
-                <h2>Alterar Senha:</h2>
-
-                <section class="section-alterar-senha">
-                    <label for="senha-atual">Senha Atual:</label>
-                    <input type="text" id="senha-atual" name="senha-atual">
-
-                    <label for="nova-senha">Nova Senha:</label>
-                    <input type="text" id="nova-senha" name="nova-senha">
-
-                    <label for="repita-senha">Repita Nova Senha:</label>
-                    <input type="text" id="repita-senha" name="repita-senha">
-                </section>
-
-                <button type="submit">Salvar Senha</button>
-            </article>
-        </form>
+            <form action="" id="form-configuracoes">
+                <article>
+                    <section class="section-tema">
+                        <div>
+                            <input type="radio" name="tema" id="tema-claro">
+                            <label for="tema-claro"><h4>Tema Claro:</h4></label>
+                        </div>
+                        <div>
+                            <img src="public/img/ocean-teste.jpg" alt="exemplo tema claro">
+                        </div>
+                    </section>
+                    <section class="section-tema">
+                        <div>
+                            <input type="radio" name="tema" id="tema-escuro">
+                            <label for="tema-escuro"><h4>Tema Escuro:</h4></label>
+                        </div>
+                        <div>
+                            <img src="public/img/ocean-teste.jpg" alt="exemplo tema escuro">
+                        </div>
+                    </section>
+                </article>
+                <article>
+                    <section class="section-tema">
+                        <div>
+                            <input type="radio" name="tema" id="tema-contraste">
+                            <label for="tema-contraste"><h4>Alto Contraste:</h4></label>
+                        </div>
+                        <div>
+                            <img src="public/img/ocean-teste.jpg" alt="exemplo de alto contraste">
+                        </div>
+                    </section>
+                    <section class="section-fontes">
+                        <h4>Tamanho da Fonte:</h4>
+                        <div>
+                            <button id="fonte-menor">Aa</button>
+                            <button id="fonte-media">Aa</button>
+                            <button id="fonte-maior">Aa</button>
+                        </div>
+                    </section>
+                </article>
+                <article>
+                    <section class="section-alterar-senha">
+                        <h4>Alterar Senha:</h4>
+                        <label for="senha-atual">Senha Atual:</label>
+                        <input type="text" id="senha-atual" name="senha-atual">
+    
+                        <label for="nova-senha">Nova Senha:</label>
+                        <input type="text" id="nova-senha" name="nova-senha">
+    
+                        <label for="repita-senha">Repita Nova Senha:</label>
+                        <input type="text" id="repita-senha" name="repita-senha">
+                    </section>
+    
+                    <button type="submit" id="btn-salvar-senha">Salvar Senha</button>
+                </article>
+            </form>
+        </article>
     </main>
 </body>
 </html>
