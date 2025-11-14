@@ -269,18 +269,15 @@ figure {
   flex: 3;
 }
 
-.article-configuracoes {
+/* .article-configuracoes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  /* padding: 100px; */
-}
+  padding: 100px;
+} */
 
-.article-configuracoes h2 {
-  margin-left: 250px;
-}
 
 #form-configuracoes article {
   display: flex;
@@ -335,4 +332,57 @@ figure {
   padding: 5px 10px;
   color: #ffffff;
   font-size: var(--fonte-media);
+}
+
+#fonte-menor {
+  font-size: var(--fonte-bem-pequena);
+}
+
+#fonte-media {
+  font-size: var(--fonte-pequena);
+}
+
+#fonte-maior {
+  font-size: var(--fonte-media);
+}
+
+.section-alterar-senha {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.section-alterar-senha > div {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 5%;
+}
+
+.section-alterar-senha input {
+  font-size: var(--fonte-bem-pequena);
+  border-radius: 3px;
+  border: 2px solid var(--cor-background-cinza);
+  width: 16.5rem;
+}
+
+.section-alterar-senha label {
+  font-size: var(--fonte-bem-pequena);
+  font-weight: bold;
+}
+
+.alterar-senha-campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-alterar-senha button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: var(--fonte-bem-pequena);
+  width: 130px;
 }
