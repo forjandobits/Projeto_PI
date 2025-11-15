@@ -8,21 +8,23 @@
 </head>
 <body>
 
-<section>
+<section class="movimentacao">
   <h1>Folha de Pagamento</h1>
 
-  <form id="filtro-funcionario">
-    <label for="filtro"><strong>Funcionário:</strong></label>
-    <input type="text" id="funcionario">
-  </form>
+  <div class="inputs-mov">
+      <form id="filtro-funcionario">
+        <label for="filtro"><strong>Funcionário:</strong></label>
+        <input type="text" id="funcionario">
+      </form>
 
-  <label for="data"><strong>Mês Referente:</strong></label>
-  <input type="date" id="data-calendario" name="calendario">
-
-
-
-
+      <form id="filtro-calendario">
+        <label for="data"><strong>Mês Referente:</strong></label>
+        <input type="date" id="data-calendario">
+      </form>
+  </div>
 </section>
+
+
 
 <table>
   <thead>
@@ -88,10 +90,14 @@
   </tbody>
 </table>
 
-  <div class="resumo-final">
+<div class="resumo-final">
+    <span class="liquido">
+        <strong>Líquido</strong>: <span class="valor-liquido">2.000,00</span>
+    </span>
+
     <button id="btn-concluir">Concluir</button>
-    <span class="liquido">Líquido: 2.000,00</span>
-  </div>
+</div>
+
 
 
 </body>

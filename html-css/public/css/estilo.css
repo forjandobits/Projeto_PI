@@ -371,40 +371,34 @@ tr:nth-child(even) {
 /*========================== Folha de Pagamento ============================ */
 
 
-.container-recuperar {
-  font-family: Arial, sans-serif;
-  /* background: var(--cor-background); */
-  margin: 0;
-  padding: 30px;
-  margin-top: 150px ;
-}
-
-/* Cabeçalho */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.header h1 {
+h1 {
   color: var(--cor-background-azul);
   font-size: 30px;
-  margin: 0;
-  padding-left: 285px;
+}
+
+
+.movimentacao {
+    position: relative;
+    top: 120px;   /* desce só essa parte */
+    left: 300px;
+}
+
+.inputs-mov {
   position: relative;
-  top: 30px;
-  
+  top: 15px; /* desce somente os inputs */
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+#filtro-funcionario {
+  position: relative;
+  top: 10px;
+ 
 }
 
-.logo {
-  height: 60px; /* tamanho da logo */
+#filtro-calendario {
+  position: relative;
+  top: 20px;
 }
+
  
 /* deixa o quadrado do colspan branco */
 .linha-totais td[colspan="2"] {
@@ -460,7 +454,7 @@ table {
   width: 70%;
   border-collapse: collapse;
   margin: 20px auto;
-  margin-top: 70px;
+  margin-top: 150px;
 }
 
 thead {
@@ -494,32 +488,33 @@ table tbody tr:nth-child(odd) {
 }
 
 .resumo-final {
-  display: flex;
-  justify-content: space-between; /* separa lado a lado */
-  align-items: center;
-  margin-top: 20px; /* espaço da tabela */
-  padding: 10px;
+    display: flex;
+    justify-content: flex-end; /* alinha tudo à direita */
+    align-items: center;
+    gap: 40px; /* espaço entre "Líquido" e o botão */
+    margin-top: 300px;
+    margin-right: 287px; /* ajuste conforme quiser */
 }
 
-.resumo-final .liquido {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-
-
-/* Botão visualizar */
-.btn-visualizar {
+#btn-concluir {
   background: var(--cor-background-azul);
   border: none;
   color: white;
   padding: 6px 14px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
 }
 
-.btn-visualizar:hover {
-  background: var(--cor-background-azul);
+/* NOVO – fundo cinza apenas no valor */
+.valor-liquido {
+    background: var(--cor-background-cinza); /* cinza claro */
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: normal;
 }
+
+
+
+
