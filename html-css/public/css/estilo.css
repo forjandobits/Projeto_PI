@@ -38,6 +38,16 @@
 main {
   display: flex;
   flex-direction: column;
+}
+
+h2 {
+  padding: 20px 0px;
+  color: var(--cor-titulo-azul);
+  font-size: var(--fonte-grande);
+}
+
+h4 {
+  font-size: var(--fonte-media);
   justify-content: center;
   align-items: center;
 }
@@ -267,6 +277,116 @@ figure {
   flex: 3;
 }
 
+/* ========== Area de Tela Configurações ========== */
+/* .article-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 100px;
+} */
+
+
+#form-configuracoes article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* ========== Area de Tela Configurações - Tema ========== */
+
+.section-tema-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-tema-configuracoes div {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.section-tema-configuracoes div input {
+  width: 20px;
+}
+
+.section-tema-configuracoes div label {
+  padding-left: 10px; 
+}
+
+/* ========== Area de Tela Configurações - Fontes ========== */
+
+.section-fontes-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-fontes-configuracoes div {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 25px;
+  margin-top: 30px;
+}
+
+.section-fontes-configuracoes div button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: var(--fonte-media);
+}
+
+#fonte-menor {
+  font-size: var(--fonte-bem-pequena);
+}
+
+#fonte-media {
+  font-size: var(--fonte-pequena);
+}
+
+#fonte-maior {
+  font-size: var(--fonte-media);
+}
+
+/* ========== Area de Tela Configurações - Alterar senha ========== */
+
+.section-alterar-senha-configuracoes {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.section-alterar-senha-configuracoes > div {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 5%;
+}
+
+.section-alterar-senha-configuracoes input {
+  font-size: var(--fonte-bem-pequena);
+  border-radius: 3px;
+  border: 2px solid var(--cor-background-cinza);
+  width: 16.5rem;
+}
+
+.section-alterar-senha-configuracoes label {
+  font-size: var(--fonte-bem-pequena);
+  font-weight: bold;
+}
+
+.alterar-senha-campo-configuracoes {
 /* ========== Area de Tela de cadastro de funcionario ========== */
 
 .titulo-grande-h1{
@@ -404,6 +524,15 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   flex-direction: column;
 }
 
+.section-alterar-senha-configuracoes button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: var(--fonte-bem-pequena);
+  width: 130px;
 .form-imagem-linhas {
   display: flex;
   flex-direction: row-reverse;
@@ -492,4 +621,5 @@ tbody tr:hover{
 
 .coluna-invisivel{
   background-color: #ffffff;
+}
 }
