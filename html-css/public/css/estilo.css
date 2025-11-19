@@ -379,8 +379,8 @@ h1 {
 
 .movimentacao {
     position: relative;
-    top: 120px;   /* desce só essa parte */
-    left: 300px;
+    top: 150px;   /* desce só essa parte */
+    left: 250px;
 }
 
 .inputs-mov {
@@ -391,12 +391,17 @@ h1 {
 #filtro-funcionario {
   position: relative;
   top: 10px;
- 
 }
 
+.calendario{
+  border:#30adea
+}
 #filtro-calendario {
   position: relative;
-  top: 20px;
+  top: 17px;
+}
+input {
+  border: 2px solid #30adea;
 }
 
  
@@ -454,7 +459,7 @@ table {
   width: 70%;
   border-collapse: collapse;
   margin: 20px auto;
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 thead {
@@ -492,7 +497,7 @@ table tbody tr:nth-child(odd) {
     justify-content: flex-end; /* alinha tudo à direita */
     align-items: center;
     gap: 40px; /* espaço entre "Líquido" e o botão */
-    margin-top: 300px;
+    margin-top: 250px;
     margin-right: 287px; /* ajuste conforme quiser */
 }
 
