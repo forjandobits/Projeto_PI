@@ -538,3 +538,88 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   flex-direction: row-reverse;
   gap: 50px;
 }
+
+/* ========== Area Controle de ponto ========== */
+.main-tabela{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-controle-ponto{
+  font-size: var(--fonte-grande);
+  color: var(--cor-titulo-azul);
+  margin-top: 20px;
+  margin-left: 80px;
+  padding: 50px;
+  margin-right: 845px;
+}
+
+.section-ponto-controle{
+  display: flex;
+  margin-left: 220px;
+  margin-right: 700px;
+}
+
+.container-butao{
+    position: absolute;
+    right: 100px;
+}
+
+.botao-controle-ponto{
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  text-decoration: none;
+  padding: 10px;
+  padding-left: 20px;padding-right: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: var(--fonte-bem-pequena);
+}
+
+.botao-controle-ponto:hover{
+  background-color: var(--cor-background-hover);
+}
+
+.input-controle-ponto input{
+  border: #30adea 2px solid;
+  border-radius: 5px;
+  padding-top: 3px;padding-bottom: 3px;
+  padding-left: 10px; padding-right:  400px;
+}
+
+.input-controle-ponto ::placeholder{
+  text-align: left;
+}
+
+.container-tabela-controle-ponto{
+  margin-top: 100px;
+  padding: 50px;
+  text-align: center;
+}
+
+.container-tabela-controle-ponto td{
+  font-size: var(--fonte-bem-pequena);
+  padding-left: 35px;padding-right: 35px;
+  padding-top: 10px;padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.thead-tabela-controle-ponto{
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  height: 50px;
+}
+
+tbody tr:nth-child(odd){
+  background-color: lightgrey;
+}
+
+tbody tr:hover{
+    background-color: #b6b6b6;
+}
+
+.coluna-invisivel{
+  background-color: #ffffff;
+}
+}
