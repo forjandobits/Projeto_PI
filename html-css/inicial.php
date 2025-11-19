@@ -13,13 +13,12 @@
 <body>
     <!-- Cabeçalho fixo da tela -->
     <?php include "./header.php" ?>
+    <!-- Menu Lateral (SideBar)-->
+    <?php include "./sidebar.php" ?>
     
 
     <!-- Conteúdo principal da página -->
     <main>
-
-        <!-- Menu Lateral (SideBar)-->
-        <?php include "./sidebar.php" ?>
 
         <!-- Área de conteúdo principal (fora da sidebar) -->
         <article class="article-tela-inicial" role="list">

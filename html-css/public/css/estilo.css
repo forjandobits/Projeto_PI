@@ -409,3 +409,384 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   flex-direction: row-reverse;
   gap: 50px;
 }
+
+/* ========== Area Controle de ponto ========== */
+.main-tabela{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-controle-ponto{
+  font-size: var(--fonte-grande);
+  color: var(--cor-titulo-azul);
+  margin-top: 20px;
+  margin-left: 80px;
+  padding: 50px;
+  margin-right: 845px;
+}
+
+.section-ponto-controle{
+  display: flex;
+  margin-left: 220px;
+  margin-right: 700px;
+}
+
+.container-butao{
+    position: absolute;
+    right: 100px;
+}
+
+.botao-controle-ponto{
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  text-decoration: none;
+  padding: 10px;
+  padding-left: 20px;padding-right: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: var(--fonte-bem-pequena);
+}
+
+.botao-controle-ponto:hover{
+  background-color: var(--cor-background-hover);
+}
+
+.input-controle-ponto input{
+  border: #30adea 2px solid;
+  border-radius: 5px;
+  padding-top: 3px;padding-bottom: 3px;
+  padding-left: 10px; padding-right:  400px;
+}
+
+.input-controle-ponto ::placeholder{
+  text-align: left;
+}
+
+.container-tabela-controle-ponto{
+  margin-top: 100px;
+  padding: 50px;
+  text-align: center;
+}
+
+.container-tabela-controle-ponto td{
+  font-size: var(--fonte-bem-pequena);
+  padding-left: 35px;padding-right: 35px;
+  padding-top: 10px;padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.thead-tabela-controle-ponto{
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  height: 50px;
+}
+
+tbody tr:nth-child(odd){
+  background-color: lightgrey;
+}
+
+tbody tr:hover{
+    background-color: #b6b6b6;
+}
+
+.coluna-invisivel{
+  background-color: #ffffff;
+}
+
+
+/* ========== Area de Folha de Pagamento ========== */
+/* 
+.main-pagamento {
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+} */
+
+.article-folha-pagamento {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+.lista-principal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lista-principal tr {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lista-principal table {
+  width: 80%;
+  height: auto;
+  table-layout: fixed;
+  /* largura fixa das colunas */
+  border-collapse: collapse;
+  /* remove espaçamento entre células */
+}
+
+.lista-principal th {
+  color: var(--cor-background);
+  background-color: var(--cor-titulo-azul);
+  width: calc(100% / 5);
+  /* divide tabela em 5 colunas iguais */
+  /* padding: 10px; */
+  text-align: center;
+  word-wrap: break-word;
+  /* quebra texto longo */
+}
+.lista-principal th:nth-child(4), th:nth-child(5){
+  background-color: #ffffff;
+}
+
+.lista-principal td {
+  width: calc(100% / 5);
+  /* divide tabela em 5 colunas iguais */
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 17px;
+  /* quebra texto longo */
+}
+
+.lista-principal thead {
+  font-size: var(--fonte-media);
+  color: var(--cor-titulo-azul);
+}
+
+.lista-principal tbody tr:nth-child(even) {
+  background: var(--cor-background-cinza);
+}
+
+.lista-principal tbody tr:hover {
+  background: var(--cor-background-hover-claro);
+}
+
+.lista-principal th:not(:last-child),
+td:not(:last-child) {
+  border-right: 1px solid var(--cor-background);
+}
+
+
+.filtro {
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  padding-top: 100px;
+  gap: 10px;
+}
+
+
+.opcao-filtro {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 30px;
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  font-size: (var(--fonte-media));
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+}
+
+.opcao-filtro:hover {
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.opcao-filtro:focus-visible {
+  font-size: (var(--fonte-media));
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  background-color: var(--cor-background);
+  border-radius: 7px;
+}
+
+
+.input-filtro {
+  width: 900px;
+  height: 25px;
+  padding: 5px;
+  text-align: center;
+  font-size: 25px;
+  /* assecibilidade 35px */
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+  margin: 5px 0px;
+}
+
+.input-filtro::placeholder {
+  font-size: 25px;
+  /* assecibilidade 35px */
+  color: var(--cor-texto-cinza);
+}
+
+.input-filtro:hover {
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-filtro:focus {
+  outline: none;
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+}
+
+.button-filtro {
+  width: 150px;
+  height: 35px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-background);
+  font-size: 25px;
+}
+
+.button-filtro:hover {
+  background-color: var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+
+.campo-esquerda {
+  display: flex;
+  justify-content: left;
+}
+
+.campo-direita {
+  display: flex;
+  justify-content: right;
+}
+
+
+/* ========== Area de Folha de Pagamento ========== */
+ .article-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 100px;
+}
+
+
+#form-configuracoes article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.section-tema {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-tema div {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.section-tema div input {
+  width: 20px;
+}
+
+.section-tema div label {
+  padding-left: 10px; 
+}
+
+.section-fontes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-fontes div {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 25px;
+  margin-top: 30px;
+}
+
+.section-fontes div button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: var(--fonte-media);
+}
+
+#fonte-menor {
+  font-size: var(--fonte-bem-pequena);
+}
+
+#fonte-media {
+  font-size: var(--fonte-pequena);
+}
+
+#fonte-maior {
+  font-size: var(--fonte-media);
+}
+
+.section-alterar-senha {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.section-alterar-senha > div {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 5%;
+}
+
+.section-alterar-senha input {
+  font-size: var(--fonte-bem-pequena);
+  border-radius: 3px;
+  border: 2px solid var(--cor-background-cinza);
+  width: 16.5rem;
+}
+
+.section-alterar-senha label {
+  font-size: var(--fonte-bem-pequena);
+  font-weight: bold;
+}
+
+.alterar-senha-campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-alterar-senha button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: var(--fonte-bem-pequena);
+  width: 130px;
+}
