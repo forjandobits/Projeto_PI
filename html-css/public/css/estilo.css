@@ -269,6 +269,7 @@ figure {
   flex: 3;
 }
 
+/* ========== Area de Tela Configurações ========== */
 /* .article-configuracoes {
   display: flex;
   flex-direction: column;
@@ -285,7 +286,9 @@ figure {
   justify-content: center;
 }
 
-.section-tema {
+/* ========== Area de Tela Configurações - Tema ========== */
+
+.section-tema-configuracoes {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -294,21 +297,23 @@ figure {
   height: 400px;
 }
 
-.section-tema div {
+.section-tema-configuracoes div {
   display: flex;
   flex-direction: row;
   /* align-items: center; */
 }
 
-.section-tema div input {
+.section-tema-configuracoes div input {
   width: 20px;
 }
 
-.section-tema div label {
+.section-tema-configuracoes div label {
   padding-left: 10px; 
 }
 
-.section-fontes {
+/* ========== Area de Tela Configurações - Fontes ========== */
+
+.section-fontes-configuracoes {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -318,14 +323,14 @@ figure {
   height: 400px;
 }
 
-.section-fontes div {
+.section-fontes-configuracoes div {
   display: flex;
   flex-direction: row;
   gap: 0px 25px;
   margin-top: 30px;
 }
 
-.section-fontes div button {
+.section-fontes-configuracoes div button {
   background-color: #30adea;
   border: none;
   border-radius: 4px;
@@ -346,37 +351,39 @@ figure {
   font-size: var(--fonte-media);
 }
 
-.section-alterar-senha {
+/* ========== Area de Tela Configurações - Alterar senha ========== */
+
+.section-alterar-senha-configuracoes {
   display: flex;
   flex-direction: column;
   width: 900px;
 }
 
-.section-alterar-senha > div {
+.section-alterar-senha-configuracoes > div {
   display: flex;
   flex-direction: row; 
   justify-content: center;
   gap: 5%;
 }
 
-.section-alterar-senha input {
+.section-alterar-senha-configuracoes input {
   font-size: var(--fonte-bem-pequena);
   border-radius: 3px;
   border: 2px solid var(--cor-background-cinza);
   width: 16.5rem;
 }
 
-.section-alterar-senha label {
+.section-alterar-senha-configuracoes label {
   font-size: var(--fonte-bem-pequena);
   font-weight: bold;
 }
 
-.alterar-senha-campo {
+.alterar-senha-campo-configuracoes {
   display: flex;
   flex-direction: column;
 }
 
-.section-alterar-senha button {
+.section-alterar-senha-configuracoes button {
   background-color: #30adea;
   border: none;
   border-radius: 4px;
