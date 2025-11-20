@@ -1,12 +1,14 @@
 /* ========== Variavéis ========== */
 
 :root{ 
+:root {
   --cor-titulo-azul: #30adea;
   --cor-sombra-clara: #7e7e7e;
   --cor-sombra-escura: #000000;
   --cor-background: #f1f2f3;
   --cor-background-cinza: #cfcfcf;
   --cor-background-azul: #30adea;
+  /* --cor-background-azul: #30adea; */
   --cor-background-hover: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
@@ -17,6 +19,18 @@
   --fonte-pequena: 1.5rem;        /* 24px */
   --fonte-bem-pequena: 1.125rem;  /* 18px */
   --fonte-minuscula: 0.875rem;    /* 14px */
+  --fonte-muito-grande: 4.375rem;
+  /* 70px */
+  --fonte-grande: 2.5rem;
+  /* 40px */
+  --fonte-media: 1.875rem;
+  /* 30px */
+  --fonte-pequena: 1.5rem;
+  /* 24px */
+  --fonte-bem-pequena: 1.125rem;
+  /* 18px */
+  --fonte-minuscula: 0.875rem;
+  /* 14px */
 }
 
 /* ========== Seletor Geral ========== */
@@ -31,6 +45,25 @@
 
 main {
   display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  padding: 20px 0px;
+  color: var(--cor-titulo-azul);
+  font-size: var(--fonte-grande);
+}
+
+h4 {
+  font-size: var(--fonte-media);
+  justify-content: center;
+  align-items: center;
+}
+
+.main-login {
+  display: flex;
+  flex-direction: row;
+  align-items: normal;
 }
 
 /* ========== Container principal da tela de Login ========== */
@@ -51,10 +84,21 @@ main {
 }
 
 .fundo-login{
+.fundo-login {
   width: 100%;
   position: fixed;
   z-index: -1;
   opacity: 65%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.fundo-pagina {
+  width: 30%;
+  position: fixed;
+  z-index: -1;
+  opacity: 30%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -83,6 +127,8 @@ main {
   width: 7.5rem;
   border-radius: 10px; 
 } 
+  border-radius: 10px;
+}
 
 .texto-login {
   flex: 3;
@@ -106,6 +152,7 @@ main {
 /* ========== Area de Login Principal ========== */
 
 .barra-lateral { 
+.barra-lateral {
   background-color: var(--cor-background);
   padding: 20px;
   flex: 1;
@@ -143,6 +190,7 @@ main {
   color: var(--cor-texto-padrao);
   font-size: var(--fonte-bem-pequena);
   background-color: var(--cor-background-azul);
+  background-color: var(--cor-titulo-azul);
   box-shadow: 0 0 10px var(--cor-sombra-clara);
   padding: 10px;
   margin-top: 50px;
@@ -162,4 +210,430 @@ main {
   margin: 10px 0;
   color: var(--cor-texto-cinza);
   font-size: var(--fonte-minuscula);
+}
+}
+
+/* ========== Area de Tela Inicial ========== */
+
+.cabecalho-tela-inicial {
+  height: 90px;
+  display: flex;
+  justify-content: right;
+  align-items: rigth;
+  background-color: var(--cor-background);
+}
+
+.cabecalho-tela-inicial img{
+  padding-right: 45px;
+  padding-top: 10px;
+  width: 80px;
+  height: 70px;
+  text-align: center;
+}
+
+.article-tela-inicial {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 100px;
+}
+
+.div-tela-inicial {
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  width: 150px;
+  max-width: 360px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.div-tela-inicial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+}
+
+.section-tela-inicial {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imagem-tela-inicial {
+  width: 150px;
+  height: 150px;
+  flex-direction: column;
+  border: 2px solid var(--cor-background-cinza);
+  text-align: center;
+  object-fit: cover;
+}
+
+.card-texto {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  flex: 3;
+}
+
+/* ========== Area de Tela Configurações ========== */
+/* .article-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 100px;
+} */
+
+
+#form-configuracoes article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* ========== Area de Tela Configurações - Tema ========== */
+
+.section-tema-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-tema-configuracoes div {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.section-tema-configuracoes div input {
+  width: 20px;
+}
+
+.section-tema-configuracoes div label {
+  padding-left: 10px; 
+}
+
+/* ========== Area de Tela Configurações - Fontes ========== */
+
+.section-fontes-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-fontes-configuracoes div {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 25px;
+  margin-top: 30px;
+}
+
+.section-fontes-configuracoes div button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: var(--fonte-media);
+}
+
+#fonte-menor {
+  font-size: var(--fonte-bem-pequena);
+}
+
+#fonte-media {
+  font-size: var(--fonte-pequena);
+}
+
+#fonte-maior {
+  font-size: var(--fonte-media);
+}
+
+/* ========== Area de Tela Configurações - Alterar senha ========== */
+
+.section-alterar-senha-configuracoes {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.section-alterar-senha-configuracoes > div {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 5%;
+}
+
+.section-alterar-senha-configuracoes input {
+  font-size: var(--fonte-bem-pequena);
+  border-radius: 3px;
+  border: 2px solid var(--cor-background-cinza);
+  width: 16.5rem;
+}
+
+.section-alterar-senha-configuracoes label {
+  font-size: var(--fonte-bem-pequena);
+  font-weight: bold;
+}
+
+.alterar-senha-campo-configuracoes {
+/* ========== Area de Tela de cadastro de funcionario ========== */
+
+.titulo-grande-h1{
+  margin-top: 30px;
+  color: var(--cor-titulo-azul);
+
+  text-align: center;
+}
+
+.form-cadastrar-func {
+  width: 60vw;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-cadastrar-func label {
+  font-weight: bold;
+}
+
+.config-input-form-campo {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap; /* se for preciso quebrar em telas menores */
+}
+
+.config-campo-grande {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.config-campo-pequeno {
+  display: flex;
+  flex-direction: column;
+  width: 70px
+}
+
+.config-campo-medio {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 300px;/* evita que fique esticado demais */
+}
+
+.config-campo-pequeno input {
+  width: 100%;
+}
+
+.config-campo-medio input,
+.config-campo-grande input {
+  width: 100%;
+  /* box-sizing: border-box; */
+}
+
+input[type=number], input[type=text], input[type=date], input[type=email], select{
+  font-size: var(--fonte-bem-pequena);
+}
+
+.config-checkbox {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.checkbox label {
+  margin-right: 20px;
+}
+
+.form-final {
+  display: flex;
+  flex-direction: column;
+
+}
+.checkbox-final {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.botao-Form-Funcionario {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: auto; 
+  left: -30px;
+
+}
+
+.botao-Form-Funcionario button {
+  font-size: var(--fonte-bem-pequena);
+  padding-left: 25px; padding-right: 25px;
+  padding-top: 5px; padding-bottom: 5px;
+  border-radius: 5px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  border: none;
+}
+
+.botao-Form-Funcionario button:hover {
+  background-color: var(--cor-background-hover);
+}
+
+.formulario-com-imagem {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin: auto; 
+}
+
+.container-icone {
+  max-width: 180px;
+  display: flex;
+}
+
+.icone-perfil {
+  width: 100%;
+  max-width: 140px;
+  border-radius: 100px;
+}
+
+.form-com-imagem-linhas {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-alterar-senha-configuracoes button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: var(--fonte-bem-pequena);
+  width: 130px;
+.form-imagem-linhas {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 50px;
+}
+
+/* ========== Area Controle de ponto ========== */
+.main-tabela{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-controle-ponto{
+  font-size: var(--fonte-grande);
+  color: var(--cor-titulo-azul);
+  margin-top: 20px;
+  margin-left: 80px;
+  padding: 50px;
+  margin-right: 845px;
+}
+
+.section-ponto-controle{
+  display: flex;
+  margin-left: 220px;
+  margin-right: 700px;
+}
+
+.container-butao{
+    position: absolute;
+    right: 100px;
+}
+
+.botao-controle-ponto{
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  text-decoration: none;
+  padding: 10px;
+  padding-left: 20px;padding-right: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: var(--fonte-bem-pequena);
+}
+
+.botao-controle-ponto:hover{
+  background-color: var(--cor-background-hover);
+}
+
+.input-controle-ponto input{
+  border: #30adea 2px solid;
+  border-radius: 5px;
+  padding-top: 3px;padding-bottom: 3px;
+  padding-left: 10px; padding-right:  400px;
+}
+
+.input-controle-ponto ::placeholder{
+  text-align: left;
+}
+
+.container-tabela-controle-ponto{
+  margin-top: 100px;
+  padding: 50px;
+  text-align: center;
+}
+
+.container-tabela-controle-ponto td{
+  font-size: var(--fonte-bem-pequena);
+  padding-left: 35px;padding-right: 35px;
+  padding-top: 10px;padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.thead-tabela-controle-ponto{
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  height: 50px;
+}
+
+tbody tr:nth-child(odd){
+  background-color: lightgrey;
+}
+
+tbody tr:hover{
+    background-color: #b6b6b6;
+}
+
+.coluna-invisivel{
+  background-color: #ffffff;
+}
 }
