@@ -1,0 +1,397 @@
+/* ========== Variavéis ========== */
+
+:root {
+  --cor-titulo-azul: #30adea;
+  --cor-sombra-clara: #7e7e7e;
+  --cor-sombra-escura: #000000;
+  --cor-background: #f1f2f3;
+  --cor-background-cinza: #cfcfcf;
+  /* --cor-background-azul: #30adea; */
+  --cor-background-hover: #2366bf;
+  --cor-texto-padrao: #f1f2f3;
+  --cor-texto-cinza: #8a8a8a;
+
+  --fonte-muito-grande: 4.375rem;
+  /* 70px */
+  --fonte-grande: 2.5rem;
+  /* 40px */
+  --fonte-media: 1.875rem;
+  /* 30px */
+  --fonte-pequena: 1.5rem;
+  /* 24px */
+  --fonte-bem-pequena: 1.125rem;
+  /* 18px */
+  --fonte-minuscula: 0.875rem;
+  /* 14px */
+}
+
+/* ========== Seletor Geral ========== */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ========== Area de estrutura geral so site ========== */
+
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+h2 {
+  padding: 20px 0px;
+  margin-left: 200px;
+  color: var(--cor-titulo-azul);
+  font-size: var(--fonte-grande);
+}
+
+h4 {
+  font-size: var(--fonte-media);
+}
+
+#main-teste {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ========== Container principal da tela de Login ========== */
+
+.container-login {
+  flex: 1;
+  color: var(--cor-texto-padrao);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* ========== Imagem de fundo ========== */
+
+.containter-fundo {
+  position: relative;
+}
+
+.fundo-login {
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  opacity: 65%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.fundo-pagina {
+  width: 30%;
+  position: fixed;
+  z-index: -1;
+  opacity: 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ========== 'Logo' (Pode ser usado para imagens especificas) ========== */
+
+.container-logo {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  border-radius: 10px;
+  width: 120px;
+  height: 120px;
+}
+
+.texto-logo {
+  position: relative;
+  bottom: 4px;
+  left: 4px;
+}
+
+.logo {
+  bottom: 50px;
+  left: 50px;
+  width: 7.5rem;
+  border-radius: 10px;
+}
+
+.texto-login {
+  flex: 3;
+  color: var(--cor-texto-padrao);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  text-shadow: 0 0 8px var(--cor-sombra-escura);
+}
+
+.texto-login h1 {
+  font-size: var(--fonte-muito-grande);
+  font-family: 'Courier New', monospace;
+  margin-bottom: 10px;
+}
+
+.texto-login h3 {
+  font-size: var(--fonte-media);
+}
+
+/* ========== Area de Login Principal ========== */
+
+.ba-laarrteral {
+  background-color: var(--cor-background);
+  padding: 20px;
+  flex: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.barra-lateral h2 {
+  font-size: var(--fonte-grande);
+  margin: 150px auto;
+  color: var(--cor-titulo-azul);
+}
+
+.barra-lateral input {
+  cursor: pointer;
+  background-color: var(--cor-background-cinza);
+  color: var(--cor-texto-padrao);
+  font-size: var(--fonte-pequena);
+  width: 90%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--cor-sombra-clara);
+}
+
+.barra-lateral input::placeholder {
+  background-color: var(--cor-background-cinza);
+  color: var(--cor-texto-padrao);
+}
+
+.barra-lateral button {
+  color: var(--cor-texto-padrao);
+  font-size: var(--fonte-bem-pequena);
+  background-color: var(--cor-titulo-azul);
+  box-shadow: 0 0 10px var(--cor-sombra-clara);
+  padding: 10px;
+  margin-top: 50px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  width: 150px;
+}
+
+.barra-lateral button:hover {
+  background-color: var(--cor-background-hover);
+}
+
+.barra-lateral a {
+  display: block;
+  margin: 10px 0;
+  color: var(--cor-texto-cinza);
+  font-size: var(--fonte-minuscula);
+}
+
+/* ========== Area de Tela Inicial ========== */
+
+.cabecalho-tela-inicial {
+  height: 90px;
+  display: flex;
+  justify-content: right;
+  align-items: rigth;
+  background-color: var(--cor-background);
+}
+
+.cabecalho-tela-inicial img{
+  padding-right: 45px;
+  padding-top: 10px;
+  width: 80px;
+  height: 70px;
+  text-align: center;
+}
+
+.article-tela-inicial {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 100px;
+}
+
+.div-tela-inicial {
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  width: 150px;
+  max-width: 360px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.div-tela-inicial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+}
+
+.section-tela-inicial {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imagem-tela-inicial {
+  width: 150px;
+  height: 150px;
+  flex-direction: column;
+  border: 2px solid var(--cor-background-cinza);
+  text-align: center;
+  object-fit: cover;
+}
+
+.card-texto {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  flex: 3;
+}
+
+/* .article-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 100px;
+} */
+
+
+#form-configuracoes article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.section-tema {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-tema div {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.section-tema div input {
+  width: 20px;
+}
+
+.section-tema div label {
+  padding-left: 10px; 
+}
+
+.section-fontes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-fontes div {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 25px;
+  margin-top: 30px;
+}
+
+.section-fontes div button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: var(--fonte-media);
+}
+
+#fonte-menor {
+  font-size: var(--fonte-bem-pequena);
+}
+
+#fonte-media {
+  font-size: var(--fonte-pequena);
+}
+
+#fonte-maior {
+  font-size: var(--fonte-media);
+}
+
+.section-alterar-senha {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.section-alterar-senha > div {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 5%;
+}
+
+.section-alterar-senha input {
+  font-size: var(--fonte-bem-pequena);
+  border-radius: 3px;
+  border: 2px solid var(--cor-background-cinza);
+  width: 16.5rem;
+}
+
+.section-alterar-senha label {
+  font-size: var(--fonte-bem-pequena);
+  font-weight: bold;
+}
+
+.alterar-senha-campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-alterar-senha button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: var(--fonte-bem-pequena);
+  width: 130px;
+}
