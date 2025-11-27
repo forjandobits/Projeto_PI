@@ -790,3 +790,266 @@ td:not(:last-child) {
   font-size: var(--fonte-bem-pequena);
   width: 130px;
 }
+
+
+/* ==================  Inicio: "Colaboradores" ====================*/
+
+.container-recuperar {
+  font-family: Arial, sans-serif;
+  /* background: var(--cor-background); */
+  margin: 0;
+  padding: 30px;
+  margin-top: 150px ;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header h1 {
+  color: var(--cor-background-azul);
+  font-size: 30px;
+  margin: 0;
+  padding-left: 285px;
+  position: relative;
+  top: 30px;
+  
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px; /* tamanho da logo */
+}
+ 
+
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background: var(--cor-background-azul);
+  color: var(--cor-background);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  left: -100px;   /* desloca o botão para a esquerda, aumenta o valor se quiser mais */
+  cursor: pointer;
+  position: relative;
+  top: 30px;
+  margin-right: 200px;
+}
+
+.btn-cadastrar:hover {
+  background: var(--cor-background-hover);
+}
+
+/* Tabela */
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  margin-top: 70px;
+}
+
+thead {
+  background: var(--cor-background-azul);
+  color: var(--cor-background);
+}
+
+th {
+  padding: 14px;
+  text-align: center;
+  font-size: 22px;
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--cor-sombra-escura);
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
+}
+
+tr:nth-child(even) {
+  background: var(--cor-background-cinza);
+}
+
+/* Botão visualizar */
+.btn-visualizar {
+  background: var(--cor-background-azul);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn-visualizar:hover {
+  background: var(--cor-background-azul);
+}
+
+/*========================== Folha de Pagamento ============================ */
+
+
+h1 {
+  color: var(--cor-background-azul);
+  font-size: 30px;
+}
+
+
+.movimentacao {
+    position: relative;
+    top: 150px;   /* desce só essa parte */
+    left: 250px;
+}
+
+.inputs-mov {
+  position: relative;
+  top: 15px; /* desce somente os inputs */
+}
+
+#filtro-funcionario {
+  position: relative;
+  top: 10px;
+}
+
+.calendario{
+  border:#30adea
+}
+#filtro-calendario {
+  position: relative;
+  top: 17px;
+}
+input {
+  border: 2px solid #30adea;
+}
+
+ 
+/* deixa o quadrado do colspan branco */
+.linha-totais td[colspan="2"] {
+    background-color: white !important;
+}
+
+/* evita a borda da coluna Cod aparecer "passando" por baixo */
+.linha-totais td:first-child {
+    border-right: none !important;
+}
+
+/* remove a borda que ficava entrando na célula branca */
+.linha-totais td[colspan="2"] {
+    border-left: none !important;
+}
+
+/* =================================================================
+
+
+/* evita a borda da coluna Cod aparecer "passando" por baixo */
+.totais-branco td:first-child {
+    border-right: none !important;
+}
+
+/* remove a borda que ficava entrando na célula branca */
+.totais-branco td[colspan="2"] {
+    border-left: none !important;
+}
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background: var(--cor-background-azul);
+  color: var(--cor-background);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  left: -100px;   /* desloca o botão para a esquerda, aumenta o valor se quiser mais */
+  cursor: pointer;
+  position: relative;
+  top: 30px;
+  margin-right: 200px;
+}
+
+.btn-cadastrar:hover {
+  background: var(--cor-background-hover);
+}
+
+/* Tabela */
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  margin-top: 200px;
+}
+
+thead {
+  background: var(--cor-background-azul);
+  color: var(--cor-background);
+}
+
+th {
+  padding: 14px;
+  text-align: center;
+  font-size: 22px;
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--cor-sombra-escura);
+  border-left: 4px solid var(--cor-background);
+  border-right: 4px solid var(--cor-background);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--cor-background) /* linha clara */
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--cor-background-cinza) /* linha escura */
+}
+
+.resumo-final {
+    display: flex;
+    justify-content: flex-end; /* alinha tudo à direita */
+    align-items: center;
+    gap: 40px; /* espaço entre "Líquido" e o botão */
+    margin-top: 250px;
+    margin-right: 287px; /* ajuste conforme quiser */
+}
+
+#btn-concluir {
+  background: var(--cor-background-azul);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* NOVO – fundo cinza apenas no valor */
+.valor-liquido {
+    background: var(--cor-background-cinza); /* cinza claro */
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: normal;
+}
