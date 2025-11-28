@@ -1053,3 +1053,266 @@ table tbody tr:nth-child(odd) {
     border-radius: 6px;
     font-weight: normal;
 }
+
+
+/* ========== Area de Tela Configurações ========== */
+/* .article-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 100px;
+} */
+
+
+#form-configuracoes article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* ========== Area de Tela Configurações - Tema ========== */
+
+.section-tema-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-tema-configuracoes div {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.section-tema-configuracoes div input {
+  width: 20px;
+}
+
+.section-tema-configuracoes div label {
+  padding-left: 10px; 
+}
+
+/* ========== Area de Tela Configurações - Fontes ========== */
+
+.section-fontes-configuracoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  width: 400px;
+  height: 400px;
+}
+
+.section-fontes-configuracoes div {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 25px;
+  margin-top: 30px;
+}
+
+.section-fontes-configuracoes div button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: var(--fonte-media);
+}
+
+#fonte-menor {
+  font-size: var(--fonte-bem-pequena);
+}
+
+#fonte-media {
+  font-size: var(--fonte-pequena);
+}
+
+#fonte-maior {
+  font-size: var(--fonte-media);
+}
+
+/* ========== Area de Tela Configurações - Alterar senha ========== */
+
+.section-alterar-senha-configuracoes {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.section-alterar-senha-configuracoes > div {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 5%;
+}
+
+.section-alterar-senha-configuracoes input {
+  font-size: var(--fonte-bem-pequena);
+  border-radius: 3px;
+  border: 2px solid var(--cor-background-cinza);
+  width: 16.5rem;
+}
+
+.section-alterar-senha-configuracoes label {
+  font-size: var(--fonte-bem-pequena);
+  font-weight: bold;
+}
+/* .alterar-senha-campo-configuracoes {} */
+/* ========== Area de Tela de cadastro de funcionario ========== */
+
+.titulo-grande-h1{
+  margin-top: 30px;
+  color: var(--cor-titulo-azul);
+
+  text-align: center;
+}
+
+.form-cadastrar-func {
+  width: 60vw;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-cadastrar-func label {
+  font-weight: bold;
+}
+
+.config-input-form-campo {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap; /* se for preciso quebrar em telas menores */
+}
+
+.config-campo-grande {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.config-campo-pequeno {
+  display: flex;
+  flex-direction: column;
+  width: 70px
+}
+
+.config-campo-medio {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 300px;/* evita que fique esticado demais */
+}
+
+.config-campo-pequeno input {
+  width: 100%;
+}
+
+.config-campo-medio input,
+.config-campo-grande input {
+  width: 100%;
+  /* box-sizing: border-box; */
+}
+
+input[type=number], input[type=text], input[type=date], input[type=email], select{
+  font-size: var(--fonte-bem-pequena);
+}
+
+.config-checkbox {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.checkbox label {
+  margin-right: 20px;
+}
+
+.form-final {
+  display: flex;
+  flex-direction: column;
+
+}
+.checkbox-final {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.botao-Form-Funcionario {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: auto; 
+  left: -30px;
+
+}
+
+.botao-Form-Funcionario button {
+  font-size: var(--fonte-bem-pequena);
+  padding-left: 25px; padding-right: 25px;
+  padding-top: 5px; padding-bottom: 5px;
+  border-radius: 5px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  border: none;
+}
+
+.botao-Form-Funcionario button:hover {
+  background-color: var(--cor-background-hover);
+}
+
+.formulario-com-imagem {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin: auto; 
+}
+
+.container-icone {
+  max-width: 180px;
+  display: flex;
+}
+
+.icone-perfil {
+  width: 100%;
+  max-width: 140px;
+  border-radius: 100px;
+}
+
+.form-com-imagem-linhas {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-alterar-senha-configuracoes button {
+  background-color: #30adea;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: var(--fonte-bem-pequena);
+  width: 130px;
+}
+.form-imagem-linhas {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 50px;
+}
