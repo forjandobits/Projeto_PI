@@ -321,7 +321,9 @@ figure {
   word-wrap: break-word;
   /* quebra texto longo */
 }
-.lista-principal th:nth-child(4), th:nth-child(5){
+
+.lista-principal th:nth-child(4),
+th:nth-child(5) {
   background-color: #ffffff;
 }
 
@@ -445,4 +447,224 @@ td:not(:last-child) {
 .campo-direita {
   display: flex;
   justify-content: right;
+}
+
+
+/* ========== Area de Folha de Ponto ========== */
+
+.article-folha-ponto {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+.lista-ponto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lista-ponto tr {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lista-ponto table {
+  width: 100%;
+  height: auto;
+  table-layout: fixed;
+  /* largura fixa das colunas */
+  border-collapse: collapse;
+  /* remove espaçamento entre células */
+}
+
+.lista-ponto th {
+  color: var(--cor-background);
+  background-color: var(--cor-titulo-azul);
+  width: calc(100% / 11);
+  /* divide tabela em 10 colunas iguais */
+  /* padding: 10px; */
+  text-align: center;
+  word-wrap: break-word;
+  /* quebra texto longo */
+}
+
+.lista-ponto td {
+  width: calc(100% / 11);
+  /* divide tabela em 10 colunas iguais */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  font-size: 17px;
+  /* quebra texto longo */
+}
+
+.lista-ponto thead {
+  font-size: var(--fonte-pequena);
+  color: var(--cor-titulo-azul);
+}
+
+.lista-ponto tbody tr:nth-child(even) {
+  background: var(--cor-background-cinza);
+}
+
+.lista-ponto tbody tr:hover {
+  background: var(--cor-background-hover-claro);
+  transition: all 0.2s ease-in-out;
+
+}
+
+.lista-ponto th:not(:last-child),
+td:not(:last-child) {
+  border-right: 1px solid var(--cor-background);
+}
+
+.lista-ponto th:nth-child(11),
+td:nth-child(11) {
+  background-color: #ffffff;
+}
+
+
+.filtro-ponto {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  padding-top: 100px;
+  gap: 10px;
+}
+
+
+.opcao-filtro {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 30px;
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  font-size: (var(--fonte-media));
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+}
+
+.opcao-filtro:hover {
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.opcao-filtro:focus-visible {
+  font-size: (var(--fonte-media));
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  background-color: var(--cor-background);
+  border-radius: 7px;
+}
+
+
+.input-filtro-ponto {
+  width: 335px;
+  height: 15px;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+  /* assecibilidade 35px */
+  color: var(--cor-titulo-azul);
+  background-color: var(--cor-background);
+  border: 2px solid var(--cor-titulo-azul);
+  border-radius: 7px;
+  margin: 5px 0px;
+}
+
+.input-filtro-ponto::placeholder {
+  font-size: 20px;
+  /* assecibilidade 35px */
+  color: var(--cor-texto-cinza);
+}
+
+.input-filtro-ponto:hover {
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-filtro-ponto:focus {
+  outline: none;
+  color: var(--cor-background-hover);
+  border: 2px solid var(--cor-background-hover);
+}
+
+
+
+.button-filtro-ponto {
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-background);
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.button-filtro-ponto:hover {
+  background-color: var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.button-table-ponto {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-background);
+  font-size: 20px;
+}
+
+.button-table-ponto:hover {
+  background-color: var(--cor-background-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+
+.campo-select-ponto {
+  display: flex;
+  justify-content: left;
+  gap: 50px;
+}
+
+.gap {
+  margin: 0px 20px;
+  gap: 50px;
+}
+
+.footer-ponto {
+  position: fixed;
+  background-color: var(--cor-background);
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
+
+.footer-ponto p {
+  margin: 6px 60px;
+}
+
+#saida-banco-horas {
+  font-size: var(--fonte-media);
+  font-weight: bold;
 }
