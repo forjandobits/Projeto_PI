@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Out-2025 às 01:42
+-- Tempo de geração: 28-Nov-2025 às 01:33
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -36,17 +36,6 @@ CREATE TABLE `tb_arquivo` (
   `url_arquivo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_arquivo`
---
-
-INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_arquivo`) VALUES
-(1, 1, 'RG', 'https://empresa.com/docs/marcos_rg.pdf'),
-(2, 1, 'CPF', 'https://empresa.com/docs/marcos_cpf.pdf'),
-(3, 2, 'CTPS', 'https://empresa.com/docs/fernanda_ctps.pdf'),
-(4, 3, 'CNH', 'https://empresa.com/docs/carlos_cnh.pdf'),
-(5, 4, 'TITULO_ELEITOR', 'https://empresa.com/docs/juliana_titulo.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -62,17 +51,6 @@ CREATE TABLE `tb_banco` (
   `chave_pix` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_banco`
---
-
-INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `agencia`, `numero_conta`, `tipo_conta`, `chave_pix`) VALUES
-(1, 1, '341-2', '12890-1', 'Corrente', '358.442.180-10'),
-(2, 2, '104-1', '88774-2', 'Poupança', '472.995.870-45'),
-(3, 3, '001-9', '44781-3', 'Corrente', '415.887.120-00'),
-(4, 4, '033-3', '55621-5', 'Corrente', '359.554.900-88'),
-(5, 5, '237-8', '99012-6', 'Poupança', '278.119.300-01');
-
 -- --------------------------------------------------------
 
 --
@@ -87,17 +65,6 @@ CREATE TABLE `tb_cargo` (
   `regime_trabalhista` text NOT NULL,
   `escala` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tb_cargo`
---
-
-INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `escala`) VALUES
-(1, 'Gerente Administrativo', 8500, '44h semanais', 'CLT', 'Segunda a Sexta'),
-(2, 'Assistente Financeiro', 4200, '40h semanais', 'CLT', 'Segunda a Sexta'),
-(3, 'Analista de RH', 5000, '44h semanais', 'CLT', 'Segunda a Sexta'),
-(4, 'Técnico de Informática', 3800, '44h semanais', 'CLT', 'Segunda a Sábado'),
-(5, 'Auxiliar de Limpeza', 2200, '44h semanais', 'CLT', 'Segunda a Sábado');
 
 -- --------------------------------------------------------
 
@@ -123,17 +90,6 @@ CREATE TABLE `tb_documento` (
   `laudo_pcd` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_documento`
---
-
-INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps`, `pis_pasep`, `nis`, `nit`, `registro_profissional`, `comprovante_escolaridade`, `cnh`, `cam`, `titulo_eleitor`, `certidao_casamento_nascimento`, `laudo_pcd`) VALUES
-(1, 1, '25.331.221-0', '358.442.180-10', '00112233-55', '123.45678.90-1', '12345678900', '2233445566', 'CRA-12345', 'Superior Completo', '5566778899', NULL, '1234 5678 9012', 'Certidão Casamento nº 123456', NULL),
-(2, 2, '42.552.331-8', '472.995.870-45', '00998877-22', '223.45678.10-2', '09876543211', '3344556677', 'CRC-88766', 'Superior Incompleto', NULL, NULL, '9876 5432 1098', 'Certidão Nascimento nº 789456', NULL),
-(3, 3, '30.998.221-5', '415.887.120-00', '00445566-11', '111.33344.55-6', '55667788990', '4455667788', 'CRH-77889', 'Pós-Graduação', '8877665544', NULL, '4455 6677 8899', 'Certidão Casamento nº 558877', NULL),
-(4, 4, '19.873.122-9', '359.554.900-88', '00774455-99', '144.22233.66-7', '66778899000', '5566778899', 'Técnico-Info-5566', 'Técnico Completo', '3344221100', NULL, '2244 5577 8899', 'Certidão Nascimento nº 778899', NULL),
-(5, 5, '15.442.888-2', '278.119.300-01', '00331155-88', '133.55566.77-8', '77889900112', '6677889900', 'SIND-LIMP-9900', 'Ensino Médio', NULL, NULL, '9988 7766 5544', 'Certidão Casamento nº 445566', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -151,17 +107,6 @@ CREATE TABLE `tb_endereco` (
   `complemento` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_endereco`
---
-
-INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `cidade`, `bairro`, `rua`, `numero_casa`, `cep`, `complemento`) VALUES
-(1, 1, 'São Paulo', 'Centro', 'Rua das Palmeiras', 123, '01010-000', 'Apto 301'),
-(2, 2, 'São Paulo', 'Vila Mariana', 'Rua Domingos de Moraes', 876, '04105-000', 'Bloco B'),
-(3, 3, 'Guarulhos', 'Jardim Maia', 'Rua Ipê Branco', 212, '07115-200', ''),
-(4, 4, 'São Bernardo do Campo', 'Assunção', 'Av. João Firmino', 1520, '09810-030', 'Casa 2'),
-(5, 5, 'Santo André', 'Centro', 'Rua das Laranjeiras', 56, '09015-000', '');
-
 -- --------------------------------------------------------
 
 --
@@ -175,17 +120,6 @@ CREATE TABLE `tb_filho` (
   `idade_filho` int(11) NOT NULL,
   `escolaridade_filho` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tb_filho`
---
-
-INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `certidao_filho`, `idade_filho`, `escolaridade_filho`) VALUES
-(1, 1, 'Certidão Filho 12345', 10, 'Ensino Fundamental'),
-(2, 1, 'Certidão Filho 12346', 7, 'Ensino Fundamental'),
-(3, 3, 'Certidão Filho 78901', 3, 'Educação Infantil'),
-(4, 5, 'Certidão Filho 22222', 15, 'Ensino Médio'),
-(5, 5, 'Certidão Filho 22223', 12, 'Ensino Fundamental');
 
 -- --------------------------------------------------------
 
@@ -203,39 +137,6 @@ CREATE TABLE `tb_folhaponto` (
   `atrasos` int(11) DEFAULT NULL,
   `observacoes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tb_folhaponto`
---
-
-INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_dia`, `horas_extras`, `faltas`, `atrasos`, `observacoes`) VALUES
-(1, 1, '2025-10-13', 8, 0, 0, 0, ''),
-(2, 2, '2025-10-13', 8, 0, 0, 0, ''),
-(3, 3, '2025-10-13', 8, 1, 0, 0, 'Trabalhou até 18h'),
-(4, 4, '2025-10-13', 8, 0, 0, 0, ''),
-(5, 5, '2025-10-13', 8, 0, 0, 0, ''),
-(6, 1, '2025-10-14', 8, 1, 0, 0, 'Trabalhou até 18h'),
-(7, 2, '2025-10-14', 8, 0, 0, 0, ''),
-(8, 3, '2025-10-14', 8, 0, 0, 0, ''),
-(9, 4, '2025-10-14', 7, 0, 0, 1, 'Saiu 1h mais cedo'),
-(10, 5, '2025-10-14', 8, 0, 0, 0, ''),
-(11, 1, '2025-10-15', 8, 0, 0, 0, ''),
-(12, 2, '2025-10-15', 8, 0, 0, 0, ''),
-(13, 3, '2025-10-15', 8, 0, 0, 0, ''),
-(14, 4, '2025-10-15', 8, 0, 0, 0, ''),
-(15, 5, '2025-10-15', 8, 0, 0, 0, ''),
-(16, 1, '2025-10-16', 8, 0, 0, 0, ''),
-(17, 2, '2025-10-16', 8, 0, 0, 0, ''),
-(18, 3, '2025-10-16', 8, 1, 0, 0, 'Ficou até mais tarde para finalizar relatório'),
-(19, 4, '2025-10-16', 8, 0, 0, 0, ''),
-(20, 5, '2025-10-16', 8, 0, 0, 0, ''),
-(21, 1, '2025-10-17', 7, 0, 0, 1, 'Saiu 1h mais cedo'),
-(22, 2, '2025-10-17', 8, 0, 0, 0, ''),
-(23, 3, '2025-10-17', 8, 0, 0, 0, ''),
-(24, 4, '2025-10-17', 8, 0, 0, 0, ''),
-(25, 5, '2025-10-17', 8, 0, 0, 0, ''),
-(26, 4, '2025-10-18', 5, 0, 0, 0, 'Saída às 13h'),
-(27, 5, '2025-10-18', 5, 0, 0, 0, 'Saída às 13h');
 
 -- --------------------------------------------------------
 
@@ -256,17 +157,6 @@ CREATE TABLE `tb_funcionario` (
   `situacao` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_funcionario`
---
-
-INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `data_nascimento`, `sexo`, `estado_civil`, `email`, `data_demissao`, `data_admissao`, `situacao`) VALUES
-(1, 1, 'Marcos Antônio Ribeiro', '1985-03-12', 'Masculino', 'Casado', 'marcos.ribeiro@empresa.com', '', '2015-04-10', 'Ativo'),
-(2, 2, 'Fernanda Costa Almeida', '1990-11-05', 'Feminino', 'Solteira', 'fernanda.almeida@empresa.com', '', '2018-07-02', 'Ativo'),
-(3, 3, 'Carlos Henrique Duarte', '1988-02-20', 'Masculino', 'Casado', 'carlos.duarte@empresa.com', '', '2019-01-15', 'Ativo'),
-(4, 4, 'Juliana Silva Tavares', '1995-06-09', 'Feminino', 'Solteira', 'juliana.tavares@empresa.com', '', '2021-03-01', 'Ativo'),
-(5, 5, 'Rogério Martins Pires', '1979-09-18', 'Masculino', 'Casado', 'rogerio.pires@empresa.com', '', '2014-11-20', 'Ativo');
-
 -- --------------------------------------------------------
 
 --
@@ -285,32 +175,6 @@ CREATE TABLE `tb_jornada` (
   `data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_jornada`
---
-
-INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`, `data`) VALUES
-(1, 1, 7, '08:00', '17:00', '12:00', '13:00', 'Segunda', '2025-10-13'),
-(2, 2, 8, '08:00', '17:00', '12:00', '13:00', 'Segunda', '2025-10-13'),
-(3, 3, 9, '08:00', '18:00', '12:00', '13:00', 'Segunda', '2025-10-13'),
-(4, 4, 10, '08:00', '17:00', '12:00', '13:00', 'Segunda', '2025-10-13'),
-(5, 5, 11, '07:30', '16:30', '11:30', '12:30', 'Segunda', '2025-10-13'),
-(6, 1, 12, '08:00', '18:00', '12:00', '13:00', 'Terça', '2025-10-14'),
-(7, 2, 13, '08:00', '17:00', '12:00', '13:00', 'Terça', '2025-10-14'),
-(8, 3, 14, '08:00', '17:00', '12:00', '13:00', 'Terça', '2025-10-14'),
-(9, 4, 15, '08:00', '16:00', '12:00', '13:00', 'Terça', '2025-10-14'),
-(10, 5, 16, '07:30', '16:30', '11:30', '12:30', 'Terça', '2025-10-14'),
-(11, 1, 17, '08:00', '17:00', '12:00', '13:00', 'Quarta', '2025-10-15'),
-(12, 2, 18, '08:00', '17:00', '12:00', '13:00', 'Quarta', '2025-10-15'),
-(13, 3, 19, '08:00', '17:00', '12:00', '13:00', 'Quarta', '2025-10-15'),
-(14, 4, 20, '08:00', '17:00', '12:00', '13:00', 'Quarta', '2025-10-15'),
-(15, 5, 21, '07:30', '16:30', '11:30', '12:30', 'Quarta', '2025-10-15'),
-(16, 1, 22, '08:00', '17:00', '12:00', '13:00', 'Quinta', '2025-10-16'),
-(17, 2, 23, '08:00', '17:00', '12:00', '13:00', 'Quinta', '2025-10-16'),
-(18, 3, 24, '08:00', '18:00', '12:00', '13:00', 'Quinta', '2025-10-16'),
-(19, 4, 25, '08:00', '17:00', '12:00', '13:00', 'Quinta', '2025-10-16'),
-(20, 5, 26, '07:30', '16:30', '11:30', '12:30', 'Quinta', '2025-10-16');
-
 -- --------------------------------------------------------
 
 --
@@ -323,17 +187,6 @@ CREATE TABLE `tb_login` (
   `nome_usuario` text NOT NULL,
   `senha` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tb_login`
---
-
-INSERT INTO `tb_login` (`id_login`, `id_funcionario`, `nome_usuario`, `senha`) VALUES
-(1, 1, 'marcos.r', 'Senha@123'),
-(2, 2, 'fernanda.a', 'Senha@123'),
-(3, 3, 'carlos.d', 'Senha@123'),
-(4, 4, 'juliana.t', 'Senha@123'),
-(5, 5, 'rogerio.p', 'Senha@123');
 
 -- --------------------------------------------------------
 
@@ -356,17 +209,6 @@ CREATE TABLE `tb_previsto_beneficios` (
   `irrf` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_previsto_beneficios`
---
-
-INSERT INTO `tb_previsto_beneficios` (`id_beneficio`, `id_funcionario`, `insalubridade`, `periculosidade`, `ferias`, `salario_13`, `vale_transporte`, `vale_alimentacao`, `plano_saude`, `inss`, `fgts`, `irrf`) VALUES
-(1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1),
-(2, 2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0),
-(3, 3, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1),
-(4, 4, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0),
-(5, 5, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -380,17 +222,30 @@ CREATE TABLE `tb_telefone` (
   `tipo_telefone` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_telefone`
---
+-- --------------------------------------------------------
 
-INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_telefone`) VALUES
-(1, 1, '(11) 98855-1200', 'Celular'),
-(2, 1, '(11) 3251-4400', 'Residencial'),
-(3, 2, '(11) 99645-2300', 'Celular'),
-(4, 3, '(11) 97780-5600', 'Celular'),
-(5, 4, '(11) 94022-8810', 'Celular'),
-(6, 5, '(11) 95877-1100', 'Celular');
+--
+-- Estrutura stand-in para vista `view_folha_ponto`
+-- (Veja abaixo para a view atual)
+--
+CREATE TABLE `view_folha_ponto` (
+`id_funcionario` int(11)
+,`nome_completo` text
+,`nome_cargo` text
+,`carga_semanal_prevista` text
+,`horas_trabalhadas_semana` decimal(32,0)
+,`diferenca_horas` decimal(65,0)
+,`situacao` varchar(16)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para vista `view_folha_ponto`
+--
+DROP TABLE IF EXISTS `view_folha_ponto`;
+
+CREATE OR REPLACE VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) WHERE `p`.`data` between '2025-10-14' and '2025-10-20' GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria` ORDER BY sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) ASC  ;
 
 --
 -- Índices para tabelas despejadas
@@ -578,9 +433,6 @@ ALTER TABLE `tb_folhaponto`
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
 COMMIT;
-
-CREATE OR REPLACE VIEW `view_folha_ponto` AS SELECT f.id_funcionario, f.nome_completo, c.nome_cargo, c.carga_horaria AS carga_semanal_prevista, SUM(p.total_horas_dia) AS horas_trabalhadas_semana, (SUM(p.total_horas_dia) - CAST(REPLACE(REPLACE(c.carga_horaria, 'h', ''), ' semanais', '') AS SIGNED)) AS diferenca_horas, CASE WHEN SUM(p.total_horas_dia) < CAST(REPLACE(REPLACE(c.carga_horaria, 'h', ''), ' semanais', '') AS SIGNED) THEN 'Faltando horas' WHEN SUM(p.total_horas_dia) = CAST(REPLACE(REPLACE(c.carga_horaria, 'h', ''), ' semanais', '') AS SIGNED) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS situacao FROM tb_funcionario f JOIN tb_cargo c ON f.id_cargo = c.id_cargo JOIN tb_folhaPonto p ON f.id_funcionario = p.id_funcionario WHERE p.data BETWEEN '2025-10-14' AND '2025-10-20' GROUP BY f.id_funcionario, f.nome_completo, c.nome_cargo, c.carga_horaria ORDER BY diferenca_horas DESC;
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
