@@ -257,3 +257,179 @@ figure {
   gap: 5rem;
   flex: 3;
 }
+
+
+/* ========== Area de Tela Solicitações ========== */
+
+/* Esse é o Título principal */
+.titulo {
+  font-size: 2.5rem;
+  color: var(--cor-titulo-azul);
+  position: relative;
+  top: 100px;
+  left: 330px;
+}
+
+/* Aqui é Botão Adicionar */
+.botao-adicionar {
+  float: right;
+  margin-top: 50px;
+  margin-right: 350px;
+  background: var(--cor-titulo-azul);
+  border: none;
+  padding: 8px 18px;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.botao-adicionar:hover {
+  background: var(--cor-background-hover);
+}
+
+/* ----------- Caixa do formulário ----------- */
+
+.caixa-formulario {
+  width: 50%;
+  margin: 180px auto;
+  padding: 20px;
+  border: 2px solid #aeb0b5;
+  border-radius: 12px;
+  background: #e8e8e8;
+}
+
+.caixa-formulario h2 {
+  margin-bottom: 15px;
+}
+
+/* modelo das linhas */
+.linha-form {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 15px;
+}
+
+/* Campos de entrada */
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+}
+
+.grupo-campo input,
+.grupo-campo select {
+  padding: 6px;
+  border-radius: 4px;
+  background: #fff;
+  border: 2px solid;
+}
+
+.grupo-observacao {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  
+}
+
+.grupo-observacao textarea {
+  height: 125px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 8px;
+  resize: none;
+  background: #fff;
+  border: 2px solid;
+}
+
+/* Upload */
+.caixa-upload {
+  width: 150px;
+  height: 120px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  background: #fff;
+  text-align: center;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.caixa-upload img {
+  width: 80px;
+  height: 80px;
+}
+
+.rodape-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  align-items: center;
+  gap: 20px;
+}
+
+.botao-concluir {
+  background: var(--cor-titulo-azul);
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.botao-concluir:hover {
+  background: var(--cor-background-hover);
+}
+
+/* ----------- TABELA ----------- */
+
+.tabela {
+  width: 65%;
+  margin: 50px auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.tabela th {
+  background: var(--cor-titulo-azul);
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  border-radius: 6px 6px 0 0;
+}
+
+.tabela td {
+  padding: 12px;
+  border-bottom: 2px solid #ccc;
+  background: #f4f4f4;
+}
+
+.linha-visualizar {
+  background: #d7d7d7 !important;
+  font-weight: bold; 
+}
+
+/* Botões */
+.botao-visualizar {
+  background: var(--cor-titulo-azul);
+  border: none; 
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao-aprovar {
+  background: #2ea92b;
+  border: none;
+  padding: 6px 16px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao-reprovar {
+  background: #d62929;
+  border: none;
+  padding: 6px 16px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
