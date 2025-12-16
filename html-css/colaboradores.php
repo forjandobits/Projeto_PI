@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Colaboradores</title>
-  <link rel="stylesheet" href="public/css/estilo.css">
-</head>
+<?php include "./header.php" ?>
+
+<?php include "./sidebar.php" ?>
+
 <body class="container-recuperar">
 
-    <?php include "./header.php" ?>
-    
-    <?php include "./sidebar.php" ?>
 
   
 

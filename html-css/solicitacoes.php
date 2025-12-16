@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Solicitações</title>
-    <link rel="stylesheet" href="public/css/estilo.css">
-    <link rel="stylesheet" href="public/css/sidebar.css">
-</head>
-<body>
-    <?php include "./header.php" ?>
-    
-    <?php include "./sidebar.php" ?>
+<?php include "./header.php" ?>
+
+<?php include "./sidebar.php" ?>
 
     <h1 class="titulo">Solicitações</h1>
 

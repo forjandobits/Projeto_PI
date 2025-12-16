@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/estilo.css">
-    <title>Configurações</title>
-</head>
-
-<body>
-
-    <!-- Cabeçalho fixo da tela -->
-    <?php include "./header.php" ?>
-    <!-- Menu Lateral (SideBar)-->
-    <?php include "./sidebar.php" ?>
+<?php include "./header.php" ?>
+<?php include "./sidebar.php" ?>
     
     <main>
         <article class="article-configuracoes">
