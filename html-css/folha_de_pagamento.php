@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folha de Pagamento</title>
-    <link rel="stylesheet" href="public/css/estilo.css">
-</head>
-<body>
+<?php include "./header.php" ?>
 
-
-    <?php include "./header.php" ?>
-    
-    <?php include "./sidebar.php" ?>
+<?php include "./sidebar.php" ?>
     
 <section class="movimentacao">
   <h1>Folha de Pagamento</h1>

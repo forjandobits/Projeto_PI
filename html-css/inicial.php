@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- Cabeçalho fixo da tela -->
+<!-- Menu Lateral (SideBar)-->
+<?php include "./header.php" ?>
+<?php include "./sidebar.php" ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
-    <link rel="stylesheet" href="public/css/estilo.css">
-    <link rel="stylesheet" href="public/css/sidebar.css">
-    <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
-</head>
-
-<body>
-    <!-- Cabeçalho fixo da tela -->
-    <?php include "./header.php" ?>
-    <!-- Menu Lateral (SideBar)-->
-    <?php include "./sidebar.php" ?>
     
 
     <!-- Conteúdo principal da página -->
@@ -84,7 +72,5 @@
 
 
     </main>
-    <!-- Importa o JavaScript que controla a sidebar -->
-    <script src="public/js/sidebar.js"></script>
 </body>
 </html>

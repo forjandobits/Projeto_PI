@@ -1,5 +1,5 @@
 <!-- Sidebar lateral (drawer) -->
-<aside class="sidebar open" id="sidebar">
+<nav class="sidebar" id="sidebar">
     <!-- Botão que abre/fecha a sidebar (toggle) -->
     <button class="botao" id="botao-abrefecha">☰</button>
 
@@ -18,4 +18,4 @@
         <li><a href="tela_login.php" class="botao-sair">SAIR</a></li>
 
     </ul>
-</aside>
+</nav>

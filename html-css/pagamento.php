@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php include "./header.php" ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de Pagamentos</title>
-    <link rel="stylesheet" href="public/css/estilo.css">
-    <link rel="stylesheet" href="public/css/sidebar.css">
-    <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
-</head>
-
-<body>
-    <?php include "./header.php" ?>
-    
-    <?php include "./sidebar.php" ?>
+<?php include "./sidebar.php" ?>
 
 
     <!-- Conteúdo principal da página -->
@@ -67,9 +54,6 @@
 
         </article>
     </main>
-
-    <!-- Importa o JavaScript que controla a sidebar -->
-    <script src="public/js/sidebar.js"></script>
 </body>
 
 </html>

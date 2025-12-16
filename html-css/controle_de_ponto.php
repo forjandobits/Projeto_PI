@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php include "./header.php" ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
-    <link rel="stylesheet" href="public/css/estilo.css">
-    <link rel="stylesheet" href="public/css/sidebar.css">
-    <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
-</head>
+<?php include "./sidebar.php" ?>
 
-<body>
-
-  
-    <?php include "./header.php" ?>
-    
-    <?php include "./sidebar.php" ?>
     <main class="main-tabela">
         <div>
             <h1 class="titulo-controle-ponto">Controle de ponto</h2>
