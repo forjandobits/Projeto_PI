@@ -31,6 +31,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
 }
 
 /* ========== Area de estrutura geral so site ========== */
@@ -192,19 +193,15 @@ main {
 /* ========== Area de Tela Inicial ========== */
 
 .cabecalho-tela-inicial {
-  height: 90px;
+  height: 10vh;
   display: flex;
   justify-content: right;
-  align-items: rigth;
   background-color: var(--cor-background);
 }
 
 .cabecalho-tela-inicial img{
-  padding-right: 45px;
-  padding-top: 10px;
-  width: 80px;
-  height: 70px;
-  text-align: center;
+  margin: 10px;
+  padding-right: 30px;
 }
 
 .article-tela-inicial {
