@@ -2,6 +2,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Seleciona a sidebar pelo ID
     const sidebar = document.getElementById("sidebar");
+    // Por algum motivo getElementsByTagName não funcionou
+    const main = document.querySelector("main"); 
 
     // Seleciona o botão de abrir/fechar (toggle)
     const botaoToggle = document.getElementById("botao-abrefecha");
@@ -11,5 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Alterna a classe "open" na sidebar
         // Se a classe existir, remove. Se não existir, adiciona.
         sidebar.classList.toggle("open");
+        main.classList.toggle("open");
     });
 });

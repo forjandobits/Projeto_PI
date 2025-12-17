@@ -6,12 +6,13 @@
     <title>Humanamente</title>
     <link rel="stylesheet" href="public/css/estilo.css" />
     <link rel="stylesheet" href="public/css/sidebar.css">
+    <!-- <link rel="stylesheet" href="public/css/inicial.css"> -->
 
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon"/>
     <script src="public/js/sidebar.js"></script>
 </head>
 <body>
-    <header class="cabecalho-tela-inicial">
+    <header>
         <img src="../html-css/public/img/Logo_HM_Cerebro.png" alt="logo humanamente">
     </header>
 
