@@ -32,6 +32,7 @@
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 /* ========== Area de estrutura geral so site ========== */
@@ -39,8 +40,15 @@
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  position: absolute;
+  right: 0;
+  width: calc(100vw - 100px);
+  min-height: 90vh;
+}
+
+main.open{
+  width: calc(100vw - 300px);
 }
 
 .main-login {
@@ -192,76 +200,75 @@ main {
 
 /* ========== Area de Tela Inicial ========== */
 
-.cabecalho-tela-inicial {
+header {
   height: 10vh;
   display: flex;
   justify-content: right;
   background-color: var(--cor-background);
 }
 
-.cabecalho-tela-inicial img{
+header img{
   margin: 10px;
   padding-right: 30px;
 }
 
 .article-tela-inicial {
+  color: var(--cor-titulo-azul);
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  justify-content: center;
   width: 100%;
   padding: 100px;
 }
 
-.div-tela-inicial {
-  background: #ffffff;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  overflow: hidden;
-  display: flex;
-  border-radius: 5px;
-  flex-direction: column;
-  width: 150px;
-  max-width: 360px;
-  transition: transform .18s ease, box-shadow .18s ease;
+section>h2{
+  font-size: 3em;
 }
 
-.div-tela-inicial:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+section{
+  width: 80%;
 }
 
 .section-tela-inicial {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 216px;
+    gap: 15px;
+    margin:10px 30px;
 }
 
 figure {
-  margin: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  max-height: 225px;
+  max-width: 200px;
+  padding: 5px;
+  border: 1px solid var(--cor-background-cinza);
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+figure:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.4);
 }
 
 .imagem-tela-inicial {
   width: 150px;
   height: 150px;
-  flex-direction: column;
-  border: 2px solid var(--cor-background-cinza);
-  text-align: center;
   object-fit: cover;
 }
 
 .card-texto {
+  color: var(--cor-sombra-escura);
+  text-align: center;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  flex: 3;
+  font-size: 1.2em;
 }
 
 /* ========== Area de Tela de cadastro de funcionario ========== */
