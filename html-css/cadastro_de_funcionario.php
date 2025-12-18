@@ -260,7 +260,7 @@
 
               </div>
               
-            </div> <!-- So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada-->
+            </div> <!-- So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada -->
 
 
             <div class="form-final">

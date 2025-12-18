@@ -4,7 +4,12 @@
 
 
     <!-- Conteúdo principal da página -->
-    <main class="main-pagamento">
+    <main>
+        <article class="cabecalhos">
+            <h1>Pagamentos</h1>
+      
+            <button>Novo +</button>
+        </article>
 
         <h2>Histórico de Pagamentos</h2>
 
@@ -23,7 +28,7 @@
                 </div>
 
                 <div class="campo-direita">
-                    <button class="button-filtro">Cadastro</button>
+                    <button>Cadastro</button>
                 </div>
 
                 

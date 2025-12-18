@@ -83,7 +83,7 @@
           <strong>Líquido</strong>: <span class="valor-liquido">2.000,00</span>
       </span>
   
-      <button id="btn-concluir">Concluir</button>
+      <button>Concluir</button>
   </div>
 </main>
 

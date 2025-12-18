@@ -24,9 +24,8 @@
     width: 100px;
 }
 
-.sidebar.open {
+.open {
     width: 300px;
-    /* transition: ease-in-out 0.3s; */
 }
 
 .sidebar ul{
@@ -74,78 +73,10 @@
     width: 200px;
 }
 
-
-.botao {
-    font-size: xx-large;
-    width: 100%;
-    border: none;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0);
-    cursor: pointer;
-}
-
 .botao-sair{
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
     margin: 0;
     padding: 15px;
-}
-
-/* ------------------------------- OUTRA PARTE FOI COLOCADA AQUI -------------------------------------- */
-
-/* ============================= */
-/* Tabela Folha de Pagamento */
-/* ============================= */
-
-.lista {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.lista tr {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 220px;
-}
-
-.lista table {
-    width: 80%;
-    height: auto;
-    table-layout: fixed;
-    /* largura fixa das colunas */
-    border-collapse: collapse;
-    /* remove espaçamento entre células */
-}
-
-.lista th,
-.lista td {
-    width: calc(100% / 4);
-    /* divide tabela em 3 colunas iguais */
-    padding: 10px;
-    text-align: center;
-    word-wrap: break-word;
-    /* quebra texto longo */
-}
-
-.lista thead {
-    font-size: 25px;
-    color: var(--marrom_escuro);
-}
-
-.lista tbody tr:nth-child(even) {
-    background: var(--marrom_claro);
-}
-
-.lista tbody tr:hover {
-    background: var(--verde_claro);
-}
-
-.img_usuario {
-    padding: 20px 50px;
-    width: 90px;
-    height: 90px;
-    text-align: center;
 }
