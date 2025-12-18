@@ -2,10 +2,12 @@
 
 <?php include "./sidebar.php" ?>
 
-    <main class="main-tabela">
-        <div>
-            <h1 class="titulo-controle-ponto">Controle de ponto</h2>
-        </div>
+    <main>
+        <article class="cabecalhos">
+            <h1>Controle de Ponto</h1>
+            
+            <button>Adicionar</button>
+        </article>
 
         <article>
             <section class="section-ponto-controle">
@@ -36,19 +38,19 @@
                             <td>Informaçao incivel</td>
                             <td>Informaçao incivel</td>
                             <td>Informaçao incivel</td>
-                            <td class="coluna-invisivel"><button class="botao-controle-ponto">Visualizar</button></td>
+                            <td class="coluna-invisivel"><button>Visualizar</button></td>
                         </tr>
                         <tr>
                             <td>Informaçao incivel</td>
                             <td>Informaçao incivel</td>
                             <td>Informaçao incivel</td>
-                             <td class="coluna-invisivel"><button class="botao-controle-ponto">Visualizar</button></td>
+                             <td class="coluna-invisivel"><button>Visualizar</button></td>
                         </tr>
                         <tr>
                             <td>Informaçao incivel</td>
                             <td>Informaçao incivel</td>
                             <td>Informaçao incivel</td>
-                             <td class="coluna-invisivel"><button class="botao-controle-ponto">Visualizar</button></td>
+                             <td class="coluna-invisivel"><button>Visualizar</button></td>
                         </tr>
                     </tbody>
                 </table>

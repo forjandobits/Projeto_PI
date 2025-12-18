@@ -1,0 +1,150 @@
+/* Configurações gerais */
+h1 {
+  color: var(--cor-titulo-azul);
+  font-size: 3em;
+}
+
+.cabecalhos {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  font-size: xx-large;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  padding: 5px 15px;
+  border: none;
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: var(--cor-background-hover);
+}
+
+/* Formatação para formulários */
+
+form {
+  margin: 50px 0;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #aeb0b5;
+  border-radius: 12px;
+  background-color: #e8e8e8;
+  color: var(--cor-sombra-escura);
+}
+
+.areas-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.grupo-campo{
+  width: 100%;
+  justify-items: center;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+
+form h2 {
+  font-size: 2.5em;
+}
+
+input, select, textarea {
+  border-radius: 5px;
+  border: 1px solid var(--cor-sombra-escura);
+  padding: 5px 10px;
+  min-width: 40px;
+  max-width: 400px;
+  min-height: 40px;
+  max-height: 120px;
+  font-size: 0.8em;
+}
+
+.resumo {
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.ocultar{
+  display: none;
+}
+
+/* Tabelas  - Configurações padrão para todas*/
+
+table {
+  width: 100%;
+  margin: 50px 0;
+  border-spacing: 3px 5px;
+}
+
+th {
+  background: var(--cor-titulo-azul);
+  color: white;
+  padding: 12px;
+}
+
+tbody{
+  text-align: center;
+  color: var(--cor-sombra-escura);
+}
+
+th, td {
+  font-size: 1.3em;
+  font-weight: bold;
+  min-width: 20%;
+  width: 300px;
+  max-width: 25%;
+}
+
+tr:nth-child(odd){
+  background-color: #b6b6b6;
+}
+
+tr:nth-child(even){
+  background-color: var(--cor-background-cinza);
+}
+
+tr:hover{
+    background-color: var(--cor-texto-cinza);
+}
+
+/* td:last-child{
+  background-color: #fff;
+} */
+
+
+/* Animações para urgências e pendências */
+
+.pendente {
+  animation: pulsar-amarelo 1.5s infinite;
+}
+
+.urgente {
+  animation: pulsar-vermelho 1.5s infinite;
+}
+
+@keyframes pulsar-amarelo {
+  50%{
+    background-color: #ffe08a;
+  }
+}
+
+@keyframes pulsar-vermelho {
+  50%{
+    background-color: #ff8a8a;
+  }
+}

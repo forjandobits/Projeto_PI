@@ -45,6 +45,7 @@ main {
   right: 0;
   width: calc(100vw - 100px);
   min-height: 90vh;
+  padding: 100px;
 }
 
 main.open{
@@ -55,6 +56,75 @@ main.open{
   display: flex;
   flex-direction: row;
   align-items: normal;
+}
+
+/* ========== Area de Tela Inicial ========== */
+
+header {
+  height: 10vh;
+  display: flex;
+  justify-content: right;
+  background-color: var(--cor-background);
+}
+
+header img{
+  margin: 10px;
+  padding-right: 30px;
+}
+
+article {
+  color: var(--cor-titulo-azul);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+h2{
+  font-size: 3em;
+  width: 100%;
+}
+
+.section-tela-inicial {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 216px;
+    gap: 15px;
+    margin:10px 30px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 225px;
+  max-width: 200px;
+  padding: 5px;
+  border: 1px solid var(--cor-background-cinza);
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+figure:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.4);
+}
+
+.imagem-tela-inicial {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-texto {
+  color: var(--cor-sombra-escura);
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2em;
 }
 
 /* ========== Container principal da tela de Login ========== */
@@ -173,24 +243,6 @@ main.open{
   color: var(--cor-texto-padrao);
 }
 
-.barra-lateral button {
-  color: var(--cor-texto-padrao);
-  font-size: var(--fonte-bem-pequena);
-  background-color: var(--cor-titulo-azul);
-  box-shadow: 0 0 10px var(--cor-sombra-clara);
-  padding: 10px;
-  margin-top: 50px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  width: 150px;
-}
-
-.barra-lateral button:hover {
-  background-color: var(--cor-background-hover);
-}
-
 .barra-lateral a {
   display: block;
   margin: 10px 0;
@@ -198,87 +250,9 @@ main.open{
   font-size: var(--fonte-minuscula);
 }
 
-/* ========== Area de Tela Inicial ========== */
 
-header {
-  height: 10vh;
-  display: flex;
-  justify-content: right;
-  background-color: var(--cor-background);
-}
-
-header img{
-  margin: 10px;
-  padding-right: 30px;
-}
-
-.article-tela-inicial {
-  color: var(--cor-titulo-azul);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  width: 100%;
-  padding: 100px;
-}
-
-section>h2{
-  font-size: 3em;
-}
-
-section{
-  width: 80%;
-}
-
-.section-tela-inicial {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    min-height: 216px;
-    gap: 15px;
-    margin:10px 30px;
-}
-
-figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-height: 225px;
-  max-width: 200px;
-  padding: 5px;
-  border: 1px solid var(--cor-background-cinza);
-  border-radius: 5px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-figure:hover {
-  transform: scale(1.1);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.4);
-}
-
-.imagem-tela-inicial {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-}
-
-.card-texto {
-  color: var(--cor-sombra-escura);
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.2em;
-}
 
 /* ========== Area de Tela de cadastro de funcionario ========== */
-
-.titulo-grande-h1{
-  margin-top: 30px;
-  color: var(--cor-titulo-azul);
-
-  text-align: center;
-}
 
 .form-cadastrar-func {
   width: 60vw;
@@ -293,13 +267,6 @@ figure:hover {
 
 .form-cadastrar-func label {
   font-weight: bold;
-}
-
-.config-input-form-campo {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  flex-wrap: wrap; /* se for preciso quebrar em telas menores */
 }
 
 .config-campo-grande {
@@ -321,19 +288,6 @@ figure:hover {
   max-width: 300px;/* evita que fique esticado demais */
 }
 
-.config-campo-pequeno input {
-  width: 100%;
-}
-
-.config-campo-medio input,
-.config-campo-grande input {
-  width: 100%;
-  /* box-sizing: border-box; */
-}
-
-input[type=number], input[type=text], input[type=date], input[type=email], select{
-  font-size: var(--fonte-bem-pequena);
-}
 
 .config-checkbox {
   display: flex;
@@ -360,29 +314,6 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   display: flex;
   flex-direction: row;
   gap: 10px;
-}
-
-.botao-Form-Funcionario {
-  position: relative;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-left: auto; 
-  left: -30px;
-
-}
-
-.botao-Form-Funcionario button {
-  font-size: var(--fonte-bem-pequena);
-  padding-left: 25px; padding-right: 25px;
-  padding-top: 5px; padding-bottom: 5px;
-  border-radius: 5px;
-  background-color: var(--cor-titulo-azul);
-  color: var(--cor-texto-padrao);
-  border: none;
-}
-
-.botao-Form-Funcionario button:hover {
-  background-color: var(--cor-background-hover);
 }
 
 .formulario-com-imagem {
@@ -415,11 +346,6 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 }
 
 /* ========== Area Controle de ponto ========== */
-.main-tabela{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .titulo-controle-ponto{
   font-size: var(--fonte-grande);
@@ -439,59 +365,6 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 .container-butao{
     position: absolute;
     right: 100px;
-}
-
-.botao-controle-ponto{
-  background-color: var(--cor-titulo-azul);
-  color: var(--cor-texto-padrao);
-  text-decoration: none;
-  padding: 10px;
-  padding-left: 20px;padding-right: 20px;
-  border-radius: 10px;
-  border: none;
-  font-size: var(--fonte-bem-pequena);
-}
-
-.botao-controle-ponto:hover{
-  background-color: var(--cor-background-hover);
-}
-
-.input-controle-ponto input{
-  border: #30adea 2px solid;
-  border-radius: 5px;
-  padding-top: 3px;padding-bottom: 3px;
-  padding-left: 10px; padding-right:  400px;
-}
-
-.input-controle-ponto ::placeholder{
-  text-align: left;
-}
-
-.container-tabela-controle-ponto{
-  margin-top: 100px;
-  padding: 50px;
-  text-align: center;
-}
-
-.container-tabela-controle-ponto td{
-  font-size: var(--fonte-bem-pequena);
-  padding-left: 35px;padding-right: 35px;
-  padding-top: 10px;padding-bottom: 10px;
-  font-weight: bold;
-}
-
-.thead-tabela-controle-ponto{
-  background-color: var(--cor-titulo-azul);
-  color: var(--cor-texto-padrao);
-  height: 50px;
-}
-
-tbody tr:nth-child(odd){
-  background-color: lightgrey;
-}
-
-tbody tr:hover{
-    background-color: #b6b6b6;
 }
 
 .coluna-invisivel{
@@ -514,72 +387,6 @@ tbody tr:hover{
   justify-content: center;
   gap: 15px;
 }
-
-
-.lista-principal {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.lista-principal tr {
-  height: 40px;
-  line-height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.lista-principal table {
-  width: 80%;
-  height: auto;
-  table-layout: fixed;
-  /* largura fixa das colunas */
-  border-collapse: collapse;
-  /* remove espaçamento entre células */
-}
-
-.lista-principal th {
-  color: var(--cor-background);
-  background-color: var(--cor-titulo-azul);
-  width: calc(100% / 5);
-  /* divide tabela em 5 colunas iguais */
-  /* padding: 10px; */
-  text-align: center;
-  word-wrap: break-word;
-  /* quebra texto longo */
-}
-.lista-principal th:nth-child(4), th:nth-child(5){
-  background-color: #ffffff;
-}
-
-.lista-principal td {
-  width: calc(100% / 5);
-  /* divide tabela em 5 colunas iguais */
-  text-align: center;
-  word-wrap: break-word;
-  font-size: 17px;
-  /* quebra texto longo */
-}
-
-.lista-principal thead {
-  font-size: var(--fonte-media);
-  color: var(--cor-titulo-azul);
-}
-
-.lista-principal tbody tr:nth-child(even) {
-  background: var(--cor-background-cinza);
-}
-
-.lista-principal tbody tr:hover {
-  background: var(--cor-background-hover-claro);
-}
-
-.lista-principal th:not(:last-child),
-td:not(:last-child) {
-  border-right: 1px solid var(--cor-background);
-}
-
 
 .filtro {
   display: flex;
@@ -617,64 +424,6 @@ td:not(:last-child) {
 }
 
 
-.input-filtro {
-  width: 900px;
-  height: 25px;
-  padding: 5px;
-  text-align: center;
-  font-size: 25px;
-  /* assecibilidade 35px */
-  color: var(--cor-titulo-azul);
-  background-color: var(--cor-background);
-  border: 2px solid var(--cor-titulo-azul);
-  border-radius: 7px;
-  margin: 5px 0px;
-}
-
-.input-filtro::placeholder {
-  font-size: 25px;
-  /* assecibilidade 35px */
-  color: var(--cor-texto-cinza);
-}
-
-.input-filtro:hover {
-  color: var(--cor-background-hover);
-  border: 2px solid var(--cor-background-hover);
-  transition: all 0.2s ease-in-out;
-}
-
-.input-filtro:focus {
-  outline: none;
-  color: var(--cor-background-hover);
-  border: 2px solid var(--cor-background-hover);
-}
-
-.button-filtro {
-  width: 150px;
-  height: 35px;
-  border: none;
-  border-radius: 7px;
-  background-color: var(--cor-titulo-azul);
-  color: var(--cor-background);
-  font-size: 25px;
-}
-
-.button-filtro:hover {
-  background-color: var(--cor-background-hover);
-  transition: all 0.2s ease-in-out;
-}
-
-
-.campo-esquerda {
-  display: flex;
-  justify-content: left;
-}
-
-.campo-direita {
-  display: flex;
-  justify-content: right;
-}
-
 
 /* ========== Area de Folha de Pagamento ========== */
  .article-configuracoes {
@@ -708,9 +457,7 @@ td:not(:last-child) {
   /* align-items: center; */
 }
 
-.section-tema div input {
-  width: 20px;
-}
+
 
 .section-tema div label {
   padding-left: 10px; 
@@ -765,13 +512,6 @@ td:not(:last-child) {
   flex-direction: row; 
   justify-content: center;
   gap: 5%;
-}
-
-.section-alterar-senha input {
-  font-size: var(--fonte-bem-pequena);
-  border-radius: 3px;
-  border: 2px solid var(--cor-background-cinza);
-  width: 16.5rem;
 }
 
 .section-alterar-senha label {
@@ -856,40 +596,6 @@ td:not(:last-child) {
   background: var(--cor-background-hover);
 }
 
-/* Tabela */
-table {
-  width: 70%;
-  border-collapse: collapse;
-  margin: 20px auto;
-  margin-top: 70px;
-}
-
-thead {
-  background: var(--cor-background-azul);
-  color: var(--cor-background);
-}
-
-th {
-  padding: 14px;
-  text-align: center;
-  font-size: 22px;
-  border-left: 4px solid var(--cor-background);
-  border-right: 4px solid var(--cor-background);
-}
-
-td {
-  padding: 12px;
-  text-align: center;
-  font-size: 15px;
-  color: var(--cor-sombra-escura);
-  border-left: 4px solid var(--cor-background);
-  border-right: 4px solid var(--cor-background);
-}
-
-tr:nth-child(even) {
-  background: var(--cor-background-cinza);
-}
-
 /* Botão visualizar */
 .btn-visualizar {
   background: var(--cor-background-azul);
@@ -909,22 +615,12 @@ tr:nth-child(even) {
 /*========================== Folha de Pagamento ============================ */
 
 
-h1 {
-  color: var(--cor-background-azul);
-  font-size: 30px;
-}
-
-
 .movimentacao {
     position: relative;
     top: 150px;   /* desce só essa parte */
     left: 250px;
 }
 
-.inputs-mov {
-  position: relative;
-  top: 15px; /* desce somente os inputs */
-}
 
 #filtro-funcionario {
   position: relative;
@@ -937,9 +633,6 @@ h1 {
 #filtro-calendario {
   position: relative;
   top: 17px;
-}
-input {
-  border: 2px solid #30adea;
 }
 
  
@@ -990,44 +683,6 @@ input {
 
 .btn-cadastrar:hover {
   background: var(--cor-background-hover);
-}
-
-/* Tabela */
-table {
-  width: 70%;
-  border-collapse: collapse;
-  margin: 20px auto;
-  margin-top: 200px;
-}
-
-thead {
-  background: var(--cor-background-azul);
-  color: var(--cor-background);
-}
-
-th {
-  padding: 14px;
-  text-align: center;
-  font-size: 22px;
-  border-left: 4px solid var(--cor-background);
-  border-right: 4px solid var(--cor-background);
-}
-
-td {
-  padding: 12px;
-  text-align: center;
-  font-size: 15px;
-  color: var(--cor-sombra-escura);
-  border-left: 4px solid var(--cor-background);
-  border-right: 4px solid var(--cor-background);
-}
-
-table tbody tr:nth-child(even) {
-    background-color: var(--cor-background) /* linha clara */
-}
-
-table tbody tr:nth-child(odd) {
-    background-color: var(--cor-background-cinza) /* linha escura */
 }
 
 .resumo-final {
@@ -1093,10 +748,6 @@ table tbody tr:nth-child(odd) {
   /* align-items: center; */
 }
 
-.section-tema-configuracoes div input {
-  width: 20px;
-}
-
 .section-tema-configuracoes div label {
   padding-left: 10px; 
 }
@@ -1156,26 +807,12 @@ table tbody tr:nth-child(odd) {
   gap: 5%;
 }
 
-.section-alterar-senha-configuracoes input {
-  font-size: var(--fonte-bem-pequena);
-  border-radius: 3px;
-  border: 2px solid var(--cor-background-cinza);
-  width: 16.5rem;
-}
-
 .section-alterar-senha-configuracoes label {
   font-size: var(--fonte-bem-pequena);
   font-weight: bold;
 }
 /* .alterar-senha-campo-configuracoes {} */
 /* ========== Area de Tela de cadastro de funcionario ========== */
-
-.titulo-grande-h1{
-  margin-top: 30px;
-  color: var(--cor-titulo-azul);
-
-  text-align: center;
-}
 
 .form-cadastrar-func {
   width: 60vw;
@@ -1192,12 +829,6 @@ table tbody tr:nth-child(odd) {
   font-weight: bold;
 }
 
-.config-input-form-campo {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  flex-wrap: wrap; /* se for preciso quebrar em telas menores */
-}
 
 .config-campo-grande {
   display: flex;
@@ -1218,19 +849,6 @@ table tbody tr:nth-child(odd) {
   max-width: 300px;/* evita que fique esticado demais */
 }
 
-.config-campo-pequeno input {
-  width: 100%;
-}
-
-.config-campo-medio input,
-.config-campo-grande input {
-  width: 100%;
-  /* box-sizing: border-box; */
-}
-
-input[type=number], input[type=text], input[type=date], input[type=email], select{
-  font-size: var(--fonte-bem-pequena);
-}
 
 .config-checkbox {
   display: flex;
@@ -1259,28 +877,6 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
   gap: 10px;
 }
 
-.botao-Form-Funcionario {
-  position: relative;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-left: auto; 
-  left: -30px;
-
-}
-
-.botao-Form-Funcionario button {
-  font-size: var(--fonte-bem-pequena);
-  padding-left: 25px; padding-right: 25px;
-  padding-top: 5px; padding-bottom: 5px;
-  border-radius: 5px;
-  background-color: var(--cor-titulo-azul);
-  color: var(--cor-texto-padrao);
-  border: none;
-}
-
-.botao-Form-Funcionario button:hover {
-  background-color: var(--cor-background-hover);
-}
 
 .formulario-com-imagem {
   display: flex; 
@@ -1324,175 +920,3 @@ input[type=number], input[type=text], input[type=date], input[type=email], selec
 
 /* ========== Area de Tela Solicitações ========== */
 
-/* Esse é o Título principal */
-.titulo {
-  font-size: 2.5rem;
-  color: var(--cor-titulo-azul);
-  position: relative;
-  top: 100px;
-  left: 330px;
-}
-
-/* Aqui é Botão Adicionar */
-.botao-adicionar {
-  float: right;
-  margin-top: 50px;
-  margin-right: 350px;
-  background: var(--cor-titulo-azul);
-  border: none;
-  padding: 8px 18px;
-  color: #fff;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.botao-adicionar:hover {
-  background: var(--cor-background-hover);
-}
-
-/* ----------- Caixa do formulário ----------- */
-
-.caixa-formulario {
-  width: 50%;
-  margin: 180px auto;
-  padding: 20px;
-  border: 2px solid #aeb0b5;
-  border-radius: 12px;
-  background: #e8e8e8;
-}
-
-.caixa-formulario h2 {
-  margin-bottom: 15px;
-}
-
-/* modelo das linhas */
-.linha-form {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 15px;
-}
-
-/* Campos de entrada */
-.grupo-campo {
-  display: flex;
-  flex-direction: column;
-  width: 240px;
-}
-
-.grupo-campo input,
-.grupo-campo select {
-  padding: 6px;
-  border-radius: 4px;
-  background: #fff;
-  border: 2px solid;
-}
-
-.grupo-observacao {
-  display: flex;
-  flex-direction: column;
-  width: 330px;
-  
-}
-
-.grupo-observacao textarea {
-  height: 125px;
-  border: 1px solid #999;
-  border-radius: 8px;
-  padding: 8px;
-  resize: none;
-  background: #fff;
-  border: 2px solid;
-}
-
-/* Upload */
-.caixa-upload {
-  width: 150px;
-  height: 120px;
-  border: 1px solid #555;
-  border-radius: 10px;
-  background: #fff;
-  text-align: center;
-  padding-top: 10px;
-  cursor: pointer;
-}
-
-.caixa-upload img {
-  width: 80px;
-  height: 80px;
-}
-
-.rodape-form {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-  align-items: center;
-  gap: 20px;
-}
-
-.botao-concluir {
-  background: var(--cor-titulo-azul);
-  border: none;
-  padding: 8px 20px;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.botao-concluir:hover {
-  background: var(--cor-background-hover);
-}
-
-/* ----------- TABELA ----------- */
-
-.tabela {
-  width: 65%;
-  margin: 50px auto;
-  border-collapse: collapse;
-  text-align: center;
-}
-
-.tabela th {
-  background: var(--cor-titulo-azul);
-  color: white;
-  padding: 12px;
-  font-size: 1.2rem;
-  border-radius: 6px 6px 0 0;
-}
-
-.tabela td {
-  padding: 12px;
-  border-bottom: 2px solid #ccc;
-  background: #f4f4f4;
-}
-
-.linha-visualizar {
-  background: #d7d7d7 !important;
-  font-weight: bold; 
-}
-
-/* Botões */
-.botao-visualizar {
-  background: var(--cor-titulo-azul);
-  border: none; 
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.botao-aprovar {
-  background: #2ea92b;
-  border: none;
-  padding: 6px 16px;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.botao-reprovar {
-  background: #d62929;
-  border: none;
-  padding: 6px 16px;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-}

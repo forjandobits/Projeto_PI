@@ -6,7 +6,7 @@
     <title>Humanamente</title>
     <link rel="stylesheet" href="public/css/estilo.css" />
     <link rel="stylesheet" href="public/css/sidebar.css">
-    <!-- <link rel="stylesheet" href="public/css/inicial.css"> -->
+    <link rel="stylesheet" href="public/css/correcoes.css">
 
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon"/>
     <script src="public/js/sidebar.js"></script>

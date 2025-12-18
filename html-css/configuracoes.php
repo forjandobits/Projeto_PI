@@ -2,6 +2,9 @@
 <?php include "./sidebar.php" ?>
     
     <main>
+        <article class="cabecalhos">
+            <h1>Configurações</h1>
+        </article>
         <article class="article-configuracoes">
             <h2>Configurações</h2>
 

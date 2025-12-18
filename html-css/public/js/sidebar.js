@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Seleciona a sidebar pelo ID
     const sidebar = document.getElementById("sidebar");
     // Por algum motivo getElementsByTagName não funcionou
-    const main = document.querySelector("main"); 
+    const main = document.querySelector("main");
+
+    const criar = document.querySelector(".mostrar");
+    const formSolicitacoes = document.querySelector("#solicitacoes");
 
     // Seleciona o botão de abrir/fechar (toggle)
     const botaoToggle = document.getElementById("botao-abrefecha");
@@ -15,4 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
         sidebar.classList.toggle("open");
         main.classList.toggle("open");
     });
+
+    criar.addEventListener("click", ()=>{
+        formSolicitacoes.classList.toggle("ocultar");
+    })
 });
