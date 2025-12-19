@@ -13,6 +13,7 @@
   <article>
 
     <table>
+      <caption>Lista de Colaboradores</caption>
      <thead>
        <tr>
          <th>Nome</th>
@@ -21,7 +22,7 @@
          <th></th>
        </tr>
      </thead>
-     <tbody>
+     <tbody id="tabela-saida-colaboradores">
        <tr>
          <td>Gustavo</td>
          <td>Padeiro</td>

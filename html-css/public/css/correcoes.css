@@ -25,6 +25,10 @@ button:hover {
   background-color: var(--cor-background-hover);
 }
 
+section{
+  min-width: 80%;
+}
+
 /* Formatação para formulários */
 
 form {
@@ -39,14 +43,18 @@ form {
 
 .areas-form {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
 
 .grupo-campo{
-  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
   justify-items: center;
+  max-width: 450px;
 }
 
 .campo {
@@ -91,7 +99,13 @@ table {
   border-spacing: 3px 5px;
 }
 
-th {
+caption{
+  font-size: 2em;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+
+th, caption {
   background: var(--cor-titulo-azul);
   color: white;
   padding: 12px;

@@ -6,51 +6,52 @@
         <article class="cabecalhos">
             <h1>Controle de Ponto</h1>
             
-            <button>Adicionar</button>
+            <button id="novo-ponto">Adicionar</button>
         </article>
 
         <article>
-            <section class="section-ponto-controle">
-                <div class="input-controle-ponto">
-                    <input type="text" placeholder="Colaborador"/>
-                </div>
-                <div class="container-butao">
-                    <div>
-                        <a  class="botao-controle-ponto" href="">Adicionar</a>
+            <form method="GET">
+                <section class="areas-form">
+                    <div class="campo">
+                        <input type="text" id="filtro" placeholder="Ex.: Nome do Funcionário" required>
                     </div>
-                </div>
-            </section>
+
+                    <div class="campo">
+                        <button>Buscar</button>
+                    </div>
+                </section>
+            </form>
         </article>
 
-        <article class="container-tabela-controle-ponto">
+        <article>
             <section>
-                <table>
-                    <thead class="thead-tabela-controle-ponto">
+                <table id="">
+                    <caption>Histórico de Pontos</caption>
+                    <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Banco de Horas</th>
-                            <th>Férias</th>
-                            <th class="coluna-invisivel"></th>
+                            <th>Banco de Horas (HH:MM)</th>
+                            <th>Situação</th>
                         </tr>
                     </thead>
-                    <tbody class="tr-tabela-controle-ponto">
+                    <tbody id="tabela-saida-ponto">
                         <tr>
-                            <td>Informaçao incivel</td>
-                            <td>Informaçao incivel</td>
-                            <td>Informaçao incivel</td>
-                            <td class="coluna-invisivel"><button>Visualizar</button></td>
+                            <td>Gustavo</td>
+                            <td>00:00</td>
+                            <td>Férias</td>
+                            <td><button>Visualizar</button></td>
                         </tr>
                         <tr>
-                            <td>Informaçao incivel</td>
-                            <td>Informaçao incivel</td>
-                            <td>Informaçao incivel</td>
-                             <td class="coluna-invisivel"><button>Visualizar</button></td>
+                            <td>Elisangela</td>
+                            <td>00:45</td>
+                            <td>Afastado(a)</td>
+                             <td><button>Visualizar</button></td>
                         </tr>
                         <tr>
-                            <td>Informaçao incivel</td>
-                            <td>Informaçao incivel</td>
-                            <td>Informaçao incivel</td>
-                             <td class="coluna-invisivel"><button>Visualizar</button></td>
+                            <td>Joaquim</td>
+                            <td>04:00</td>
+                            <td>Em Seviço</td>
+                             <td><button>Visualizar</button></td>
                         </tr>
                     </tbody>
                 </table>

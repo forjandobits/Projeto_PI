@@ -65,6 +65,7 @@
     <article>
 
         <table>
+            <caption>Histórico de Solicitações</caption>
             <thead>
                 <tr>
                     <th>Solicitação</th>
