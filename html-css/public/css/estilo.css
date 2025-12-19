@@ -127,6 +127,8 @@ figure:hover {
   font-size: 1.2em;
 }
 
+/* Talvez daqui para baixo possa ser removido */
+
 /* ========== Container principal da tela de Login ========== */
 
 .container-login {
@@ -367,53 +369,9 @@ figure:hover {
     right: 100px;
 }
 
-.coluna-invisivel{
-  background-color: #ffffff;
-}
 
 
 /* ========== Area de Folha de Pagamento ========== */
-/* 
-.main-pagamento {
-  display: flex;
-  flex-direction: column;
-  align-items: normal;
-} */
-
-.article-folha-pagamento {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
-}
-
-.filtro {
-  display: flex;
-  flex-direction: column;
-  padding-left: 100px;
-  padding-top: 100px;
-  gap: 10px;
-}
-
-
-.opcao-filtro {
-  display: flex;
-  flex-direction: column;
-  width: 150px;
-  height: 30px;
-  color: var(--cor-titulo-azul);
-  background-color: var(--cor-background);
-  font-size: (var(--fonte-media));
-  border: 2px solid var(--cor-titulo-azul);
-  border-radius: 7px;
-}
-
-.opcao-filtro:hover {
-  color: var(--cor-background-hover);
-  border: 2px solid var(--cor-background-hover);
-  transition: all 0.2s ease-in-out;
-}
 
 .opcao-filtro:focus-visible {
   font-size: (var(--fonte-media));
@@ -425,7 +383,7 @@ figure:hover {
 
 
 
-/* ========== Area de Folha de Pagamento ========== */
+/* ========== Area de Configurações========== */
  .article-configuracoes {
   display: flex;
   flex-direction: column;
@@ -916,7 +874,3 @@ figure:hover {
   flex-direction: row-reverse;
   gap: 50px;
 }
-
-
-/* ========== Area de Tela Solicitações ========== */
-
