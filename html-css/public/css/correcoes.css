@@ -64,6 +64,11 @@ form {
   width: 400px;
   margin-top: 15px;
   font-size: 1.5em;
+  font-weight: bold;
+}
+
+.grupo-campo>img{
+  flex: 1;
 }
 
 form h2 {
@@ -85,6 +90,15 @@ input, select, textarea {
   flex-direction: row;
   gap: 10px;
   align-items: center;
+  padding: 5px;
+}
+
+.opcoes-tamanho{
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex: 1;
 }
 
 .ocultar{
