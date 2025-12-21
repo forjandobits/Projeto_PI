@@ -18,6 +18,7 @@
     background-color: var(--cor-background);
     color: var(--cor-titulo-azul);
     height: 100vh;
+    max-height: 100vh;
     overflow: hidden; /*??? - Pesquisar*/
     position: fixed;
     top: 0;
