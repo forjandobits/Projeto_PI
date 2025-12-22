@@ -17,8 +17,9 @@
     justify-content: space-between;
     background-color: var(--cor-background);
     color: var(--cor-titulo-azul);
+    min-height: 100dvh;
     height: 100vh;
-    max-height: 100vh;
+    max-height: 100dvh;
     overflow: hidden; /*??? - Pesquisar*/
     position: fixed;
     top: 0;

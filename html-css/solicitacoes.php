@@ -72,6 +72,7 @@
                     <th>Colaborador</th>
                     <th>Data da Solicitação</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
         

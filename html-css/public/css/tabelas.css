@@ -1,0 +1,48 @@
+/* Tabelas  - Configurações padrão para todas*/
+
+table {
+  width: 100%;
+  margin: 50px 0;
+  border-spacing: 3px 5px;
+}
+
+caption{
+  font-size: 2em;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+
+th, caption {
+  background: var(--cor-titulo-azul);
+  color: white;
+  padding: 12px;
+}
+
+tbody{
+  text-align: center;
+  color: var(--cor-sombra-escura);
+}
+
+th, td {
+  font-size: 1.3em;
+  font-weight: bold;
+  min-width: 20%;
+  width: 300px;
+  max-width: 25%;
+}
+
+tr:nth-child(odd){
+  background-color: #b6b6b6;
+}
+
+tr:nth-child(even){
+  background-color: var(--cor-background-cinza);
+}
+
+tr:hover{
+    background-color: var(--cor-texto-cinza);
+}
+
+/* td:last-child{
+  background-color: #fff;
+} */
