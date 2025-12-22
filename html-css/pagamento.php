@@ -44,8 +44,8 @@
                             <th>Nome</th>
                             <th>Cargo</th>
                             <th>Referência (Mês/Ano)</th>
-                            <!-- <th></th>
-                            <th></th> -->
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
 

@@ -1,0 +1,71 @@
+/* Formatação para formulários */
+
+form {
+  margin: 50px 0;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #aeb0b5;
+  border-radius: 12px;
+  background-color: #e8e8e8;
+  color: var(--cor-sombra-escura);
+}
+
+.areas-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.grupo-campo{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-items: center;
+  max-width: 450px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin-top: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.grupo-campo>img{
+  flex: 1;
+}
+
+form h2 {
+  font-size: 2.5em;
+}
+
+input, select, textarea {
+  border-radius: 5px;
+  border: 1px solid var(--cor-sombra-escura);
+  padding: 5px 10px;
+  min-width: 40px;
+  max-width: 400px;
+  min-height: 40px;
+  max-height: 120px;
+  font-size: 0.8em;
+}
+
+.resumo {
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 5px;
+}
+
+.opcoes-tamanho{
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex: 1;
+}
