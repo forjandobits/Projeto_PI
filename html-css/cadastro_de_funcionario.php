@@ -3,14 +3,11 @@
 <?php include "./sidebar.php" ?>
     
     <main>
+      <article class="cabecalhos">
+        <h1>Cadastro de Funcionário</h1>
+      </article>
         
       <article class="container-form">
-
-
-        <section>
-          <h1 class="titulo-grande-h1">Cadastro de Funcionário</h1>
-        </section>
-
 
         <div class="formulario-com-imagem">
 
