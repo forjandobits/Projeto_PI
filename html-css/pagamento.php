@@ -8,19 +8,21 @@
         <article class="cabecalhos">
             <h1>Pagamentos</h1>
       
-            <button id="novo-pagamento">Novo +</button>
+            <a href="folha_de_pagamento.php"><button id="novo-pagamento">Novo +</button></a>
         </article>
 
         <article>
             
             <form method="GET">
                 <section class="areas-form">
-                    <select id="opcao-filtro" class="campo">
-                        <option value="1" default>-- Selecione --</option>
-                        <option value="2">Cargo</option>
-                        <option value="3">Data</option>
-                        <option value="4">Nome do Colaborador</option>
-                    </select>
+                    <div class="campo">
+                        <select id="opcao-filtro">
+                            <option value="1" default>-- Selecione --</option>
+                            <option value="2">Cargo</option>
+                            <option value="3">Data</option>
+                            <option value="4">Nome do Colaborador</option>
+                        </select>
+                    </div>
 
                     <div class="campo">
                         <input type="text" id="filtro" placeholder="Ex.: Nome do Colaborador, Cargo, ..." required>
@@ -54,7 +56,7 @@
                             <td>Gustavo</td>
                             <td>Padeiro</td>
                             <td>12/2025</td>
-                            <td><button>Visualizar</button></td>
+                            <td><a href="folha_de_pagamento.php"><button>Visualizar</button></a></td>
                             <td><button>Baixar</button></td>
                         </tr>
                         <tr>

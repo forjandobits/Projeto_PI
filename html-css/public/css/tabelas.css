@@ -29,6 +29,7 @@ th, td {
   min-width: 20%;
   width: 300px;
   max-width: 25%;
+  height: 45px;
 }
 
 tr:nth-child(odd){
