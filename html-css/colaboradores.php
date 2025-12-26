@@ -7,7 +7,7 @@
   <article class="cabecalhos">
       <h1>Colaboradores</h1>
       
-      <button>Cadastrar</button>
+      <button><a href="cadastro_de_funcionario.php">Cadastrar</a></button>
   </article>
 
   <article>

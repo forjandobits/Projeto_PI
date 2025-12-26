@@ -16,6 +16,7 @@ form {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  gap: 10px;
 }
 
 .grupo-campo{
@@ -23,21 +24,31 @@ form {
   flex: 1;
   flex-wrap: wrap;
   justify-items: center;
-  max-width: 450px;
+  gap: 10px;
+}
+
+.grupo-campo-linha{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  /* flex-wrap: wrap; */
+  justify-items: center;
+  gap: 10px;
 }
 
 .campo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 400px;
+  min-width: 400px;
   margin-top: 15px;
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.grupo-campo>img{
-  flex: 1;
+.campo>img{
+  max-width: 200px;
+  align-self: center;
 }
 
 form h2 {
@@ -48,11 +59,15 @@ input, select, textarea {
   border-radius: 5px;
   border: 1px solid var(--cor-sombra-escura);
   padding: 5px 10px;
+  flex: 1;
   min-width: 40px;
-  max-width: 400px;
   min-height: 40px;
   max-height: 120px;
   font-size: 0.8em;
+}
+
+textarea{
+  max-width: 400px;
 }
 
 .resumo {
@@ -68,4 +83,11 @@ input, select, textarea {
   gap: 10px;
   margin-top: 30px;
   flex: 1;
+}
+
+.config-campo-medio {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 300px;/* evita que fique esticado demais */
 }
