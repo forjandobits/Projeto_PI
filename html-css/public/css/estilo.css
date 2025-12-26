@@ -572,105 +572,20 @@ figure:hover {
 
 /*========================== Folha de Pagamento ============================ */
 
-
-.movimentacao {
-    position: relative;
-    top: 150px;   /* desce só essa parte */
-    left: 250px;
-}
-
-
-#filtro-funcionario {
-  position: relative;
-  top: 10px;
-}
-
-.calendario{
-  border:#30adea
-}
-#filtro-calendario {
-  position: relative;
-  top: 17px;
-}
-
- 
-/* deixa o quadrado do colspan branco */
-.linha-totais td[colspan="2"] {
-    background-color: white !important;
-}
-
-/* evita a borda da coluna Cod aparecer "passando" por baixo */
-.linha-totais td:first-child {
-    border-right: none !important;
-}
-
-/* remove a borda que ficava entrando na célula branca */
-.linha-totais td[colspan="2"] {
-    border-left: none !important;
-}
-
-/* =================================================================
-
-
-/* evita a borda da coluna Cod aparecer "passando" por baixo */
-.totais-branco td:first-child {
-    border-right: none !important;
-}
-
-/* remove a borda que ficava entrando na célula branca */
-.totais-branco td[colspan="2"] {
-    border-left: none !important;
-}
-
-/* Botão cadastrar */
-.btn-cadastrar {
-  background: var(--cor-background-azul);
-  color: var(--cor-background);
-  border: none;
-  padding: 10px 25px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 17px;
-  font-weight: bold;
-  left: -100px;   /* desloca o botão para a esquerda, aumenta o valor se quiser mais */
-  cursor: pointer;
-  position: relative;
-  top: 30px;
-  margin-right: 200px;
-}
-
-.btn-cadastrar:hover {
-  background: var(--cor-background-hover);
+td[colspan="2"] {
+  background-color: white;
 }
 
 .resumo-final {
-    display: flex;
-    justify-content: flex-end; /* alinha tudo à direita */
-    align-items: center;
-    gap: 40px; /* espaço entre "Líquido" e o botão */
-    margin-top: 250px;
-    margin-right: 287px; /* ajuste conforme quiser */
-}
-
-#btn-concluir {
-  background: var(--cor-background-azul);
-  border: none;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
   font-weight: bold;
+  font-size: 1.5em;
+  width: 100%;
+  gap: 15px;
+  color: #000000;
 }
-
-/* NOVO – fundo cinza apenas no valor */
-.valor-liquido {
-    background: var(--cor-background-cinza); /* cinza claro */
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-weight: normal;
-}
-
 
 /* ========== Area de Tela Configurações ========== */
 /* .article-configuracoes {
