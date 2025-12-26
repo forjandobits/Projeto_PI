@@ -6,13 +6,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conectar-se</title>
-    <link rel="stylesheet" href="public\css\estilo.css"/>
+    <link rel="stylesheet" href="public/css/estilo.css">
+    <link rel="stylesheet" href="public/css/tela_login.css"/>
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
   </head>
 
 
   <body> 
-
 
     <div class='container-fundo'>
       <img src='public\img/fundo-login.jpg' class='fundo-login'>
@@ -23,7 +23,7 @@
 
       
       <div class='container-logo'>
-          <h5 class='texto-logo'>Desenvolvido por</h5>
+          <h5 class='texto-logo'>Desenvolvido por:</h5>
         <img class='logo' src='public\img/Logo_Forjando_Bits.jpg'>
       </div>
     
