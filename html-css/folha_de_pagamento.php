@@ -4,7 +4,7 @@
 
 <main>
   <article class="cabecalhos">
-    <h1>Folha de Pagamento -Visualização</h1>
+    <h1>Folha de Pagamento - Visualização</h1>
   </article>
 
   <!-- <article>
