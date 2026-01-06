@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
     // Por algum motivo getElementsByTagName não funcionou
     const main = document.querySelector("main");
+    const verModal = document.querySelectorAll(".abrir-modal");
+    const fechar = document.querySelector(".fechar");
 
     const criar = document.querySelector(".mostrar");
     const formSolicitacoes = document.querySelector("#solicitacoes");
+    const exibir = document.querySelector(".modal");
 
     // Seleciona o botão de abrir/fechar (toggle)
     const botaoToggle = document.getElementById("botao-abrefecha");
@@ -19,7 +22,25 @@ document.addEventListener("DOMContentLoaded", () => {
         main.classList.toggle("open");
     });
 
-    criar.addEventListener("click", ()=>{
-        formSolicitacoes.classList.toggle("ocultar");
+    // Verifica se o elemento está na página acessada
+    if(criar){
+        criar.addEventListener("click", ()=>{
+            formSolicitacoes.classList.toggle("ocultar");
+        })
+    }
+
+    if(verModal){
+        // É necessária essa varredura pois o elemento está em em diversas 
+        // áreas do código para abrir o elemento em questão 
+        verModal.forEach(modal => {
+            modal.addEventListener("click", ()=>{
+                exibir.style.display = "flex";
+            })
+        });
+    }
+
+    // Fecha o modal se ele existir
+    fechar.addEventListener("click", ()=> {
+        exibir.style.display = "none";
     })
 });
