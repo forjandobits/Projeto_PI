@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="public/css/tabelas.css">
     <link rel="stylesheet" href="public/css/formularios.css">
     <link rel="stylesheet" href="public/css/correcoes.css">
+    <link rel="stylesheet" href="public/css/modal.css">
 
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon"/>
     <script src="public/js/sidebar.js"></script>

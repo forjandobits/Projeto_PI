@@ -69,7 +69,7 @@
           <td>Não</td>
           <td>Não</td>
           <td>07:57</td>
-          <td><button>...</button></td>
+          <td><button class='abrir-modal'>...</button></td>
         </tr>
         <tr>
           <td>10/11/2025</td>
@@ -82,7 +82,7 @@
           <td>Não</td>
           <td>Não</td>
           <td>07:57</td>
-          <td><button>...</button></td>
+          <td><button class='abrir-modal'>...</button></td>
         </tr>
         <tr>
           <td>07/11/2025</td>
@@ -95,7 +95,7 @@
           <td>Não</td>
           <td>Sim</td>
           <td>--</td>
-          <td><button>...</button></td>
+          <td><button class='abrir-modal'>...</button></td>
         </tr>
       </tbody>
     </table>
@@ -111,6 +111,37 @@
       <button>Salvar</button>
     </section>
 
+  </article>
+
+  <article class="modal">
+    <section>
+      <p class="fechar">X</p>
+      <h3>Editar Pontos</h3>
+    </section>
+    
+    <section>
+      <form action="" class="form-modal">
+        <p>12/11/2025 - Quarta-feira:</p>
+        <div class="campo-linha">
+          <label for="tempo-entrada">Entrada 1:</label>
+          <input type="time" name="entrada1" id="tempo-entrada">
+        </div>
+        <div class="campo-linha">
+          <label for="tempo-entrada2">Entrada 2:</label>
+          <input type="time" name="entrada2" id="tempo-entrada2">
+        </div>
+        <div class="campo-linha">
+          <label for="tempo-entrada3">Entrada 3:</label>
+          <input type="time" name="entrada3" id="tempo-entrada3">
+        </div>
+        <div class="campo-linha">
+          <label for="tempo-entrada4">Entrada 4:</label>
+          <input type="time" name="entrada4" id="tempo-entrada4">
+        </div>
+        <button class="button-claro">Adicionar outra batida</button>
+        <button type="submit">Salvar</button>
+      </form>
+    </section>
   </article>
   
 </main>
