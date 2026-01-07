@@ -91,3 +91,53 @@ textarea{
   min-width: 200px;
   max-width: 300px;/* evita que fique esticado demais */
 }
+
+.form-modal>p{
+    font-size: 2em;
+}
+
+.form-modal{
+    border: none;
+    background-color: var(--cor-background);
+}
+
+.form-modal>button{
+    max-width: 100%;
+    margin: 15px 0;
+}
+
+.form-modal-login{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: none;
+  background-color: var(--cor-background);
+  padding: 50px;
+}
+
+.form-modal-login>input{
+  min-height: 60px;
+  border-radius: 30px;
+  padding: 20px;
+  font-size: 2em;
+  background-color: var(--cor-background-cinza);
+  box-shadow: 2px 2px var(--cor-sombra-clara);
+}
+
+.form-modal-login>a>button{
+  font-weight: bold;
+  padding: 15px;
+  margin-top: 50px;
+}
+
+small{
+  font-size: 1.5em;
+  text-decoration: none;
+  color: var(--cor-sombra-escura);
+  border-bottom: 1px solid var(--cor-sombra-escura);
+}
+
+#erro{
+  font-size: 1.2em;
+  color: #ff0000;
+}

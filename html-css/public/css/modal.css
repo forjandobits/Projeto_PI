@@ -39,15 +39,6 @@
     width: 100%;
 }
 
-.form-modal>p{
-    font-size: 2em;
-}
-
-.modal>section>form{
-    border: none;
-    background-color: #ffffff;
-}
-
 h3{
     text-align: center;
     align-content: center;
@@ -73,10 +64,6 @@ h3{
     border-radius: 5px;
 }
 
-.form-modal>button{
-    max-width: 100%;
-    margin: 15px 0;
-}
 
 .button-claro{
     background-color: var(--cor-texto-padrao);

@@ -8,46 +8,42 @@
     <title>Conectar-se</title>
     <link rel="stylesheet" href="public/css/estilo.css">
     <link rel="stylesheet" href="public/css/tela_login.css"/>
+    <link rel="stylesheet" href="public/css/formularios.css">
+    <link rel="stylesheet" href="public/css/correcoes.css">
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon">
   </head>
 
 
   <body> 
+    <img src='public\img/fundo-login.jpg' class='fundo-login'>
 
-    <div class='container-fundo'>
-      <img src='public\img/fundo-login.jpg' class='fundo-login'>
-    </div>
+    <main class="main-login">
 
-
-    <main>
-
-      
-      <div class='container-logo'>
-          <h5 class='texto-logo'>Desenvolvido por:</h5>
-        <img class='logo' src='public\img/Logo_Forjando_Bits.jpg'>
-      </div>
-    
       <article class='texto-login'>
+        <section>
           <h1>HumanaMente</h1>
           <h3>Facilitando e otimizando o gerenciamento da sua empresa.</h3>
+        </section>
+        <section class='container-logo'>
+          <h5>Desenvolvido por:</h5>
+          <img src='public\img/Logo_Forjando_Bits.jpg'>
+        </section>
       </article>
-
 
       <article class='container-login'>
 
-        <section class='barra-lateral'>
+        <section>
           <h2>CONECTAR-SE</h2>
-          <form>
-            <input type='number' id='cpf-login' placeholder='CPF' required/>
-            <input type='password' id='senha-login' placeholder='Senha' required/>
-            <p class='erro-login'></p> <!-- Exemplo de mensagem a ser exibida: 'Preencha os dados corretamente' -->
-            <a href='link.com'><small>Esqueci a minha senha</small></a>
-            <button type='button' id='botao-login'>ENTRAR</button>
+          <form class="form-modal-login">
+            <input type='text' id='cpf-login' placeholder='CPF' required/>
+            <input type='password' id='senha-login' placeholder='Digite sua senha' required/>
+            <p id='erro'>Dados incorretos!</p> <!-- Exemplo de mensagem a ser exibida: 'Preencha os dados corretamente' -->
+            <a href='link.com'><small>ESQUECI MINHA SENHA</small></a>
+            <a href="inicial.php"><button type='button' id='botao-login'>ENTRAR</button></a>
           </form>
         </section>
 
       </article>
-      
       
     </main>
   </body>
