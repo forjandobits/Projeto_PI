@@ -14,11 +14,11 @@
         <div class="grupo-campo">
           <div class="campo">
             <label for="data-inicio">Data inicial:</label>
-            <input type="date" id="data-inicio">
+            <input type="date" name="Data-Inicio" id="data-inicio">
           </div>
           <div class="campo">
             <label for="data-final">Data final:</label>
-            <input type="date" id="data-final">
+            <input type="date" name="Data-Final" id="data-final">
           </div>
         </div>
       </section>
@@ -124,19 +124,19 @@
         <p>12/11/2025 - Quarta-feira:</p>
         <div class="campo-linha">
           <label for="tempo-entrada">Entrada 1:</label>
-          <input type="time" name="entrada1" id="tempo-entrada">
+          <input type="time" name="Entrada1" id="tempo-entrada">
         </div>
         <div class="campo-linha">
           <label for="tempo-entrada2">Entrada 2:</label>
-          <input type="time" name="entrada2" id="tempo-entrada2">
+          <input type="time" name="Entrada2" id="tempo-entrada2">
         </div>
         <div class="campo-linha">
           <label for="tempo-entrada3">Entrada 3:</label>
-          <input type="time" name="entrada3" id="tempo-entrada3">
+          <input type="time" name="Entrada3" id="tempo-entrada3">
         </div>
         <div class="campo-linha">
           <label for="tempo-entrada4">Entrada 4:</label>
-          <input type="time" name="entrada4" id="tempo-entrada4">
+          <input type="time" name="Entrada4" id="tempo-entrada4">
         </div>
         <button type="button" class="button-claro">Adicionar outra batida</button>
         <button type="submit">Salvar</button>

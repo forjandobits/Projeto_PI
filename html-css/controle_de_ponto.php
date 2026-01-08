@@ -13,11 +13,11 @@
             <form method="GET">
                 <section class="areas-form">
                     <div class="campo">
-                        <input type="text" id="filtro" placeholder="Ex.: Nome do Funcionário" required>
+                        <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Funcionário" required>
                     </div>
 
                     <div class="campo">
-                        <button>Buscar</button>
+                        <button type="submit">Buscar</button>
                     </div>
                 </section>
             </form>

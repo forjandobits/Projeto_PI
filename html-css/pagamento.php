@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="campo">
-                        <input type="text" id="filtro" placeholder="Ex.: Nome do Colaborador, Cargo, ..." required>
+                        <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Colaborador, Cargo, ..." required>
                     </div>
 
                     <div class="campo">

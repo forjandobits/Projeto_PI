@@ -7,34 +7,32 @@
         <h1>Cadastro de Funcionário</h1>
       </article>
         
-      <article class="container-form">
+      <article>
 
-        <div class="formulario-com-imagem">
+        <div>
 
 
-          <form class="form-cadastrar-func">
+          <form>
             
 
-            <div class="config-input-form-campo">
-              <div class="form-imagem-linhas">
-                <div class="container-icone">
-                  <img src="./public/img/Avatar.png" class="icone-perfil">
-                </div>
-                
+            <div class="">
+              
+              <div class="campo">
+                <label for="fotoFuncionario">Foto do Funcionário:</label>
+                <img src="./public/img/Avatar.png" class="icone-perfil">
+                <input type="file" name="foto" id="fotoFuncionario">
+              </div>
 
-                <div class="form-com-imagem-linhas">
-                  <div class="config-input-form-campo">
-                    <div class="config-campo-grande">
-                    <label for="nome-completo">Nome Completo:</label>
-                    <input type="text" id="nome-completo" name="nome-Funcionario" required/>
-                  </div>
+              <div class="campo">
+                <label for="nome-completo">Nome Completo:</label>
+                <input type="text" id="nome-completo" name="Nome-Funcionario" required/>
+              </div>
 
 
-                  <div class="config-campo-medio">
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" id="telefone" name="Telefone-Funcionario" required />
-                  </div>
-                </div>
+              <div class="campo">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="Telefone-Funcionario" required />
+              </div>
 
 
                 <div class="config-input-form-campo">
@@ -46,7 +44,7 @@
 
                   <div class="config-campo-pequeno">
                     <label for="NumeroCasa">Número:</label>
-                    <input type="number" id="NumeroCasa-Funcionario" />
+                    <input type="number" id="NumeroCasa-Funcionario" name="Numero-Casa"/>
                   </div>
                 </div>
                      
@@ -54,13 +52,13 @@
                 <div class="config-input-form-campo">
                   <div class="config-campo-medio">
                     <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="NomeBairro-Funcionario" required />
+                    <input type="text" id="bairro" name="Bairro-Funcionario" required />
                   </div>
 
 
                   <div class="config-campo-medio">
                     <label for="cidade">Cidade:</label>
-                    <input  type="text"  id="cidade"  name="NomeCidade-Funcionario" required />
+                    <input  type="text"  id="cidade"  name="Cidade-Funcionario" required />
                   </div>
 
 
@@ -118,15 +116,20 @@
 
 
               <div class="config-campo-medio">
-                <label for="gen">Genêro:</label>
-                <input type="text" id="gen" name="Genero-funcionario" required />
+                <label for="genero">Gênero:</label>
+                <select id="genero" name="Genero-Funcionario" required>
+                      <option value="">-- Selecione --</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Feminino">Feminino</option>
+                      <option value="Outro">Outro</option>
+                </select>
               </div>
 
 
                 <div class="config-campo-medio">
 
-                  <label for="EstCivil">Estado Civil:</label>
-                    <select id="EstCivil"  name="EstadoCivil-Funcionario"  required >
+                  <label for="estadoCivil">Estado Civil:</label>
+                    <select id="estadoCivil"  name="EstadoCivil-Funcionario" required >
                       <option value="">-- Selecione --</option>
                       <option>Solteiro</option>
                       <option>Engajado</option>
@@ -139,7 +142,7 @@
 
                 <div class="config-campo-medio">
                   <label for="CPF">CPF:</label>
-                  <input type="number" id="CPF" name="CPF-Funcionario" required />
+                  <input type="text" id="CPF" name="CPF-Funcionario" required />
                 </div>
 
 
@@ -156,8 +159,8 @@
 
                 <div class="form-com-imagem-linhas">
                   <div class="config-campo-medio">
-                    <label for="PPasep">Pis Pasep:</label>
-                    <input  type="number"  id="PPasep"  name="PisPasep-Funcionario"  required/>
+                    <label for="pisPasep">Pis Pasep:</label>
+                    <input  type="number"  id="pisPasep"  name="PisPasep-Funcionario"  required/>
                   </div>
                 </div>
 
@@ -170,20 +173,23 @@
  
 
                 <div class="config-campo-medio">
-                  <label for="Cargo">Cargo:</label>
-                  <input type="text" id="Cargo" name="Cargo-Funcionario" required />
+                  <label for="cargo">Cargo:</label>
+                  <input type="text" id="cargo" name="Cargo-Funcionario" required />
                 </div>
 
 
                 <div class="config-campo-medio">
-                  <label for="CBO">CBO:</label>
-                  <input type="number" id="CBO" name="CBO-Funcionario" required />
+                  <label for="cbo">CBO:</label>
+                  <input type="number" id="cbo" name="CBO-Funcionario" required />
                 </div>
 
 
                 <div class="config-campo-medio">
-                  <label for="Regime">Regime:</label>
-                  <input type="number" id="Regime" name="Regime-Funcionario" required />
+                  <label for="regime">Regime:</label>
+                  <select id="regime" name="Regime-Funcionario" required>
+                      <option value="">-- Selecione --</option>
+                      <option value="CLT">CLT</option>
+                </select>
                 </div>
 
               </div>
@@ -193,32 +199,32 @@
                 <div class="form-com-imagem-linhas">
                   <div class="config-campo-medio">
                     <label for="Remuneracao">Remuneração:</label>
-                    <input  type="number"  id="Remuneracao" name="Remuneracao-Funcionario"  required />
+                    <input type="number"  id="Remuneracao" name="Remuneracao-Funcionario"  required />
                   </div>
                 </div>
 
 
                 <div class="config-campo-medio">
-                  <label for="CPix">Chave Pix:</label>
-                  <input type="text" id="CPix" name="ChavePix-Funcionario" required />
+                  <label for="chavePix">Chave Pix:</label>
+                  <input type="text" id="chavePix" name="ChavePix-Funcionario" required />
                 </div>
 
 
                 <div class="config-campo-medio">
-                  <label for="Banco">Banco:</label>
-                  <input type="text" id="Banco" name="Banco-Funcionario" required />
+                  <label for="banco">Banco:</label>
+                  <input type="text" id="banco" name="Banco-Funcionario" required />
                 </div>
                 
 
                 <div class="config-campo-medio">
-                  <label for="Agencia">Agencia:</label>
-                  <input type="text" id="Agencia" name="Agencia-Funcionario" required />
+                  <label for="agencia">Agencia:</label>
+                  <input type="text" id="agencia" name="Agencia-Funcionario" required />
                 </div>
 
 
                 <div class="config-campo-medio">
-                  <label for="NumeroConta">Número da Conta:</label>
-                  <input type="number" id="NumeroConta" name="NumeroConta-Funcionario"  required  />
+                  <label for="numeroConta">Número da Conta:</label>
+                  <input type="number" id="numeroConta" name="NumeroConta-Funcionario"  required  />
                 </div>
 
             </div>
@@ -228,14 +234,14 @@
 
               <div class="checkbox">
 
-                <input type="checkbox" id="CertidaoCasamento" name="CertidaoCasamento-Funcionario"/>
-                <label for="CertidaoCasamento">Certidão de Casamento</label>
+                <label for="certidaoCasamento">Certidão de Casamento</label>
+                <input type="checkbox" id="certidaoCasamento" name="CertidaoCasamento-Funcionario"/>
               
-                <input type="checkbox" id="PCD" name="PCD-Funcionario"/>
-                <label for="PCD">PCD</label>
+                <label for="pcd">PCD</label>
+                <input type="checkbox" id="pcd" name="PCD-Funcionario"/>
  
-                <input type="checkbox" id="CAM" name="CAM-Funcionario"/>
-                <label for="CAM">Certificado de Alistamento Militar</label>
+                <label for="cam">Certificado de Alistamento Militar</label>
+                <input type="checkbox" id="cam" name="CAM-Funcionario"/>
 
               </div>
 
@@ -246,14 +252,14 @@
 
               <div class="checkbox">
 
-                <input type="checkbox" id="ComprovanteEscolaridade" name="ComprovanteEscolaridade-Funcionario"/>
-                <label for="ComprovanteEscolaridade">Comprovante de Escolaridade</label>
+                <label for="comprovanteEscolaridade">Comprovante de Escolaridade</label>
+                <input type="checkbox" id="comprovanteEscolaridade" name="ComprovanteEscolaridade-Funcionario"/>
 
-                <input type="checkbox" id="filhos" name="Filhos-Funcionario"/>
                 <label for="filhos">Tem Filhos?</label>
+                <input type="checkbox" id="filhos" name="Filhos-Funcionario"/>
   
-                <label for="Qtd-Filhos">Número:</label>
-                <input type="number" id="Qtd-Filhos" name="Qtd-Filhos-Funcionario"/>
+                <label for="qtdFilhos">Número:</label>
+                <input type="number" id="qtdFilhos" name="Qtd-Filhos-Funcionario"/>
 
               </div>
               
@@ -264,17 +270,16 @@
 
               <div class="checkbox-final">
           
-                <label for="Pendencias">Possui pendencias?</label>
-                <input type="checkbox" id="Pendencias" name="Pendencias"/>
+                <label for="possuiPendencias">Possui pendencias? (Marque para Sim)</label>
 
-                <input type="text" id="Possui-pedencias" name="Pendencias" required />
+                <input type="checkbox" id="possuiPendencias" name="Pendencias" required />
 
               </div>
 
             </div>
 
             <div class="botao-Form-Funcionario">
-              <button><Strong>Salvar</Strong></button>
+              <button type="submit"><Strong>Salvar</Strong></button>
             </div>
 
 
