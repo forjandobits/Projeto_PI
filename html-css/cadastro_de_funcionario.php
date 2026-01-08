@@ -28,7 +28,7 @@
           </div>
 
           <div class="campo">
-            <label for="email">Email:</label>
+            <label for="email">E-mail:</label>
             <input type="email" name="Email-Funcionario" id="email" required />
           </div>
 
@@ -49,7 +49,7 @@
           </div>
           
           <div class="campo">
-            <label for="pis-pasep">Pis Pasep:</label>
+            <label for="pis-pasep">Pis-Pasep:</label>
             <input  type="number" name="PisPasep-Funcionario" id="pis-pasep" required/>
           </div>
 
@@ -76,7 +76,7 @@
           
           <!-- Relativo a endereço -->
           <div class="campo">
-            <label for="rua">Rua:</label>
+            <label for="rua">Nome da Rua:</label>
             <input type="text" name="NomeRua-Funcionario" id="rua" required />
           </div>
 
@@ -96,7 +96,7 @@
           </div>
 
           <div class="campo">
-            <label for="estado">Estado:</label>
+            <label for="estado">Estado (UF):</label>
             <select name="NomeEstado-Funcionario" id="estado" required>
               <option value="">-- Selecione --</option>
               <option value="AC">Acre</option>
@@ -135,7 +135,6 @@
           </div>
             
 
-
           <!-- Relativo ao cargo -->
           <div class="campo">
             <label for="cargo">Cargo:</label>
@@ -148,7 +147,7 @@
           </div>
 
           <div class="campo">
-            <label for="regime">Regime:</label>
+            <label for="regime">Regime Trabalhista:</label>
             <select name="Regime-Funcionario" id="regime" required>
               <option value="">-- Selecione --</option>
               <option value="CLT">CLT</option>
@@ -160,6 +159,7 @@
             <input type="number" name="Remuneracao-Funcionario" id="remuneracao" required />
           </div>
 
+
           <!-- Relativo a recebimento do pagamento -->
           <div class="campo">
             <label for="banco">Banco:</label>
@@ -167,13 +167,13 @@
           </div>
 
           <div class="campo">
-            <label for="agencia">Agencia:</label>
+            <label for="agencia">Número da Agência:</label>
             <input type="text"  name="Agencia-Funcionario" id="agencia" required />
           </div>
 
           <div class="campo">
             <label for="numero-conta">Número da Conta:</label>
-            <input type="number" name="NumeroConta-Funcionario" id="numero-conta" required  />
+            <input type="text" name="NumeroConta-Funcionario" id="numero-conta" required  />
           </div>
 
           <div class="campo">
@@ -181,44 +181,45 @@
             <input type="text" name="ChavePix-Funcionario" id="chave-pix" required />
           </div>
 
+          
           <!-- Documentos -->
-          <div class="campo">
+          <div class="campo-linha">
             <label for="certidao-casamento">Certidão de Casamento</label>
             <input type="checkbox" name="CertidaoCasamento-Funcionario" id="certidao-casamento"/>
           </div>
 
-          <div class="campo">
+          <div class="campo-linha">
             <label for="pcd">PCD</label>
             <input type="checkbox" name="PCD-Funcionario" id="pcd"/>
           </div>
 
-          <div class="campo">
+          <div class="campo-linha">
             <label for="cam">Certificado de Alistamento Militar</label>
             <input type="checkbox" name="CAM-Funcionario" id="cam"/>
           </div>
 
-          <div class="campo">
+          <div class="campo-linha">
             <label for="comprovante-escolaridade">Comprovante de Escolaridade</label>
             <input type="checkbox" name="ComprovanteEscolaridade-Funcionario" id="comprovante-escolaridade"/>
           </div>
 
 
-          <div class="campo">
+          <div class="campo-linha">
             <label for="filhos">Tem Filhos?</label>
             <input type="checkbox"  name="Filhos-Funcionario" id="filhos"/>
           </div>
 
-          <div class="campo">
+          <div class="campo-linha">
             <label for="qtd-filhos">Número de Filhos:</label>
             <input type="number" name="Qtd-Filhos-Funcionario" id="qtd-filhos"/>
           </div>
           
-          <div class="campo">
-            <label for="possui-pendencias">Possui pendencias? (Marque para Sim)</label>
+          <div class="campo-linha">
+            <label for="possui-pendencias">Possui Pendências? (Marque para Sim)</label>
             <input type="checkbox" name="Pendencias" id="possui-pendencias" required />
           </div>
 
-          <div>
+          <div class="campo">
             <button type="submit"><Strong>Salvar</Strong></button>
           </div>
 
