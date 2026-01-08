@@ -9,283 +9,220 @@
         
       <article>
 
-        <div>
-
-
-          <form>
-            
-
-            <div class="">
-              
-              <div class="campo">
-                <label for="fotoFuncionario">Foto do Funcionário:</label>
-                <img src="./public/img/Avatar.png" class="icone-perfil">
-                <input type="file" name="foto" id="fotoFuncionario">
-              </div>
-
-              <div class="campo">
-                <label for="nome-completo">Nome Completo:</label>
-                <input type="text" id="nome-completo" name="Nome-Funcionario" required/>
-              </div>
-
-
-              <div class="campo">
-                <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="Telefone-Funcionario" required />
-              </div>
-
-
-                <div class="config-input-form-campo">
-                  <div class="config-campo-grande">
-                    <label for="rua">Rua:</label>
-                    <input type="text" id="rua" name="NomeRua-Funcionario" required />
-                  </div>
-
-
-                  <div class="config-campo-pequeno">
-                    <label for="NumeroCasa">Número:</label>
-                    <input type="number" id="NumeroCasa-Funcionario" name="Numero-Casa"/>
-                  </div>
-                </div>
-                     
-                
-                <div class="config-input-form-campo">
-                  <div class="config-campo-medio">
-                    <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="Bairro-Funcionario" required />
-                  </div>
-
-
-                  <div class="config-campo-medio">
-                    <label for="cidade">Cidade:</label>
-                    <input  type="text"  id="cidade"  name="Cidade-Funcionario" required />
-                  </div>
-
-
-                  <div class="config-campo-medio">
-                    <label for="estado">Estado:</label>
-                    <select id="estado" name="NomeEstado-Funcionario" required>
-                      <option value="">-- Selecione --</option>
-                      <option value="AC">Acre</option>
-                      <option value="AL">Alagoas</option>
-                      <option value="AP">Amapá</option>
-                      <option value="AM">Amazonas</option>
-                      <option value="BA">Bahia</option>
-                      <option value="CE">Ceará</option>
-                      <option value="DF">Distrido Federal</option>
-                      <option value="ES">Espírito Santo</option>
-                      <option value="GO">Goiás</option>
-                      <option value="MA">Maranhão</option>
-                      <option value="MT">Mato Grosso</option>
-                      <option value="MS">Mato Grosso do Sul</option>
-                      <option value="MG">Minas Gerais</option>
-                      <option value="PA">Pará</option>
-                      <option value="PB">Paraiba</option>
-                      <option value="PR">Paraná</option>
-                      <option value="PE">Pernambuco</option>
-                      <option value="PI">Piauí</option>
-                      <option value="RJ">Rio de Janeiro</option>
-                      <option value="RN">Rio Grande do Norte</option>
-                      <option value="RS">Rio Grande do Sul</option>
-                      <option value="RO">Rondônia</option>
-                      <option value="RR">Roraima</option>
-                      <option value="SC">Santa Catarina</option>
-                      <option value="SP">São Paulo</option>
-                      <option value="SE">Sergipe</option>
-                      <option value="TO">Tocantins</option>
-                    </select>
-                  </div>
-
-                  <div class="config-campo-medio">
-                    <label for="CEP">CEP:</label>
-                    <input type="number" id="CEP" name="CEP-Funcionario" required />
-                  </div>
-                </div>
-                </div>
-              </div>
-            </div>
-            
-
-            <div class="config-input-form-campo">
-              <div class="form-com-imagem-linhas">
-                <div class="config-campo-medio">
-                  <label for="dataNasc">Data de Nascimento:</label>
-                  <input type="date"  id="dataNasc"  name="DataNascimento-Funcionario"  required />
-                </div>
-              </div>
-
-
-              <div class="config-campo-medio">
-                <label for="genero">Gênero:</label>
-                <select id="genero" name="Genero-Funcionario" required>
-                      <option value="">-- Selecione --</option>
-                      <option value="Masculino">Masculino</option>
-                      <option value="Feminino">Feminino</option>
-                      <option value="Outro">Outro</option>
-                </select>
-              </div>
-
-
-                <div class="config-campo-medio">
-
-                  <label for="estadoCivil">Estado Civil:</label>
-                    <select id="estadoCivil"  name="EstadoCivil-Funcionario" required >
-                      <option value="">-- Selecione --</option>
-                      <option>Solteiro</option>
-                      <option>Engajado</option>
-                      <option>Casado</option>
-                      <option>Viuvo</option>
-                    </select>
-
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="CPF">CPF:</label>
-                  <input type="text" id="CPF" name="CPF-Funcionario" required />
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="RG">RG:</label>
-                  <input type="text" id="RG" name="RG-Funcionario" required />
-                </div>
-
-
-              </div>
-
-
-              <div class="config-input-form-campo">
-
-                <div class="form-com-imagem-linhas">
-                  <div class="config-campo-medio">
-                    <label for="pisPasep">Pis Pasep:</label>
-                    <input  type="number"  id="pisPasep"  name="PisPasep-Funcionario"  required/>
-                  </div>
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="Email-Funcionario" required />
-                </div>
-
- 
-
-                <div class="config-campo-medio">
-                  <label for="cargo">Cargo:</label>
-                  <input type="text" id="cargo" name="Cargo-Funcionario" required />
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="cbo">CBO:</label>
-                  <input type="number" id="cbo" name="CBO-Funcionario" required />
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="regime">Regime:</label>
-                  <select id="regime" name="Regime-Funcionario" required>
-                      <option value="">-- Selecione --</option>
-                      <option value="CLT">CLT</option>
-                </select>
-                </div>
-
-              </div>
-
-              <div class="config-input-form-campo">
-
-                <div class="form-com-imagem-linhas">
-                  <div class="config-campo-medio">
-                    <label for="Remuneracao">Remuneração:</label>
-                    <input type="number"  id="Remuneracao" name="Remuneracao-Funcionario"  required />
-                  </div>
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="chavePix">Chave Pix:</label>
-                  <input type="text" id="chavePix" name="ChavePix-Funcionario" required />
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="banco">Banco:</label>
-                  <input type="text" id="banco" name="Banco-Funcionario" required />
-                </div>
-                
-
-                <div class="config-campo-medio">
-                  <label for="agencia">Agencia:</label>
-                  <input type="text" id="agencia" name="Agencia-Funcionario" required />
-                </div>
-
-
-                <div class="config-campo-medio">
-                  <label for="numeroConta">Número da Conta:</label>
-                  <input type="number" id="numeroConta" name="NumeroConta-Funcionario"  required  />
-                </div>
-
-            </div>
-
-
-            <div class="config-checkbox">
-
-              <div class="checkbox">
-
-                <label for="certidaoCasamento">Certidão de Casamento</label>
-                <input type="checkbox" id="certidaoCasamento" name="CertidaoCasamento-Funcionario"/>
-              
-                <label for="pcd">PCD</label>
-                <input type="checkbox" id="pcd" name="PCD-Funcionario"/>
- 
-                <label for="cam">Certificado de Alistamento Militar</label>
-                <input type="checkbox" id="cam" name="CAM-Funcionario"/>
-
-              </div>
-
-            </div>
-
-
-            <div class="config-checkbox">
-
-              <div class="checkbox">
-
-                <label for="comprovanteEscolaridade">Comprovante de Escolaridade</label>
-                <input type="checkbox" id="comprovanteEscolaridade" name="ComprovanteEscolaridade-Funcionario"/>
-
-                <label for="filhos">Tem Filhos?</label>
-                <input type="checkbox" id="filhos" name="Filhos-Funcionario"/>
-  
-                <label for="qtdFilhos">Número:</label>
-                <input type="number" id="qtdFilhos" name="Qtd-Filhos-Funcionario"/>
-
-              </div>
-              
-            </div> <!-- So ira se exibi-se caso a checkbox acima(tem-filhos) for marcada -->
-
-
-            <div class="form-final">
-
-              <div class="checkbox-final">
+        <form>
+          <!-- Informações Pessoais -->
+          <div class="campo">
+            <label for="foto-funcionario">Foto do Funcionário:</label>
+            <img src="./public/img/Avatar.png" class="icone-perfil">
+            <input type="file" name="Foto-Funcionario" id="foto-funcionario">
+          </div>
+
+          <div class="campo">
+            <label for="nome-completo">Nome Completo:</label>
+            <input type="text" name="Nome-Funcionario" id="nome-completo" required/>
+          </div>
           
-                <label for="possuiPendencias">Possui pendencias? (Marque para Sim)</label>
+          <div class="campo">
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="Telefone-Funcionario" id="telefone" required />
+          </div>
 
-                <input type="checkbox" id="possuiPendencias" name="Pendencias" required />
+          <div class="campo">
+            <label for="email">Email:</label>
+            <input type="email" name="Email-Funcionario" id="email" required />
+          </div>
 
-              </div>
+          <div class="campo">
+            <label for="data-nasc">Data de Nascimento:</label>
+            <input type="date" name="DataNascimento-Funcionario" id="data-nasc" required />
+          </div>
+          
+          <div class="campo">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="CPF-Funcionario" id="cpf" required />
+          </div>
+          
+          
+          <div class="campo">
+            <label for="rg">RG:</label>
+            <input type="text" name="RG-Funcionario" id="rg" required />
+          </div>
+          
+          <div class="campo">
+            <label for="pis-pasep">Pis Pasep:</label>
+            <input  type="number" name="PisPasep-Funcionario" id="pis-pasep" required/>
+          </div>
 
-            </div>
+          <div class="campo">
+            <label for="genero">Gênero:</label>
+            <select name="Genero-Funcionario" id="genero" required>
+              <option value="">-- Selecione --</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
 
-            <div class="botao-Form-Funcionario">
-              <button type="submit"><Strong>Salvar</Strong></button>
-            </div>
+          <div class="campo">
+            <label for="estado-civil">Estado Civil:</label>
+            <select name="EstadoCivil-Funcionario" id="estado-civil" required >
+              <option value="">-- Selecione --</option>
+              <option>Solteiro</option>
+              <option>Casado</option>
+              <option>Viuvo</option>
+            </select>
+          </div>
+          
+          
+          <!-- Relativo a endereço -->
+          <div class="campo">
+            <label for="rua">Rua:</label>
+            <input type="text" name="NomeRua-Funcionario" id="rua" required />
+          </div>
+
+          <div class="campo">
+            <label for="numero-casa">Número:</label>
+            <input type="text" name="NumeroCasa-Funcionario" id="numero-casa"/>
+          </div>
+          
+          <div class="campo">
+            <label for="bairro">Bairro:</label>
+            <input type="text" name="Bairro-Funcionario" id="bairro" required />
+          </div>
+
+          <div class="campo">
+            <label for="cidade">Cidade:</label>
+            <input  type="text" name="Cidade-Funcionario" id="cidade" required />
+          </div>
+
+          <div class="campo">
+            <label for="estado">Estado:</label>
+            <select name="NomeEstado-Funcionario" id="estado" required>
+              <option value="">-- Selecione --</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrido Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraiba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="cep">CEP:</label>
+            <input type="number" name="CEP-Funcionario" id="cep" required />
+          </div>
+            
 
 
-          </form>
-      </div>
+          <!-- Relativo ao cargo -->
+          <div class="campo">
+            <label for="cargo">Cargo:</label>
+            <input type="text" name="Cargo-Funcionario" id="cargo" required />
+          </div>
 
+          <div class="campo">
+            <label for="cbo">CBO:</label>
+            <input type="number" name="CBO-Funcionario" id="cbo" required />
+          </div>
+
+          <div class="campo">
+            <label for="regime">Regime:</label>
+            <select name="Regime-Funcionario" id="regime" required>
+              <option value="">-- Selecione --</option>
+              <option value="CLT">CLT</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="remuneracao">Remuneração:</label>
+            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" required />
+          </div>
+
+          <!-- Relativo a recebimento do pagamento -->
+          <div class="campo">
+            <label for="banco">Banco:</label>
+            <input type="text" name="Banco-Funcionario" id="banco" required />
+          </div>
+
+          <div class="campo">
+            <label for="agencia">Agencia:</label>
+            <input type="text"  name="Agencia-Funcionario" id="agencia" required />
+          </div>
+
+          <div class="campo">
+            <label for="numero-conta">Número da Conta:</label>
+            <input type="number" name="NumeroConta-Funcionario" id="numero-conta" required  />
+          </div>
+
+          <div class="campo">
+            <label for="chave-pix">Chave Pix:</label>
+            <input type="text" name="ChavePix-Funcionario" id="chave-pix" required />
+          </div>
+
+          <!-- Documentos -->
+          <div class="campo">
+            <label for="certidao-casamento">Certidão de Casamento</label>
+            <input type="checkbox" name="CertidaoCasamento-Funcionario" id="certidao-casamento"/>
+          </div>
+
+          <div class="campo">
+            <label for="pcd">PCD</label>
+            <input type="checkbox" name="PCD-Funcionario" id="pcd"/>
+          </div>
+
+          <div class="campo">
+            <label for="cam">Certificado de Alistamento Militar</label>
+            <input type="checkbox" name="CAM-Funcionario" id="cam"/>
+          </div>
+
+          <div class="campo">
+            <label for="comprovante-escolaridade">Comprovante de Escolaridade</label>
+            <input type="checkbox" name="ComprovanteEscolaridade-Funcionario" id="comprovante-escolaridade"/>
+          </div>
+
+
+          <div class="campo">
+            <label for="filhos">Tem Filhos?</label>
+            <input type="checkbox"  name="Filhos-Funcionario" id="filhos"/>
+          </div>
+
+          <div class="campo">
+            <label for="qtd-filhos">Número de Filhos:</label>
+            <input type="number" name="Qtd-Filhos-Funcionario" id="qtd-filhos"/>
+          </div>
+          
+          <div class="campo">
+            <label for="possui-pendencias">Possui pendencias? (Marque para Sim)</label>
+            <input type="checkbox" name="Pendencias" id="possui-pendencias" required />
+          </div>
+
+          <div>
+            <button type="submit"><Strong>Salvar</Strong></button>
+          </div>
+
+        </form>
       
       </article>
     </main>
