@@ -39,6 +39,8 @@
 
     class = 'exemplo-class'
 
+    name = "Exemplo-Name"
+
 </i>
 <h3>Padrão da estrutura HTML</h3>
 

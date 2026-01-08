@@ -22,7 +22,7 @@
                 <div class="grupo-campo">
                     <div class="campo">
                         <label for="nome">Colaborador:</label>
-                        <input name="" id="nome" type="text" placeholder="Ex.: José da Silva" required>
+                        <input name="Nome" id="nome" type="text" placeholder="Ex.: José da Silva" required>
                     </div>
                     <div class="campo">
                         <label for="opcoes">Tipo de Solicitação:</label>
@@ -39,19 +39,19 @@
                 <div class="grupo-campo">
                     <div class="campo">
                         <label for="observacoes">Observação:</label>
-                        <textarea name="" id="observacoes" placeholder="Ex.: Motivo pelo qual a solicitações será feita. (Obrigatório)" required></textarea>
+                        <textarea name="Observacoes" id="observacoes" placeholder="Ex.: Motivo pelo qual a solicitações será feita. (Obrigatório)" required></textarea>
                     </div>
                 </div>
 
                 <div class="grupo-campo">
                     <div class="campo">
                         <label for="arquivo">Anexar Arquivos</label>
-                        <input type="file" name="" id="arquivo">
+                        <input type="file" name="Arquivo" id="arquivo">
                         <!-- <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" class="icone-nuvem"> -->
                     </div>
                     <div class="campo resumo">
                         <label for="pendente">Pendente:</label>
-                        <input type="checkbox" id="pendente"></input>
+                        <input type="checkbox" name="Pendencia" id="pendente"></input>
                         <button>Concluir</button>
                     </div>
                 </div>
