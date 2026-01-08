@@ -1,5 +1,3 @@
-<!-- Cabeçalho fixo da tela -->
-<!-- Menu Lateral (SideBar)-->
 <?php include "./header.php" ?>
 <?php include "./sidebar.php" ?>
 
@@ -9,7 +7,7 @@
     <main>
 
         <!-- Área de conteúdo principal-->
-        <article class="article-tela-inicial">
+        <article>
 
             <!-- Seção de Pendências -->
             <section>

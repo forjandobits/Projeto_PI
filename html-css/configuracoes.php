@@ -41,8 +41,6 @@
                         <button id="fonte-media">Padrão</button>
                         <button id="fonte-maior">Aumentar</button>
                     </div>
-                    <!-- <div class="grupo-campo">
-                    </div> -->
                 </section>
             </form>
 

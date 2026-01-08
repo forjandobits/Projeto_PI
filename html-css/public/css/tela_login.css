@@ -3,7 +3,6 @@
 .fundo-login {
   width: 100vw;
   position: fixed;
-  z-index: -1;
   opacity: 65%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,17 +12,10 @@
 /* ========== Area com Texto e Logo na página de Login ========== */
 
 .main-login{
-  display: flex;
   flex-direction: row;
-  position: relative;
   max-height: 100dvh;
   width: 100dvw;
-  margin: 0;
   padding: 0;
-}
-
-section{
-  width: 100%;
 }
 
 .texto-login {
@@ -70,7 +62,6 @@ section{
 }
 
 .container-login>section{
-  /* color: var(--cor-texto-padrao); */
   display: flex;
   flex-direction: column;
   justify-content: center;

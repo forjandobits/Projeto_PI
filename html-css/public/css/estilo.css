@@ -6,7 +6,6 @@
   --cor-sombra-escura: #000000;
   --cor-background: #f1f2f3;
   --cor-background-cinza: #cfcfcf;
-  /* --cor-background-azul: #30adea; */
   --cor-background-hover: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
@@ -85,7 +84,6 @@ h2{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    min-height: 216px;
     gap: 15px;
     margin:10px 30px;
 }
@@ -99,13 +97,13 @@ figure {
   padding: 5px;
   border: 1px solid var(--cor-background-cinza);
   border-radius: 5px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 6px 18px #0f172a14;
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
 figure:hover {
   transform: scale(1.1);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.4);
+  box-shadow: 0 14px 40px #0f172a66;
 }
 
 .imagem-tela-inicial {
@@ -123,10 +121,6 @@ figure:hover {
 
 /*========================== Folha de Pagamento ============================ */
 
-td[colspan="2"] {
-  background-color: white;
-}
-
 .resumo-final {
   display: flex;
   justify-content: end;
@@ -135,110 +129,5 @@ td[colspan="2"] {
   font-size: 1.5em;
   width: 100%;
   gap: 15px;
-  color: #000000;
-}
-
-/* ========== Area de Tela de cadastro de funcionario ========== */
-
-.form-cadastrar-func {
-  width: 60vw;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 5px;
-  display: flex;
-  flex: 3;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form-cadastrar-func label {
-  font-weight: bold;
-}
-
-
-.config-campo-grande {
-  display: flex;
-  flex-direction: column;
-  min-width: 500px;
-}
-
-.config-campo-pequeno {
-  display: flex;
-  flex-direction: column;
-  width: 70px
-}
-
-.config-campo-medio {
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
-  max-width: 300px;/* evita que fique esticado demais */
-}
-
-
-.config-checkbox {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.checkbox {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.checkbox label {
-  margin-right: 20px;
-}
-
-.form-final {
-  display: flex;
-  flex-direction: column;
-
-}
-.checkbox-final {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-
-.formulario-com-imagem {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: flex-start; 
-  margin: auto; 
-}
-
-.container-icone {
-  max-width: 180px;
-  display: flex;
-}
-
-.icone-perfil {
-  width: 100%;
-  max-width: 140px;
-  border-radius: 100px;
-}
-
-.form-com-imagem-linhas {
-  display: flex;
-  flex-direction: column;
-}
-
-.section-alterar-senha-configuracoes button {
-  background-color: #30adea;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  margin-top: 10px;
-  color: #ffffff;
-  font-size: var(--fonte-bem-pequena);
-  width: 130px;
-}
-.form-imagem-linhas {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 50px;
+  color: var(--cor-sombra-escura);
 }

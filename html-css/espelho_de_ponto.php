@@ -44,7 +44,7 @@
         </tr>
       </thead>
     
-      <tbody>
+      <tbody id="tabela-saida-espelho-ponto">
         <tr>
           <td>12/11/2025</td>
           <td>Quarta-feira</td>
@@ -138,7 +138,7 @@
           <label for="tempo-entrada4">Entrada 4:</label>
           <input type="time" name="entrada4" id="tempo-entrada4">
         </div>
-        <button class="button-claro">Adicionar outra batida</button>
+        <button type="button" class="button-claro">Adicionar outra batida</button>
         <button type="submit">Salvar</button>
       </form>
     </section>
