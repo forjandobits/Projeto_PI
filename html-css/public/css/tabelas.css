@@ -1,5 +1,4 @@
-/* Tabelas  - Configurações padrão para todas*/
-
+/* Tabelas  - Configurações padrão*/
 table {
   width: 100%;
   margin: 50px 0;
@@ -14,7 +13,7 @@ caption{
 
 th, caption {
   background: var(--cor-titulo-azul);
-  color: white;
+  color: #ffffff;
   padding: 12px;
 }
 
@@ -32,6 +31,10 @@ th, td {
   height: 45px;
 }
 
+td[colspan="2"] {
+  background-color: #ffffff;
+}
+
 tr:nth-child(odd){
   background-color: #b6b6b6;
 }
@@ -43,7 +46,3 @@ tr:nth-child(even){
 tr:hover{
     background-color: var(--cor-texto-cinza);
 }
-
-/* td:last-child{
-  background-color: #fff;
-} */

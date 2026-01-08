@@ -35,7 +35,7 @@
         </tr>
       </thead>
     
-      <tbody>
+      <tbody id="tabela-saida-folha-pagamento">
         <tr>
           <td>00</td>
           <td>Salário Base</td>

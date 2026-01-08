@@ -39,7 +39,7 @@
             <input type='password' id='senha-login' placeholder='Digite sua senha' required/>
             <p id='erro'>Dados incorretos!</p> <!-- Exemplo de mensagem a ser exibida: 'Preencha os dados corretamente' -->
             <a href='link.com'><small>ESQUECI MINHA SENHA</small></a>
-            <a href="inicial.php"><button type='button' id='botao-login'>ENTRAR</button></a>
+            <a href="inicial.php"><button type='button'>ENTRAR</button></a>
           </form>
         </section>
 

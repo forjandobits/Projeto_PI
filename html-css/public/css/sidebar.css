@@ -1,15 +1,3 @@
-:root {
-    --cor-titulo-azul: #30adea;
-    --cor-sombra-clara: #7e7e7e;
-    --cor-sombra-escura: #000000;
-    --cor-background: #f1f2f3;
-    --cor-background-cinza: #cfcfcf;
-    --cor-background-azul: #93dbff;
-    --cor-background-hover: #2366bf;
-    --cor-texto-padrao: #f1f2f3;
-    --cor-texto-cinza: #8a8a8a;
-}
-
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -75,10 +63,11 @@
     width: 200px;
 }
 
-.botao-sair{
+.sair{
     justify-content: center;
-    align-items: center;
     font-size: 1.5em;
-    margin: 0;
-    padding: 15px;
+    background-color: var(--cor-titulo-azul);
+    padding: 10px !important;
+    color: var(--cor-texto-padrao) !important; /* Utilizar apenas em último caso*/
+    border-radius: 10px;
 }
