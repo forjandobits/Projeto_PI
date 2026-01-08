@@ -1,12 +1,12 @@
 /* Formatação para formulários */
 form {
+  color: var(--cor-texto-escuro);
   margin: 20px 0;
   width: 100%;
   padding: 20px;
-  border: 2px solid #aeb0b5;
   border-radius: 12px;
-  background-color: #e8e8e8;
-  color: var(--cor-sombra-escura);
+  border: 2px solid var(--cor-border-cinza);
+  background-color: var(--cor-background-cinza);
 }
 
 .areas-form {
@@ -20,17 +20,17 @@ form {
 
 .grupo-campo{
   display: flex;
-  flex: 1;
   flex-wrap: wrap;
   justify-items: center;
+  flex: 1;
   gap: 10px;
 }
 
 .grupo-campo-linha{
   display: flex;
   flex-direction: row;
-  flex: 1;
   justify-items: center;
+  flex: 1;
   gap: 10px;
 }
 
@@ -38,15 +38,15 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: bold;
   min-width: 400px;
   margin-top: 15px;
   font-size: 1.5em;
-  font-weight: bold;
 }
 
 .campo>img{
-  max-width: 200px;
   align-self: center;
+  max-width: 200px;
 }
 
 form h2 {
@@ -54,14 +54,14 @@ form h2 {
 }
 
 input, select, textarea {
-  border-radius: 5px;
-  border: 1px solid var(--cor-sombra-escura);
-  padding: 5px 10px;
   flex: 1;
+  padding: 5px 10px;
   min-width: 40px;
   min-height: 40px;
   max-height: 120px;
   font-size: 0.8em;
+  border-radius: 5px;
+  border: 1px solid var(--cor-border-escuro);
 }
 
 textarea{
@@ -71,8 +71,8 @@ textarea{
 
 .resumo {
   flex-direction: row;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
   padding: 5px;
 }
 
@@ -93,9 +93,9 @@ textarea{
 .form-modal-login{
   display: flex;
   flex-direction: column;
-  gap: 20px;
   border: none;
   background-color: var(--cor-background);
+  gap: 20px;
   padding: 50px;
 }
 
@@ -117,13 +117,13 @@ textarea{
 small{
   font-size: 1.5em;
   text-decoration: none;
-  color: var(--cor-sombra-escura);
-  border-bottom: 1px solid var(--cor-sombra-escura);
+  color: var(--cor-texto-escuro);
+  border-bottom: 1px solid var(--cor-border-escuro);
 }
 
 #erro{
   font-size: 1.2em;
-  color: #ff0000;
+  color: var(--cor-mensagem-vermelho)
 }
 
 .opcoes-tamanho{

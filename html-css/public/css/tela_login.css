@@ -1,12 +1,12 @@
 /* ========== Imagem de fundo ========== */
 
 .fundo-login {
-  width: 100vw;
   position: fixed;
-  opacity: 65%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  width: 100vw;
+  opacity: 65%;
 }
 
 /* ========== Area com Texto e Logo na página de Login ========== */

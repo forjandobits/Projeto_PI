@@ -15,7 +15,7 @@
         <li><a href="controle_de_ponto.php"><img src="../html-css/public/img/icones/pontos.png"><span>Banco de Horas</span></a></li>
         <li><a href="colaboradores.php"><img src="../html-css/public/img/icones/funcionarios.png"><span>Funcionários</span></a></li>
         <li><a href="configuracoes.php"><img src="../html-css/public/img/icones/configuracoes.png"><span>Configurações</span></a></li>
-        <li><a href="tela_login.php" class="sair">SAIR</a></li>
+        <li><a href="index.php" class="sair">SAIR</a></li>
 
     </ul>
 </nav>

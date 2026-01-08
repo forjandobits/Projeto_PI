@@ -1,14 +1,33 @@
 /* ========== Variavéis ========== */
 
 :root {
+  /* Títulos e textos */
   --cor-titulo-azul: #30adea;
-  --cor-sombra-clara: #7e7e7e;
-  --cor-sombra-escura: #000000;
-  --cor-background: #f1f2f3;
-  --cor-background-cinza: #cfcfcf;
-  --cor-background-hover: #2366bf;
+  --cor-texto-azul: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
+  --cor-texto-escuro: #000000;
+  --cor-mensagem-vermelho: #ff0000;
+  /* Bordas */
+  --cor-border-azul: #30adea;
+  --cor-border-cinza: #7e7e7e;
+  --cor-border-escuro: #000000;
+  /* Sombras */
+  --cor-sombra-clara: #7e7e7e;
+  --cor-sombra-escura: #000000;
+  /* Backgrounds */
+  --cor-background: #f1f2f3;
+  --cor-background-azul: #30adea;
+  --cor-background-cinza: #cfcfcf;
+  --cor-background-odd-cinza: #b6b6b6;
+  --cor-background-campo-cinza: #e8e8e8;
+  /* Hovers */
+  --cor-background-hover: #2366bf;
+  --cor-background-hover-cinza: #cfcfcf;
+  --cor-table-hover: #8a8a8a;
+  /* Alertas */
+  --cor-pendencia: #ffe08a;
+  --cor-urgencia: #ff8a8a;
 
   --fonte-muito-grande: 4.375rem;
   /* 70px */
@@ -54,10 +73,10 @@ main.open{
 /* ========== Area de Tela Inicial ========== */
 
 header {
-  height: 10vh;
   display: flex;
   justify-content: right;
   background-color: var(--cor-background);
+  height: 10vh;
 }
 
 header img{
@@ -66,11 +85,11 @@ header img{
 }
 
 article {
-  color: var(--cor-titulo-azul);
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: center;
+  color: var(--cor-titulo-azul);
+  gap: 10px;
   width: 100%;
 }
 
@@ -95,25 +114,25 @@ figure {
   max-height: 225px;
   max-width: 200px;
   padding: 5px;
-  border: 1px solid var(--cor-background-cinza);
   border-radius: 5px;
-  box-shadow: 0 6px 18px #0f172a14;
+  border: 1px solid var(--cor-background-cinza);
+  box-shadow: 0 6px 18px var(--cor-sombra-escura);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
 figure:hover {
-  transform: scale(1.1);
-  box-shadow: 0 14px 40px #0f172a66;
+  transform: scale(1.15);
+  box-shadow: 0 14px 40px var(--cor-sombra-escura);
 }
 
 .imagem-tela-inicial {
+  object-fit: cover;
   width: 150px;
   height: 150px;
-  object-fit: cover;
 }
 
 .card-texto {
-  color: var(--cor-sombra-escura);
+  color: var(--cor-texto-escuro);
   text-align: center;
   padding: 1rem;
   font-size: 1.2em;
@@ -126,8 +145,8 @@ figure:hover {
   justify-content: end;
   align-items: center;
   font-weight: bold;
+  color: var(--cor-texto-escuro);
   font-size: 1.5em;
   width: 100%;
   gap: 15px;
-  color: var(--cor-sombra-escura);
 }

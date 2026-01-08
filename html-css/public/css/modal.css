@@ -15,23 +15,23 @@
     position: fixed;
     z-index: 1;
     width: 30vw;
-    background-color: #ffffff;
-    border: 3px solid var(--cor-sombra-clara);
-    color: va(--cor-sombra-escura);
+    background-color: var(--cor-background);
+    border: 3px solid var(--cor-border-cinza);
+    color: va(--cor-texto-escuro);
     padding: 10px;
 }
 
 .fechar{
-    color: va(--cor-sombra-escura);
+    text-align: center;
+    cursor: pointer;
+    color: va(--cor-texto-escuro);
     height: 60px;
     width: 60px;
     font-size: 3em;
-    text-align: center;
-    cursor: pointer;
 }
 
 .fechar:hover{
-    color: #ff0000;
+    color: var(--cor-mensagem-vermelho);
 }
 
 .modal>section{
@@ -51,7 +51,7 @@ h3{
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  background-color: #e8e8e8;
+  background-color: var(--cor-background-campo-cinza);
   font-size: 1.5em;
   min-width: 400px;
   margin-top: 15px;
@@ -66,12 +66,12 @@ h3{
 
 
 .button-claro{
-    background-color: var(--cor-texto-padrao);
+    background-color: var(--cor-background);
     color: var(--cor-titulo-azul);
-    border: 2px solid var(--cor-titulo-azul);
+    border: 2px solid var(--cor-border-azul);
 }
 
 .button-claro:hover{
-    background-color: var(--cor-titulo-azul);
+    background-color: var(--cor-background-azul);
     color: var(--cor-texto-padrao);
 }
