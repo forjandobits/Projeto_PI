@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Fecha o modal se ele existir
-    fechar.addEventListener("click", ()=> {
-        exibir.style.display = "none";
-    })
+    if(fechar){
+        fechar.addEventListener("click", ()=> {
+            exibir.style.display = "none";
+        })
+    }
 });

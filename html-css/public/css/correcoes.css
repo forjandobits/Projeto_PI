@@ -12,16 +12,20 @@ h1 {
 button {
   font-size: xx-large;
   cursor: pointer;
+  border: none;
+  background-color: var(--cor-background-azul);
+  color: var(--cor-texto-padrao);
+  border-radius: 10px;
   width: 100%;
   max-width: 300px;
   padding: 5px 15px;
-  border: none;
-  background-color: var(--cor-titulo-azul);
-  color: var(--cor-texto-padrao);
-  border-radius: 10px;
 }
 
-button:hover {
+button>a{
+  color: var(--cor-texto-padrao);
+}
+
+button:hover, .sair:hover {
   background-color: var(--cor-background-hover);
 }
 
@@ -46,12 +50,12 @@ section{
 
 @keyframes pulsar-amarelo {
   50%{
-    background-color: #ffe08a;
+    background-color: var(--cor-pendencia);
   }
 }
 
 @keyframes pulsar-vermelho {
   50%{
-    background-color: #ff8a8a;
+    background-color: var(--cor-urgencia);
   }
 }
