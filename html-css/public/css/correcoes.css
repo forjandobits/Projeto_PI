@@ -13,6 +13,7 @@ button {
   font-size: xx-large;
   cursor: pointer;
   border: none;
+  text-transform: capitalize;
   background-color: var(--cor-background-azul);
   color: var(--cor-texto-padrao);
   border-radius: 10px;
@@ -27,6 +28,14 @@ button>a{
 
 button:hover, .sair:hover {
   background-color: var(--cor-background-hover);
+}
+
+button.aceitar:hover{
+  background-color: var(--cor-background-aceitar);
+}
+
+button.negar:hover{
+  background-color: var(--cor-background-negar);
 }
 
 section{

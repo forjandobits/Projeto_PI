@@ -13,11 +13,17 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
-    width: 30vw;
     background-color: var(--cor-background);
     border: 3px solid var(--cor-border-cinza);
     color: va(--cor-texto-escuro);
+    flex: 1;
+    top: 120px;
+    z-index: 1;
+    width: 30dvw;
+    max-width: 70dvw;
+    min-height: 50dvh;
+    max-height: 80dvh;
+    overflow: auto;
     padding: 10px;
 }
 
@@ -45,25 +51,6 @@ h3{
     flex: 1;
     font-size: 3em;
 }
-
-.campo-linha {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  background-color: var(--cor-background-campo-cinza);
-  font-size: 1.5em;
-  min-width: 400px;
-  margin-top: 15px;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.campo-linha>input{
-    max-width: 100px;
-    border-radius: 5px;
-}
-
 
 .button-claro{
     background-color: var(--cor-background);

@@ -25,6 +25,8 @@
   --cor-background-hover: #2366bf;
   --cor-background-hover-cinza: #cfcfcf;
   --cor-table-hover: #8a8a8a;
+  --cor-background-negar: #ff0000;
+  --cor-background-aceitar: #0a740a;
   /* Alertas */
   --cor-pendencia: #ffe08a;
   --cor-urgencia: #ff8a8a;
@@ -149,4 +151,5 @@ figure:hover {
   font-size: 1.5em;
   width: 100%;
   gap: 15px;
+  margin-top: 5px;
 }
