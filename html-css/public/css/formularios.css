@@ -40,14 +40,12 @@ form {
   justify-content: center;
   font-weight: bold;
   min-width: 400px;
-  max-width: 600px;
   margin-top: 15px;
   font-size: 1.5em;
 }
 
 .campo>img{
   align-self: center;
-  max-width: 200px;
 }
 
 .campo>p{
@@ -62,7 +60,6 @@ form {
   background-color: var(--cor-background-campo-cinza);
   font-size: 1.5em;
   min-width: 400px;
-  max-width: 600px;
   margin-top: 15px;
   border-radius: 5px;
   padding: 10px;
@@ -160,117 +157,27 @@ small{
 
 /* ========== Formulário de cadastro com grid ========== */
 
-.form-cadastro{
+.cadastro{
   display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: 50px;
-  gap: 20px;
-  margin: auto 0 auto auto;
-  padding: 15px;
-}
-
-/*
-
-.form-cadastrar-func {
-  width: 60vw;
-  margin: 20px auto;
-  padding: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 10px;
   border-radius: 5px;
-  display: flex;
-  flex: 3;
-  flex-direction: column;
-  gap: 10px;
 }
 
-.form-cadastrar-func label {
-  font-weight: bold;
+.foto-funcionario{
+  grid-row-start: 1;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 
-
-.config-campo-grande {
-  display: flex;
-  flex-direction: column;
-  min-width: 500px;
+.possui-pendencias{
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
-.config-campo-pequeno {
-  display: flex;
-  flex-direction: column;
-  width: 70px
-}
-
-.config-campo-medio {
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
-  max-width: 300px;/* evita que fique esticado demais 
-}
-
-
-.config-checkbox {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.checkbox {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.checkbox label {
-  margin-right: 20px;
-}
-
-.form-final {
-  display: flex;
-  flex-direction: column;
-
-}
-.checkbox-final {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-
-.formulario-com-imagem {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: flex-start; 
-  margin: auto; 
-}
-
-.container-icone {
-  max-width: 180px;
-  display: flex;
-}
-
-.icone-perfil {
-  width: 100%;
-  max-width: 140px;
-  border-radius: 100px;
-}
-
-.form-com-imagem-linhas {
-  display: flex;
-  flex-direction: column;
-}
-
-.section-alterar-senha-configuracoes button {
-  background-color: #30adea;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  margin-top: 10px;
-  color: #ffffff;
-  font-size: var(--fonte-bem-pequena);
-  width: 130px;
-}
-.form-imagem-linhas {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 50px;
+.arquivos{
+  grid-column-start: 1;
+  grid-column-end: 4;
 }

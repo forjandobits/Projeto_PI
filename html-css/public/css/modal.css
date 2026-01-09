@@ -27,6 +27,10 @@
     padding: 10px;
 }
 
+.modal-cadastro{
+    width: 70dvw;
+}
+
 .fechar{
     text-align: center;
     cursor: pointer;
