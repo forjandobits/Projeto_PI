@@ -9,7 +9,7 @@
         
       <article>
 
-        <form>
+        <form class="form-cadastro">
           <!-- Informações Pessoais -->
           <div class="campo">
             <label for="foto-funcionario">Foto do Funcionário:</label>

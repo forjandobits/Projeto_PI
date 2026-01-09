@@ -45,7 +45,7 @@
 
                 <div class="grupo-campo">
                     <div class="campo">
-                        <label for="arquivo">Anexar Arquivos</label>
+                        <label for="arquivo">Anexar Arquivos:</label>
                         <input type="file" name="Arquivo" id="arquivo">
                         <!-- <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" class="icone-nuvem"> -->
                     </div>
@@ -85,7 +85,7 @@
                     <td>12/11/2025 </td>
                     <td>Resolvida</td>
                     <td> 
-                        <button>Visualizar</button>
+                        <button class='abrir-modal'>Visualizar</button>
                     </td>
                 </tr>
         
@@ -107,7 +107,7 @@
                     <td>17/11/2025 </td>
                     <td>Resolvida</td>
                     <td> 
-                        <button>Visualizar</button>
+                        <button class='abrir-modal'>Visualizar</button>
                     </td>
                 </tr>
 
@@ -117,7 +117,7 @@
                     <td>17/11/2025 </td>
                     <td>Resolvida</td>
                     <td> 
-                        <button>Visualizar</button>
+                        <button class='abrir-modal'>Visualizar</button>
                     </td>
                 </tr>
 
@@ -127,7 +127,7 @@
                     <td>18/11/2025 </td>
                     <td>Pendente</td>
                     <td> 
-                        <button>Visualizar</button>
+                        <button class='abrir-modal'>Visualizar</button>
                     </td>
                 </tr>
 
@@ -137,7 +137,7 @@
                     <td>20/11/2025 </td>
                     <td>Pendente</td>
                     <td> 
-                        <button>Visualizar</button>
+                        <button class='abrir-modal'>Visualizar</button>
                     </td>
                 </tr>
 
@@ -147,13 +147,58 @@
                     <td>25/11/2025 </td>
                     <td>Urgente</td>
                     <td> 
-                        <button>Visualizar</button>
+                        <button class='abrir-modal'>Visualizar</button>
                     </td>
                 </tr>
         
             </tbody>
         </table>
     </article>
+
+    <article class="modal">
+        <section>
+        <p class="fechar">X</p>
+        <h3>Informações da Solicitação</h3>
+        </section>
+        
+        <section>
+            <form action="" class="form-modal">
+                <div class="campo">
+                <label>Nome do Solicitante:</label>
+                <!-- <input type="text" name="Nome-Solicitante" id="nome-solicitante" placeholder="Josué Arruda" disabled> -->
+                <p id="nome-solicitante">Josué Arruda</p>
+                </div>
+                <div class="campo">
+                <label>Data da Solicitação:</label>
+                <input type="text" name="Nome-Solicitante" id="data-solicitacao" placeholder="12/11/2025" disabled>
+                <!-- <p id="data-solicitacao">12/11/2025</p> -->
+                </div>
+                <div class="campo">
+                <label for="opcao-selecionada">Tipo de Solicitação:</label>
+                <input type="text" name="Opcao-Selecionada" id="opcao-selecionada" placeholder="Férias" disabled>
+                <!-- <p id="opcao-selecionada">Férias</p> -->
+                </div>
+                <div class="campo">
+                <label for="exibir-oberservacao">Observação:</label>
+                <input type="text" name="Exibir-Oberservacao" id="exibir-oberservacao" placeholder="Motivo completo" disabled>
+                <!-- <p id="exibir-observacao">Motivo completo</p> -->
+                </div>
+                <div class="campo">
+                <label for="motivo-recusar">Motivo da Recusa ou Aceite:</label>
+                <textarea name="Recusar" id="motivo-recusar" placeholder="Motivo pelo qual foi aceita ou não a solicitação" required></textarea>
+                </div>
+                <div class="campo">
+                <label for="arquivos-anexados">Arquivos Anexados:</label>
+                <input type="file" name="Arquivos-Anexados" id="arquivos-anexados" disabled>
+                </div>
+                <section class="resumo-final">
+                    <button class="aceitar" type="submit">✔ Autorizar</button>
+                    <button class="negar" type="submit">✘ Negar</button>
+                </section>
+            </form>
+        </section>
+    </article>
+
 </main>
 
 
