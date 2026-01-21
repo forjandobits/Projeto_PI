@@ -157,8 +157,8 @@
 
     <article class="modal">
         <section>
-        <p class="fechar">X</p>
-        <h3>Informações da Solicitação</h3>
+            <h3>Informações da Solicitação</h3>
+            <p class="fechar">X</p>
         </section>
         
         <section>

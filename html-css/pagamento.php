@@ -8,7 +8,7 @@
         <article class="cabecalhos">
             <h1>Pagamentos</h1>
       
-            <a href="folha_de_pagamento.php"><button id="novo-pagamento">Novo +</button></a>
+            <button id="novo-pagamento"><a href="folha_de_pagamento.php">Adicionar</a></button>
         </article>
 
         <article>

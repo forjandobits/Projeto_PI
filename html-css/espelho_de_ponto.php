@@ -13,13 +13,15 @@
       <section class="areas-form">
         <div class="grupo-campo">
           <div class="campo">
-            <label for="data-inicio">Data inicial:</label>
-            <input type="date" name="Data-Inicio" id="data-inicio">
+            <!-- <label for="data-inicio">Data inicial:</label>
+            <input type="date" name="Data-Inicio" id="data-inicio"> -->
+            <label for="data-inicio">Mês de Referência:</label>
+            <input type="month" name="Mes-Ano" id="data-mes-ano">
           </div>
-          <div class="campo">
+          <!-- <div class="campo">
             <label for="data-final">Data final:</label>
             <input type="date" name="Data-Final" id="data-final">
-          </div>
+          </div> -->
         </div>
       </section>
     </form>
@@ -115,8 +117,8 @@
 
   <article class="modal">
     <section>
-      <p class="fechar">X</p>
       <h3>Editar Pontos</h3>
+      <p class="fechar">X</p>
     </section>
     
     <section>

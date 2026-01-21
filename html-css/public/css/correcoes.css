@@ -51,6 +51,7 @@ section{
 
 .pendente {
   animation: pulsar-amarelo 1.5s infinite;
+  background-color: var(--cor-pendencia);
 }
 
 .urgente {
