@@ -56,14 +56,14 @@
                             <td>Gustavo</td>
                             <td>Padeiro</td>
                             <td>12/2025</td>
-                            <td><a href="folha_de_pagamento.php"><button>Visualizar</button></a></td>
+                            <td><button class='abrir-modal'>Visualizar</button></td>
                             <td><button>Baixar</button></td>
                         </tr>
                         <tr>
                             <td>Gustavo</td>
                             <td>Padeiro</td>
                             <td>11/2025</td>
-                            <td><button>Visualizar</button></td>
+                            <td><button class='abrir-modal'>Visualizar</button></td>
                             <td><button>Baixar</button></td>
                         </tr>
                     </tbody>
@@ -71,6 +71,20 @@
 
             </section>
 
+        </article>
+        <article class="modal modal-cadastro">
+            <section>
+            <h3>Informações do Pagamento</h3>
+            <p class="fechar">X</p>
+            </section>
+            
+            <section>
+            <form action="" class="form-modal">
+
+                <?php include "./exibir_pagamento.php" ?>
+
+            </form>
+            </section>
         </article>
     </main>
 </body>

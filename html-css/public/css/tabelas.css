@@ -31,6 +31,17 @@ th, td {
   height: 45px;
 }
 
+td>input{
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    background-color: var(--cor-background-cinza);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
 td[colspan="2"] {
   background-color: var(--cor-background);
 }
@@ -39,10 +50,10 @@ tr{
   background-color: var(--cor-background-cinza);
 }
 
-tr:nth-child(odd){
+tr:nth-child(odd), td>input{
   background-color: var(--cor-background-odd-cinza);
 }
 
-tr:hover{
+tr:hover, td>input:hover{
     background-color: var(--cor-table-hover);
 }

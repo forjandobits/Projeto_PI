@@ -4,23 +4,9 @@
 
 <main>
   <article class="cabecalhos">
-    <h1>Folha de Pagamento - Visualização</h1>
+    <h1>Folha de Pagamento - Adicionar</h1>
   </article>
 
-  <!-- <article>
-    <form id="busca-pagamentos">
-      <section class="areas-form">
-        <div class="campo">
-          <label for="nome">Funcionário:</label>
-          <input type="text" id="nome">
-        </div>
-        <div class="campo">
-          <label for="data">Mês Referente:</label>
-          <input type="date" id="data">
-        </div>
-      </section>
-    </form>
-  </article> -->
   <article>
 
     <table>
@@ -83,8 +69,39 @@
 
     <section class="resumo-final">
           <p>Total Líquido (R$): 2000,00</p>
-          <button>Editar(?)</button>
+          <!-- <button class='abrir-modal'>Editar</button> -->
           <button>Concluir</button>
+    </section>
+  </article>
+
+  <article class="modal">
+    <section>
+      <h3>Editar Folha de Pagamento</h3>
+      <p class="fechar">X</p>
+    </section>
+    
+    <section>
+      <form action="" class="form-modal">
+        <p>12/11/2025 - Quarta-feira:</p>
+        <div class="campo-linha">
+          <label for="tempo-entrada">Entrada 1:</label>
+          <input type="time" name="Entrada1" id="tempo-entrada">
+        </div>
+        <div class="campo-linha">
+          <label for="tempo-entrada2">Entrada 2:</label>
+          <input type="time" name="Entrada2" id="tempo-entrada2">
+        </div>
+        <div class="campo-linha">
+          <label for="tempo-entrada3">Entrada 3:</label>
+          <input type="time" name="Entrada3" id="tempo-entrada3">
+        </div>
+        <div class="campo-linha">
+          <label for="tempo-entrada4">Entrada 4:</label>
+          <input type="time" name="Entrada4" id="tempo-entrada4">
+        </div>
+        <button type="button" class="button-claro">Adicionar outra batida</button>
+        <button type="submit">Salvar</button>
+      </form>
     </section>
   </article>
   
