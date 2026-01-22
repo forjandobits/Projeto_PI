@@ -5,11 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Por algum motivo getElementsByTagName não funcionou
     const main = document.querySelector("main");
     const verModal = document.querySelectorAll(".abrir-modal");
-    const fechar = document.querySelector(".fechar");
+    const fechar = document.querySelectorAll(".fechar");
 
-    const criar = document.querySelector(".mostrar");
-    const formSolicitacoes = document.querySelector("#solicitacoes");
+    const criar = document.querySelector(".solicitar");
     const exibir = document.querySelector(".modal");
+    const modalSolicitacoes = document.querySelector(".modal#solicitacoes");
+    const exibirSolicitacoes = document.querySelector("#modal-solicitacoes");
 
     // Seleciona o botão de abrir/fechar (toggle)
     const botaoToggle = document.getElementById("botao-abrefecha");
@@ -25,7 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Verifica se o elemento está na página acessada
     if(criar){
         criar.addEventListener("click", ()=>{
-            formSolicitacoes.classList.toggle("ocultar");
+            exibir.style.display = "flex"
+            if(modalSolicitacoes || exibirSolicitacoes){
+                modalSolicitacoes.style.display = "flex";
+                exibirSolicitacoes.style.display = "none";
+            }
         })
     }
 
@@ -35,14 +40,24 @@ document.addEventListener("DOMContentLoaded", () => {
         verModal.forEach(modal => {
             modal.addEventListener("click", ()=>{
                 exibir.style.display = "flex";
+                if(modalSolicitacoes || exibirSolicitacoes){
+                    modalSolicitacoes.style.display = "none";
+                    exibirSolicitacoes.style.display = "flex";
+                }
             })
         });
     }
 
     // Fecha o modal se ele existir
     if(fechar){
-        fechar.addEventListener("click", ()=> {
-            exibir.style.display = "none";
+        fechar.forEach(fecharModais => {
+            console.log(fecharModais);
+            fecharModais.addEventListener("click", ()=>{
+                exibir.style.display = "none";
+                if(modalSolicitacoes || exibirSolicitacoes){
+                    exibirSolicitacoes.style.display = "none";
+                }
+            })
         })
     }
 });

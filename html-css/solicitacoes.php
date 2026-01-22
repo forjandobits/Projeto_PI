@@ -9,7 +9,7 @@
     <article class="cabecalhos">
         <h1>Solicitações</h1>
         
-        <button class="abrir-modal">Adicionar</button>
+        <button class="solicitar">Adicionar</button>
     </article>
     
     <article class="modal modal-cadastro" id="solicitacoes">
@@ -19,7 +19,7 @@
         </section>
 
         <section>
-            <form action="" id="solicitacoes">
+            <form action="">
     
                 <section class="areas-form">
                     <div class="grupo-campo">
@@ -160,7 +160,7 @@
         </table>
     </article>
 
-    <article class="modal modal-solicitacoes">
+    <article class="modal" id="modal-solicitacoes">
         <section>
             <h3>Informações da Solicitação</h3>
             <p class="fechar">X</p>
