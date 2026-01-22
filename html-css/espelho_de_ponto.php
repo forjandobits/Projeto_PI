@@ -39,8 +39,8 @@
           <th>Intervalo Saída*</th>
           <th>Intervalo Retorno*</th>
           <th>Total Intervalo*</th>
-          <th>Licença Médica</th>
-          <th>Férias</th>
+          <th>Falta</th>
+          <th>Férias/Falta Abonada</th>
           <th>Total de Horas*</th>
           <th></th>
         </tr>
