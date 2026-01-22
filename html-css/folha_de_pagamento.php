@@ -8,73 +8,19 @@
   </article>
 
   <article>
-    <?php include "./tabela_pagamento.php"?>
-    <!-- <table>
-      <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
-      <thead>
-        <tr>
-          <th>Código de Referência</th>
-          <th>Evento</th>
-          <th>Referência</th>
-          <th>Vencimentos</th>
-          <th>Descontos</th>
-        </tr>
-      </thead>
-    
-      <tbody id="tabela-saida-folha-pagamento">
-        <tr>
-          <td>00</td>
-          <td>Salário Base</td>
-          <td>2.000,00</td>
-          <td>2.000,00</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>01</td>
-          <td>Comissão</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>02</td>
-          <td>INSS</td>
-          <td>10,88</td>
-          <td></td>
-          <td>0,81</td>
-        </tr>
-        <tr>
-          <td>03</td>
-          <td>Descanso Remunerado</td>
-          <td>0,00</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>04</td>
-          <td>FGTS</td>
-          <td>27,50</td>
-          <td></td>
-          <td></td>
-        </tr> 
-        <tr>
-          <td colspan="2"></td>   <!-- pula Cod. e Evento 
-          <td>Totais</td>
-          <td>2.000,00</td>
-          <td>0,81</td>
-        </tr> -->
-      
-      </tbody>
+    <table>
+      <caption>Nova Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
+      <?php include "./tabela_pagamento.php"?>
     </table>
 
     <section class="resumo-final">
           <p>Total Líquido (R$): 2000,00</p>
-          <button class='abrir-modal'>Alterar</button>
+          <button class='abrir-modal'>Eventos</button>
           <button>Salvar</button>
     </section>
   </article>
 
-  <article class="modal">
+  <article class="modal modal-cadastro">
     <section>
       <h3>Editar Folha de Pagamento</h3>
       <p class="fechar">X</p>
@@ -82,21 +28,70 @@
     
     <section>
       <form action="" class="form-modal">
-        <div class="campo">
-          <label for="tempo-entrada">Benefício/Descontos:</label>
-          <select name="Genero-Funcionario" id="genero" required>
-            <option value="">-- Selecione --</option>
-            <option value="Masculino">IRRF - Imposto de Renda</option>
-            <option value="Feminino">Vale Alimentação</option>
-            <option value="Outro">Vale Transporte</option>
-          </select>
+        <section class="grupo-campo-linha">
+          <div class="campo">
+              <label for="nome">Nome do Funcionário:</label>
+              <input type="text" name="Nome-Funcionario" id="nome" placeholder="Ex.: Nome do Funcionário" required>
+          </div>
+
+          <div class="campo">
+            <label for="data-inicio">Mês de Referência:</label>
+            <input type="month" name="Mes-Ano" id="data-mes-ano">
+          </div>
+        
+        </section> 
+
+        <section class="grupo-campo-linha">
+
+          <div class="campo">
+            <label for="tempo-entrada">Benefício/Descontos:</label>
+            <select name="Genero-Funcionario" id="genero" required disabled>
+              <!-- <option value="">-- Selecione --</option> -->
+              <option value="01">01 - Comissão</option>
+              <option value="06">06 - Imposto de Renda (IRRF)</option>
+              <option value="07">07 - Vale Alimentação</option>
+              <option value="08">08 - Vale Transporte</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="valor">Valor:</label>
+            <input type="number" name="Valor" id="valor" value="200.00" required disabled>
+          </div>
+
+          <div class="campo">
+            <button class="negar">✘ Remover</button>
+          </div>
+
+        </section>
+        
+        <section class="grupo-campo-linha">
+
+          <div class="campo">
+            <label for="tempo-entrada">Benefício/Descontos:</label>
+            <select name="Genero-Funcionario" id="genero" required>
+              <option value="">-- Selecione --</option>
+              <option value="06">06 - Imposto de Renda (IRRF)</option>
+              <option value="07">07 - Vale Alimentação</option>
+              <option value="08">08 - Vale Transporte</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="valor">Valor:</label>
+            <input type="number" name="Valor" id="valor" value="0" required>
+          </div>
+
+          <div class="campo">
+            <button class="negar">✘ Remover</button>
+          </div>
+      
+        </section>
+
+        <div class="campo resumo">
+          <button type="button" class="button-claro">Inserir Outro</button>
+          <button type="submit">Salvar Alterações</button>
         </div>
-        <div class="campo">
-          <label for="valor">Valor:</label>
-          <input type="number" name="Valor" id="valor" value="0" required>
-        </div>
-        <!-- <button type="button" class="button-claro">Adicionar outro valor</button> -->
-        <button type="submit">Adicionar</button>
       </form>
     </section>
   </article>

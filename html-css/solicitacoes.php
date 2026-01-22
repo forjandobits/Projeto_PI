@@ -9,54 +9,59 @@
     <article class="cabecalhos">
         <h1>Solicitações</h1>
         
-        <button class="mostrar">Adicionar</button>
+        <button class="abrir-modal">Adicionar</button>
     </article>
     
-    <article>
+    <article class="modal modal-cadastro" id="solicitacoes">
+        <section>
+            <h3>Adicionar Solicitações</h3>
+            <p class="fechar">X</p>
+        </section>
 
+        <section>
+            <form action="" id="solicitacoes">
+    
+                <section class="areas-form">
+                    <div class="grupo-campo">
+                        <div class="campo">
+                            <label for="nome">Colaborador:</label>
+                            <input name="Nome" id="nome" type="text" placeholder="Ex.: José da Silva" required>
+                        </div>
+                        <div class="campo">
+                            <label for="opcoes">Tipo de Solicitação:</label>
+                            <select name="" id="opcoes" required>
+                                <option>Férias</option>
+                                <option>Folga</option>
+                                <option>Revisão</option>
+                                <option>Atestado</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-campo">
+                        <div class="campo">
+                            <label for="observacoes">Observação:</label>
+                            <textarea name="Observacoes" id="observacoes" placeholder="Ex.: Motivo pelo qual a solicitações será feita. (Obrigatório)" required></textarea>
+                        </div>
+                    </div>
+    
+                    <div class="grupo-campo">
+                        <div class="campo">
+                            <label for="arquivo">Anexar Arquivos:</label>
+                            <input type="file" name="Arquivo" id="arquivo">
+                            <!-- <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" class="icone-nuvem"> -->
+                        </div>
+                        <div class="campo resumo">
+                            <label for="pendente">Pendente:</label>
+                            <input type="checkbox" name="Pendencia" id="pendente"></input>
+                            <button>Concluir</button>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </section>
         
-        <form action="" id="solicitacoes">
-            <h2>Adicionar Solicitações</h2>
-
-            <section class="areas-form">
-                <div class="grupo-campo">
-                    <div class="campo">
-                        <label for="nome">Colaborador:</label>
-                        <input name="Nome" id="nome" type="text" placeholder="Ex.: José da Silva" required>
-                    </div>
-                    <div class="campo">
-                        <label for="opcoes">Tipo de Solicitação:</label>
-                        <select name="" id="opcoes" required>
-                            <option>Férias</option>
-                            <option>Folga</option>
-                            <option>Revisão</option>
-                            <option>Atestado</option>
-                            <option>Outros</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="grupo-campo">
-                    <div class="campo">
-                        <label for="observacoes">Observação:</label>
-                        <textarea name="Observacoes" id="observacoes" placeholder="Ex.: Motivo pelo qual a solicitações será feita. (Obrigatório)" required></textarea>
-                    </div>
-                </div>
-
-                <div class="grupo-campo">
-                    <div class="campo">
-                        <label for="arquivo">Anexar Arquivos:</label>
-                        <input type="file" name="Arquivo" id="arquivo">
-                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" class="icone-nuvem"> -->
-                    </div>
-                    <div class="campo resumo">
-                        <label for="pendente">Pendente:</label>
-                        <input type="checkbox" name="Pendencia" id="pendente"></input>
-                        <button>Concluir</button>
-                    </div>
-                </div>
-            </section>
-        </form>
 
     </article>
     
@@ -155,7 +160,7 @@
         </table>
     </article>
 
-    <article class="modal">
+    <article class="modal modal-solicitacoes">
         <section>
             <h3>Informações da Solicitação</h3>
             <p class="fechar">X</p>

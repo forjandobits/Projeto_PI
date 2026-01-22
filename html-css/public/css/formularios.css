@@ -29,7 +29,8 @@ form {
 .grupo-campo-linha{
   display: flex;
   flex-direction: row;
-  justify-items: center;
+  justify-content: space-evenly;
+  align-items: flex-end;
   flex: 1;
   gap: 10px;
 }

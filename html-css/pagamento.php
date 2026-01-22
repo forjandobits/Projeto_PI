@@ -80,8 +80,11 @@
             
             <section>
             <form action="" class="form-modal">
+                <table>
+                    <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
 
-                <?php include "./tabela_pagamento.php" ?>
+                    <?php include "./tabela_pagamento.php" ?>
+                </table>
                 
                 <section class="resumo-final">
                     <p>Total Líquido (R$): 2000,00</p>
