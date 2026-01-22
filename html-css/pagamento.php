@@ -81,8 +81,13 @@
             <section>
             <form action="" class="form-modal">
 
-                <?php include "./exibir_pagamento.php" ?>
-
+                <?php include "./tabela_pagamento.php" ?>
+                
+                <section class="resumo-final">
+                    <p>Total Líquido (R$): 2000,00</p>
+                    <button>Editar</button>
+                    <button>Concluir</button>
+                </section>
             </form>
             </section>
         </article>

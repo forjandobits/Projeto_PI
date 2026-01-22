@@ -24,6 +24,9 @@ button {
 
 button>a{
   color: var(--cor-texto-padrao);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 button:hover, .sair:hover {

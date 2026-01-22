@@ -8,8 +8,8 @@
   </article>
 
   <article>
-
-    <table>
+    <?php include "./tabela_pagamento.php"?>
+    <!-- <table>
       <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
       <thead>
         <tr>
@@ -56,21 +56,21 @@
           <td>27,50</td>
           <td></td>
           <td></td>
-        </tr>
+        </tr> 
         <tr>
-          <td colspan="2"></td>   <!-- pula Cod. e Evento -->
+          <td colspan="2"></td>   <!-- pula Cod. e Evento 
           <td>Totais</td>
           <td>2.000,00</td>
           <td>0,81</td>
-        </tr>
+        </tr> -->
       
       </tbody>
     </table>
 
     <section class="resumo-final">
           <p>Total Líquido (R$): 2000,00</p>
-          <!-- <button class='abrir-modal'>Editar</button> -->
-          <button>Concluir</button>
+          <button class='abrir-modal'>Alterar</button>
+          <button>Salvar</button>
     </section>
   </article>
 
@@ -82,25 +82,21 @@
     
     <section>
       <form action="" class="form-modal">
-        <p>12/11/2025 - Quarta-feira:</p>
-        <div class="campo-linha">
-          <label for="tempo-entrada">Entrada 1:</label>
-          <input type="time" name="Entrada1" id="tempo-entrada">
+        <div class="campo">
+          <label for="tempo-entrada">Benefício/Descontos:</label>
+          <select name="Genero-Funcionario" id="genero" required>
+            <option value="">-- Selecione --</option>
+            <option value="Masculino">IRRF - Imposto de Renda</option>
+            <option value="Feminino">Vale Alimentação</option>
+            <option value="Outro">Vale Transporte</option>
+          </select>
         </div>
-        <div class="campo-linha">
-          <label for="tempo-entrada2">Entrada 2:</label>
-          <input type="time" name="Entrada2" id="tempo-entrada2">
+        <div class="campo">
+          <label for="valor">Valor:</label>
+          <input type="number" name="Valor" id="valor" value="0" required>
         </div>
-        <div class="campo-linha">
-          <label for="tempo-entrada3">Entrada 3:</label>
-          <input type="time" name="Entrada3" id="tempo-entrada3">
-        </div>
-        <div class="campo-linha">
-          <label for="tempo-entrada4">Entrada 4:</label>
-          <input type="time" name="Entrada4" id="tempo-entrada4">
-        </div>
-        <button type="button" class="button-claro">Adicionar outra batida</button>
-        <button type="submit">Salvar</button>
+        <!-- <button type="button" class="button-claro">Adicionar outro valor</button> -->
+        <button type="submit">Adicionar</button>
       </form>
     </section>
   </article>

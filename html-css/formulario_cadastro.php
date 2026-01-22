@@ -41,20 +41,20 @@
         <div class="campo genero">
             <label for="genero">Gênero:</label>
             <select name="Genero-Funcionario" id="genero" required>
-            <option value="">-- Selecione --</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outro">Outro</option>
+                <option value="">-- Selecione --</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outro">Outro</option>
             </select>
         </div>
         
         <div class="campo estado-civil">
             <label for="estado-civil">Estado Civil:</label>
             <select name="EstadoCivil-Funcionario" id="estado-civil" required >
-            <option value="">-- Selecione --</option>
-            <option>Solteiro</option>
-            <option>Casado</option>
-            <option>Viuvo</option>
+                <option value="">-- Selecione --</option>
+                <option>Solteiro</option>
+                <option>Casado</option>
+                <option>Viuvo</option>
             </select>
         </div>
 
@@ -91,34 +91,34 @@
         <div class="campo">
             <label for="estado">Estado (UF):</label>
             <select name="NomeEstado-Funcionario" id="estado" required>
-            <option value="">-- Selecione --</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrido Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraiba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
+                <option value="">-- Selecione --</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrido Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraiba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
             </select>
         </div>
 
@@ -145,8 +145,8 @@
         <div class="campo">
             <label for="regime">Regime Trabalhista:</label>
             <select name="Regime-Funcionario" id="regime" required>
-            <option value="">-- Selecione --</option>
-            <option value="CLT">CLT</option>
+                <option value="">-- Selecione --</option>
+                <option value="CLT">CLT</option>
             </select>
         </div>
 
