@@ -197,6 +197,10 @@ CREATE TABLE `tb_login` (
 CREATE TABLE `tb_previsto_beneficios` (
   `id_beneficio` int(11) NOT NULL,
   `id_funcionario` int(11) NOT NULL,
+  -- referencia
+  -- nome do beneficio
+  -- valor dele
+  -- desconto true/false
   `insalubridade` int(11) NOT NULL DEFAULT 0,
   `periculosidade` int(11) NOT NULL DEFAULT 0,
   `ferias` int(11) NOT NULL DEFAULT 0,
