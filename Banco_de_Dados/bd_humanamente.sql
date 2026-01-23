@@ -59,6 +59,7 @@ CREATE TABLE `tb_banco` (
 
 CREATE TABLE `tb_cargo` (
   `id_cargo` int(11) NOT NULL,
+  -- CBO
   `nome_cargo` text NOT NULL,
   `salario` double NOT NULL,
   `carga_horaria` text NOT NULL,

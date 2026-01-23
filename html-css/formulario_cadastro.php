@@ -134,25 +134,31 @@
 
         <div class="campo">
             <label for="cargo">Cargo:</label>
-            <input type="text" name="Cargo-Funcionario" id="cargo" required />
-        </div>
-
-        <div class="campo">
-            <label for="cbo">CBO:</label>
-            <input type="number" name="CBO-Funcionario" id="cbo" required />
-        </div>
-
-        <div class="campo">
-            <label for="regime">Regime Trabalhista:</label>
             <select name="Regime-Funcionario" id="regime" required>
                 <option value="">-- Selecione --</option>
-                <option value="CLT">CLT</option>
+                <option value="CLT">Padeiro</option>
+                <option value="CLT">Gerente</option>
+                <option value="CLT">Caixa</option>
             </select>
         </div>
 
         <div class="campo">
+            <label for="cbo">CBO:</label>
+            <input type="text" name="CBO-Funcionario" id="cbo" value="8384-05" required disabled/>
+        </div>
+
+        <div class="campo">
+            <label for="regime">Regime Trabalhista:</label>
+            <input type="text" name="Regime-Funcionar" id="regime" value="CLT" required disabled/>
+            <!-- <select name="Regime-Funcionario" id="regime" required disabled>
+                <option value="">-- Selecione --</option>
+                <option value="CLT">CLT</option>
+            </select> -->
+        </div>
+
+        <div class="campo">
             <label for="remuneracao">Remuneração:</label>
-            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" required />
+            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" value="2000.00" required disabled/>
         </div>
     </fieldset>
 
