@@ -4,11 +4,51 @@
 
 <main>
   <article class="cabecalhos">
-    <h1>Cargos - Visualização</h1>
+    <h1>Cargos</h1>
 
     <button class="abrir-modal">Adicionar</button>
   </article>
 
+
+  <article>
+      <section>
+          <table id="">
+              <caption>Lista de Cargos</caption>
+              <thead>
+                  <tr>
+                      <th>CBO</th>
+                      <th>Nome do Cargo</th>
+                      <th>Salário</th>
+                      <th>Carga Horária (Horas)</th>
+                      <th>Regime Trabalhista</th>
+                      <th>Escala (Horas Semanais)</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody id="tabela-saida-cargos">
+                  <tr>
+                      <td>8483-05</td>
+                      <td>Padeiro</td>
+                      <td>2000,00</td>
+                      <td>8</td>
+                      <td>CLT</td>
+                      <td>40</td>
+                      <td><button class="abrir-modal">Editar</button></td>
+                  </tr>
+                  <tr>
+                      <td>4211-25</td>
+                      <td>Caixa</td>
+                      <td>1631,00</td>
+                      <td>8</td>
+                      <td>CLT</td>
+                      <td>40</td>
+                      <td><button class="abrir-modal">Editar</button></td>
+                  </tr>
+                  
+              </tbody>
+          </table>
+      </section>                          
+  </article>
 
   <article class="modal">
     <section>
@@ -20,7 +60,7 @@
       <form action="" class="form-modal">
 
         <div class="campo">
-            <label for="cbo">CBO (ID):</label>
+            <label for="cbo">CBO:</label>
             <input type="text" name="CBO-Funcionario" id="cbo" required />
         </div>
 
@@ -44,6 +84,8 @@
             <select name="Regime-Funcionario" id="regime" required>
                 <option value="">-- Selecione --</option>
                 <option value="CLT">CLT</option>
+                <option value="CLT">Pessoa Jurídica (PJ)</option>
+                <option value="CLT">Horista</option>
             </select>
         </div>
 

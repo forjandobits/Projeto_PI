@@ -6,7 +6,6 @@
         <article class="cabecalhos">
             <h1>Controle de Ponto</h1>
             
-            <button id="novo-ponto">Adicionar</button>
         </article>
 
         <article>

@@ -6,9 +6,30 @@
             <h1>Configurações</h1>
         </article>
         <article>
+            <form>
+                <section class="areas-form">
+                    <h2>Alterar Senha:</h2>
+                    <div class="campo">
+                        <label for="senha-atual">Senha Atual:</label>
+                        <input type="text" name="Senha-Atual" id="senha-atual">
+                    </div>
+                    <div class="campo">
+                        <label for="nova-senha">Nova Senha:</label>
+                        <input type="text" name="Nova-Senha" id="nova-senha">
+                    </div>
+                    <div class="campo">
+                        <label for="repita-senha">Repita Nova Senha:</label>
+                        <input type="text" name="Repita-Senha" id="repita-senha">
+                    </div>
+                    <div class="campo">
+                        <button type="submit" id="btn-salvar-senha">Salvar Senha</button>
+                    </div>
+                </section>
+            </form>
 
             <form action="" id="configuracoes">
                 <section class="areas-form">
+                    <h2>Alterar Estilo da Página:</h2>
                     <div class="grupo-campo">
                         <div class="campo resumo">
                             <label for="tema-claro">Tema Claro:</label>
@@ -44,26 +65,7 @@
                 </section>
             </form>
 
-            <form>
-                <section class="areas-form">
-                    <h2>Alterar Senha:</h2>
-                    <div class="campo">
-                        <label for="senha-atual">Senha Atual:</label>
-                        <input type="text" name="Senha-Atual" id="senha-atual">
-                    </div>
-                    <div class="campo">
-                        <label for="nova-senha">Nova Senha:</label>
-                        <input type="text" name="Nova-Senha" id="nova-senha">
-                    </div>
-                    <div class="campo">
-                        <label for="repita-senha">Repita Nova Senha:</label>
-                        <input type="text" name="Repita-Senha" id="repita-senha">
-                    </div>
-                    <div class="campo">
-                        <button type="submit" id="btn-salvar-senha">Salvar Senha</button>
-                    </div>
-                </section>
-            </form>
+            
         </article>
     </main>
 </body>

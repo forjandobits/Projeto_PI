@@ -220,8 +220,8 @@
             <input type="number" name="Qtd-Filhos-Funcionario" id="qtd-filhos"/>
         </div>
         
-        <div class="campo-linha possui-pendencias">
-            <label for="possui-pendencias">Possui Pendências? (Marque para Sim)</label>
+        <div class="campo-linha">
+            <label for="possui-pendencias">Possui Pendências?</label>
             <input type="checkbox" name="Pendencias" id="possui-pendencias" required />
         </div>
 

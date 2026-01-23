@@ -4,12 +4,12 @@
 
 <main>
   <article class="cabecalhos">
-    <h1>Folha de Pagamento - Adicionar</h1>
+    <h1>Folha de Pagamento</h1>
   </article>
 
   <article>
     <table>
-      <caption>Nova Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
+      <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
       <?php include "./tabela_pagamento.php"?>
     </table>
 
@@ -22,7 +22,7 @@
 
   <article class="modal modal-cadastro">
     <section>
-      <h3>Editar Folha de Pagamento</h3>
+      <h3>Eventos da Folha de Pagamento</h3>
       <p class="fechar">X</p>
     </section>
     
@@ -45,7 +45,7 @@
 
           <div class="campo">
             <label for="tempo-entrada">Benefício/Descontos:</label>
-            <select name="Genero-Funcionario" id="genero" required disabled>
+            <select name="Genero-Funcionario" id="genero" required>
               <!-- <option value="">-- Selecione --</option> -->
               <option value="01">01 - Comissão</option>
               <option value="06">06 - Imposto de Renda (IRRF)</option>
@@ -56,7 +56,7 @@
 
           <div class="campo">
             <label for="valor">Valor:</label>
-            <input type="number" name="Valor" id="valor" value="200.00" required disabled>
+            <input type="number" name="Valor" id="valor" value="200.00" required>
           </div>
 
           <div class="campo">
