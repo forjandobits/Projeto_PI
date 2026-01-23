@@ -37,7 +37,7 @@
 
 .sidebar a {
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
     text-decoration: none;
     color: var(--cor-texto-azul);
     gap: 15px;

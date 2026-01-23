@@ -50,10 +50,10 @@ tr{
   background-color: var(--cor-background-cinza);
 }
 
-tr:nth-child(odd), td>input{
+tr:nth-child(odd), tr:nth-child(odd)>td>input{
   background-color: var(--cor-background-odd-cinza);
 }
 
-tr:hover, td>input:hover{
+tr:hover, tr:hover>td>input{
     background-color: var(--cor-table-hover);
 }

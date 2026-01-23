@@ -7,7 +7,14 @@
   <article class="cabecalhos">
       <h1>Colaboradores</h1>
       
-      <button><a href="cadastro_de_funcionario.php">Adicionar</a></button>
+      <div>
+
+        <button><a href="cargos.php">Cargo</a></button>
+  
+        <button><a href="cadastro_de_funcionario.php">Adicionar</a></button>
+        
+      </div>
+
   </article>
 
   <article>
@@ -19,6 +26,7 @@
                       <option value="2">Nome do Colaborador</option>
                       <option value="3">Cargo</option>
                       <option value="4">Situação</option>
+                      <option value="5">Desligado</option>
                   </select>
               </div>
 
@@ -43,6 +51,7 @@
          <th>Cargo</th>
          <th>Situação</th>
          <th></th>
+         <th></th>
        </tr>
      </thead>
      <tbody id="tabela-saida-colaboradores">
@@ -50,30 +59,35 @@
          <td>Gustavo</td>
          <td>Padeiro</td>
          <td>Disponível</td>
+         <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
          <td>Elisangela</td>
          <td>Caixa</td>
          <td>Disponível</td>
+         <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
          <td>Joaquim</td>
          <td>Balconista</td>
          <td>Desligado</td>
+         <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
          <td>Regina</td>
          <td>Caixa</td>
          <td>Disponível</td>
+         <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
          <td>Mateus</td>
          <td>Gerente</td>
          <td>Desligado</td>
+         <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
      </tbody>
