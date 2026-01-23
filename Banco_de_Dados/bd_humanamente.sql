@@ -59,12 +59,12 @@ CREATE TABLE `tb_banco` (
 
 CREATE TABLE `tb_cargo` (
   `id_cargo` int(11) NOT NULL,
-  -- CBO
   `nome_cargo` text NOT NULL,
   `salario` double NOT NULL,
   `carga_horaria` text NOT NULL,
   `regime_trabalhista` text NOT NULL,
-  `escala` text NOT NULL
+  `escala` text NOT NULL,
+  `cbo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -198,20 +198,10 @@ CREATE TABLE `tb_login` (
 CREATE TABLE `tb_previsto_beneficios` (
   `id_beneficio` int(11) NOT NULL,
   `id_funcionario` int(11) NOT NULL,
-  -- referencia
-  -- nome do beneficio
-  -- valor dele
-  -- desconto true/false
-  `insalubridade` int(11) NOT NULL DEFAULT 0,
-  `periculosidade` int(11) NOT NULL DEFAULT 0,
-  `ferias` int(11) NOT NULL DEFAULT 0,
-  `salario_13` int(11) NOT NULL DEFAULT 0,
-  `vale_transporte` int(11) NOT NULL DEFAULT 0,
-  `vale_alimentacao` int(11) NOT NULL DEFAULT 0,
-  `plano_saude` int(11) NOT NULL DEFAULT 0,
-  `inss` int(11) NOT NULL DEFAULT 0,
-  `fgts` int(11) NOT NULL DEFAULT 0,
-  `irrf` int(11) NOT NULL DEFAULT 0
+  `nome_beneficio` text NOT NULL,
+  `valor` double NOT NULL,
+  `desconto` int(11) NOT NULL DEFAULT 0,
+  `referencia` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
