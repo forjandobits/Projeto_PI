@@ -65,18 +65,18 @@
         </div>
 
         <div class="campo">
-          <label for="tempo-entrada">Nome do Cargo:</label>
-          <input type="text" name="Entrada1" id="tempo-entrada">
+          <label for="nome-cargo">Nome do Cargo:</label>
+          <input type="text" name="Nome-Cargo" id="nome-cargo">
         </div>
 
         <div class="campo">
-          <label for="tempo-entrada2">Salário:</label>
-          <input type="number" name="Entrada2" id="tempo-entrada2">
+          <label for="salario">Salário:</label>
+          <input type="number" name="Salario" id="salario">
         </div>
 
         <div class="campo">
-          <label for="tempo-entrada3">Carga Horária:</label>
-          <input type="number" name="Entrada3" id="tempo-entrada3" min="0">
+          <label for="carga-horaria">Carga Horária:</label>
+          <input type="number" name="Carga-Horaria" id="carga-horaria" min="0">
         </div>
 
         <div class="campo">
@@ -90,8 +90,8 @@
         </div>
 
         <div class="campo">
-          <label for="tempo-entrada4">Escala:</label>
-          <input type="number" name="Entrada4" id="tempo-entrada4">
+          <label for="escala">Escala:</label>
+          <input type="number" name="Escala" id="escala">
         </div>
 
         <div class="campo resumo">

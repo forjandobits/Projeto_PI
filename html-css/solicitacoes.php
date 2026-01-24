@@ -50,7 +50,6 @@
                         <div class="campo">
                             <label for="arquivo">Anexar Arquivos:</label>
                             <input type="file" name="Arquivo" id="arquivo">
-                            <!-- <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" class="icone-nuvem"> -->
                         </div>
                         <div class="campo resumo">
                             <label for="pendente">Pendente:</label>

@@ -150,10 +150,6 @@
         <div class="campo">
             <label for="regime">Regime Trabalhista:</label>
             <input type="text" name="Regime-Funcionar" id="regime" value="CLT" required disabled/>
-            <!-- <select name="Regime-Funcionario" id="regime" required disabled>
-                <option value="">-- Selecione --</option>
-                <option value="CLT">CLT</option>
-            </select> -->
         </div>
 
         <div class="campo">

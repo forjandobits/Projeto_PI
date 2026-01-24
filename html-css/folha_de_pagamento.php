@@ -35,7 +35,7 @@
           </div>
 
           <div class="campo">
-            <label for="data-inicio">Mês de Referência:</label>
+            <label for="data-mes-ano">Mês de Referência:</label>
             <input type="month" name="Mes-Ano" id="data-mes-ano">
           </div>
         
@@ -44,8 +44,8 @@
         <section class="grupo-campo-linha">
 
           <div class="campo">
-            <label for="tempo-entrada">Benefício/Descontos:</label>
-            <select name="Genero-Funcionario" id="genero" required>
+            <label for="beneficios">Benefício/Descontos:</label>
+            <select name="Beneficios" id="beneficio" required>
               <!-- <option value="">-- Selecione --</option> -->
               <option value="01">01 - Comissão</option>
               <option value="06">06 - Imposto de Renda (IRRF)</option>
@@ -68,8 +68,8 @@
         <section class="grupo-campo-linha">
 
           <div class="campo">
-            <label for="tempo-entrada">Benefício/Descontos:</label>
-            <select name="Genero-Funcionario" id="genero" required>
+            <label for="beneficios1">Benefício/Descontos:</label>
+            <select name="Beneficios1" id="beneficios1" required>
               <option value="">-- Selecione --</option>
               <option value="06">06 - Imposto de Renda (IRRF)</option>
               <option value="07">07 - Vale Alimentação</option>
@@ -78,8 +78,8 @@
           </div>
 
           <div class="campo">
-            <label for="valor">Valor:</label>
-            <input type="number" name="Valor" id="valor" value="0" required>
+            <label for="valor1">Valor:</label>
+            <input type="number" name="Valor1" id="valor1" value="0" required>
           </div>
 
           <div class="campo">

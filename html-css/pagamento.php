@@ -88,8 +88,7 @@
                 
                 <section class="resumo-final">
                     <p>Total Líquido (R$): 2000,00</p>
-                    <button>Editar</button>
-                    <button>Concluir</button>
+                    <button><a href="./folha_de_pagamento.php">Editar</a></button>
                 </section>
             </form>
             </section>
