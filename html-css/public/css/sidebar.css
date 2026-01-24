@@ -1,205 +1,73 @@
-:root {
-    --cor-titulo-azul: #30adea;
-    --cor-sombra-clara: #7e7e7e;
-    --cor-sombra-escura: #000000;
-    --cor-background: #f1f2f3;
-    --cor-background-cinza: #cfcfcf;
-    --cor-background-azul: #93dbff;
-    --cor-background-hover: #2366bf;
-    --cor-texto-padrao: #f1f2f3;
-    --cor-texto-cinza: #8a8a8a;
-}
-
-
-/* ============================= */
-/* Estilo da barra lateral (sidebar) */
-/* ============================= */
 .sidebar {
-    width: 60px;
-    /* A sidebar começa "colapsada", apenas mostrando ícones */
-    background-color: var(--cor-background);
-    /* Cor de fundo definida na paleta */
-    color: var(--cor-titulo-azul);
-    /* Cor inicial dos textos e ícones */
-    height: 100vh;
-    /* Altura ocupa toda a tela (viewport height) */
-    overflow: hidden;
-    /* Esconde o texto quando colapsada */
-    position: fixed;
-    /* Fixa a sidebar no canto esquerdo, não rola junto com a página */
-    transition: width 0.3s;
-    /* Anima a transição de largura ao expandir/fechar */
-    z-index: 1000;
-    /* Garante que a sidebar fica acima do conteúdo */
-}
-
-/* Quando a classe "open" é adicionada via JavaScript,
-   a sidebar expande para mostrar os textos */
-.sidebar.open {
-    width: 300px;
-    /* Largura expandida */
-}
-
-/* ============================= */
-/* Lista de navegação da sidebar */
-/* ============================= */
-.sidebar ul {
-    list-style: none;
-    /* Remove os marcadores padrões da lista */
-    padding: 40px 0;
-    /* Espaçamento do conteúdo em relação ao topo */
-}
-
-/* ============================= */
-/* Cada item de navegação da lista */
-/* ============================= */
-.sidebar li {
-    padding: 20px 20px;
-    /* Espaço interno do item (topo/lados) */
     display: flex;
-    /* Ícone e texto ficam lado a lado */
+    flex-direction: column;
     align-items: center;
-    /* Alinha verticalmente ícone e texto */
-    cursor: pointer;
-    /* Cursor de "mãozinha" ao passar por cima */
-}
-
-/* Quando o usuário passa o mouse sobre um item */
-.sidebar li:hover {
-    background-color: var(--cor-background-azul);
-    /* Muda cor de fundo */
-}
-
-/* ============================= */
-/* Estilo do "ícone" (aqui usamos emojis) */
-/* ============================= */
-.sidebar i {
-    margin-right: 10px;
-    /* espaço entre os icones e o canto da pagina */
-    font-style: normal;
-    /* Remove itálico */
-}
-
-/* ============================= */
-/* Texto ao lado do ícone */
-/* ============================= */
-.sidebar span {
-    white-space: nowrap;
-    /* Impede que o texto quebre de linha */
+    justify-content: space-between;
     overflow: hidden;
-    /* Esconde texto enquanto colapsada */
-    transition: opacity 0.2s, margin 0.2s;
-    /* Suaviza a aparição */
-    opacity: 0;
-    /* Invisível por padrão */
-    margin-left: 0;
-    /* Sem espaço enquanto invisível */
-}
-
-/* Quando a sidebar está expandida pelo botão,
-   os textos ficam visíveis */
-.sidebar.open span {
-    opacity: 1;
-    /* Texto aparece */
-    margin-left: 5px;
-    /* Espaçamento entre ícone e texto */
-}
-
-/* ============================= */
-/* Links dentro dos itens da lista */
-/* ============================= */
-.sidebar a {
-    color: var(--cor-background-hover);
-    /* Azul escuro da paleta */
-    text-decoration: none;
-    /* Remove o sublinhado */
-    display: block;
-    /* Faz o link ocupar todo o espaço clicável */
-    width: 100%;
-    /* Preenche o item inteiro */
-    font-size: 20px;
-    /* Tamanho maior para melhor leitura */
-}
-
-/* Quando passa o mouse sobre o link */
-.sidebar a:hover {
-    text-decoration: underline;
-    /* Destaca com sublinhado */
-}
-
-/* ============================= */
-/* Estilo do botão "☰" (toggle) */
-/* ============================= */
-.botao {
-    border: none;
-    /* Sem borda */
-    padding: 10px 20px;
-    /* Espaçamento interno do botão */
-    margin-left: 5px;
-    /* Distância da borda esquerda da sidebar */
-    margin-bottom: 5px;
-    /* Distância inferior */
     position: fixed;
-    /* Posicionado dentro da sidebar */
-    background: rgba(0, 0, 0, 0);
-    /* Fundo branco do botão */
-    cursor: pointer;
-    /* Cursor de "mãozinha" ao passar por cima */
+    background-color: var(--cor-background);
+    color: var(--cor-titulo-azul);
+    min-height: 100dvh;
+    height: 100vh;
+    max-height: 100dvh;
+    top: 0;
+    width: 100px;
 }
 
+.open {
+    width: 300px;
+}
 
-/* ============================= */
-/* Tabela Folha de Pagamento */
-/* ============================= */
-
-.lista {
+.sidebar ul{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    list-style: none;
+    height: 70vh;
 }
 
-.lista tr {
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar li:hover {
+    background-color: var(--cor-background-hover-cinza);
+}
+
+.sidebar a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-texto-azul);
+    gap: 15px;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.sidebar span {
+    display: none;
+}
+
+.sidebar.open span {
     display: flex;
-    flex-direction: row;
+    font-size: 1.6em;
+    margin-left: 5px;
+}
+
+.avatar{
+    width: 100px;
+}
+
+.sidebar.open .avatar{
+    width: 200px;
+}
+
+.sair{
     justify-content: center;
-    gap: 220px;
-}
-
-.lista table {
-    width: 80%;
-    height: auto;
-    table-layout: fixed;
-    /* largura fixa das colunas */
-    border-collapse: collapse;
-    /* remove espaçamento entre células */
-}
-
-.lista th,
-.lista td {
-    width: calc(100% / 4);
-    /* divide tabela em 3 colunas iguais */
-    padding: 10px;
-    text-align: center;
-    word-wrap: break-word;
-    /* quebra texto longo */
-}
-
-.lista thead {
-    font-size: 25px;
-    color: var(--marrom_escuro);
-}
-
-.lista tbody tr:nth-child(even) {
-    background: var(--marrom_claro);
-}
-
-.lista tbody tr:hover {
-    background: var(--verde_claro);
-}
-
-.img_usuario {
-    padding: 20px 50px;
-    width: 90px;
-    height: 90px;
-    text-align: center;
+    font-size: 1.5em;
+    background-color: var(--cor-titulo-azul);
+    padding: 10px !important;
+    color: var(--cor-texto-padrao) !important; /* Utilizar apenas em último caso*/
+    border-radius: 10px;
 }

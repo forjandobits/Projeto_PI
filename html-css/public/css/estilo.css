@@ -1,15 +1,35 @@
 /* ========== Variavéis ========== */
 
 :root {
+  /* Títulos e textos */
   --cor-titulo-azul: #30adea;
-  --cor-sombra-clara: #7e7e7e;
-  --cor-sombra-escura: #000000;
-  --cor-background: #f1f2f3;
-  --cor-background-cinza: #cfcfcf;
-  /* --cor-background-azul: #30adea; */
-  --cor-background-hover: #2366bf;
+  --cor-texto-azul: #2366bf;
   --cor-texto-padrao: #f1f2f3;
   --cor-texto-cinza: #8a8a8a;
+  --cor-texto-escuro: #000000;
+  --cor-mensagem-vermelho: #ff0000;
+  /* Bordas */
+  --cor-border-azul: #30adea;
+  --cor-border-cinza: #7e7e7e;
+  --cor-border-escuro: #000000;
+  /* Sombras */
+  --cor-sombra-clara: #7e7e7e;
+  --cor-sombra-escura: #000000;
+  /* Backgrounds */
+  --cor-background: #f1f2f3;
+  --cor-background-azul: #30adea;
+  --cor-background-cinza: #cfcfcf;
+  --cor-background-odd-cinza: #b6b6b6;
+  --cor-background-campo-cinza: #e8e8e8;
+  /* Hovers */
+  --cor-background-hover: #2366bf;
+  --cor-background-hover-cinza: #cfcfcf;
+  --cor-table-hover: #8a8a8a;
+  --cor-background-negar: #ff0000;
+  --cor-background-aceitar: #0a740a;
+  /* Alertas */
+  --cor-pendencia: #ffe08a;
+  --cor-urgencia: #ff8a8a;
 
   --fonte-muito-grande: 4.375rem;
   /* 70px */
@@ -31,229 +51,105 @@
   padding: 0;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 /* ========== Area de estrutura geral so site ========== */
 
 main {
   display: flex;
-}
-
-/* ========== Container principal da tela de Login ========== */
-
-.container-login {
-  flex: 1;
-  color: var(--cor-texto-padrao);
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100vh;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  width: calc(100vw - 100px);
+  min-height: 90vh;
+  padding: 100px;
 }
 
-/* ========== Imagem de fundo ========== */
-
-.containter-fundo {
-  position: relative;
-}
-
-.fundo-login {
-  width: 100%;
-  position: fixed;
-  z-index: -1;
-  opacity: 65%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.fundo-pagina {
-  width: 30%;
-  position: fixed;
-  z-index: -1;
-  opacity: 30%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-/* ========== 'Logo' (Pode ser usado para imagens especificas) ========== */
-
-.container-logo {
-  position: fixed;
-  bottom: 50px;
-  left: 50px;
-  border-radius: 10px;
-  width: 120px;
-  height: 120px;
-}
-
-.texto-logo {
-  position: relative;
-  bottom: 4px;
-  left: 4px;
-}
-
-.logo {
-  bottom: 50px;
-  left: 50px;
-  width: 7.5rem;
-  border-radius: 10px;
-}
-
-.texto-login {
-  flex: 3;
-  color: var(--cor-texto-padrao);
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-  text-shadow: 0 0 8px var(--cor-sombra-escura);
-}
-
-.texto-login h1 {
-  font-size: var(--fonte-muito-grande);
-  font-family: 'Courier New', monospace;
-  margin-bottom: 10px;
-}
-
-.texto-login h3 {
-  font-size: var(--fonte-media);
-}
-
-/* ========== Area de Login Principal ========== */
-
-.ba-laarrteral {
-  background-color: var(--cor-background);
-  padding: 20px;
-  flex: 1;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.barra-lateral h2 {
-  font-size: var(--fonte-grande);
-  margin: 150px auto;
-  color: var(--cor-titulo-azul);
-}
-
-.barra-lateral input {
-  cursor: pointer;
-  background-color: var(--cor-background-cinza);
-  color: var(--cor-texto-padrao);
-  font-size: var(--fonte-pequena);
-  width: 90%;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px var(--cor-sombra-clara);
-}
-
-.barra-lateral input::placeholder {
-  background-color: var(--cor-background-cinza);
-  color: var(--cor-texto-padrao);
-}
-
-.barra-lateral button {
-  color: var(--cor-texto-padrao);
-  font-size: var(--fonte-bem-pequena);
-  background-color: var(--cor-titulo-azul);
-  box-shadow: 0 0 10px var(--cor-sombra-clara);
-  padding: 10px;
-  margin-top: 50px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  width: 150px;
-}
-
-.barra-lateral button:hover {
-  background-color: var(--cor-background-hover);
-}
-
-.barra-lateral a {
-  display: block;
-  margin: 10px 0;
-  color: var(--cor-texto-cinza);
-  font-size: var(--fonte-minuscula);
+main.open{
+  width: calc(100vw - 300px);
 }
 
 /* ========== Area de Tela Inicial ========== */
 
-.cabecalho-tela-inicial {
-  height: 90px;
+header {
   display: flex;
   justify-content: right;
-  align-items: rigth;
   background-color: var(--cor-background);
+  height: 10vh;
 }
 
-.cabecalho-tela-inicial img{
-  padding-right: 45px;
-  padding-top: 10px;
-  width: 80px;
-  height: 70px;
-  text-align: center;
+header img{
+  margin: 10px;
+  padding-right: 30px;
 }
 
-.article-tela-inicial {
+article {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: center;
-  justify-content: center;
+  color: var(--cor-titulo-azul);
+  gap: 10px;
   width: 100%;
-  padding: 100px;
 }
 
-.div-tela-inicial {
-  background: #ffffff;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  overflow: hidden;
-  display: flex;
-  border-radius: 5px;
-  flex-direction: column;
-  width: 150px;
-  max-width: 360px;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.div-tela-inicial:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+h2{
+  font-size: 3em;
+  width: 100%;
 }
 
 .section-tela-inicial {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    margin:10px 30px;
 }
 
 figure {
-  margin: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  max-height: 225px;
+  max-width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--cor-background-cinza);
+  box-shadow: 0 6px 18px var(--cor-sombra-escura);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+figure:hover {
+  transform: scale(1.15);
+  box-shadow: 0 14px 40px var(--cor-sombra-escura);
 }
 
 .imagem-tela-inicial {
+  object-fit: cover;
   width: 150px;
   height: 150px;
-  flex-direction: column;
-  border: 2px solid var(--cor-background-cinza);
-  text-align: center;
-  object-fit: cover;
 }
 
 .card-texto {
+  color: var(--cor-texto-escuro);
+  text-align: center;
   padding: 1rem;
+  font-size: 1.2em;
+}
+
+/*========================== Folha de Pagamento ============================ */
+
+.resumo-final {
   display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  flex: 3;
+  justify-content: end;
+  align-items: center;
+  font-weight: bold;
+  color: var(--cor-texto-escuro);
+  font-size: 1.5em;
+  width: 100%;
+  gap: 15px;
+  margin-top: 5px;
 }

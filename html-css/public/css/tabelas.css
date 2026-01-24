@@ -1,0 +1,59 @@
+/* Tabelas  - Configurações padrão*/
+table {
+  width: 100%;
+  margin: 50px 0;
+  border-spacing: 3px 5px;
+}
+
+caption{
+  font-weight: bold;
+  font-size: 2em;
+  border-radius: 10px 10px 0 0;
+}
+
+th, caption {
+  background-color: var(--cor-titulo-azul);
+  color: var(--cor-texto-padrao);
+  padding: 12px;
+}
+
+tbody{
+  text-align: center;
+  color: var(--cor-texto-escuro);
+}
+
+th, td {
+  font-weight: bold;
+  font-size: 1.3em;
+  min-width: 20%;
+  width: 300px;
+  max-width: 25%;
+  height: 45px;
+}
+
+td>input{
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    background-color: var(--cor-background-cinza);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+td[colspan="2"] {
+  background-color: var(--cor-background);
+}
+
+tr{
+  background-color: var(--cor-background-cinza);
+}
+
+tr:nth-child(odd), tr:nth-child(odd)>td>input{
+  background-color: var(--cor-background-odd-cinza);
+}
+
+tr:hover, tr:hover>td>input{
+    background-color: var(--cor-table-hover);
+}
