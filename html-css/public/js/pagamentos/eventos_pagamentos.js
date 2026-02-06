@@ -96,7 +96,7 @@ function removerEventos() {
     })
 }
 
-function buscaNome(valor){
+function buscarNome(valor){
     const valoresObtidos = pessoas.filter(item => {
         
          return item.nome.toLowerCase().includes(valor.toLowerCase())
@@ -116,7 +116,7 @@ function listarNomes(){
             listaNomes.style.display = "block";
             const nomeInserido = nome.value.trim();
             
-            const nomes = await buscaNome(nomeInserido);
+            const nomes = await buscarNome(nomeInserido);
             
             if (nomes.length >= 1){
                 nomes.forEach(nomesRetornados => {
