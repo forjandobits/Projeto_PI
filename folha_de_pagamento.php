@@ -32,6 +32,7 @@
           <div class="campo">
               <label for="nome">Nome do Funcionário:</label>
               <input type="text" name="Nome-Funcionario" id="nome" placeholder="Ex.: Nome do Funcionário" required>
+              <ul id="listaNomes"></ul>
           </div>
 
           <div class="campo">
@@ -43,12 +44,12 @@
 
         <section class="eventos-pagamentos">
 
-          <section class="grupo-campo-linha">
+          <!-- <section class="grupo-campo-linha">
   
             <div class="campo">
               <label for="beneficios">Benefício/Descontos:</label>
               <select name="Beneficios" id="beneficio">
-                <!-- <option value="">-- Selecione --</option> -->
+                <!-- <option value="">-- Selecione --</option> --
                 <option value="01">01 - Comissão</option>
                 <option value="06">06 - Imposto de Renda (IRRF)</option>
                 <option value="07">07 - Vale Alimentação</option>
@@ -65,7 +66,7 @@
               <button class="negar" type ="button">✘ Remover</button>
             </div>
   
-          </section>
+          </section> -->
 
         </section>
 
