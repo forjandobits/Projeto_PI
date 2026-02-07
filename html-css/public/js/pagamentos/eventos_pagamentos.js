@@ -1,6 +1,8 @@
 // Para simular o retorno do banco
-beneficiosDescontos = ["Salário", "13º Salário", "INSS", "IRPF", "Comissão", "Imposto de Renda", "Vale Transporte", "Vale Alimentação"];
+beneficiosDescontos = [{id: 1, tipo: "Salário"}, {id: 2, tipo:"13º Salário"}, {id: 3, tipo:"INSS"}, {id: 4, tipo:"IRPF"}, {id: 5, tipo:"Comissão"}, {id: 6, tipo:"Imposto de Renda"}, {id: 7, tipo:"Vale Transporte"}, {id: 8, tipo:"Vale Alimentação"}];
 pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"}, {id: 3, nome: "Maria José"}, {id: 4, nome: "Maria Luiza"}, {id: 5, nome:"José"}, {id: 6, nome: "João Pedro"}];
+
+// Função para manipulação de elementos visuais e experiência de usuário
 
 function criarEventos(){
     const criarEvento = document.querySelector("#adicionar-evento");
@@ -29,21 +31,18 @@ function criarEventos(){
                     label.textContent = "Benefícios/Descontos:"
                     label.htmlFor = "beneficios";
                     
-                    // Contador para value e options
-                    let contador = 1;
                     // Varredura do array de elementos que serão 
                     // apresentados nas opções
                     beneficiosDescontos.forEach(benDes => {
                         const option = document.createElement("option");
-                        option.text = `0${contador} - ${benDes}`;
-                        option.value = contador;
+                        option.text = `0${benDes.id} - ${benDes.tipo}`;
+                        option.value = benDes.id;
                         select.append(option);
                         label.append(select);
-                        contador+=1;
                     });
                     
+                    select.name = "Beneficios";
                     select.id = "beneficios";
-                    select.name = "Beneficios"
                     select.required = true;
                     // append é mais utlizado e permite adicionar mais elementos de uma única vez
                     div.append(label, select);
@@ -147,11 +146,13 @@ function listarNomes(){
 }
 
 // A função é assíncrona pois depende dos elementos estarem listados para funcionar
+const nome = document.querySelector("#nome");
+let idSelecionado = 0;
+
 async function selecionarNome(){
     // Selecionando todos os elementos para a execução
     const listaNomes = document.querySelector("#listaNomes");
     const nomesListados = document.querySelectorAll("#listaNomes>li");
-    const nome = document.querySelector("#nome");
     
     // Busca os elementos existentes
     nomesListados.forEach(nomeSelecionado => {
@@ -162,9 +163,11 @@ async function selecionarNome(){
             let nomeInput = `${nomeSelecionado.textContent.trim()}`;
             nome.value = nomeInput;
             // Para o valor no formulário caso necessário
-            let idSelecionado  = nomeSelecionado.dataset.value;
+            idSelecionado  = nomeSelecionado.dataset.value;
 
-            console.log(`Nome: ${nomeSelecionado.textContent} ID: ${nomeSelecionado.dataset.value}`);
+            // Para mostrar o nome que foi selecionado e o ID do mesmo
+            // console.log(`Nome: ${nomeSelecionado.textContent} ID: ${nomeSelecionado.dataset.value}`);
+
             // Fecha a listagem de nomes
             listaNomes.style.display = "none";
             return;
@@ -175,3 +178,62 @@ async function selecionarNome(){
 listarNomes();
 criarEventos();
 removerEventos();
+
+// Para manipular os dados inseridos na tela
+valoresRecebidos = [];
+const exibir = document.querySelector(".modal");
+const botaoSalvar = document.querySelector("#lancar-dados");
+
+function receberDadosSelecionados(){
+    const mesSelecionado = document.querySelector("#data-mes-ano");
+    const mes = document.querySelector("#mes");
+    const nomeFuncionario = document.querySelector("#nome-exibido");
+    
+    
+    botaoSalvar.addEventListener("click", () => {
+        const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
+        nomeFuncionario.textContent = "";
+        mes.textContent = "";
+
+        nomeFuncionario.textContent = nome.value;
+        mes.textContent = mesSelecionado.value;
+
+        if(valoresRecebidos.length > 0){
+            valoresRecebidos.splice(0);
+        }
+
+        camposListados.forEach(valoresCampos => {
+            let input = valoresCampos.querySelector('.campo>#valor');
+            let select = valoresCampos.querySelector('.campo>#beneficios');
+
+            valoresRecebidos.push({id: select.value, valor: input.value})
+        });
+
+        // Apenas para debug
+        // valoresRecebidos.forEach(valores =>{
+        //     alert(`Nome: ${nome.value}; ID: ${idSelecionado};\nMês: ${mesSelecionado.value}\n\n ID Select:${valores.id} - ${valores.valor}`);
+        // });
+
+        exibir.style.display = "none";
+
+        return;
+    });
+
+}
+
+
+receberDadosSelecionados();
+// function validarCampos(){
+
+// };
+
+function manipularDados(){
+    botaoSalvar.addEventListener("click", () =>{
+        
+        valoresRecebidos.forEach(item =>{
+            alert(`ID:${item.id} - R$${item.valor}`);
+        })
+    })
+}
+
+manipularDados();

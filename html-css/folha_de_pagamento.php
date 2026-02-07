@@ -9,7 +9,7 @@
 
   <article>
     <table>
-      <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
+      <caption>Folha de Pagamento - <span id="nome-exibido">Nome Funcionário</span> - <span id="mes">Mês/Ano</span></caption>
       <?php include "./tabela_pagamento.php"?>
     </table>
 
@@ -42,38 +42,11 @@
         
         </section> 
 
-        <section class="eventos-pagamentos">
-
-          <!-- <section class="grupo-campo-linha">
-  
-            <div class="campo">
-              <label for="beneficios">Benefício/Descontos:</label>
-              <select name="Beneficios" id="beneficio">
-                <!-- <option value="">-- Selecione --</option> --
-                <option value="01">01 - Comissão</option>
-                <option value="06">06 - Imposto de Renda (IRRF)</option>
-                <option value="07">07 - Vale Alimentação</option>
-                <option value="08">08 - Vale Transporte</option>
-              </select>
-            </div>
-  
-            <div class="campo">
-              <label for="valor">Valor:</label>
-              <input type="number" name="Valor" id="valor" placeholder="200,00">
-            </div>
-  
-            <div class="campo">
-              <button class="negar" type ="button">✘ Remover</button>
-            </div>
-  
-          </section> -->
-
-        </section>
-
+        <section class="eventos-pagamentos"></section>
 
         <div class="campo resumo">
           <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
-          <button type="submit">Salvar Alterações</button>
+          <button type="button" id="lancar-dados">Salvar Alterações</button>
         </div>
       </form>
     </section>
