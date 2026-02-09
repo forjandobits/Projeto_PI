@@ -1,6 +1,17 @@
 // Para simular o retorno do banco
-beneficiosDescontos = [{id: 1, tipo: "Salário"}, {id: 2, tipo:"13º Salário"}, {id: 3, tipo:"INSS"}, {id: 4, tipo:"IRPF"}, {id: 5, tipo:"Comissão"}, {id: 6, tipo:"Imposto de Renda"}, {id: 7, tipo:"Vale Transporte"}, {id: 8, tipo:"Vale Alimentação"}];
-pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"}, {id: 3, nome: "Maria José"}, {id: 4, nome: "Maria Luiza"}, {id: 5, nome:"José"}, {id: 6, nome: "João Pedro"}];
+beneficiosDescontos = [{id_beneficio: 1, desconto: 0, referencia: 1615.00 , nome_beneficio: "Salário"}, 
+    {id_beneficio: 2, desconto: 0, referencia: 1615.00 , nome_beneficio:"13º Salário"}, 
+    {id_beneficio: 3, desconto: 1, referencia: 10 , nome_beneficio:"INSS"}, 
+    {id_beneficio: 4, desconto: 1, referencia: 0 , nome_beneficio:"IRPF"}, 
+    {id_beneficio: 5, desconto: 0, referencia: 100 , nome_beneficio:"Comissão"},
+    {id_beneficio: 6, desconto: 0, referencia: 3.75 , nome_beneficio:"Vale Transporte"}, 
+    {id_beneficio: 8, desconto: 0, referencia: 30 , nome_beneficio:"Vale Alimentação"}
+];
+
+pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"},
+    {id: 3, nome: "Maria José"}, {id: 4, nome: "Maria Luiza"}, 
+    {id: 5, nome:"José"}, {id: 6, nome: "João Pedro"}
+];
 
 // Função para manipulação de elementos visuais e experiência de usuário
 
@@ -35,8 +46,8 @@ function criarEventos(){
                     // apresentados nas opções
                     beneficiosDescontos.forEach(benDes => {
                         const option = document.createElement("option");
-                        option.text = `0${benDes.id} - ${benDes.tipo}`;
-                        option.value = benDes.id;
+                        option.text = `0${benDes.id_beneficio} - ${benDes.nome_beneficio}`;
+                        option.value = benDes.id_beneficio;
                         select.append(option);
                         label.append(select);
                     });
@@ -186,17 +197,9 @@ const botaoSalvar = document.querySelector("#lancar-dados");
 
 function receberDadosSelecionados(){
     const mesSelecionado = document.querySelector("#data-mes-ano");
-    const mes = document.querySelector("#mes");
-    const nomeFuncionario = document.querySelector("#nome-exibido");
-    
     
     botaoSalvar.addEventListener("click", () => {
         const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
-        nomeFuncionario.textContent = "";
-        mes.textContent = "";
-
-        nomeFuncionario.textContent = nome.value;
-        mes.textContent = mesSelecionado.value;
 
         if(valoresRecebidos.length > 0){
             valoresRecebidos.splice(0);
@@ -206,7 +209,7 @@ function receberDadosSelecionados(){
             let input = valoresCampos.querySelector('.campo>#valor');
             let select = valoresCampos.querySelector('.campo>#beneficios');
 
-            valoresRecebidos.push({id: select.value, valor: input.value})
+            valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:{idBenDes: select.value, valor: input.value}})
         });
 
         // Apenas para debug
@@ -228,12 +231,78 @@ receberDadosSelecionados();
 // };
 
 function manipularDados(){
+    const mes = document.querySelector("#mes");
+    const nomeFuncionario = document.querySelector("#nome-exibido");
+    const resumoLiquido = document.querySelector(".resumo-final>p");
+
+    // Buscar a tabela
+    
+    // Receber valor
+    // situacao.text content = valor;
+    
     botaoSalvar.addEventListener("click", () =>{
+        // Por ser variável global ("valoresRecebidos") é possível manipular em qualquer parte do código
+        const tabelaPagamento = document.querySelector("#tabela-saida-folha-pagamento");
         
-        valoresRecebidos.forEach(item =>{
-            alert(`ID:${item.id} - R$${item.valor}`);
-        })
-    })
+        if(tabelaPagamento){
+
+            tabelaPagamento.textContent = "";
+            // return
+        }
+
+        let valorLiquido = 0;
+
+        valoresRecebidos.forEach(item => {
+        
+            // criar uma nova linha e inserir na tabela
+            const novasInfos = tabelaPagamento.insertRow()
+        
+            // criar novas celulas
+            const id = novasInfos.insertCell();
+            const evento = novasInfos.insertCell(); 
+            const referencia = novasInfos.insertCell(); 
+            const vencimentos = novasInfos.insertCell(); 
+            const descontos = novasInfos.insertCell();
+
+            // Para aparecer as informações apenas uma vez e continuar exibindo as outras conforme necessário
+            nomeFuncionario.textContent = "";
+            mes.textContent = "";
+
+            nomeFuncionario.textContent = nome.value;
+            mes.textContent = item.mes;
+
+            beneficiosDescontos.forEach(situacao => {
+                
+                if(situacao.desconto === 0){
+
+                    id.textContent = item.infoBenDes.idBenDes;
+                    idConvertido = Number(item.infoBenDes.idBenDes);
+                    if(situacao.id_beneficio == idConvertido){
+                        evento.textContent = situacao.nome_beneficio;
+                        referencia.textContent = situacao.referencia;
+                        vencimentos.textContent = item.infoBenDes.valor;
+                        descontos.textContent = "00,00";
+                        valorLiquido = valorLiquido + Number(item.infoBenDes.valor);
+                    }
+                } else {
+
+                    id.textContent = item.infoBenDes.idBenDes;
+                    idConvertido = Number(item.infoBenDes.idBenDes);
+                    if(situacao.id_beneficio == idConvertido){
+                        evento.textContent = situacao.nome_beneficio;
+                        referencia.textContent = situacao.referencia;
+                        vencimentos.textContent = "00,00";
+                        descontos.textContent = item.infoBenDes.valor;
+                        valorLiquido = valorLiquido - Number(item.infoBenDes.valor);
+                    }
+                };
+
+            });
+            resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido}`;
+        });
+        console.log(valoresRecebidos);
+    });
+
 }
 
 manipularDados();
