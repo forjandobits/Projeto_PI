@@ -281,7 +281,7 @@ function manipularDados(){
                         evento.textContent = situacao.nome_beneficio;
                         referencia.textContent = situacao.referencia;
                         vencimentos.textContent = item.infoBenDes.valor;
-                        descontos.textContent = "00,00";
+                        descontos.textContent = "00";
                         valorLiquido = valorLiquido + Number(item.infoBenDes.valor);
                     }
                 } else {
@@ -291,14 +291,21 @@ function manipularDados(){
                     if(situacao.id_beneficio == idConvertido){
                         evento.textContent = situacao.nome_beneficio;
                         referencia.textContent = situacao.referencia;
-                        vencimentos.textContent = "00,00";
+                        vencimentos.textContent = "00";
                         descontos.textContent = item.infoBenDes.valor;
+                        descontos.style.color = "#FF0000";
                         valorLiquido = valorLiquido - Number(item.infoBenDes.valor);
                     }
                 };
 
             });
-            resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido}`;
+
+            if(valorLiquido < 0){
+                resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
+            } else {
+                resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido}`;
+            }
+
         });
         console.log(valoresRecebidos);
     });

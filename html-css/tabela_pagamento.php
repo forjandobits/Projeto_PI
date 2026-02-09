@@ -2,9 +2,9 @@
     <tr>
         <th>Código de Referência</th>
         <th>Evento</th>
-        <th>Referência</th>
-        <th>Vencimentos</th>
-        <th>Descontos</th>
+        <th>Referência (R$)</th>
+        <th>Vencimentos (R$)</th>
+        <th>Descontos (R$)</th>
     </tr>
 </thead>
 
