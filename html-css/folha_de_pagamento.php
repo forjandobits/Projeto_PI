@@ -14,7 +14,7 @@
     </table>
 
     <section class="resumo-final">
-          <p>Total Líquido (R$): 2000,00</p>
+          <p>Total Líquido (R$): 00,00</p>
           <button class='abrir-modal'>Eventos</button>
           <button>Salvar</button>
     </section>
