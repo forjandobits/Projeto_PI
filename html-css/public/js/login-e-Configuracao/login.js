@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!form || !erro) {
         console.error("Formulário ou div de erro não encontrados!");
-        // console.log("Erro, pego na 1º validação ");
+        console.log("Erro, pego na 1º validação ");
         return;
     }
 
@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!usuario || !senha) {
             console.error("Campos de usuário ou senha não encontrados!");
-            // console.log("Erro, pego na 2º validação ");
+            console.log("Erro, pego na 2º validação ");
             return;
         }
 
         if (usuario.value === "" || senha.value === "") {
             console.error("Campos de usuário ou senha não encontrados!");
-            // console.log("Erro, pego na 3º validação ");
+            console.log("Erro, pego na 3º validação ");
             return;
         }
 
@@ -53,12 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.trim() === "success") { 
                 // Se o servidor responder exatamente com "success" (sem espaços extras), redirecionamos o usuário
                 window.location.href = "inicial.php"; 
-                // console.log("Sucesso, indo pra tela inicial")
+                console.log("Sucesso, indo pra tela inicial")
             } else { 
                 // Se não, mostramos o erro na tela
                 erro.style.display = "block"; // Mostra a div de erro
                 erro.textContent = data;       // Coloca a mensagem retornada pelo servidor dentro da div
-                // console.log("erro generico ou não especifico(tipo algo que a gente nao definiu nas validações anteriors)")
+                console.log("erro generico ou não especifico(tipo algo que a gente nao definiu nas validações anteriors)")
             }
         })
         .catch(error => { 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
             erro.style.display = "block";     // Mostra a div de erro
             erro.textContent = "Erro no servidor."; // Mensagem padrão
             console.error(error);             // Mostra o erro detalhado no console do navegador
-            // console.log("Erro, pego no cath final");
+            console.log("Erro, pego no cath final");
         });
 
     });
