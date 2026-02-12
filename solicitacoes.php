@@ -19,7 +19,7 @@
         </section>
 
         <section>
-            <form action="">
+            <form id="solicitacao" action="" method="POST">
     
                 <section class="areas-form">
                     <div class="grupo-campo">
@@ -54,7 +54,7 @@
                         <div class="campo resumo">
                             <label for="pendente">Pendente:</label>
                             <input type="checkbox" name="Pendencia" id="pendente"></input>
-                            <button>Concluir</button>
+                            <button id="concluir">Concluir</button>
                         </div>
                     </div>
                 </section>
@@ -80,7 +80,7 @@
                 </tr>
             </thead>
         
-            <tbody>
+            <tbody id="tabelaSoc">
         
                 <!-- Primeira linha-->
                 <tr>
@@ -88,68 +88,6 @@
                     <td>Josué Arruda</td>
                     <td>12/11/2025 </td>
                     <td>Resolvida</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-        
-                <!-- Linha expandida cinza-->
-                <!-- TENTAR MUDAR ESTE PADRÃO  -->
-                <!-- <tr class="linha-visualizar">
-                    <td>Início: 17/12/2025</td>
-                    <td>Término: 16/01/2026</td>
-                    <td>
-                        <button>✔</button>
-                        <button>✘</button>
-                    </td>
-                </tr> -->
-        
-                <!-- Segunda linha -->
-                <tr>
-                    <td>Revisão</td>
-                    <td>Dani Oliveira</td>
-                    <td>17/11/2025 </td>
-                    <td>Resolvida</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Outros</td>
-                    <td>Joaquim Oliveira</td>
-                    <td>17/11/2025 </td>
-                    <td>Resolvida</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr class="pendente">
-                    <td>Atestado</td>
-                    <td>José Silva</td>
-                    <td>18/11/2025 </td>
-                    <td>Pendente</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr class="pendente">
-                    <td>Folga</td>
-                    <td>João Cunha</td>
-                    <td>20/11/2025 </td>
-                    <td>Pendente</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr class="urgente">
-                    <td>Outros</td>
-                    <td>Camilo dos Santos</td>
-                    <td>25/11/2025 </td>
-                    <td>Urgente</td>
                     <td> 
                         <button class='abrir-modal'>Visualizar</button>
                     </td>
@@ -208,5 +146,7 @@
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+<script src="public/js/solicitações-adicionar/adicionar.js"></script>
+
 </body>
 </html>
