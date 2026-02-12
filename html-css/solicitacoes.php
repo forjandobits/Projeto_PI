@@ -55,7 +55,7 @@
                             <label for="pendente">Pendente:</label>
                             <input type="checkbox" name="Pendencia" id="pendente"></input>
 
-                            <button type="button" id="concluir">Concluir</button>
+                            <button id="concluir" type="button" id="concluir">Concluir</button>
                         </div>
                     </div>
                 </section>
@@ -81,7 +81,7 @@
                 </tr>
             </thead>
         
-            <tbody id="tabelaSolicitacao">
+            <tbody id="tabelaSoc" id="tabelaSolicitacao">
         
                 <!-- Primeira linha-->
                 <tr>
@@ -143,7 +143,7 @@
     </article>
 
 </main>
-<script src="public/js/solicitações-adicionar/adicionar.js"></script>
+<script src="public/js/solicitações-adicionar/adicionar.js"></script><script src="public/js/solicitações-adicionar/adicionar.js"></script>
 
 </body>
 </html>
