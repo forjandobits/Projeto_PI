@@ -44,6 +44,7 @@ function criarEventos(){
                     
                     // Varredura do array de elementos que serão 
                     // apresentados nas opções
+
                     beneficiosDescontos.forEach(benDes => {
                         const option = document.createElement("option");
                         option.text = `0${benDes.id_beneficio} - ${benDes.nome_beneficio}`;
@@ -313,3 +314,22 @@ function manipularDados(){
 }
 
 manipularDados();
+
+// Função para buscar os valores no banco de dados
+async function listarBeneficiosDescontos() {
+    const resposta = await fetch("../exibir_beneficios_descontos.php");
+    const beneficios_descontos = await resposta.json();
+    
+    console.log(resposta);
+    console.log(beneficios_descontos);
+    
+    beneficios_descontos.forEach(elemento => {
+        alert(elemento);
+    });
+    
+    return beneficios_descontos;
+    // listarBeneficiosDescontos();
+}
+
+alert(listarBeneficiosDescontos());
+// console.log(listarBeneficiosDescontos());
