@@ -318,18 +318,22 @@ manipularDados();
 // Função para buscar os valores no banco de dados
 async function listarBeneficiosDescontos() {
     const resposta = await fetch("../exibir_beneficios_descontos.php");
-    const beneficios_descontos = await resposta.json();
+    const volta = JSON.stringify(resposta);
+    alert(volta);
     
-    console.log(resposta);
-    console.log(beneficios_descontos);
+    // console.log(resposta);337
+    // console.log(beneficios_descontos);
     
-    beneficios_descontos.forEach(elemento => {
-        alert(elemento);
-    });
-    
-    return beneficios_descontos;
-    // listarBeneficiosDescontos();
+    // return resposta;
 }
 
-alert(listarBeneficiosDescontos());
+const beneficios_descontos = listarBeneficiosDescontos();
+
+beneficios_descontos.forEach(elemento => {
+    alert(elemento);
+});
+
+listarBeneficiosDescontos();
+
+// alert(listarBeneficiosDescontos());
 // console.log(listarBeneficiosDescontos());
