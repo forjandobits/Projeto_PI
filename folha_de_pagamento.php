@@ -44,6 +44,12 @@
 
         <section class="eventos-pagamentos"></section>
 
+        <!-- teste -->
+        <div class="resultado">
+            <p id="resultado"></p>
+        </div> <!-- teste -->
+
+
         <div class="campo resumo">
           <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
           <button type="button" id="lancar-dados">Salvar Alterações</button>
@@ -60,5 +66,6 @@
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 <script src="public/js/pagamentos/eventos_pagamentos.js"></script>
+<script src="public/js/pagamentos/validacoes.js"></script> <!-- teste -->
 </body>
 </html>
