@@ -56,39 +56,39 @@
      </thead>
      <tbody id="tabela-saida-colaboradores">
        <tr>
-         <td>Gustavo</td>
+         <!-- <td>Gustavo</td>
          <td>Padeiro</td>
-         <td>Disponível</td>
+         <td>Disponível</td> -->
          <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
-         <td>Elisangela</td>
+         <!-- <td>Elisangela</td>
          <td>Caixa</td>
-         <td>Disponível</td>
+         <td>Disponível</td> -->
          <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
-         <td>Joaquim</td>
+         <!-- <td>Joaquim</td>
          <td>Balconista</td>
-         <td>Desligado</td>
+         <td>Desligado</td> -->
          <td><button>Desligar</button></td>
          <td><button class='abrir-modal'>Visualizar</button></td>
        </tr>
        <tr>
-         <td>Regina</td>
+         <!-- <td>Regina</td>
          <td>Caixa</td>
-         <td>Disponível</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
+         <td>Disponível</td> -->
+         <!-- <td><button>Desligar</button></td>
+         <td><button class='abrir-modal'>Visualizar</button></td> -->
        </tr>
        <tr>
-         <td>Mateus</td>
+         <!-- <td>Mateus</td>
          <td>Gerente</td>
-         <td>Desligado</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
+         <td>Desligado</td> -->
+         <!-- <td><button>Desligar</button></td>
+         <td><button class='abrir-modal'>Visualizar</button></td> -->
        </tr>
      </tbody>
    </table>
