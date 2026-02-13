@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnAceitar.addEventListener('click', function () {
         // Atualizar o status para Autorizado
         console.log("Solicitação autorizada!");
+        alert("Solicitação Aceita!")
     })
 
     btnNegar.addEventListener('click', function(e) {
@@ -14,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
 
         if (motivo.value.trim() === "") {
-            e.preventDefault();
+            e.preventDefault(); // Aqui o envio do formulário e cancelado
             alert("Motivo da recusa deve ser preenchido!");
-            motivo.focus();
+            motivo.focus(); // Coloca o cursor dentro do campo motivo
         } else {
-            console.log("Solicitação negada");
+            alert("Solicitação negada!");
         }
     })
 
