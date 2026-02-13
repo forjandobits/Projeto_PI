@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Tempo de geração: 14-Fev-2026 às 01:32
+=======
+-- Tempo de geração: 13-Fev-2026 às 01:11
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -32,7 +36,11 @@ USE `bd_humanamente`;
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
   `id_documento` int(11) NOT NULL,
+<<<<<<< HEAD
   `tipo_documento` varchar(100) NOT NULL,
+=======
+  `tipo_documento` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   `url_arquivo` text NOT NULL,
   PRIMARY KEY (`id_arquivo`),
   KEY `id_documento` (`id_documento`)
@@ -47,9 +55,15 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+<<<<<<< HEAD
   `agencia` varchar(20) NOT NULL,
   `numero_conta` varchar(20) NOT NULL,
   `tipo_conta` varchar(40) NOT NULL,
+=======
+  `agencia` text NOT NULL,
+  `numero_conta` text NOT NULL,
+  `tipo_conta` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   `chave_pix` text NOT NULL,
   PRIMARY KEY (`id_banco`),
   KEY `id_funcionario` (`id_funcionario`)
@@ -63,12 +77,21 @@ CREATE TABLE IF NOT EXISTS `tb_banco` (
 
 CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
+<<<<<<< HEAD
   `nome_cargo` varchar(100) NOT NULL,
   `salario` decimal(10,2) NOT NULL,
   `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
   `escala` int(11) NOT NULL,
   `cbo` varchar(10) NOT NULL,
+=======
+  `nome_cargo` text NOT NULL,
+  `salario` double NOT NULL,
+  `carga_horaria` text NOT NULL,
+  `regime_trabalhista` text NOT NULL,
+  `escala` text NOT NULL,
+  `cbo` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   PRIMARY KEY (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -111,7 +134,11 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
   `numero_casa` int(11) NOT NULL,
+<<<<<<< HEAD
   `cep` varchar(15) NOT NULL,
+=======
+  `cep` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   `complemento` text DEFAULT NULL,
   PRIMARY KEY (`id_endereco`),
   KEY `id_funcionario` (`id_funcionario`)
@@ -161,6 +188,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
 CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
   `id_cargo` int(11) NOT NULL,
+<<<<<<< HEAD
   `nome_completo` varchar(100) NOT NULL,
   `data_nascimento` date NOT NULL,
   `sexo` varchar(30) NOT NULL,
@@ -169,6 +197,16 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `data_admissao` date NOT NULL,
   `data_demissao` date DEFAULT NULL,
   `situacao` int(11) NOT NULL,
+=======
+  `nome_completo` text NOT NULL,
+  `data_nascimento` text NOT NULL,
+  `sexo` text NOT NULL,
+  `estado_civil` text NOT NULL DEFAULT '0',
+  `email` text NOT NULL,
+  `data_demissao` text NOT NULL,
+  `data_admissao` text NOT NULL,
+  `situacao` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -188,6 +226,10 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `intervalo_inicio` time DEFAULT NULL,
   `intervalo_fim` time DEFAULT NULL,
   `dia_semana` text NOT NULL,
+<<<<<<< HEAD
+=======
+  `data` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
@@ -202,8 +244,13 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 CREATE TABLE IF NOT EXISTS `tb_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+<<<<<<< HEAD
   `nome_usuario` varchar(100) NOT NULL,
   `senha` varchar(50) NOT NULL,
+=======
+  `nome_usuario` text NOT NULL,
+  `senha` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   PRIMARY KEY (`id_login`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -234,7 +281,11 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
 CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+<<<<<<< HEAD
   `data_solicitacao` date NOT NULL,
+=======
+  `data_solicitacao` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   `tipo_solicitacao` text NOT NULL,
   `observacao` text NOT NULL,
   `motivo` text DEFAULT NULL,
@@ -252,8 +303,13 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
 CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+<<<<<<< HEAD
   `telefone` varchar(20) NOT NULL,
   `tipo_telefone` varchar(50) NOT NULL,
+=======
+  `telefone` text NOT NULL,
+  `tipo_telefone` text NOT NULL,
+>>>>>>> ade974d (FEAT: Adição da tabela de solicitações e correções necessárias)
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
