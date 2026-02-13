@@ -1,0 +1,11 @@
+
+
+body.escuro {
+    --bg: #242222;
+    --text: #ffffff;
+}
+
+body.contraste {
+    --bg: #0024f3;
+    --text: #000000;
+}
