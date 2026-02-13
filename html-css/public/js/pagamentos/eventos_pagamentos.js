@@ -1,12 +1,16 @@
-// Para simular o retorno do banco
-beneficiosDescontos = [{id_beneficio: 1, desconto: 0, referencia: 1615.00 , nome_beneficio: "Salário"}, 
-    {id_beneficio: 2, desconto: 0, referencia: 1615.00 , nome_beneficio:"13º Salário"}, 
-    {id_beneficio: 3, desconto: 1, referencia: 10 , nome_beneficio:"INSS"}, 
-    {id_beneficio: 4, desconto: 1, referencia: 0 , nome_beneficio:"IRPF"}, 
-    {id_beneficio: 5, desconto: 0, referencia: 100 , nome_beneficio:"Comissão"},
-    {id_beneficio: 6, desconto: 0, referencia: 3.75 , nome_beneficio:"Vale Transporte"}, 
-    {id_beneficio: 8, desconto: 0, referencia: 30 , nome_beneficio:"Vale Alimentação"}
-];
+// Função para buscar os valores no banco de dados
+async function listarBeneficiosDescontos() {
+    const resposta = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
+    const beneficios_descontos = await resposta.json();
+
+    // console.log(beneficios_descontos);
+
+    beneficios_descontos.forEach(elemento => {
+        console.log(elemento);
+    });
+
+    return beneficios_descontos;
+}
 
 pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"},
     {id: 3, nome: "Maria José"}, {id: 4, nome: "Maria Luiza"}, 
@@ -19,7 +23,7 @@ function criarEventos(){
     const criarEvento = document.querySelector("#adicionar-evento");
     
     if(criarEvento){
-        criarEvento.addEventListener("click", ()=>{
+        criarEvento.addEventListener("click", async ()=>{
     
             // Buscando os elementos para adicionar um após o outro e abaixo
             const eventoPagamento = document.querySelector(".eventos-pagamentos");
@@ -44,6 +48,8 @@ function criarEventos(){
                     
                     // Varredura do array de elementos que serão 
                     // apresentados nas opções
+
+                    beneficiosDescontos = await listarBeneficiosDescontos();
 
                     beneficiosDescontos.forEach(benDes => {
                         const option = document.createElement("option");
@@ -272,15 +278,15 @@ function manipularDados(){
             nomeFuncionario.textContent = nome.value;
             mes.textContent = item.mes;
 
-            beneficiosDescontos.forEach(situacao => {
+            beneficiosDescontos.forEach(benDes => {
                 
-                if(situacao.desconto === 0){
+                if(benDes.desconto === '0'){
 
                     id.textContent = item.infoBenDes.idBenDes;
                     idConvertido = Number(item.infoBenDes.idBenDes);
-                    if(situacao.id_beneficio == idConvertido){
-                        evento.textContent = situacao.nome_beneficio;
-                        referencia.textContent = situacao.referencia;
+                    if(benDes.id_beneficio == idConvertido){
+                        evento.textContent = benDes.nome_beneficio;
+                        referencia.textContent = benDes.referencia;
                         vencimentos.textContent = item.infoBenDes.valor;
                         descontos.textContent = "00";
                         valorLiquido = valorLiquido + Number(item.infoBenDes.valor);
@@ -289,9 +295,9 @@ function manipularDados(){
 
                     id.textContent = item.infoBenDes.idBenDes;
                     idConvertido = Number(item.infoBenDes.idBenDes);
-                    if(situacao.id_beneficio == idConvertido){
-                        evento.textContent = situacao.nome_beneficio;
-                        referencia.textContent = situacao.referencia;
+                    if(benDes.id_beneficio == idConvertido){
+                        evento.textContent = benDes.nome_beneficio;
+                        referencia.textContent = benDes.referencia;
                         vencimentos.textContent = "00";
                         descontos.textContent = item.infoBenDes.valor;
                         descontos.style.color = "#FF0000";
@@ -314,26 +320,3 @@ function manipularDados(){
 }
 
 manipularDados();
-
-// Função para buscar os valores no banco de dados
-async function listarBeneficiosDescontos() {
-    const resposta = await fetch("../exibir_beneficios_descontos.php");
-    const volta = JSON.stringify(resposta);
-    alert(volta);
-    
-    // console.log(resposta);337
-    // console.log(beneficios_descontos);
-    
-    // return resposta;
-}
-
-const beneficios_descontos = listarBeneficiosDescontos();
-
-beneficios_descontos.forEach(elemento => {
-    alert(elemento);
-});
-
-listarBeneficiosDescontos();
-
-// alert(listarBeneficiosDescontos());
-// console.log(listarBeneficiosDescontos());
