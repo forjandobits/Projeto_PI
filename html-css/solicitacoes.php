@@ -207,7 +207,7 @@
 
 </main>
 
-<script src="public/js/solicitacoes_visualizacao.js"></script>
+<script src="public/js/solicitacoes_visualizar.js"></script>
 
 </body>
 </html>
