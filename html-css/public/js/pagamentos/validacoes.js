@@ -1,37 +1,40 @@
-// "Nome Vazio"
+
+// "Nome Vazio" X
 // "Valor Vazio"
 // "Nome ñ Existente"
 // "Opção de Evento Selecionada"
 // "Folha Vazia"
 // "Data vazia"
-// "Datas Muito Distantes" = Muito antes ou Muito depois da data atual 
+// "Datas Muito Distantes" = Muito antes ou Muito depois da data atual
 // "Sair sem Salvar"
 
-// até esse comentario ser apagado, por favor não leve nada que 
-// esta nesse arquivo coo referencia de nada, 
+// até esse comentario ser apagado, por favor não leve nada que
+// esta nesse arquivo coo referencia de nada,
 // a não ser que esteja especificado como seguro para tal
 
-document.addEventListener("DOMContentLoaded", () => {
-    const nome = getElementById("nome");
-    const mesano = getElementById("data-mes-ano");
-    const adevent = getElementById("adicionar-evento");
-    const savdados = getElementById("lancar-dados");
-
-    savdados.addEventListener("click", () => {
-        nomeVazio(nome);
-    });
-})
+// class = ".classe"
+// id = "#id"
+// tag = ""
 
 
-function nomeVazio(nome) {
-    // se entrada de referencia para nome do funcionario estiver vazia, envie mensagem de erro
-    // ativação = input
-    alert("AAAAAAAA");
-    if (nome == "") {
-        mostrarMensagem("Você não pode deixar esse campo vazio!!");
+function nomeVazio() {
+    const nome = document.querySelector("#nome");
 
-    }
-}
+    nome.addEventListener("keyup", () => {
+
+        if (nome.value == "") {
+            const texto = "Você não pode deixar o nome vazio!!";
+            mostrarMensagem(texto);
+            return;
+        }
+        else{
+            const texto = " ";
+            mostrarMensagem(texto);
+            return;
+        }
+    })
+};
+
 
 
 function valorVazio() {
@@ -81,14 +84,15 @@ function sairSalvar() {
 
 }
 
+
 function mostrarMensagem(texto) {
-    const resultado = document.getElementById('resultado');
-    resultado.textconten = texto;
-    resultado.style.color = '#FF0000';
+    const resultado = document.querySelector("#resultado")
+    resultado.textContent = texto;
+    resultado.style.color = "red";
+    return;
 }
 
-
-
+nomeVazio();
 valorVazio();
 nomeExiste();
 evenSelec();
