@@ -2,6 +2,8 @@
 
 <?php include "./components/sidebar.php" ?>
 
+<?php include "./solicitacoes_visualizar.php" ?>
+
 <main>
     
     
