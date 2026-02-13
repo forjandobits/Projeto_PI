@@ -18,6 +18,8 @@
           <button class='abrir-modal'>Eventos</button>
           <button>Salvar</button>
     </section>
+    
+    <!-- teste --><p id="resultado"></p><!-- teste -->
   </article>
 
   <article class="modal modal-cadastro">
@@ -44,16 +46,15 @@
 
         <section class="eventos-pagamentos"></section>
 
-        <!-- teste -->
-        <div class="resultado">
-            <p id="resultado"></p>
-        </div> <!-- teste -->
 
 
         <div class="campo resumo">
           <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
           <button type="button" id="lancar-dados">Salvar Alterações</button>
         </div>
+        
+        
+
       </form>
     </section>
   </article>
