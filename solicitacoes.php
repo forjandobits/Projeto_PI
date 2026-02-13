@@ -81,7 +81,7 @@
                 </tr>
             </thead>
         
-            <tbody id="tabelaSoc" id="tabelaSolicitacao">
+            <tbody id="tabelaSolicitacao">
         
                 <!-- Primeira linha-->
                 <tr>
