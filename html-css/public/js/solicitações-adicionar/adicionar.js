@@ -1,43 +1,70 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM carregado. Pronto para executar.");
-  
-    const form = document.querySelector("#solicitacao");
-    const tbody = document.querySelector("#tabelaSoc");
-    const status = "pendente";
 
+    // ==== Banco local ====
+    class BancoDeDados{
+        constructor(chave){
+            this.chave = chave;
+            this.dados = JSON.parse(localStorage.getItem(this.chave)) || [];
+        }
+        
+        salvar() {
+            localStorage.setItem(this.chave, JSON.stringify(this.dados));
+        }
+        
+        inserir(registro){
+            registro.id = Date.now();
+            this.dados.push(registro);
+            this.salvar();
+        }
+        
+        listar(){
+            return this.dados;
+        }
+    }
+    
+    
+    const db = new BancoDeDados("solicitacoes");
+    const form = document.querySelector("#solicitacao");
+    const tbody = document.querySelector("#tabelaSolicitacao");
+    
+    // ==== Tabela ====
+    function renderizarTabela(){
+        // Limpa tabela
+        tbody.innerHTML = "";
+        
+        const dados = db.listar();
+        
+        dados.forEach(solicitacao => {
+            const linha = document.createElement("tr");
+            
+            linha.innerHTML =`
+            <td>${solicitacao.opcoes}</td>
+            <td>${solicitacao.nome}</td>
+            <td>${solicitacao.dataFormatada}</td>
+            <td>${solicitacao.status}</td>
+            <td><button class='abrir-modal'>Visualizar</button></td>
+            `;
+            
+            tbody .appendChild(linha);
+        });
+    }
+    
+    // ==== Pega dados do formulario ====
     form.addEventListener("submit", function() {
+        const status = "pendente";
+        
         const hoje = new Date();
+        const dataFormatada = hoje.toLocaleDateString("pt-BR");
+        console.log(dataFormatada);
+        
         const nome = form.elements["nome"].value;
         const opcoes = form.elements["opcoes"].value;
         const observacoes = form.elements["observacoes"].value;
-
-        const dataFormatada = hoje.toLocaleDateString("pt-BR");
-
-        console.log(dataFormatada);
         console.log(nome,opcoes,observacoes);
-        adicionarLinha(opcoes,nome,dataFormatada,status);
+        
+        db.inserir({nome,opcoes,observacoes,dataFormatada,status})
+        renderizarTabela();
+        form.reset();
     });
-    
-    function adicionarLinha(opcoes,nome,dataFormatada,status){
-        const tr = document.createElement("tr");
-        
-        const tdOpcoe = document.createElement("td");
-        tdOpcoe.textContent = opcoes;
-        
-        const tdNome = document.createElement("td");
-        tdNome.textContent = nome;
-        
-        const tdData = document.createElement("td");
-        tdData.textContent = dataFormatada;
-        
-        const tdStatus = document.createElement("td");
-        tdStatus.textContent = status;
-        
-        tr.appendChild(tdOpcoe);
-        tr.appendChild(tdNome);
-        tr.appendChild(tdData);
-        tr.appendChild(tdStatus);
-        
-        tbody.appendChild(tr);
-    };
+    renderizarTabela();
 });
