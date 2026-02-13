@@ -207,7 +207,8 @@
 
 </main>
 
-<script src="public/js/solicitacoes_visualizacao.js"></script>
+<script src="public/js/solicitacoes_visualizar.js"></script>
+
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
