@@ -189,7 +189,7 @@
                 </div>
                 <div class="campo">
                 <label for="motivo-recusar">Motivo da Recusa ou Aceite:</label>
-                <textarea name="Recusar" id="motivo-recusar" placeholder="Motivo pelo qual foi aceita ou não a solicitação" required></textarea>
+                <textarea name="Recusar" id="motivo-recusar" placeholder="Motivo pelo qual foi aceita ou não a solicitação" ></textarea>
                 </div>
                 <div class="campo">
                 <label for="arquivos-anexados">Arquivos Anexados:</label>
@@ -205,6 +205,20 @@
 
 </main>
 
+<script src="public/js/solicitacoes_visualizacao.js"></script>
 
 </body>
 </html>
+
+<!-- 
+Buscando os dados da solicitação
+
+$sql = "SELECT *from solicitaoes where id"
+$resultado = $conn->query($sql);
+
+$informacao = [];
+
+while($row = $resultado->fetch_assoc()) {
+   $solicitacoes[]  = $row;
+}
+
