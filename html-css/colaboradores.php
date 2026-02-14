@@ -26,7 +26,6 @@
                       <option value="2">Nome do Colaborador</option>
                       <option value="3">Cargo</option>
                       <option value="4">Situação</option>
-                      <option value="5">Desligado</option>
                   </select>
               </div>
 
@@ -107,6 +106,8 @@
       </form>
     </section>
   </article>
+
+  <script src="public/js/cadastro_funcionarios/cadastro_funcionario.js"></script>
 </main>
 
 </body>

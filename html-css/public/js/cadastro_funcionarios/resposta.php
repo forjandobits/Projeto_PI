@@ -3,7 +3,7 @@ header("Content-Type: application/json");
 
 include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
 
-$sql = "SELECT nome_completo, nome_cargo, situacao FROM tb_funcionario JOIN tb_cargo WHERE tb_funcionario.id_cargo = tb_cargo.id_cargo";
+$sql = "SELECT nome_completo, nome_cargo, situacao FROM tb_funcionario INNER JOIN tb_cargo ON tb_funcionario.id_cargo = tb_cargo.id_cargo";
 
 $result = $conn->query($sql);
 
