@@ -2,7 +2,7 @@
     <tr>
         <th>Código de Referência</th>
         <th>Evento</th>
-        <th>Referência (R$)</th>
+        <th>Referência</th>
         <th>Vencimentos (R$)</th>
         <th>Descontos (R$)</th>
     </tr>

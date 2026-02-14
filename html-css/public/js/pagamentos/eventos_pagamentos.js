@@ -1,15 +1,24 @@
 // Função para buscar os valores no banco de dados
 async function listarBeneficiosDescontos() {
-    const resposta = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
-    const beneficios_descontos = await resposta.json();
+    try {
+        const resposta = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
+        const beneficios_descontos = await resposta.json();
+        // console.log(beneficios_descontos);
+    
+        // beneficios_descontos.forEach(elemento => {
+        //     console.log(elemento);
+        // });
+        
+        return beneficios_descontos;
+    } catch (error) {
+        // if(error.status === "404"){
+        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
+        //         a conexão com o banco de dados não encontrado!`);
+        // } else {
+        // }
+        alert(`Ocorreu um erro: \n${error.message}`);
+    }
 
-    // console.log(beneficios_descontos);
-
-    beneficios_descontos.forEach(elemento => {
-        console.log(elemento);
-    });
-
-    return beneficios_descontos;
 }
 
 pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"},
@@ -19,11 +28,12 @@ pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"},
 
 // Função para manipulação de elementos visuais e experiência de usuário
 
-function criarEventos(){
+async function criarEventos(){
     const criarEvento = document.querySelector("#adicionar-evento");
-    
+    beneficiosDescontos = await listarBeneficiosDescontos();
+
     if(criarEvento){
-        criarEvento.addEventListener("click", async ()=>{
+        criarEvento.addEventListener("click", ()=>{
     
             // Buscando os elementos para adicionar um após o outro e abaixo
             const eventoPagamento = document.querySelector(".eventos-pagamentos");
@@ -32,11 +42,13 @@ function criarEventos(){
             
     
             // FOR para criar o número de elementos necessários no modal
+            
             for (let i = 1; i < 4; i++) {
                 const div = document.createElement("div");
                 div.classList.add("campo");
     
                 secao.append(div);
+                
                 if (i == 1){
                     // Parte com o label e select do elemento
                     const label = document.createElement("label");
@@ -49,9 +61,12 @@ function criarEventos(){
                     // Varredura do array de elementos que serão 
                     // apresentados nas opções
 
-                    beneficiosDescontos = await listarBeneficiosDescontos();
+                    // Para buscar apenas os benefícios
+                    const beneficios = beneficiosDescontos.filter(benDes => benDes.desconto === "0");
 
-                    beneficiosDescontos.forEach(benDes => {
+                    // console.log(beneficios);
+
+                    beneficios.forEach(benDes => {
                         const option = document.createElement("option");
                         option.text = `0${benDes.id_beneficio} - ${benDes.nome_beneficio}`;
                         option.value = benDes.id_beneficio;
@@ -67,11 +82,11 @@ function criarEventos(){
                 }
     
                 if (i == 2){
-                    // Parte para inserir o valor 
+                    // Parte para inserir o valor
                     const label = document.createElement("label");
                     label.textContent = "Valor:"
                     label.htmlFor = "valor";
-            
+
                     const input = document.createElement("input");
                     input.name = "Valor";
                     input.id = "valor";
@@ -233,9 +248,7 @@ function receberDadosSelecionados(){
 
 
 receberDadosSelecionados();
-// function validarCampos(){
 
-// };
 
 function manipularDados(){
     const mes = document.querySelector("#mes");
