@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody id="tabela-saida-ponto">
-                        <tr>
+                       <!--  <tr>
                             <td>Gustavo</td>
                             <td>00:00</td>
                             <td>Férias</td>
@@ -52,9 +52,10 @@
                             <td>04:00</td>
                             <td>Em Seviço</td>
                             <td><a href="espelho_de_ponto.php"><button>Visualizar</button></a></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
+                <script src="public/js/folha-ponto/listar_funcionarios.js"> </script>
             </section>                          
         </article>
     </main>
