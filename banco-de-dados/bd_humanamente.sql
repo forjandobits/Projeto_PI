@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Fev-2026 às 01:11
+-- Tempo de geração: 14-Fev-2026 às 01:32
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -32,7 +32,7 @@ USE `bd_humanamente`;
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
   `id_documento` int(11) NOT NULL,
-  `tipo_documento` text NOT NULL,
+  `tipo_documento` varchar(100) NOT NULL,
   `url_arquivo` text NOT NULL,
   PRIMARY KEY (`id_arquivo`),
   KEY `id_documento` (`id_documento`)
@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `agencia` text NOT NULL,
-  `numero_conta` text NOT NULL,
-  `tipo_conta` text NOT NULL,
+  `agencia` varchar(20) NOT NULL,
+  `numero_conta` varchar(20) NOT NULL,
+  `tipo_conta` varchar(40) NOT NULL,
   `chave_pix` text NOT NULL,
   PRIMARY KEY (`id_banco`),
   KEY `id_funcionario` (`id_funcionario`)
@@ -63,12 +63,12 @@ CREATE TABLE IF NOT EXISTS `tb_banco` (
 
 CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_cargo` text NOT NULL,
-  `salario` double NOT NULL,
-  `carga_horaria` text NOT NULL,
+  `nome_cargo` varchar(100) NOT NULL,
+  `salario` decimal(10,2) NOT NULL,
+  `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
-  `escala` text NOT NULL,
-  `cbo` text NOT NULL,
+  `escala` int(11) NOT NULL,
+  `cbo` varchar(10) NOT NULL,
   PRIMARY KEY (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -107,11 +107,11 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `cidade` text NOT NULL,
-  `bairro` text NOT NULL,
+  `cidade` varchar(60) NOT NULL,
+  `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
   `numero_casa` int(11) NOT NULL,
-  `cep` text NOT NULL,
+  `cep` varchar(15) NOT NULL,
   `complemento` text DEFAULT NULL,
   PRIMARY KEY (`id_endereco`),
   KEY `id_funcionario` (`id_funcionario`)
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
 CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `data` text NOT NULL,
+  `data` date NOT NULL,
   `total_horas_dia` int(11) NOT NULL,
   `horas_extras` int(11) DEFAULT NULL,
   `faltas` int(11) DEFAULT NULL,
@@ -161,14 +161,14 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
 CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
   `id_cargo` int(11) NOT NULL,
-  `nome_completo` text NOT NULL,
-  `data_nascimento` text NOT NULL,
-  `sexo` text NOT NULL,
-  `estado_civil` text NOT NULL DEFAULT '0',
-  `email` text NOT NULL,
-  `data_demissao` text NOT NULL,
-  `data_admissao` text NOT NULL,
-  `situacao` text NOT NULL,
+  `nome_completo` varchar(100) NOT NULL,
+  `data_nascimento` date NOT NULL,
+  `sexo` varchar(30) NOT NULL,
+  `estado_civil` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `data_admissao` date NOT NULL,
+  `data_demissao` date DEFAULT NULL,
+  `situacao` int(11) NOT NULL,
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -183,12 +183,11 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
-  `hora_entrada` text NOT NULL,
-  `hora_saida` text DEFAULT NULL,
-  `intervalo_inicio` text DEFAULT NULL,
-  `intervalo_fim` text DEFAULT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time DEFAULT NULL,
+  `intervalo_inicio` time DEFAULT NULL,
+  `intervalo_fim` time DEFAULT NULL,
   `dia_semana` text NOT NULL,
-  `data` text NOT NULL,
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
@@ -203,8 +202,8 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 CREATE TABLE IF NOT EXISTS `tb_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `nome_usuario` text NOT NULL,
-  `senha` text NOT NULL,
+  `nome_usuario` varchar(100) NOT NULL,
+  `senha` varchar(50) NOT NULL,
   PRIMARY KEY (`id_login`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -218,8 +217,8 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
 CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `nome_beneficio` text NOT NULL,
-  `valor` double NOT NULL,
+  `nome_beneficio` varchar(150) NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`),
@@ -235,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
 CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `data_solicitacao` text NOT NULL,
+  `data_solicitacao` date NOT NULL,
   `tipo_solicitacao` text NOT NULL,
   `observacao` text NOT NULL,
   `motivo` text DEFAULT NULL,
@@ -253,8 +252,8 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
 CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `telefone` text NOT NULL,
-  `tipo_telefone` text NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `tipo_telefone` varchar(50) NOT NULL,
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -267,11 +266,11 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
 --
 CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 `id_funcionario` int(11)
-,`nome_completo` text
-,`nome_cargo` text
-,`carga_semanal_prevista` text
+,`nome_completo` varchar(100)
+,`nome_cargo` varchar(100)
+,`carga_semanal_prevista` int(11)
 ,`horas_trabalhadas_semana` decimal(32,0)
-,`diferenca_horas` decimal(65,0)
+,`diferenca_horas` decimal(33,0)
 ,`situacao` varchar(16)
 );
 
