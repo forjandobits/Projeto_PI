@@ -8,7 +8,7 @@
 
     <article>
         <!-- FORM DE ALTERAR SENHA -->
-        <form id="form-senha" method="POST" action="public\js\login-e-Configuracao\configuracao.php">
+        <form id="form-senha" method="POST" action="public\js\login-e-Configuracao\processa_configuracao.php">
 
             <section class="areas-form">
                 <h2>Alterar Senha:</h2>
