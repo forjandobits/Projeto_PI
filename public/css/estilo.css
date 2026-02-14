@@ -21,6 +21,9 @@
   --cor-background-cinza: #cfcfcf;
   --cor-background-odd-cinza: #b6b6b6;
   --cor-background-campo-cinza: #e8e8e8;
+  --cor-background-sidebar: #f1f2f3;
+  --cor-background-header:  #f1f2f3;
+  --cor-background-tabela: #30adea;
   /* Hovers */
   --cor-background-hover: #2366bf;
   --cor-background-hover-cinza: #cfcfcf;
@@ -43,6 +46,13 @@
   /* 18px */
   --fonte-minuscula: 0.875rem;
   /* 14px */
+
+
+    /* ================== SOMBRAS ================== */
+
+  --shadow-soft: 0 2px 6px rgba(0,0,0,0.1);
+  --shadow-medium: 0 6px 18px rgba(0,0,0,0.2);
+  --shadow-strong: 0 14px 40px rgba(0,0,0,0.3);
 }
 
 /* ========== Seletor Geral ========== */
@@ -77,7 +87,7 @@ main.open{
 header {
   display: flex;
   justify-content: right;
-  background-color: var(--cor-background);
+  background-color: var(--cor-background-header);
   height: 10vh;
 }
 
@@ -140,6 +150,12 @@ figure:hover {
   font-size: 1.2em;
 }
 
+body {
+  background-color: var(--cor-background);
+  color: var(--cor-texto-escuro);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /*========================== Folha de Pagamento ============================ */
 
 .resumo-final {
@@ -152,4 +168,63 @@ figure:hover {
   width: 100%;
   gap: 15px;
   margin-top: 5px;
+}
+
+.fonte-menor {
+    font-size: 14px;
+}
+
+.fonte-media {
+    font-size: 16px;
+}
+
+.fonte-maior {
+    font-size: 20px;
+}
+/* ================= TEMAS ================= */
+
+
+body.tema-claro {
+  --cor-background: #ffffff;
+  --cor-texto-escuro: #000000;
+  --cor-texto-padrao: #f1f2f3;
+  --cor-background-cinza: #cfcfcf;
+  --cor-sombra-escura: #000000;
+  --cor-background-sidebar: #f1f2f3;
+  --cor-background-header:  #f1f2f3;
+  --cor-background-tabela: #30adea;
+  --cor-background-campo-cinza: #858181;
+} 
+
+
+
+body.tema-escuro {
+  --cor-titulo-azul: #ffffff;
+  --cor-texto-azul: #ffffff;
+  --cor-background: #121212;
+  --cor-texto-escuro: #ffffff;
+  --cor-texto-padrao: #ffffff;
+  --cor-background-cinza: #1e1e1e;
+  --cor-sombra-escura: #000000;
+  --cor-background-sidebar: #3a3a3a;
+  --cor-background-header:#3a3a3a;
+  --cor-background-tabela: #30adea;
+  --cor-background-campo-cinza: #858181;
+}
+
+body.tema-contraste {
+
+  --cor-background: #ffffff;
+  --cor-texto-escuro: #000000;
+  --cor-texto-azul: #ffffff;
+  --cor-texto-padrao: #000000;
+  --cor-background-cinza: #cfcfcf;
+  --cor-sombra-escura: #000000;
+  --cor-background-sidebar: #0044ff;
+  --cor-background-header:  #0044ff;
+  --cor-background-tabela: #0044ff;
+  --cor-background-campo-cinza: #858181;
+  --cor-background-azul: #858181;
+  --cor-titulo-azul: #000000;
+
 }

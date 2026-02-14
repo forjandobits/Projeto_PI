@@ -42,26 +42,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // BOTÕES DE TAMANHO DE FONTE
-
+  
     const fonteMenor = document.getElementById("fonte-menor");
     const fonteMedia = document.getElementById("fonte-media");
     const fonteMaior = document.getElementById("fonte-maior");
 
-    if (fonteMenor) fonteMenor.addEventListener("click", () => {
-        body.style.fontSize = "14px";
-        localStorage.setItem("fonte", "14px"); // Salva preferência
-    });
-    if (fonteMedia) fonteMedia.addEventListener("click", () => {
-        body.style.fontSize = "24px";
-        localStorage.setItem("fonte", "24px");
-    });
-    if (fonteMaior) fonteMaior.addEventListener("click", () => {
-        body.style.fontSize = "40px";
-        localStorage.setItem("fonte", "40px");
+    function aplicarFonte(tamanho) {
+        body.classList.remove("fonte-menor", "fonte-media", "fonte-maior");
+        body.classList.add("fonte-" + tamanho);
+        localStorage.setItem("fonte", tamanho);
+    }
+
+    if (fonteMenor) fonteMenor.addEventListener("click", () => aplicarFonte("menor"));
+    if (fonteMedia) fonteMedia.addEventListener("click", () => aplicarFonte("media"));
+    if (fonteMaior) fonteMaior.addEventListener("click", () => aplicarFonte("maior"));
+
+
+    document.querySelectorAll('input[name="tema"]').forEach(radio => {
+        radio.addEventListener("change", function () {
+            body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
+            body.classList.add("tema-" + this.value);
+            localStorage.setItem("tema", this.value);
+        });
     });
 
-    // Aplica a fonte salva no carregamento da página
-    const fonteSalva = localStorage.getItem("fonte");
-    if (fonteSalva) body.style.fontSize = fonteSalva;
 });

@@ -14,6 +14,22 @@
 
     <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon"/>
     <script src="public/js/sidebar.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const fonteSalva = localStorage.getItem("fonte");
+                const temaSalvo = localStorage.getItem("tema");
+
+                if (fonteSalva) {
+                    document.body.classList.add("fonte-" + fonteSalva);
+                }
+
+                if (temaSalvo) {
+                    document.body.classList.add("tema-" + temaSalvo);
+                }
+            });
+            </script>
+
 </head>
 <body>
     <header>
