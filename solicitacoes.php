@@ -19,7 +19,7 @@
         </section>
 
         <section>
-            <form id="solicitacao" action="" method="POST">
+            <form id="solicitacao" action="public/js/solicitacoes/processo_add_solicitacao.php" method="POST">
     
                 <section class="areas-form">
                     <div class="grupo-campo">
@@ -29,7 +29,8 @@
                         </div>
                         <div class="campo">
                             <label for="opcoes">Tipo de Solicitação:</label>
-                            <select name="" id="opcoes" required>
+                            <select name="Opcoes" id="opcoes" required>
+
                                 <option>Férias</option>
                                 <option>Folga</option>
                                 <option>Revisão</option>
@@ -149,7 +150,6 @@
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 <script src="public/js/solicitações-adicionar/adicionar.js"></script>
-<script src="public/js/solicitações-adicionar/adicionar.js"></script><script src="public/js/solicitações-adicionar/adicionar.js"></script>
 
 </body>
 </html>
