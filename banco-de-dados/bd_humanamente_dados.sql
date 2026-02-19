@@ -636,7 +636,7 @@ INSERT INTO `tb_proventos` (`id_beneficio`, `id_funcionario`, `nome_beneficio`, 
 (14, 14, 'Vale Alimentação', 500.00, 0, 1),
 (15, 15, 'Vale Alimentação', 500.00, 0, 1);
 
--- --------------------------------------------------------
+- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `tb_solicitacoes`
@@ -675,7 +675,7 @@ INSERT INTO `tb_solicitacoes` (`id_solicitacao`, `id_funcionario`, `data_solicit
 (14, 14, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
 (15, 15, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado');
 
--- --------------------------------------------------------
+-- ---------------------------------------------------------
 
 --
 -- Estrutura para tabela `tb_telefone`
