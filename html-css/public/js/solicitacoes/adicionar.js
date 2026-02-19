@@ -1,27 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector("#solicitacao");
     const botao = document.querySelector("#concluir");
     const tbody = document.querySelector("#historicoSolicitacoes");
 
-    botao.addEventListener("click", async function () {
+    function ehJsonValido(texto) {
+        try {
+            JSON.parse(texto);
+            return true;
+        } catch {
+            return false;
+        }
+    }
 
-        const nome = document.querySelector("#nome").value.trim();
-        const observacoes = document.querySelector("#observacoes").value.trim();
+    botao.addEventListener("click", async () => {
 
-        if (nome.length < 3) {
+        const nomeFuncionario = document.querySelector("#nome").value.trim();
+
+        if (nomeFuncionario.length < 3) {
             alert("Nome inválido.");
             return;
         }
 
-        if (observacoes.length < 10) {
-            alert("Observação muito curta.");
-            return;
-        }
-
-        // =============================
-        // CRIA FORM DATA
-        // =============================
         const formData = new FormData(form);
 
         try {
@@ -31,29 +31,55 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: formData
             });
 
-            const dados = await resposta.json();
-
-            if (dados.sucesso) {
-
-                const novaLinha = document.createElement("tr");
-
-                novaLinha.innerHTML = `
-                    <td>${dados.tipo}</td>
-                    <td>${dados.nome}</td>
-                    <td>${dados.data}</td>
-                    <td>${dados.status}</td>
-                    <td><button class="abrir-modal">Visualizar</button></td>
-                `;
-
-                tbody.appendChild(novaLinha);
-                form.reset();
-
-            } else {
-                alert(dados.mensagem);
+            if (!resposta.ok) {
+                throw new Error(`Erro HTTP: ${resposta.status}`);
             }
 
+            const texto = await resposta.text();
+
+            if (!ehJsonValido(texto)) {
+                console.error("Resposta não é JSON válido:");
+                console.error(texto);
+                alert("Erro inesperado do servidor.");
+                return;
+            }
+
+            const dados = JSON.parse(texto);
+
+            if (!dados.sucesso) {
+                alert(dados.mensagem || "Erro ao processar solicitação.");
+                return;
+            }
+
+            const novaLinha = document.createElement("tr");
+
+            const campos = [
+                dados.tipo_solicitacao,
+                dados.nome_funcionario,
+                dados.data_solicitacao,
+                dados.status
+            ];
+
+            campos.forEach(valor => {
+                const td = document.createElement("td");
+                td.textContent = valor;
+                novaLinha.appendChild(td);
+            });
+
+            const tdBotao = document.createElement("td");
+            const btn = document.createElement("button");
+            btn.textContent = "Visualizar";
+            btn.classList.add("abrir-modal");
+
+            tdBotao.appendChild(btn);
+            novaLinha.appendChild(tdBotao);
+
+            tbody.appendChild(novaLinha);
+            form.reset();
+
         } catch (erro) {
-            console.error("Erro:", erro);
+            console.error("Erro na requisição:", erro);
+            alert("Falha na comunicação com o servidor.");
         }
 
     });
