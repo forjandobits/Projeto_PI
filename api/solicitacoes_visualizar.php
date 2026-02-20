@@ -4,14 +4,29 @@ header("Content-Type: application/json");
 
 include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
 
+$id = 1;
 
-$sql = "SELECT *from solicitacoes where id"
-$resultado = $conn->query($sql);
+$sql = "SELECT *from solicitacoes where id = ?";
 
-$informacao = [];
+$stmt = $conn->prepare($sql);
 
-while($row = $resultado->fetch_assoc()) {
-   $solicitacoes[]  = $row;
+$stmt->bind_param("i", $id);
+
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
+
+   $dados = $resultado->fetch_assoc();
+
+   echo json_encode($dados);
+
+} else {
+
+echo json_encode(["erro" => "Solicitação com id não encontrado"]);
 }
+
+
 
 ?>

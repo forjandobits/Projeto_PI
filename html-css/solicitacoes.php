@@ -2,7 +2,6 @@
 
 <?php include "./sidebar.php" ?>
 
-<?php include "./solicitacoes_visualizar.php" ?>
 
 <main>
     
@@ -107,7 +106,7 @@
                 </tr> -->
         
                 <!-- Segunda linha -->
-                <tr>
+                <!-- <tr>
                     <td>Revisão</td>
                     <td>Dani Oliveira</td>
                     <td>17/11/2025 </td>
@@ -155,7 +154,7 @@
                     <td> 
                         <button class='abrir-modal'>Visualizar</button>
                     </td>
-                </tr>
+                </tr> -->
         
             </tbody>
         </table>
@@ -172,7 +171,7 @@
                 <div class="campo">
                 <label>Nome do Solicitante:</label>
                 <!-- <input type="text" name="Nome-Solicitante" id="nome-solicitante" placeholder="Josué Arruda" disabled> -->
-                <p id="nome-solicitante">Josué Arruda</p>
+                <p id="nome-solicitante"></p>
                 </div>
                 <div class="campo">
                 <label>Data da Solicitação:</label>
@@ -185,8 +184,8 @@
                 <!-- <p id="opcao-selecionada">Férias</p> -->
                 </div>
                 <div class="campo">
-                <label for="exibir-oberservacao">Observação:</label>
-                <input type="text" name="Exibir-Oberservacao" id="exibir-oberservacao" placeholder="Motivo completo" disabled>
+                <label for="exibir-observacao">Observação:</label>
+                <input type="text" name="Exibir-Observacao" id="exibir-oberservacao" placeholder="Motivo completo" disabled>
                 <!-- <p id="exibir-observacao">Motivo completo</p> -->
                 </div>
                 <div class="campo">

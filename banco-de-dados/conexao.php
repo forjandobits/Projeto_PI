@@ -4,7 +4,7 @@ $user = "root";
 $pass = "";
 $bd = "bd_humanamente";
 $bd_existe = false;
-$caminho_bd = "../banco-de-dados/bd_humanamente.sql";
+$caminho_bd = "../banco-de-dados/bd_humanamente_dados.sql";
 
 // Conexão com servidor sem usar nenhum banco
 $conn = new mysqli($host, $user, $pass);
