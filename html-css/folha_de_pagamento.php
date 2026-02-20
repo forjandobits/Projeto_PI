@@ -16,7 +16,7 @@
     <section class="resumo-final">
           <p>Total Líquido (R$): 0,00</p>
           <button class='abrir-modal'>Eventos</button>
-          <button id="enviar-dados">Salvar</button>
+          <button id="enviar-dados">Lançar</button>
     </section>
     
     <!-- teste --><p id="resultado"></p><!-- teste -->
@@ -50,7 +50,7 @@
 
         <div class="campo resumo">
           <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
-          <button type="button" id="lancar-dados">Salvar Alterações</button>
+          <button type="button" id="lancar-dados">Salvar</button>
         </div>
         
         

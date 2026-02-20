@@ -1,3 +1,7 @@
+// Arrays para armazenamento
+const valoresRecebidos = [];
+const valoresUnidos = [];
+
 // Função para buscar os valores no banco de dados
 async function listarBeneficiosDescontos() {
     try {
@@ -55,7 +59,7 @@ async function criarEventos(){
                     const select = document.createElement("select");
                     
                     // Conteúdo do label e for
-                    label.textContent = "Benefícios/Descontos:"
+                    label.textContent = "Benefícios:"
                     label.htmlFor = "beneficios";
                     
                     // Varredura do array de elementos que serão 
@@ -214,16 +218,15 @@ criarEventos();
 removerEventos();
 
 // Para manipular os dados inseridos na tela
-valoresRecebidos = [];
 const exibir = document.querySelector(".modal");
 const botaoSalvar = document.querySelector("#lancar-dados");
 
-function receberDadosSelecionados(){
-    const mesSelecionado = document.querySelector("#data-mes-ano");
+function receberBeneficiosSelecionados(){
     
     botaoSalvar.addEventListener("click", () => {
         const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
 
+        // Limpar o array de valoresRecebidos caso alguma alteração seja realizada
         if(valoresRecebidos.length > 0){
             valoresRecebidos.splice(0);
         }
@@ -231,17 +234,22 @@ function receberDadosSelecionados(){
         camposListados.forEach(valoresCampos => {
             let input = valoresCampos.querySelector('.campo>#valor');
             let select = valoresCampos.querySelector('.campo>#beneficios');
+            
+            valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: select.value, valor: input.value}]})
+            
+            if(select.value === "1"){
+                calcularContribuicoesDescontos(input.value);
+            }
 
-            valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:{idBenDes: select.value, valor: input.value}})
         });
 
         // Apenas para debug
         // valoresRecebidos.forEach(valores =>{
-        //     alert(`Nome: ${nome.value}; ID: ${idSelecionado};\nMês: ${mesSelecionado.value}\n\n ID Select:${valores.id} - ${valores.valor}`);
+        //     alert(`Nome: ${nome.value}; ID: ${idSelecionado};\nMês: ${mesSelecionado.value}\n\n ID Select:${valores.infoBenDes.idBenDes} - ${valores.infoBenDes.valor}`);
         // });
-
+        
         exibir.style.display = "none";
-
+        
         return;
     });
 
@@ -294,18 +302,17 @@ function exibirDadosInseridos(){
     const resumoLiquido = document.querySelector(".resumo-final>p");
 
     // Buscar a tabela
+    const tabelaPagamento = document.querySelector("#tabela-saida-folha-pagamento");
     
     // Receber valor
     // situacao.text content = valor;
     
     botaoSalvar.addEventListener("click", () =>{
         // Por ser variável global ("valoresRecebidos") é possível manipular em qualquer parte do código
-        const tabelaPagamento = document.querySelector("#tabela-saida-folha-pagamento");
         
         if(tabelaPagamento){
 
             tabelaPagamento.textContent = "";
-            // return
         }
 
         let valorLiquido = 0;
@@ -372,7 +379,7 @@ function exibirDadosInseridos(){
             if(valorLiquido < 0){
                 resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
             } else {
-                resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido}`;
+                resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
             }
 
         });

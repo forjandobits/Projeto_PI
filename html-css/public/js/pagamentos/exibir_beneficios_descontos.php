@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 
 include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
 
-$sql = "SELECT * FROM tb_previsto_beneficios";
+$sql = "SELECT * FROM tb_proventos";
 
 $resultado = $conn->query($sql);
 
