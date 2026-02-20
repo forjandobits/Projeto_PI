@@ -2,9 +2,9 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$bd = "bd_humanamente_dados";// importante
+$bd = "bd_humanamente_teste";// importante
 $bd_existe = false;
-$caminho_bd = "../banco-de-dados/bd_humanamente.sql";
+$caminho_bd = "../banco-de-dados/bd_humanamente_teste.sql";
 
 // Conexão com servidor sem usar nenhum banco
 $conn = new mysqli($host, $user, $pass);
