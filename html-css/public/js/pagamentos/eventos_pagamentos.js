@@ -180,7 +180,8 @@ function listarNomes(){
 
 // A função é assíncrona pois depende dos elementos estarem listados para funcionar
 const nome = document.querySelector("#nome");
-let idSelecionado = 0;
+const mesSelecionado = document.querySelector("#data-mes-ano");
+let idSelecionado;
 
 async function selecionarNome(){
     // Selecionando todos os elementos para a execução
@@ -247,10 +248,47 @@ function receberDadosSelecionados(){
 }
 
 
-receberDadosSelecionados();
+// Para valores que devem ser calculados automaticamente, como INSS e IRPF
+function calcularContribuicoesDescontos(salario){
+    // INSS - Valor de Referência é a base, mas pode ser alterado conforme necessário
+    let descontoINSS = 0;
+    let descontoIRPF = 0;
+
+    // Até 1621 - 7,5%
+    // De 1621.01 até 2902,84 9%
+    // De 2902,85 até 4354,27 - 12%
+    // Superior a 4354,28 - 14%
+    if(salario > 0){
+        if(salario <= 1621){
+            descontoINSS = salario * 0.075;
+        } else if (salario <= 2902.84){
+            descontoINSS = salario * 0.09;
+        } else if (salario <= 4354.27){
+            descontoINSS = salario * 0.12;
+        } else {
+            descontoINSS = salario * 0.14;
+        }
+    
+        if(salario < 5001){
+            descontoIRPF = 0;
+        } else if (salario <= 7350) {
+            descontoIRPF = 10;
+        } else {
+            descontoIRPF = 20;
+        }
+    }
+
+    // alert(`Valor recebido ${salario}!`);
+    valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: "6", valor: descontoINSS}]});
+    valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: "7", valor: descontoIRPF}]});
+    // IRPF
+    // Menor que 5000 Isento, procurar uma tabela correta
+}
+
+receberBeneficiosSelecionados();
 
 
-function manipularDados(){
+function exibirDadosInseridos(){
     const mes = document.querySelector("#mes");
     const nomeFuncionario = document.querySelector("#nome-exibido");
     const resumoLiquido = document.querySelector(".resumo-final>p");
@@ -291,34 +329,45 @@ function manipularDados(){
             nomeFuncionario.textContent = nome.value;
             mes.textContent = item.mes;
 
-            beneficiosDescontos.forEach(benDes => {
-                
-                if(benDes.desconto === '0'){
+            
+            // console.log(item.infoBenDes[0]);
+            
+            item.infoBenDes.forEach(i => {
 
-                    id.textContent = item.infoBenDes.idBenDes;
-                    idConvertido = Number(item.infoBenDes.idBenDes);
-                    if(benDes.id_beneficio == idConvertido){
-                        evento.textContent = benDes.nome_beneficio;
-                        referencia.textContent = benDes.referencia;
-                        vencimentos.textContent = item.infoBenDes.valor;
-                        descontos.textContent = "00";
-                        valorLiquido = valorLiquido + Number(item.infoBenDes.valor);
-                    }
-                } else {
-
-                    id.textContent = item.infoBenDes.idBenDes;
-                    idConvertido = Number(item.infoBenDes.idBenDes);
-                    if(benDes.id_beneficio == idConvertido){
-                        evento.textContent = benDes.nome_beneficio;
-                        referencia.textContent = benDes.referencia;
-                        vencimentos.textContent = "00";
-                        descontos.textContent = item.infoBenDes.valor;
-                        descontos.style.color = "#FF0000";
-                        valorLiquido = valorLiquido - Number(item.infoBenDes.valor);
-                    }
-                };
-
-            });
+                beneficiosDescontos.forEach(benDes => {
+                    
+                    if(benDes.desconto === '0'){
+    
+                        id.textContent = i.idBenDes;
+                        idConvertido = Number(i.idBenDes);
+                        if(benDes.id_beneficio == idConvertido){
+                            evento.textContent = benDes.nome_beneficio;
+                            referencia.textContent = benDes.referencia;
+                            vencimentos.textContent = i.valor;
+                            descontos.textContent = "00";
+                            valorLiquido = valorLiquido + Number(i.valor);
+                        }
+                    } else {
+    
+                        id.textContent = i.idBenDes;
+                        idConvertido = Number(i.idBenDes);
+                        if(benDes.id_beneficio == idConvertido){
+                            evento.textContent = benDes.nome_beneficio;
+                            referencia.textContent = benDes.referencia;
+                            vencimentos.textContent = "00";
+                            if((benDes.nome_beneficio === "IRPF") && (i.valor === 0)) {
+                                descontos.textContent = "Isento";
+                                descontos.style.color = "#FF0000";
+                            } else {
+                                descontos.textContent = i.valor.toFixed(2);
+                                descontos.style.color = "#FF0000";
+                            }
+                            valorLiquido = valorLiquido - Number(i.valor);
+                        }
+                    };
+    
+                });
+            })
 
             if(valorLiquido < 0){
                 resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
@@ -327,9 +376,68 @@ function manipularDados(){
             }
 
         });
-        console.log(valoresRecebidos);
+        alert(`Valor do Id do Nome selecionado: ${idSelecionado}`);
+
+        agruparValoresRecebidos();
     });
 
 }
 
-manipularDados();
+exibirDadosInseridos();
+
+async function agruparValoresRecebidos(){
+
+    if(valoresUnidos.length > 0){
+        valoresUnidos.splice(0);
+    }
+
+    // Opção para reunir todas as informações lançadas pelo usuário 
+    // em um único array com todos os dados necessários
+    valoresRecebidos.forEach(valorAtual =>{
+        const valorExiste = valoresUnidos.find(
+            valor => valor.nome === valorAtual.nome && valor.mes === valorAtual.mes
+        );
+
+        if(valorExiste) {
+            valorExiste.infoBenDes.push(...valorAtual.infoBenDes);
+        } else {
+            valoresUnidos.push({
+                infoBenDes: [...valorAtual.infoBenDes]
+            });
+        }
+    })
+
+    // console.log(`Esse são os valores reunidos em apenas um registro:`);
+    // console.log(valoresUnidos);
+}
+
+// Função para enviar os valores inseridos
+function enviarDados() {
+    const botaoEnviar = document.querySelector("#enviar-dados");
+    
+    botaoEnviar.addEventListener("click", async () => {
+        
+        if(valoresUnidos.length == 0){
+            alert("Não há valores inseridos no Array!");
+            return;
+        } else {
+            await fetch("public/js/pagamentos/adicionar_pagamento.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id_funcionario: idSelecionado,
+                    mes_referencia: mesSelecionado.value,
+                    valoresUnidos: valoresUnidos
+                })
+            })
+            alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
+            alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
+        }
+
+    });
+
+}
+
+enviarDados()

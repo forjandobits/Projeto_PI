@@ -16,7 +16,7 @@
     <section class="resumo-final">
           <p>Total Líquido (R$): 0,00</p>
           <button class='abrir-modal'>Eventos</button>
-          <button>Salvar</button>
+          <button id="enviar-dados">Salvar</button>
     </section>
     
     <!-- teste --><p id="resultado"></p><!-- teste -->
