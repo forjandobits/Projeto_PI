@@ -20,7 +20,7 @@ Procura todos os nome das pessoas que existem em um array de dados, criado ou re
 
 ## (parâmetro) - valor inserido no input para buscar os elementos necessários.
 
-Filtra todos os elementos que comtém o valor que será recebido como parâmetro e retorna um array com todos os dados necessários para compor a informação;
+Filtra todos os elementos que contém o valor que será recebido como parâmetro e retorna um array com todos os dados necessários para compor a informação;
 
 #
 # selecionarNome();
