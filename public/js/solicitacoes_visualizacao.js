@@ -21,8 +21,37 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             alert("Solicitação negada!");
         }
-    })
+    });
 
-    
-})
+    const btnVisualizar = document.querySelectorAll(".abrir-modal");
 
+    btnVisualizar.forEach(botao => {
+
+        botao.addEventListener("click", function () {
+
+            fetch("api\solicitacoes_visualizar.php")
+                .then(response => response.json())
+                .then(dados => {
+
+                    console.log(dados);
+
+                    if (dados.erro) {
+                        alert(dados.erro);
+                        return;
+                    }
+
+                    document.getElementById('nome-solicitante').textContent = dados.nome_completo;
+                    document.getElementById('data-solicitacao').value = dados.data_solicitacao;
+                    document.getElementById('opcao-selecionada').value = dados.tipo_solicitacao;
+                    document.getElementById('exibir-observacao').value = dados.observacao;
+
+                })
+                .catch(erro => {
+                    console.log("Erro ao buscar dados:", erro);
+                });
+
+        });
+
+    });
+
+});
