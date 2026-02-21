@@ -185,7 +185,7 @@
                 </div>
                 <div class="campo">
                 <label for="exibir-observacao">Observação:</label>
-                <input type="text" name="Exibir-Observacao" id="exibir-oberservacao" placeholder="Motivo completo" disabled>
+                <input type="text" name="Exibir-Observacao" id="exibir-observacao" placeholder="Motivo completo" disabled>
                 <!-- <p id="exibir-observacao">Motivo completo</p> -->
                 </div>
                 <div class="campo">
@@ -211,15 +211,5 @@
 </body>
 </html>
 
-<!-- 
-Buscando os dados da solicitação
 
-$sql = "SELECT *from solicitaoes where id"
-$resultado = $conn->query($sql);
-
-$informacao = [];
-
-while($row = $resultado->fetch_assoc()) {
-   $solicitacoes[]  = $row;
-}
 
