@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         botao.addEventListener("click", function () {
 
-            fetch("api\solicitacoes_visualizar.php")
+            fetch("api/solicitacoes_visualizar.php")
                 .then(response => response.json())
                 .then(dados => {
 
@@ -40,10 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         return;
                     }
 
-                    document.getElementById('nome-solicitante').textContent = dados.nome_completo;
-                    document.getElementById('data-solicitacao').value = dados.data_solicitacao;
-                    document.getElementById('opcao-selecionada').value = dados.tipo_solicitacao;
-                    document.getElementById('exibir-observacao').value = dados.observacao;
+                    document.querySelector('#nome-solicitante').textContent = dados.nome_completo;
+                    document.querySelector('#data-solicitacao').value = dados.data_solicitacao;
+                    document.querySelector('#opcao-selecionada').value = dados.tipo_solicitacao;
+                    document.querySelector('#exibir-observacao').value = dados.observacao;
+
+                    document.querySelector('#modal-solicitacoes').classList.add('ativo');
+
 
                 })
                 .catch(erro => {

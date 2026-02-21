@@ -2,11 +2,11 @@
 
 header("Content-Type: application/json");
 
-include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
+include(__DIR__ . "/../banco-de-dados/conexao.php");
 
 $id = 1;
 
-$sql = "SELECT *from solicitacoes where id = ?";
+$sql = "SELECT * FROM tb_solicitacoes where id = ?";
 
 $stmt = $conn->prepare($sql);
 
