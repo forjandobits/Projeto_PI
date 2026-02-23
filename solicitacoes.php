@@ -56,7 +56,6 @@
                             <label for="pendente">Pendente:</label>
                             <input type="checkbox" name="Pendencia" id="pendente"></input>
 
-
                             <button type="button" id="concluir">Concluir</button>
                         </div>
                     </div>
