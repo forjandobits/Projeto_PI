@@ -8,13 +8,13 @@ $id = 1;
 
 $sql = "SELECT * FROM tb_solicitacoes where id = ?";
 
-$stmt = $conn->prepare($sql);
+$consulta = $conn->prepare($sql);
 
-$stmt->bind_param("i", $id);
+$consulta->bind_param("i", $id);
 
-$stmt->execute();
+$consulta->execute();
 
-$resultado = $stmt->get_result();
+$resultado = $consulta->get_result();
 
 if ($resultado->num_rows > 0) {
 

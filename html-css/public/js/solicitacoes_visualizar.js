@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     document.querySelector('#nome-solicitante').textContent = dados.nome_completo;
-                    document.querySelector('#data-solicitacao').value = dados.data_solicitacao;
-                    document.querySelector('#opcao-selecionada').value = dados.tipo_solicitacao;
-                    document.querySelector('#exibir-observacao').value = dados.observacao;
+                    document.querySelector('#data-solicitacao').textContent = dados.data_solicitacao;
+                    document.querySelector('#opcao-selecionada').textContent = dados.tipo_solicitacao;
+                    document.querySelector('#exibir-observacao').textContent = dados.observacao;
 
-                    document.querySelector('#modal-solicitacoes').classList.add('ativo');
+                    // document.querySelector('#modal-solicitacoes').classList.add('ativo');
 
 
                 })

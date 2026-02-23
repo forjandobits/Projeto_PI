@@ -175,18 +175,18 @@
                 </div>
                 <div class="campo">
                 <label>Data da Solicitação:</label>
-                <input type="text" name="Nome-Solicitante" id="data-solicitacao" placeholder="12/11/2025" disabled>
-                <!-- <p id="data-solicitacao">12/11/2025</p> -->
+                <!--<input type="text" name="Nome-Solicitante" id="data-solicitacao" placeholder="12/11/2025" disabled> -->
+                <p id="data-solicitacao"></p>
                 </div>
                 <div class="campo">
                 <label for="opcao-selecionada">Tipo de Solicitação:</label>
-                <input type="text" name="Opcao-Selecionada" id="opcao-selecionada" placeholder="Férias" disabled>
-                <!-- <p id="opcao-selecionada">Férias</p> -->
+                <!--<input type="text" name="Opcao-Selecionada" id="opcao-selecionada" placeholder="Férias" disabled> -->
+                <p id="opcao-selecionada"></p>
                 </div>
                 <div class="campo">
                 <label for="exibir-observacao">Observação:</label>
-                <input type="text" name="Exibir-Observacao" id="exibir-observacao" placeholder="Motivo completo" disabled>
-                <!-- <p id="exibir-observacao">Motivo completo</p> -->
+                <!--<input type="text" name="Exibir-Observacao" id="exibir-observacao" placeholder="Motivo completo" disabled> -->
+                <p id="exibir-observacao"></p>
                 </div>
                 <div class="campo">
                 <label for="motivo-recusar">Motivo da Recusa ou Aceite:</label>
