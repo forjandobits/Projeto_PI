@@ -54,23 +54,9 @@
        </tr>
      </thead>
      <tbody id="tabela-saida-colaboradores">
-       <tr>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-       </tr>
-       </tr>
      </tbody>
    </table>
+   
   </article>
   <article class="modal modal-cadastro">
     <section>
