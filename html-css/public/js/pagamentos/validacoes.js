@@ -69,8 +69,23 @@ function dataVazia() {
     // se a data estiver vazia, enviar uma menssagem de erro
     // ativação = input
 
-}
+    const data = document.querySelector("#data-mes-ano");
 
+    data.addEventListener("keyup", () => {
+
+        if (data.value == "") {
+            const texto = "Você não pode deixar a data vazia!!";
+            mostrarMensagem(texto);
+            return;
+        }
+        else{
+            const texto = " ";
+            mostrarMensagem(texto);
+            return;
+        }
+    })
+
+}
 
 function datasDistantes() {
     // se a data que for introduzida for muito distante da data atual, enviar uma menssagem de confirmação
