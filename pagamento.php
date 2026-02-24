@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-saida-pagamentos">
+                    <tbody id="tabela-folhas-lancadas">
                         <tr>
                             <td>Gustavo</td>
                             <td>Padeiro</td>
@@ -99,5 +99,5 @@
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
     </script>
 </body>
-
+<script src="public/js/pagamentos/eventos_pagamentos.js"></script>
 </html>

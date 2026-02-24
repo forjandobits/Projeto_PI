@@ -5,15 +5,32 @@ const valoresUnidos = [];
 // Função para buscar os valores no banco de dados
 async function listarBeneficiosDescontos() {
     try {
-        const resposta = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
-        const beneficios_descontos = await resposta.json();
-        // console.log(beneficios_descontos);
+        const respostaBenDes = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
+        const beneficiosDescontos = await respostaBenDes.json();
+        // console.log(beneficiosDescontos);
     
-        // beneficios_descontos.forEach(elemento => {
+        // beneficiosDescontos.forEach(elemento => {
         //     console.log(elemento);
         // });
         
-        return beneficios_descontos;
+        return beneficiosDescontos;
+    } catch (error) {
+        // if(error.status === "404"){
+        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
+        //         a conexão com o banco de dados não encontrado!`);
+        // } else {
+        // }
+        alert(`Ocorreu um erro: \n${error.message}`);
+    }
+
+}
+
+async function listarFolhasLancadas() {
+    try {
+        const respostaFolhaLancada = await fetch("public/js/pagamentos/exibir_folha_lancada.php");
+        const folhaLancada = await respostaFolhaLancada.json();
+        
+        return folhaLancada;
     } catch (error) {
         // if(error.status === "404"){
         //     alert(`Ocorreu um erro: \nNão foi possível realizar 
@@ -146,40 +163,42 @@ function listarNomes(){
     const nome = document.querySelector("#nome");
     const listaNomes = document.querySelector("#listaNomes");
 
-    nome.addEventListener("keyup", async (e) =>{
-        listaNomes.innerHTML = "";
-        if (e.target.value.length >= 3 && nome != "") {
-            listaNomes.style.display = "block";
-            const nomeInserido = nome.value.trim();
-            
-            const nomes = await buscarNome(nomeInserido);
-            
-            if (nomes.length >= 1){
-                nomes.forEach(nomesRetornados => {
+    if(nome){
+        nome.addEventListener("keyup", async (e) =>{
+            listaNomes.innerHTML = "";
+            if (e.target.value.length >= 3 && nome != "") {
+                listaNomes.style.display = "block";
+                const nomeInserido = nome.value.trim();
+                
+                const nomes = await buscarNome(nomeInserido);
+                
+                if (nomes.length >= 1){
+                    nomes.forEach(nomesRetornados => {
+                        const li = document.createElement("li");
+                        li.textContent = `${nomesRetornados.nome}`;
+                        li.dataset.value = `${nomesRetornados.id}`;
+                        listaNomes.append(li);
+    
+                    });
+                    await selecionarNome();
+                } else {
                     const li = document.createElement("li");
-                    li.textContent = `${nomesRetornados.nome}`;
-                    li.dataset.value = `${nomesRetornados.id}`;
+                    li.textContent = "Funcionário não encontrado!";
                     listaNomes.append(li);
-
-                });
-                await selecionarNome();
-            } else {
+                }
+    
+                return;
+            } else if (e.target.value.length > 0) {
+                listaNomes.style.display = "block";
                 const li = document.createElement("li");
-                li.textContent = "Funcionário não encontrado!";
+                li.textContent = "Procurando...";
                 listaNomes.append(li);
+                return;
+            } else {
+                listaNomes.style.display = "none";
             }
-
-            return;
-        } else if (e.target.value.length > 0) {
-            listaNomes.style.display = "block";
-            const li = document.createElement("li");
-            li.textContent = "Procurando...";
-            listaNomes.append(li);
-            return;
-        } else {
-            listaNomes.style.display = "none";
-        }
-    });
+        });
+    }
 }
 
 // A função é assíncrona pois depende dos elementos estarem listados para funcionar
@@ -223,35 +242,38 @@ const botaoSalvar = document.querySelector("#lancar-dados");
 
 function receberBeneficiosSelecionados(){
     
-    botaoSalvar.addEventListener("click", () => {
-        const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
+    if(botaoSalvar){
 
-        // Limpar o array de valoresRecebidos caso alguma alteração seja realizada
-        if(valoresRecebidos.length > 0){
-            valoresRecebidos.splice(0);
-        }
-
-        camposListados.forEach(valoresCampos => {
-            let input = valoresCampos.querySelector('.campo>#valor');
-            let select = valoresCampos.querySelector('.campo>#beneficios');
-            
-            valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: select.value, valor: input.value}]})
-            
-            if(select.value === "1"){
-                calcularContribuicoesDescontos(input.value);
+        botaoSalvar.addEventListener("click", () => {
+            const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
+    
+            // Limpar o array de valoresRecebidos caso alguma alteração seja realizada
+            if(valoresRecebidos.length > 0){
+                valoresRecebidos.splice(0);
             }
-
+    
+            camposListados.forEach(valoresCampos => {
+                let input = valoresCampos.querySelector('.campo>#valor');
+                let select = valoresCampos.querySelector('.campo>#beneficios');
+                
+                valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: select.value, valor: input.value}]})
+                
+                if(select.value === "1"){
+                    calcularContribuicoesDescontos(input.value);
+                }
+    
+            });
+    
+            // Apenas para debug
+            // valoresRecebidos.forEach(valores =>{
+            //     alert(`Nome: ${nome.value}; ID: ${idSelecionado};\nMês: ${mesSelecionado.value}\n\n ID Select:${valores.infoBenDes.idBenDes} - ${valores.infoBenDes.valor}`);
+            // });
+            
+            exibir.style.display = "none";
+            
+            return;
         });
-
-        // Apenas para debug
-        // valoresRecebidos.forEach(valores =>{
-        //     alert(`Nome: ${nome.value}; ID: ${idSelecionado};\nMês: ${mesSelecionado.value}\n\n ID Select:${valores.infoBenDes.idBenDes} - ${valores.infoBenDes.valor}`);
-        // });
-        
-        exibir.style.display = "none";
-        
-        return;
-    });
+    }
 
 }
 
@@ -307,86 +329,89 @@ function exibirDadosInseridos(){
     // Receber valor
     // situacao.text content = valor;
     
-    botaoSalvar.addEventListener("click", () =>{
-        // Por ser variável global ("valoresRecebidos") é possível manipular em qualquer parte do código
-        
-        if(tabelaPagamento){
+    if(botaoSalvar){
 
-            tabelaPagamento.textContent = "";
-        }
-
-        let valorLiquido = 0;
-
-        valoresRecebidos.forEach(item => {
-        
-            // criar uma nova linha e inserir na tabela
-            const novasInfos = tabelaPagamento.insertRow()
-        
-            // criar novas celulas
-            const id = novasInfos.insertCell();
-            const evento = novasInfos.insertCell(); 
-            const referencia = novasInfos.insertCell(); 
-            const vencimentos = novasInfos.insertCell(); 
-            const descontos = novasInfos.insertCell();
-
-            // Para aparecer as informações apenas uma vez e continuar exibindo as outras conforme necessário
-            nomeFuncionario.textContent = "";
-            mes.textContent = "";
-
-            nomeFuncionario.textContent = nome.value;
-            mes.textContent = item.mes;
-
+        botaoSalvar.addEventListener("click", () =>{
+            // Por ser variável global ("valoresRecebidos") é possível manipular em qualquer parte do código
             
-            // console.log(item.infoBenDes[0]);
-            
-            item.infoBenDes.forEach(i => {
-
-                beneficiosDescontos.forEach(benDes => {
-                    
-                    if(benDes.desconto === '0'){
+            if(tabelaPagamento){
     
-                        id.textContent = i.idBenDes;
-                        idConvertido = Number(i.idBenDes);
-                        if(benDes.id_beneficio == idConvertido){
-                            evento.textContent = benDes.nome_beneficio;
-                            referencia.textContent = benDes.referencia;
-                            vencimentos.textContent = i.valor;
-                            descontos.textContent = "00";
-                            valorLiquido = valorLiquido + Number(i.valor);
-                        }
-                    } else {
-    
-                        id.textContent = i.idBenDes;
-                        idConvertido = Number(i.idBenDes);
-                        if(benDes.id_beneficio == idConvertido){
-                            evento.textContent = benDes.nome_beneficio;
-                            referencia.textContent = benDes.referencia;
-                            vencimentos.textContent = "00";
-                            if((benDes.nome_beneficio === "IRPF") && (i.valor === 0)) {
-                                descontos.textContent = "Isento";
-                                descontos.style.color = "#FF0000";
-                            } else {
-                                descontos.textContent = i.valor.toFixed(2);
-                                descontos.style.color = "#FF0000";
-                            }
-                            valorLiquido = valorLiquido - Number(i.valor);
-                        }
-                    };
-    
-                });
-            })
-
-            if(valorLiquido < 0){
-                resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
-            } else {
-                resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
+                tabelaPagamento.textContent = "";
             }
-
+    
+            let valorLiquido = 0;
+    
+            valoresRecebidos.forEach(item => {
+            
+                // criar uma nova linha e inserir na tabela
+                const novasInfos = tabelaPagamento.insertRow()
+            
+                // criar novas celulas
+                const id = novasInfos.insertCell();
+                const evento = novasInfos.insertCell(); 
+                const referencia = novasInfos.insertCell(); 
+                const vencimentos = novasInfos.insertCell(); 
+                const descontos = novasInfos.insertCell();
+    
+                // Para aparecer as informações apenas uma vez e continuar exibindo as outras conforme necessário
+                nomeFuncionario.textContent = "";
+                mes.textContent = "";
+    
+                nomeFuncionario.textContent = nome.value;
+                mes.textContent = item.mes;
+    
+                
+                // console.log(item.infoBenDes[0]);
+                
+                item.infoBenDes.forEach(i => {
+    
+                    beneficiosDescontos.forEach(benDes => {
+                        
+                        if(benDes.desconto === '0'){
+        
+                            id.textContent = i.idBenDes;
+                            idConvertido = Number(i.idBenDes);
+                            if(benDes.id_beneficio == idConvertido){
+                                evento.textContent = benDes.nome_beneficio;
+                                referencia.textContent = benDes.referencia;
+                                vencimentos.textContent = i.valor;
+                                descontos.textContent = "00";
+                                valorLiquido = valorLiquido + Number(i.valor);
+                            }
+                        } else {
+        
+                            id.textContent = i.idBenDes;
+                            idConvertido = Number(i.idBenDes);
+                            if(benDes.id_beneficio == idConvertido){
+                                evento.textContent = benDes.nome_beneficio;
+                                referencia.textContent = benDes.referencia;
+                                vencimentos.textContent = "00";
+                                if((benDes.nome_beneficio === "IRPF") && (i.valor === 0)) {
+                                    descontos.textContent = "Isento";
+                                    descontos.style.color = "#FF0000";
+                                } else {
+                                    descontos.textContent = i.valor.toFixed(2);
+                                    descontos.style.color = "#FF0000";
+                                }
+                                valorLiquido = valorLiquido - Number(i.valor);
+                            }
+                        };
+        
+                    });
+                })
+    
+                if(valorLiquido < 0){
+                    resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
+                } else {
+                    resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
+                }
+    
+            });
+            alert(`Valor do Id do Nome selecionado: ${idSelecionado}`);
+    
+            agruparValoresRecebidos();
         });
-        alert(`Valor do Id do Nome selecionado: ${idSelecionado}`);
-
-        agruparValoresRecebidos();
-    });
+    }
 
 }
 
@@ -422,29 +447,45 @@ async function agruparValoresRecebidos(){
 function enviarDados() {
     const botaoEnviar = document.querySelector("#enviar-dados");
     
-    botaoEnviar.addEventListener("click", async () => {
-        
-        if(valoresUnidos.length == 0){
-            alert("Não há valores inseridos no Array!");
-            return;
-        } else {
-            await fetch("public/js/pagamentos/adicionar_pagamento.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    id_funcionario: idSelecionado,
-                    mes_referencia: mesSelecionado.value,
-                    valoresUnidos: valoresUnidos
-                })
-            })
-            alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
-            alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
-        }
+    if(botaoEnviar){
 
-    });
+        botaoEnviar.addEventListener("click", async () => {
+            
+            if(valoresUnidos.length == 0){
+                alert("Não há valores inseridos no Array!");
+                return;
+            } else {
+                await fetch("public/js/pagamentos/adicionar_pagamento.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id_funcionario: idSelecionado,
+                        mes_referencia: mesSelecionado.value,
+                        valoresUnidos: valoresUnidos
+                    })
+                })
+                alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
+                alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
+            }
+    
+        });
+    }
 
 }
 
 enviarDados()
+
+async function exibirFolhaLancada() {
+
+    const tabelaFolhasLancadas = document.querySelector("#tabela-folhas-lancadas");
+    folhasLancadas = await listarFolhasLancadas();
+
+    folhasLancadas.forEach(folhaLancada => {
+        console.log(folhaLancada)
+    });
+    // console.log(folhas_lancadas);
+}
+
+exibirFolhaLancada()
