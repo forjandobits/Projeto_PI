@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-saida-pagamentos">
+                    <tbody id="tabela-folhas-lancadas">
                         <tr>
                             <td>Gustavo</td>
                             <td>Padeiro</td>
@@ -95,5 +95,5 @@
         </article>
     </main>
 </body>
-
+<script src="public/js/pagamentos/eventos_pagamentos.js"></script>
 </html>
