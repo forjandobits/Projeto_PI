@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const resposta = await fetch("public/js/solicitacoes/processo_add_solicitacao.php", {
+            const resposta = await fetch("/Projeto_PI/api/processo_add_solicitacao.php", {
                 method: "POST",
                 body: formData
             });
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const dados = JSON.parse(texto);
+            const dados = JSON.parse(resposta);
 
             if (!dados.sucesso) {
                 alert(dados.mensagem || "Erro ao processar solicitação.");
