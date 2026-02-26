@@ -27,10 +27,27 @@ async function listarBeneficiosDescontos() {
 
 async function listarFolhasLancadas() {
     try {
-        const respostaFolhaLancada = await fetch("public/js/pagamentos/exibir_folha_lancada.php");
+        const respostaFolhaLancada = await fetch("public/js/pagamentos/exibir_folhas_lancadas.php");
         const folhaLancada = await respostaFolhaLancada.json();
         
         return folhaLancada;
+    } catch (error) {
+        // if(error.status === "404"){
+        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
+        //         a conexão com o banco de dados não encontrado!`);
+        // } else {
+        // }
+        alert(`Ocorreu um erro: \n${error.message}`);
+    }
+
+}
+
+async function listarDadosFolha() {
+    try {
+        const respostaDadosFolha = await fetch("public/js/pagamentos/exibir_dados_folha.php");
+        const dadosFolhaLancada = await respostaDadosFolha.json();
+        
+        return dadosFolhaLancada;
     } catch (error) {
         // if(error.status === "404"){
         //     alert(`Ocorreu um erro: \nNão foi possível realizar 
@@ -51,7 +68,7 @@ pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"},
 
 async function criarEventos(){
     const criarEvento = document.querySelector("#adicionar-evento");
-    beneficiosDescontos = await listarBeneficiosDescontos();
+    const beneficiosDescontos = await listarBeneficiosDescontos();
 
     if(criarEvento){
         criarEvento.addEventListener("click", ()=>{
@@ -327,7 +344,7 @@ function exibirDadosInseridos(){
     const tabelaPagamento = document.querySelector("#tabela-saida-folha-pagamento");
     
     // Receber valor
-    // situacao.text content = valor;
+    // situacao.textContent = valor;
     
     if(botaoSalvar){
 
@@ -482,10 +499,55 @@ async function exibirFolhaLancada() {
     const tabelaFolhasLancadas = document.querySelector("#tabela-folhas-lancadas");
     folhasLancadas = await listarFolhasLancadas();
 
-    folhasLancadas.forEach(folhaLancada => {
-        console.log(folhaLancada)
-    });
-    // console.log(folhas_lancadas);
+    
+    if(tabelaFolhasLancadas){
+
+        tabelaFolhasLancadas.textContent = "";
+        
+        folhasLancadas.forEach(folhaLancada => {
+
+            const id = folhaLancada.id;
+            const listaFolhas = tabelaFolhasLancadas.insertRow();
+            const nomeFuncionario = listaFolhas.insertCell();
+            const cargo = listaFolhas.insertCell(); 
+            const mesReferencia = listaFolhas.insertCell();
+            const botaoVisualizar = listaFolhas.insertCell();
+            const botaoBaixar = listaFolhas.insertCell();
+
+            // console.log(folhaLancada);
+            nomeFuncionario.textContent = folhaLancada.nome_completo;
+            cargo.textContent = folhaLancada.nome_cargo;
+            mesReferencia.textContent = folhaLancada.mes_referencia;
+            botaoVisualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
+            botaoBaixar.innerHTML = "<button>Baixar</button>";
+
+            
+        })
+
+    }
 }
 
-exibirFolhaLancada()
+function exibirDadosFolhaLancadas(){
+    document.addEventListener("click", async (e) => {
+
+        // Garante que o botão pressionado retorna o id da folha de pagamento
+        
+        if(e.target.classList.contains("abrir-modal")) {
+            console.log(e.target.id);
+    
+            exibir.style.display = "flex";
+            await fetch("public/js/pagamentos/exibir_dados_folha.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id_folha: e.target.id
+                })
+            })
+        }
+    });
+}
+
+exibirFolhaLancada();
+exibirDadosFolhaLancadas();
