@@ -42,12 +42,12 @@ async function listarFolhasLancadas() {
 
 }
 
-async function listarDadosFolha() {
+async function listarFuncionarios() {
     try {
-        const respostaDadosFolha = await fetch("public/js/pagamentos/exibir_dados_folha.php");
-        const dadosFolhaLancada = await respostaDadosFolha.json();
+        const respostaFuncionarios = await fetch("public/js/pagamentos/exibir_funcionarios.php");
+        const funcionarios = await respostaFuncionarios.json();
         
-        return dadosFolhaLancada;
+        return funcionarios;
     } catch (error) {
         // if(error.status === "404"){
         //     alert(`Ocorreu um erro: \nNão foi possível realizar 
@@ -58,11 +58,6 @@ async function listarDadosFolha() {
     }
 
 }
-
-pessoas = [{id: 1, nome: "João"}, {id: 2, nome: "José Maria"},
-    {id: 3, nome: "Maria José"}, {id: 4, nome: "Maria Luiza"}, 
-    {id: 5, nome:"José"}, {id: 6, nome: "João Pedro"}
-];
 
 // Função para manipulação de elementos visuais e experiência de usuário
 
@@ -166,13 +161,16 @@ function removerEventos() {
     })
 }
 
-function buscarNome(valor){
-    const valoresObtidos = pessoas.filter(item => {
+async function buscarNome(nomeInserido){
+    const funcionarios = await listarFuncionarios();
+
+    const valoresObtidos = funcionarios.filter(funcionario => {
         
-         return item.nome.toLowerCase().includes(valor.toLowerCase())
+         return funcionario.nome_completo.toLowerCase().includes(nomeInserido.toLowerCase())
         
         }
     );
+
     return valoresObtidos;
 }
 
@@ -188,12 +186,13 @@ function listarNomes(){
                 const nomeInserido = nome.value.trim();
                 
                 const nomes = await buscarNome(nomeInserido);
+                console.log(nomes);
                 
                 if (nomes.length >= 1){
                     nomes.forEach(nomesRetornados => {
                         const li = document.createElement("li");
-                        li.textContent = `${nomesRetornados.nome}`;
-                        li.dataset.value = `${nomesRetornados.id}`;
+                        li.textContent = `${nomesRetornados.nome_completo}`;
+                        li.dataset.value = `${nomesRetornados.id_funcionario}`;
                         listaNomes.append(li);
     
                     });
@@ -348,7 +347,7 @@ function exibirDadosInseridos(){
     
     if(botaoSalvar){
 
-        botaoSalvar.addEventListener("click", () =>{
+        botaoSalvar.addEventListener("click", async () =>{
             // Por ser variável global ("valoresRecebidos") é possível manipular em qualquer parte do código
             
             if(tabelaPagamento){
@@ -358,6 +357,8 @@ function exibirDadosInseridos(){
     
             let valorLiquido = 0;
     
+            const beneficiosDescontos = await listarBeneficiosDescontos();
+            
             valoresRecebidos.forEach(item => {
             
                 // criar uma nova linha e inserir na tabela
@@ -373,13 +374,14 @@ function exibirDadosInseridos(){
                 // Para aparecer as informações apenas uma vez e continuar exibindo as outras conforme necessário
                 nomeFuncionario.textContent = "";
                 mes.textContent = "";
-    
+                
                 nomeFuncionario.textContent = nome.value;
                 mes.textContent = item.mes;
     
                 
                 // console.log(item.infoBenDes[0]);
                 
+
                 item.infoBenDes.forEach(i => {
     
                     beneficiosDescontos.forEach(benDes => {
@@ -466,7 +468,7 @@ function enviarDados() {
     
     if(botaoEnviar){
 
-        botaoEnviar.addEventListener("click", async () => {
+        botaoEnviar.addEventListener("click", async (e) => {
             
             if(valoresUnidos.length == 0){
                 alert("Não há valores inseridos no Array!");
@@ -485,69 +487,12 @@ function enviarDados() {
                 })
                 alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
                 alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
+                window.location.href = "pagamento.php";
             }
-    
+
         });
     }
 
 }
 
 enviarDados()
-
-async function exibirFolhaLancada() {
-
-    const tabelaFolhasLancadas = document.querySelector("#tabela-folhas-lancadas");
-    folhasLancadas = await listarFolhasLancadas();
-
-    
-    if(tabelaFolhasLancadas){
-
-        tabelaFolhasLancadas.textContent = "";
-        
-        folhasLancadas.forEach(folhaLancada => {
-
-            const id = folhaLancada.id;
-            const listaFolhas = tabelaFolhasLancadas.insertRow();
-            const nomeFuncionario = listaFolhas.insertCell();
-            const cargo = listaFolhas.insertCell(); 
-            const mesReferencia = listaFolhas.insertCell();
-            const botaoVisualizar = listaFolhas.insertCell();
-            const botaoBaixar = listaFolhas.insertCell();
-
-            // console.log(folhaLancada);
-            nomeFuncionario.textContent = folhaLancada.nome_completo;
-            cargo.textContent = folhaLancada.nome_cargo;
-            mesReferencia.textContent = folhaLancada.mes_referencia;
-            botaoVisualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
-            botaoBaixar.innerHTML = "<button>Baixar</button>";
-
-            
-        })
-
-    }
-}
-
-function exibirDadosFolhaLancadas(){
-    document.addEventListener("click", async (e) => {
-
-        // Garante que o botão pressionado retorna o id da folha de pagamento
-        
-        if(e.target.classList.contains("abrir-modal")) {
-            console.log(e.target.id);
-    
-            exibir.style.display = "flex";
-            await fetch("public/js/pagamentos/exibir_dados_folha.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    id_folha: e.target.id
-                })
-            })
-        }
-    });
-}
-
-exibirFolhaLancada();
-exibirDadosFolhaLancadas();
