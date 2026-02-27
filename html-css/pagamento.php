@@ -81,7 +81,7 @@
             <section>
             <form action="" class="form-modal">
                 <table>
-                    <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
+                    <caption>Folha de Pagamento - <span id="nome-exibido">Nome Funcionário</span> - <span id="mes">Mês/Ano</span></caption>
 
                     <?php include "./tabela_pagamento.php" ?>
                 </table>
@@ -95,5 +95,5 @@
         </article>
     </main>
 </body>
-<script src="public/js/pagamentos/eventos_pagamentos.js"></script>
+<script src="public/js/pagamentos/exibir_folhas_lancadas.js"></script>
 </html>
