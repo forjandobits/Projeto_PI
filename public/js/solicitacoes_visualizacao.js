@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         botao.addEventListener("click", function () {
 
-            fetch("api/solicitacoes_visualizar.php")
+            fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
                 .then(response => response.json())
                 .then(dados => {
 

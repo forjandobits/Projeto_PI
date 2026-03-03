@@ -6,14 +6,14 @@ include(__DIR__ . "/../banco-de-dados/conexao.php");
 
 $id = 1;
 
-$sql = "SELECT * FROM tb_solicitacoes where id = ?";
+$sql = "UPDATE tb_solicitacoes.*, tb_funcionario.nome_completo 
+FROM tb_solicitacoes 
+INNER JOIN tb_funcionario ON tb_solicitacoes.id_funcionario = tb_funcionario.id_funcionario
+WHERE id_solicitacao = ?";
 
 $consulta = $conn->prepare($sql);
-
 $consulta->bind_param("i", $id);
-
 $consulta->execute();
-
 $resultado = $consulta->get_result();
 
 if ($resultado->num_rows > 0) {
