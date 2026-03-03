@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . "banco-de-dados/conexao.php";
-// include __DIR__ . "banco-de-dados\conexao.php";
+require_once __DIR__ . "/../../../../banco-de-dados/conexao.php";
+// include __DIR__ . "/../banco-de-dados/conexao.php";
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(["sucesso" => false, "mensagem" => "Método inválido."]);
@@ -16,10 +16,9 @@ $nome_funcionario = $_POST['nome_funcionario'] ?? null;
 $data_solicitacao = $_POST['data_solicitacao'] ?? null;
 $tipo_solicitacao = $_POST['tipo_solicitacao'] ?? null;
 $observacao       = $_POST['observacao'] ?? null;
-$motivo           = $_POST['motivo'] ?? null;
 $status           = "Pendente";
 
-if (!$nome_funcionario || !$data_solicitacao || !$tipo_solicitacao || !$observacao) {
+if (!$nome_funcionario || !$tipo_solicitacao || !$observacao) {
     echo json_encode(["sucesso" => false, "mensagem" => "Campos obrigatórios não preenchidos."]);
     exit;
 }
