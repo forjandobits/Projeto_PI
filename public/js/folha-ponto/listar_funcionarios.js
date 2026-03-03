@@ -14,14 +14,10 @@ fetch("http://localhost/Projeto_PI/api/listar_funcionarios.php")
             colunaNome.textContent = funcionario.nome_completo;
 
             const colunaBanco = document.createElement("td");
-<<<<<<< HEAD
             colunaBanco.textContent = funcionario.diferenca_horas;
 
             const colunaSituacao = document.createElement("td");
             colunaSituacao.textContent = funcionario.situacao;
-=======
-            colunaBanco.textContent = funcionario.banco_horas;
->>>>>>> d41a17a (inclusao js folhaf-ponto)
 
             if (parseInt(funcionario.banco_horas) < 0) {
                 colunaBanco.style.color = "red";
@@ -29,10 +25,7 @@ fetch("http://localhost/Projeto_PI/api/listar_funcionarios.php")
 
             linha.appendChild(colunaNome);
             linha.appendChild(colunaBanco);
-<<<<<<< HEAD
             linha.appendChild(colunaSituacao);
-=======
->>>>>>> d41a17a (inclusao js folhaf-ponto)
 
             tbody.appendChild(linha);
         });
