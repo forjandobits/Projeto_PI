@@ -17,7 +17,6 @@
 <body>
     <header>
         <img src="public/img/Logo_HM_Cerebro.png" alt="logo humanamente">
-        <button id="btnTeste">Teste</button>
     </header>
 
 <!-- Dessa forma é possível apenas com o "include" chamar todas as configurações passadas 
