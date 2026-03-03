@@ -4,20 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const botao = document.querySelector("#concluir");
     const tbody = document.querySelector("#historicoSolicitacoes");
 
-    function ehJsonValido(texto) {
-        try {
-            JSON.parse(texto);
-            return true;
-        } catch {
-            return false;
-        }
-    }
+    // function ehJsonValido(texto) {
+    //     try {
+    //         JSON.parse(texto);
+    //         return true;
+    //     } catch {
+    //         return false;
+    //     }
+    // }
 
     botao.addEventListener("click", async () => {
 
-        const nomeFuncionario = document.querySelector("#nome").value.trim();
-
-        if (nomeFuncionario.length < 3) {
+        const nome_funcionario = document.querySelector("#nome").value.trim();
+        if (nome_funcionario.length < 3) {
             alert("Nome inválido.");
             return;
         }
@@ -27,29 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             const resposta = await fetch("/Projeto_PI/api/processo_add_solicitacao.php", {
-                method: "POST",
-                body: formData
+            method: "POST",
+            body: formData
             });
 
             if (!resposta.ok) {
                 throw new Error(`Erro HTTP: ${resposta.status}`);
             }
 
-            const texto = await resposta.text();
-
-            if (!ehJsonValido(texto)) {
-                console.error("Resposta não é JSON válido:");
-                console.error(texto);
-                alert("Erro inesperado do servidor.");
-                return;
-            }
-
-            const dados = JSON.parse(resposta);
+            console.log(resposta);
+            const dados = await resposta.json();
 
             if (!dados.sucesso) {
                 alert(dados.mensagem || "Erro ao processar solicitação.");
                 return;
             }
+
+            // ===========================================
 
             const novaLinha = document.createElement("tr");
 
@@ -76,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             tbody.appendChild(novaLinha);
             form.reset();
+
+            // ===========================================
 
         } catch (erro) {
             console.error("Erro na requisição:", erro);
