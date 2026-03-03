@@ -21,8 +21,40 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             alert("Solicitação negada!");
         }
-    })
+    });
 
-    
-})
+    const btnVisualizar = document.querySelectorAll(".abrir-modal");
 
+    btnVisualizar.forEach(botao => {
+
+        botao.addEventListener("click", function () {
+
+            fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
+                .then(response => response.json())
+                .then(dados => {
+
+                    console.log(dados);
+
+                    if (dados.erro) {
+                        alert(dados.erro);
+                        return;
+                    }
+
+                    document.querySelector('#nome-solicitante').textContent = dados.nome_completo;
+                    document.querySelector('#data-solicitacao').textContent = dados.data_solicitacao;
+                    document.querySelector('#opcao-selecionada').textContent = dados.tipo_solicitacao;
+                    document.querySelector('#exibir-observacao').textContent = dados.observacao;
+
+                    // document.querySelector('#modal-solicitacoes').classList.add('ativo');
+
+
+                })
+                .catch(erro => {
+                    console.log("Erro ao buscar dados:", erro);
+                });
+
+        });
+
+    });
+
+});
