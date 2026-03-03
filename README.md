@@ -125,3 +125,13 @@
 ou uma parte de um documento maior que não faz sentido sozinha, ele provavelmente é uma &ltsection&gt.</p>
 
 <hr>
+
+### Back-end
+
+Em todas as página foi adicionado um pequeno script que define a variável BASE_URL pro JavaScript. Portanto para fazer suas requisições e importações de arquivo use o seguinte:
+
+- Importação JS -> JS: caminho iniciando em `./`
+- Importação PHP -> PHP: caminho iniciando em `__DIR__ .`
+- Importação BD -> PHP: use a linha `require_once __DIR__ . "/../db/conexao.php"`;
+- Requisição JS -> PHP: use a função enviar() no JS com um caminho que comece com `${BASE_URL}/`
+
