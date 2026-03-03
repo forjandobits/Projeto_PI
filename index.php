@@ -46,5 +46,9 @@
       </article>
       
     </main>
+
+    <script>
+      const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+    </script>
   </body>
 </html>
