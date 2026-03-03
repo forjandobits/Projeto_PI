@@ -717,7 +717,7 @@ INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_te
 -- Estrutura stand-in para view `view_folha_ponto`
 -- (Veja abaixo para a visão atual)
 --
-CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
+CREATE IF NOT EXISTS `view_folha_ponto` (
 `id_funcionario` int(11)
 ,`nome_completo` varchar(100)
 ,`nome_cargo` varchar(100)
