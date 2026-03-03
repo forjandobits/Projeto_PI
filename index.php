@@ -48,5 +48,9 @@
     </main>
 
      <script src='public/js/login-e-Configuracao/login.js'></script>
+
+    <script>
+      const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+    </script>
   </body>
 </html>
