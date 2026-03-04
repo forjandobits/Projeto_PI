@@ -84,8 +84,8 @@
             <select name="Regime-Funcionario" id="regime" required>
                 <option value="">-- Selecione --</option>
                 <option value="CLT">CLT</option>
-                <option value="CLT">Pessoa Jurídica (PJ)</option>
-                <option value="CLT">Horista</option>
+                <option value="PJ">Pessoa Jurídica (PJ)</option>
+                <option value="HORISTA">Horista</option>
             </select>
         </div>
 
@@ -105,3 +105,5 @@
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+
+<script type="module" src="public/js/adicionar_cargo/adicionar_cargo.js"></script>

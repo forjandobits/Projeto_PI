@@ -10,14 +10,14 @@ $requisicao = json_decode(file_get_contents("php://input"), true);
 
 // Pega os valores enviados na requisição
 $cbo = $conn->real_escape_string($requisicao["cbo"]);
-$nomeCargo = $conn->real_escape_string($requisicao["nome-cargo"]);
+$nomeCargo = $conn->real_escape_string($requisicao["nomeCargo"]);
 $salario = $conn->real_escape_string($requisicao["salario"]);
-$cargaHoraria = $conn->real_escape_string($requisicao["carga-Horaria"]);
+$cargaHoraria = $conn->real_escape_string($requisicao["cargaHoraria"]);
 $regime = $conn->real_escape_string($requisicao["regime"]);
 $escala = $conn->real_escape_string($requisicao["escala"]);
 
 // Query sql para inserir funcionário
-$sql = "INSERT INTO tb_cargo (nome_cargo, salario, carga_horaria, regime_trabalhista, escala, cbo) VALUES ('$nomeCargo', '$salario', $cargaHoraria, '$regime', $escala, $cbo)";
+$sql = "INSERT INTO tb_cargo (nome_cargo, salario, carga_horaria, regime_trabalhista, escala, cbo) VALUES ('$nomeCargo', '$salario', '$cargaHoraria', '$regime', '$escala', '$cbo')";
 
 // Verifica se é possível rodar a query
 if ($conn->query($sql)) {

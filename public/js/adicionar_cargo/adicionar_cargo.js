@@ -1,6 +1,7 @@
 
 // Importa a função de enviar
-import { enviar } from "./utils/enviar.js";
+// import { enviar } from "./utils/enviar.js";
+import { enviar } from "../utils/enviar.js";
 
 // Recomendo colocar para só carregar o JS depois de apresentar a página (torna carregamento mais rápido)
 document.addEventListener("DOMContentLoaded", () => {
