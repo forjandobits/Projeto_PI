@@ -8,27 +8,24 @@
 
     <article>
         <!-- FORM DE ALTERAR SENHA -->
-        <form id="form-senha" method="POST" action="public\js\login-e-Configuracao\processa_configuracao.php">
+        <form id="form-senha" method="POST" action="public\js\login-e-Configuracao\configuracao.php">
 
             <section class="areas-form">
                 <h2>Alterar Senha:</h2>
 
                 <div class="campo">
                     <label for="senha-atual">Senha Atual:</label>
-                    <input type="password" name="senha_atual" id="senha-atual" class="inputsenhahotfix" required>
-                    <div id="msg-senha-atual" class="mensagem-campo"></div>
+                    <input type="password" name="senha_atual" id="senha-atual" required>
                 </div>
 
                 <div class="campo">
                     <label for="nova-senha">Nova Senha:</label>
-                    <input type="password" name="nova_senha" id="nova-senha" class="inputsenhahotfix" required>
-                    <div id="forca-senha" class="mensagem-forca"></div>
-                </div>        
+                    <input type="password" name="nova_senha" id="nova-senha" required>
+                </div>
 
                 <div class="campo">
                     <label for="repita-senha">Repita Nova Senha:</label>
-                    <input type="password" name="repita_senha" id="repita-senha" class="inputsenhahotfix" required>
-                    <div id="msg-repita-senha" class="mensagem-campo"></div>
+                    <input type="password" name="repita_senha" id="repita-senha" required>
                 </div>
 
                 <div class="campo">
@@ -36,7 +33,7 @@
                 </div>
 
                 <!-- Div para exibir mensagens de erro/sucesso -->
-                <div id="mensagem-senha" style="margin-top:10px;"></div>
+                <div id="mensagem-senha" style="color:red; margin-top:10px;"></div>
             </section>
         </form>
 
