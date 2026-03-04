@@ -195,6 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fonteMaior) fonteMaior.addEventListener("click", () => aplicarFonte("maior"));
 
 
+    const temasPermitidos = ["claro", "escuro", "contraste"];
+
     document.querySelectorAll('input[name="tema"]').forEach(radio => {
         radio.addEventListener("change", function () {
 >>>>>>> 3ed787a (FEAT: Implementação da troca de temas e troca de tamanho da fonte)
