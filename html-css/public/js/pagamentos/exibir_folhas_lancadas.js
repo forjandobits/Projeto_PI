@@ -73,6 +73,7 @@ async function exibirFolhaLancada() {
 function exibirDadosFolhaLancadas(){
 
     const exibir = document.querySelector(".modal");
+    let idSelecionado;
 
     document.addEventListener("click", async (e) => {
         
@@ -91,6 +92,8 @@ function exibirDadosFolhaLancadas(){
                 })
             });
             
+            idSelecionado = e.target.id;
+
             const dadosFolhaSelecionada = await respostaFolha.json();
             const beneficiosDescontos = await listarBeneficiosDescontos();
 
@@ -174,9 +177,21 @@ function exibirDadosFolhaLancadas(){
             })
         }
         
+        const botaoEditar = e.target.closest(".botao-editar");
+        
+        if(botaoEditar){
 
+            e.preventDefault();
+            window.location.href = `./folha_de_pagamento.php?id=${idSelecionado}`;
+            console.log(window.location.href);
+            console.log(botaoEditar);
+
+        }
+        
     });
+    
 }
+
 
 exibirFolhaLancada();
 exibirDadosFolhaLancadas();
