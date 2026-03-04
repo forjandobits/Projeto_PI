@@ -469,25 +469,45 @@ function enviarDados() {
     if(botaoEnviar){
 
         botaoEnviar.addEventListener("click", async (e) => {
-            
-            if(valoresUnidos.length == 0){
-                alert("Não há valores inseridos no Array!");
-                return;
-            } else {
-                await fetch("public/js/pagamentos/adicionar_pagamento.php", {
+            const parametrosURL = new URLSearchParams(window.location.search);
+            alert(parametrosURL.get('id'));
+
+            if(parametrosURL.get('id') !== null){
+                const idFolha = parametrosURL.get('id');
+
+                await fetch("public/js/pagamentos/editar_pagamento.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        id_funcionario: idSelecionado,
-                        mes_referencia: mesSelecionado.value,
+                        idFolha: idFolha,
                         valoresUnidos: valoresUnidos
                     })
-                })
-                alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
-                alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
+                });
                 window.location.href = "pagamento.php";
+
+            } else {
+                alert("Isso não irá atualizar! Só adicionar.");
+                if(valoresUnidos.length == 0){
+                    alert("Não há valores inseridos no Array!");
+                    return;
+                } else {
+                    await fetch("public/js/pagamentos/adicionar_pagamento.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            id_funcionario: idSelecionado,
+                            mes_referencia: mesSelecionado.value,
+                            valoresUnidos: valoresUnidos
+                        })
+                    })
+                    alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
+                    alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
+                    window.location.href = "pagamento.php";
+                }
             }
 
         });
