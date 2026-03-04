@@ -7,19 +7,9 @@ async function listarBeneficiosDescontos() {
     try {
         const respostaBenDes = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
         const beneficiosDescontos = await respostaBenDes.json();
-        // console.log(beneficiosDescontos);
-    
-        // beneficiosDescontos.forEach(elemento => {
-        //     console.log(elemento);
-        // });
         
         return beneficiosDescontos;
     } catch (error) {
-        // if(error.status === "404"){
-        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
-        //         a conexão com o banco de dados não encontrado!`);
-        // } else {
-        // }
         alert(`Ocorreu um erro: \n${error.message}`);
     }
 
@@ -32,11 +22,6 @@ async function listarFolhasLancadas() {
         
         return folhaLancada;
     } catch (error) {
-        // if(error.status === "404"){
-        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
-        //         a conexão com o banco de dados não encontrado!`);
-        // } else {
-        // }
         alert(`Ocorreu um erro: \n${error.message}`);
     }
 
@@ -49,11 +34,6 @@ async function listarFuncionarios() {
         
         return funcionarios;
     } catch (error) {
-        // if(error.status === "404"){
-        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
-        //         a conexão com o banco de dados não encontrado!`);
-        // } else {
-        // }
         alert(`Ocorreu um erro: \n${error.message}`);
     }
 
@@ -74,8 +54,7 @@ async function criarEventos(){
             secao.classList.add("grupo-campo-linha");
             
     
-            // FOR para criar o número de elementos necessários no modal
-            
+            // FOR para criar o número de elementos necessários no modal           
             for (let i = 1; i < 4; i++) {
                 const div = document.createElement("div");
                 div.classList.add("campo");
@@ -91,13 +70,9 @@ async function criarEventos(){
                     label.textContent = "Benefícios:"
                     label.htmlFor = "beneficios";
                     
-                    // Varredura do array de elementos que serão 
-                    // apresentados nas opções
-
-                    // Para buscar apenas os benefícios
-                    const beneficios = beneficiosDescontos.filter(benDes => benDes.desconto === "0");
-
-                    // console.log(beneficios);
+                    // Varredura dos elementos retornados que serão 
+                    // apresentados nas opções e buscar apenas os benefícios
+                    const beneficios = beneficiosDescontos.filter(benDes => benDes.desconto === "0")
 
                     beneficios.forEach(benDes => {
                         const option = document.createElement("option");
@@ -110,12 +85,12 @@ async function criarEventos(){
                     select.name = "Beneficios";
                     select.id = "beneficios";
                     select.required = true;
-                    // append é mais utlizado e permite adicionar mais elementos de uma única vez
+                    // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                     div.append(label, select);
                 }
     
                 if (i == 2){
-                    // Parte para inserir o valor
+                    // Parte criar o campo para inserir os valores
                     const label = document.createElement("label");
                     label.textContent = "Valor:"
                     label.htmlFor = "valor";
@@ -139,13 +114,13 @@ async function criarEventos(){
                 }
             }
     
-            // Adicionando os elementos a página
+            // Adicionando os elementos criados à página
             eventoPagamento.append(secao);
         })
     }
 }
 
-// Encontra e remove os elementos que estão sendo apresentados na página
+// Encontra os elementos que foram criados na página para se necessário remover
 function removerEventos() {
     document.addEventListener("click", (e) => {
         // Garante que o botão pressionado está correto
@@ -161,6 +136,7 @@ function removerEventos() {
     })
 }
 
+// Função para buscar valores e retornar todos os que foram encontrados
 async function buscarNome(nomeInserido){
     const funcionarios = await listarFuncionarios();
 
@@ -174,6 +150,7 @@ async function buscarNome(nomeInserido){
     return valoresObtidos;
 }
 
+// Função para listar os valores encontrados 
 function listarNomes(){
     const nome = document.querySelector("#nome");
     const listaNomes = document.querySelector("#listaNomes");
@@ -248,14 +225,11 @@ async function selecionarNome(){
     })
 }
 
-listarNomes();
-criarEventos();
-removerEventos();
-
 // Para manipular os dados inseridos na tela
 const exibir = document.querySelector(".modal");
 const botaoSalvar = document.querySelector("#lancar-dados");
 
+// Função para armazenar os valores inseridos pelo usuário
 function receberBeneficiosSelecionados(){
     
     if(botaoSalvar){
@@ -279,11 +253,6 @@ function receberBeneficiosSelecionados(){
                 }
     
             });
-    
-            // Apenas para debug
-            // valoresRecebidos.forEach(valores =>{
-            //     alert(`Nome: ${nome.value}; ID: ${idSelecionado};\nMês: ${mesSelecionado.value}\n\n ID Select:${valores.infoBenDes.idBenDes} - ${valores.infoBenDes.valor}`);
-            // });
             
             exibir.style.display = "none";
             
@@ -324,31 +293,23 @@ function calcularContribuicoesDescontos(salario){
         }
     }
 
-    // alert(`Valor recebido ${salario}!`);
     valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: "6", valor: descontoINSS}]});
     valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: "7", valor: descontoIRPF}]});
     // IRPF
     // Menor que 5000 Isento, procurar uma tabela correta
 }
 
-receberBeneficiosSelecionados();
-
-
 function exibirDadosInseridos(){
     const mes = document.querySelector("#mes");
     const nomeFuncionario = document.querySelector("#nome-exibido");
     const resumoLiquido = document.querySelector(".resumo-final>p");
 
-    // Buscar a tabela
+    // Buscar a tabela em que os elementos serão exibidos
     const tabelaPagamento = document.querySelector("#tabela-saida-folha-pagamento");
-    
-    // Receber valor
-    // situacao.textContent = valor;
     
     if(botaoSalvar){
 
         botaoSalvar.addEventListener("click", async () =>{
-            // Por ser variável global ("valoresRecebidos") é possível manipular em qualquer parte do código
             
             if(tabelaPagamento){
     
@@ -376,11 +337,7 @@ function exibirDadosInseridos(){
                 mes.textContent = "";
                 
                 nomeFuncionario.textContent = nome.value;
-                mes.textContent = item.mes;
-    
-                
-                // console.log(item.infoBenDes[0]);
-                
+                mes.textContent = item.mes;                
 
                 item.infoBenDes.forEach(i => {
     
@@ -426,7 +383,6 @@ function exibirDadosInseridos(){
                 }
     
             });
-            alert(`Valor do Id do Nome selecionado: ${idSelecionado}`);
     
             agruparValoresRecebidos();
         });
@@ -434,8 +390,7 @@ function exibirDadosInseridos(){
 
 }
 
-exibirDadosInseridos();
-
+// Função para agrupar os valores inseridos pelo usuário em um array de dados
 async function agruparValoresRecebidos(){
 
     if(valoresUnidos.length > 0){
@@ -457,9 +412,6 @@ async function agruparValoresRecebidos(){
             });
         }
     })
-
-    // console.log(`Esse são os valores reunidos em apenas um registro:`);
-    // console.log(valoresUnidos);
 }
 
 // Função para enviar os valores inseridos
@@ -470,7 +422,6 @@ function enviarDados() {
 
         botaoEnviar.addEventListener("click", async (e) => {
             const parametrosURL = new URLSearchParams(window.location.search);
-            alert(parametrosURL.get('id'));
 
             if(parametrosURL.get('id') !== null){
                 const idFolha = parametrosURL.get('id');
@@ -488,9 +439,7 @@ function enviarDados() {
                 window.location.href = "pagamento.php";
 
             } else {
-                alert("Isso não irá atualizar! Só adicionar.");
                 if(valoresUnidos.length == 0){
-                    alert("Não há valores inseridos no Array!");
                     return;
                 } else {
                     await fetch("public/js/pagamentos/adicionar_pagamento.php", {
@@ -504,8 +453,7 @@ function enviarDados() {
                             valoresUnidos: valoresUnidos
                         })
                     })
-                    alert(`Nome: ${valoresUnidos.nome} - Mês: ${valoresUnidos.mes} - ${valoresUnidos.infoBenDes}`);
-                    alert(`Valores enviados! ${JSON.stringify({valoresUnidos})}`);
+                    
                     window.location.href = "pagamento.php";
                 }
             }
@@ -515,4 +463,10 @@ function enviarDados() {
 
 }
 
+
+listarNomes();
+criarEventos();
+removerEventos();
+receberBeneficiosSelecionados();
+exibirDadosInseridos();
 enviarDados()
