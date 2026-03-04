@@ -23,7 +23,10 @@ SET time_zone = "+00:00";
 
 --
 -- Banco de dados: `bd_humanamente`
+-- Banco de dados: `bd_humanamente`
 --
+CREATE DATABASE IF NOT EXISTS `bd_humanamente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_humanamente`;
 CREATE DATABASE IF NOT EXISTS `bd_humanamente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `bd_humanamente`;
 
@@ -33,6 +36,8 @@ USE `bd_humanamente`;
 -- Estrutura da tabela `tb_arquivo`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_arquivo` (
+  `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
   `id_documento` int(11) NOT NULL,
@@ -52,6 +57,8 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
 -- Estrutura da tabela `tb_banco`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_banco` (
+  `id_banco` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -103,6 +110,8 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
 
 CREATE TABLE IF NOT EXISTS `tb_documento` (
   `id_documento` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_documento` (
+  `id_documento` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `rg` text NOT NULL,
   `cpf` text NOT NULL,
@@ -119,6 +128,9 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `laudo_pcd` text DEFAULT NULL,
   PRIMARY KEY (`id_documento`),
   KEY `id_funcionario` (`id_funcionario`)
+  `laudo_pcd` text DEFAULT NULL,
+  PRIMARY KEY (`id_documento`),
+  KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -129,7 +141,11 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
 
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_endereco` (
+  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `cidade` varchar(60) NOT NULL,
+  `bairro` varchar(50) NOT NULL,
   `cidade` varchar(60) NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
@@ -152,9 +168,14 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
 
 CREATE TABLE IF NOT EXISTS `tb_filho` (
   `id_filho` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_filho` (
+  `id_filho` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `certidao_filho` text NOT NULL,
   `idade_filho` int(11) NOT NULL,
+  `escolaridade_filho` text NOT NULL,
+  PRIMARY KEY (`id_filho`),
+  KEY `id_funcionario` (`id_funcionario`)
   `escolaridade_filho` text NOT NULL,
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
@@ -168,12 +189,18 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
 
 CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
+  `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `data` date NOT NULL,
   `data` date NOT NULL,
   `total_horas_dia` int(11) NOT NULL,
   `horas_extras` int(11) DEFAULT NULL,
   `faltas` int(11) DEFAULT NULL,
   `atrasos` int(11) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  PRIMARY KEY (`id_ponto`),
+  KEY `id_funcionario` (`id_funcionario`)
   `observacoes` text DEFAULT NULL,
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
@@ -185,6 +212,8 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
 -- Estrutura da tabela `tb_funcionario`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_funcionario` (
+  `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
   `id_cargo` int(11) NOT NULL,
@@ -219,8 +248,14 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
 
 CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_jornada` (
+  `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time DEFAULT NULL,
+  `intervalo_inicio` time DEFAULT NULL,
+  `intervalo_fim` time DEFAULT NULL,
   `hora_entrada` time NOT NULL,
   `hora_saida` time DEFAULT NULL,
   `intervalo_inicio` time DEFAULT NULL,
@@ -243,6 +278,8 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 
 CREATE TABLE IF NOT EXISTS `tb_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_login` (
+  `id_login` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
 <<<<<<< HEAD
   `nome_usuario` varchar(100) NOT NULL,
@@ -259,11 +296,16 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
 
 --
 -- Estrutura da tabela `tb_proventos`
+-- Estrutura da tabela `tb_proventos`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_proventos` (
+  `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `nome_beneficio` varchar(150) NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
   `nome_beneficio` varchar(150) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
@@ -302,6 +344,8 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
 
 CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_telefone` (
+  `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
 <<<<<<< HEAD
   `telefone` varchar(20) NOT NULL,
@@ -321,11 +365,16 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
 -- (Veja abaixo para a view atual)
 --
 CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
+CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 `id_funcionario` int(11)
 ,`nome_completo` varchar(100)
 ,`nome_cargo` varchar(100)
 ,`carga_semanal_prevista` int(11)
+,`nome_completo` varchar(100)
+,`nome_cargo` varchar(100)
+,`carga_semanal_prevista` int(11)
 ,`horas_trabalhadas_semana` decimal(32,0)
+,`diferenca_horas` decimal(33,0)
 ,`diferenca_horas` decimal(33,0)
 ,`situacao` varchar(16)
 );
@@ -337,6 +386,7 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 --
 DROP TABLE IF EXISTS `view_folha_ponto`;
 
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) WHERE `p`.`data` between '2025-10-14' and '2025-10-20' GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria` ORDER BY sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) ASC  ;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) WHERE `p`.`data` between '2025-10-14' and '2025-10-20' GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria` ORDER BY sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) ASC  ;
 
 --
@@ -360,6 +410,12 @@ ALTER TABLE `tb_folhaponto`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
+
+--
+-- Limitadores para a tabela `tb_solicitacoes`
+--
+ALTER TABLE `tb_solicitacoes`
+  ADD CONSTRAINT `tb_solicitacoes_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
 -- Limitadores para a tabela `tb_solicitacoes`
