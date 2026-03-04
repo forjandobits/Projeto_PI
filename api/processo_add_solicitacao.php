@@ -18,6 +18,7 @@ $nome_funcionario = $dadosFormulario['nome_funcionario'] ?? null;
 $data_solicitacao = $dadosFormulario['data_solicitacao'] ?? null;
 $tipo_solicitacao = $dadosFormulario['tipo_solicitacao'] ?? null;
 $observacao       = $dadosFormulario['observacao'] ?? null;
+$motivo           = $dadosFormulario['motivo'] ?? null;
 $status           = "Pendente";
 
 if (!$nome_funcionario || !$tipo_solicitacao || !$observacao) {
@@ -29,7 +30,7 @@ if (!$nome_funcionario || !$tipo_solicitacao || !$observacao) {
 // BUSCAR ID DO FUNCIONÁRIO
 // ======================
 
-$sqlBusca = "SELECT id_funcionario FROM tb_funcionarios WHERE nome_completo = ?";
+$sqlBusca = "SELECT id_funcionario FROM tb_funcionario WHERE nome_completo = ?";
 $stmtBusca = $conn->prepare($sqlBusca);
 $stmtBusca->bind_param("s", $nome_funcionario);
 $stmtBusca->execute();
