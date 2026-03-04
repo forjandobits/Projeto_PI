@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const resposta = await fetch("/Projeto_PI/api/processo_add_solicitacao.php", {
+            const resposta = await fetch(`${BASE_URL}/api/processo_add_solicitacao.php`, {
             method: "POST",
             headers:{"Content-Type" : "application/json"},
             body: JSON.stringify(dadosFormulario)
