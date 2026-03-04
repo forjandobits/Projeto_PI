@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
 
     // Campos obrigatórios
     if (empty($senhaAtual) || empty($novaSenha) || empty($repitaSenha)) {
-        echo "<p>Preencha todos os campos.</p>";
+        echo "Preencha todos os campos.";
         exit;
     }
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows !== 1) {
-        echo "<p>Usuário não encontrado.</p>";
+        echo "Usuário não encontrado.";
         exit;
     }
 
@@ -39,19 +39,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
 
     // Verifica senha atual (sem hash)
     if ($senhaAtual !== $usuario['senha']) {
-        echo "<p>Senha atual incorreta!</p>";
+        echo "Senha atual incorreta!";
         exit;
     }
 
     // Verifica se as novas senhas coincidem
     if ($novaSenha !== $repitaSenha) {
-        echo "<p>As novas senhas não coincidem!</p>";
+        echo "As novas senhas não coincidem!";
         exit;
     }
 
     // Verifica tamanho mínimo
     if (strlen($novaSenha) < 6) {
-        echo "<p>A nova senha deve ter pelo menos 6 caracteres.</p>";
+        echo "A nova senha deve ter pelo menos 6 caracteres.";
         exit;
     }
 
@@ -60,9 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     $update->bind_param("si", $novaSenha, $idLogin);
 
     if ($update->execute()) {
-        echo "<p>Senha alterada com sucesso!</p>";
+        echo "Senha alterada com sucesso! \n Utilize sua nova senha a partir de agora!";
     } else {
-        echo "<p>Erro ao alterar senha: " . $update->error . "</p>";
+        echo "Erro ao alterar senha: " . $update->error;
     }
 }
 ?>
