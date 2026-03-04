@@ -28,48 +28,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const resposta = await fetch("/Projeto_PI/api/processo_add_solicitacao.php", {
             method: "POST",
-            header:{"Content-Type" : "application/json"},
+            headers:{"Content-Type" : "application/json"},
             body: JSON.stringify(dadosFormulario)
             });
 
             if (!resposta.ok) {
                 throw new Error(`Erro HTTP: ${resposta.status}`);
             }
-            const dados = await resposta.json();
-            console.log(dados);
 
-            if (!dados.sucesso) {
-                alert(dados.mensagem || "Erro ao processar solicitação.");
-                return;
-            }
+            const texto = await resposta.text();
+            console.log("Resposta bruta do servidor:");
+            console.log(texto);
+            return;
 
-            // ===========================================
+            // if (!dados.sucesso) {
+            //     alert(dados.mensagem || "Erro ao processar solicitação.");
+            //     return;
+            // }
 
-            const novaLinha = document.createElement("tr");
+            // // ===========================================
 
-            const campos = [
-                dados.tipo_solicitacao,
-                dados.nome_funcionario,
-                dados.data_solicitacao,
-                dados.status
-            ];
+            // const novaLinha = document.createElement("tr");
 
-            campos.forEach(valor => {
-                const td = document.createElement("td");
-                td.textContent = valor;
-                novaLinha.appendChild(td);
-            });
+            // const campos = [
+            //     dados.tipo_solicitacao,
+            //     dados.nome_funcionario,
+            //     dados.data_solicitacao,
+            //     dados.status
+            // ];
 
-            const tdBotao = document.createElement("td");
-            const btn = document.createElement("button");
-            btn.textContent = "Visualizar";
-            btn.classList.add("abrir-modal");
+            // campos.forEach(valor => {
+            //     const td = document.createElement("td");
+            //     td.textContent = valor;
+            //     novaLinha.appendChild(td);
+            // });
 
-            tdBotao.appendChild(btn);
-            novaLinha.appendChild(tdBotao);
+            // const tdBotao = document.createElement("td");
+            // const btn = document.createElement("button");
+            // btn.textContent = "Visualizar";
+            // btn.classList.add("abrir-modal");
 
-            tbody.appendChild(novaLinha);
-            form.reset();
+            // tdBotao.appendChild(btn);
+            // novaLinha.appendChild(tdBotao);
+
+            // tbody.appendChild(novaLinha);
+            // form.reset();
 
             // ===========================================
 
