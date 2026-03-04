@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-<<<<<<< HEAD
     const forcaSenhaMsg = document.getElementById("forca-senha");
 
     function atualizarBarraForca(senha) {
@@ -163,20 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function aplicarFonte(tamanho) {
         if (!fontesPermitidas.includes(tamanho)) return;
 
-=======
-  
-    const fonteMenor = document.getElementById("fonte-menor");
-    const fonteMedia = document.getElementById("fonte-media");
-    const fonteMaior = document.getElementById("fonte-maior");
-
-    function aplicarFonte(tamanho) {
->>>>>>> 3ed787a (FEAT: Implementação da troca de temas e troca de tamanho da fonte)
         body.classList.remove("fonte-menor", "fonte-media", "fonte-maior");
         body.classList.add("fonte-" + tamanho);
         localStorage.setItem("fonte", tamanho);
     }
 
-<<<<<<< HEAD
     document.getElementById("fonte-menor")?.addEventListener("click", () => aplicarFonte("menor"));
     document.getElementById("fonte-media")?.addEventListener("click", () => aplicarFonte("media"));
     document.getElementById("fonte-maior")?.addEventListener("click", () => aplicarFonte("maior"));
@@ -189,25 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!temasPermitidos.includes(this.value)) return;
 
-=======
-    if (fonteMenor) fonteMenor.addEventListener("click", () => aplicarFonte("menor"));
-    if (fonteMedia) fonteMedia.addEventListener("click", () => aplicarFonte("media"));
-    if (fonteMaior) fonteMaior.addEventListener("click", () => aplicarFonte("maior"));
-
-
-    const temasPermitidos = ["claro", "escuro", "contraste"];
-
-    document.querySelectorAll('input[name="tema"]').forEach(radio => {
-        radio.addEventListener("change", function () {
->>>>>>> 3ed787a (FEAT: Implementação da troca de temas e troca de tamanho da fonte)
             body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
             body.classList.add("tema-" + this.value);
             localStorage.setItem("tema", this.value);
         });
     });
 
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 3ed787a (FEAT: Implementação da troca de temas e troca de tamanho da fonte)

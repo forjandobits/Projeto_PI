@@ -41,20 +41,13 @@
               <button type="submit">Entrar</button>
               <p id='erro' style='display:none;color:red'></p>
             </form>
-            <!-- Alterei os ids dos inputs para serem compativeis com o bd, e tambem coloquei o 'action' no form -->
-            <form class="form-modal-login" id="form-login" action="public/js/login-e-Configuracao/processa_login.php" method="POST">
-              <input type="text" id="usuario" name="usuario" placeholder="Usuário">
-              <input type="password" id="senha" name="senha" placeholder="Senha">
-              <button type="submit">Entrar</button>
-              <p id='erro' style='display:none;color:red'></p>
-            </form>
         </section>
 
       </article>
       
     </main>
 
-     <script src='public/js/login-e-Configuracao/login.js'></script>
+    <script src='public/js/login-e-Configuracao/login.js'></script>
 
     <script>
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
