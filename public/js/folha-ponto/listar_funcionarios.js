@@ -1,5 +1,7 @@
-fetch("http://localhost/Projeto_PI/api/listar_funcionarios.php")
-    .then(response => response.json())
+import { enviar } from "../utils/enviar";
+
+
+enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
     .then(dados => {
 
         const tbody = document.querySelector("#tabela-saida-ponto");

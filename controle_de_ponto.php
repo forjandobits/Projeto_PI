@@ -37,12 +37,13 @@
                     <tbody id="tabela-saida-ponto">                      
                     </tbody>
                 </table>
-                <script src="public/js/folha-ponto/listar_funcionarios.js"> </script>
+                <script>const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";</script>
+                <script type="module" src="./js/listar_funcionarios.js"></script> <!--atenção para o tipo module-->
             </section>                          
         </article>
     </main>
 
-    <script>
+  <!--   <script>
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
-    </script>
+    </script> -->
 </body>
