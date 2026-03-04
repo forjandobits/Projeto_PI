@@ -658,24 +658,37 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
 -- Despejando dados para a tabela `tb_solicitacoes`
 --
 
-INSERT INTO `tb_solicitacoes` (`id_solicitacao`, `id_funcionario`, `data_solicitacao`, `tipo_solicitacao`, `observacao`, `motivo`, `status`) VALUES
-(1, 1, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(2, 2, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(3, 3, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(4, 4, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(5, 5, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(6, 6, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(7, 7, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(8, 8, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(9, 9, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(10, 10, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(11, 11, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(12, 12, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(13, 13, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(14, 14, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado'),
-(15, 15, '2025-10-15', 'Férias', 'Solicitação anual', NULL, 'Aprovado');
+INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_telefone`) VALUES
+(1, 1, '(11) 98855-1200', 'Celular'),
+(2, 1, '(11) 3251-4400', 'Residencial'),
+(3, 2, '(11) 99645-2300', 'Celular'),
+(4, 3, '(11) 97780-5600', 'Celular'),
+(5, 4, '(11) 94022-8810', 'Celular'),
+(6, 5, '(11) 95877-1100', 'Celular');
 
--- ---------------------------------------------------------
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `tb_arquivo`
+--
+ALTER TABLE `tb_arquivo`
+  ADD PRIMARY KEY (`id_arquivo`),
+  ADD KEY `id_documento` (`id_documento`);
+
+--
+-- Índices para tabela `tb_banco`
+--
+ALTER TABLE `tb_banco`
+  ADD PRIMARY KEY (`id_banco`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_cargo`
+--
+ALTER TABLE `tb_cargo`
+  ADD PRIMARY KEY (`id_cargo`);
 
 --
 -- Estrutura para tabela `tb_telefone`

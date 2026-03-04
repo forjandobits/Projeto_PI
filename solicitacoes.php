@@ -143,11 +143,7 @@
     </article>
 
 </main>
-
-<script>
-    const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
-</script>
-<script src="public/js/solicitações-adicionar/adicionar.js"></script>
+<script src="public/js/solicitacoes/adicionar.js"></script>
 
 </body>
 </html>
