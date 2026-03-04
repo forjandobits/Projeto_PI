@@ -5,7 +5,7 @@ const valoresUnidos = [];
 // Função para buscar os valores no banco de dados
 async function listarBeneficiosDescontos() {
     try {
-        const respostaBenDes = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
+        const respostaBenDes = await fetch(`${BASE_URL}/api/pagamentos/exibir_beneficios_descontos.php`);
         const beneficiosDescontos = await respostaBenDes.json();
         
         return beneficiosDescontos;
@@ -17,7 +17,7 @@ async function listarBeneficiosDescontos() {
 
 async function listarFolhasLancadas() {
     try {
-        const respostaFolhaLancada = await fetch("public/js/pagamentos/exibir_folhas_lancadas.php");
+        const respostaFolhaLancada = await fetch(`${BASE_URL}/api/pagamentos/exibir_folhas_lancadas.php`);
         const folhaLancada = await respostaFolhaLancada.json();
         
         return folhaLancada;
@@ -29,7 +29,7 @@ async function listarFolhasLancadas() {
 
 async function listarFuncionarios() {
     try {
-        const respostaFuncionarios = await fetch("public/js/pagamentos/exibir_funcionarios.php");
+        const respostaFuncionarios = await fetch(`${BASE_URL}/api/pagamentos/exibir_funcionarios.php`);
         const funcionarios = await respostaFuncionarios.json();
         
         return funcionarios;
@@ -426,7 +426,7 @@ function enviarDados() {
             if(parametrosURL.get('id') !== null){
                 const idFolha = parametrosURL.get('id');
 
-                await fetch("public/js/pagamentos/editar_pagamento.php", {
+                await fetch(`${BASE_URL}/api/pagamentos/editar_pagamento.php`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -442,7 +442,7 @@ function enviarDados() {
                 if(valoresUnidos.length == 0){
                     return;
                 } else {
-                    await fetch("public/js/pagamentos/adicionar_pagamento.php", {
+                    await fetch(`${BASE_URL}/api/pagamentos/adicionar_pagamento.php`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"

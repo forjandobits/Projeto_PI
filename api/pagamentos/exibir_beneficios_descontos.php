@@ -2,7 +2,8 @@
 
 header("Content-Type: application/json");
 
-include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
+// include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
+require_once(__DIR__ . "/../../banco-de-dados/conexao.php");
 
 $sql = "SELECT * FROM tb_proventos";
 

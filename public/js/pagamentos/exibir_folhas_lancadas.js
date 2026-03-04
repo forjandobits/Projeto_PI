@@ -1,6 +1,6 @@
 async function listarBeneficiosDescontos() {
     try {
-        const respostaBenDes = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
+        const respostaBenDes = await fetch(`${BASE_URL}/api/pagamentos/exibir_beneficios_descontos.php`);
         const beneficiosDescontos = await respostaBenDes.json();
         
         return beneficiosDescontos;
@@ -12,7 +12,7 @@ async function listarBeneficiosDescontos() {
 
 async function listarFolhasLancadas() {
     try {
-        const respostaFolhaLancada = await fetch("public/js/pagamentos/exibir_folhas_lancadas.php");
+        const respostaFolhaLancada = await fetch(`${BASE_URL}/api/pagamentos/exibir_folhas_lancadas.php`);
         const folhaLancada = await respostaFolhaLancada.json();
         
         return folhaLancada;
@@ -67,7 +67,7 @@ function exibirDadosFolhaLancadas(){
         if(e.target.classList.contains("abrir-modal")) {
             
             exibir.style.display = "flex";
-            const respostaFolha = await fetch("public/js/pagamentos/exibir_dados_folha.php", {
+            const respostaFolha = await fetch(`${BASE_URL}/api/pagamentos/exibir_dados_folha.php`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
