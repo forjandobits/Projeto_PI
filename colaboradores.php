@@ -60,7 +60,7 @@
   </article>
   <article class="modal modal-cadastro">
     <section>
-      <h3>Informações do Funcionário</h3>
+      <h3>Informações do Colaborador</h3>
       <p class="fechar">X</p>
     </section>
     
