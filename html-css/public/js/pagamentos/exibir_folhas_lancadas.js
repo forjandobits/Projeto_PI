@@ -2,19 +2,9 @@ async function listarBeneficiosDescontos() {
     try {
         const respostaBenDes = await fetch("public/js/pagamentos/exibir_beneficios_descontos.php");
         const beneficiosDescontos = await respostaBenDes.json();
-        // console.log(beneficiosDescontos);
-    
-        // beneficiosDescontos.forEach(elemento => {
-        //     console.log(elemento);
-        // });
         
         return beneficiosDescontos;
     } catch (error) {
-        // if(error.status === "404"){
-        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
-        //         a conexão com o banco de dados não encontrado!`);
-        // } else {
-        // }
         alert(`Ocorreu um erro: \n${error.message}`);
     }
 
@@ -27,11 +17,6 @@ async function listarFolhasLancadas() {
         
         return folhaLancada;
     } catch (error) {
-        // if(error.status === "404"){
-        //     alert(`Ocorreu um erro: \nNão foi possível realizar 
-        //         a conexão com o banco de dados não encontrado!`);
-        // } else {
-        // }
         alert(`Ocorreu um erro: \n${error.message}`);
     }
 
