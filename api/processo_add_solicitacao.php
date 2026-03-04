@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../../../../banco-de-dados/conexao.php";
+require_once __DIR__ . "/../banco-de-dados/conexao.php";
 // include __DIR__ . "/../banco-de-dados/conexao.php";
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // ======================
 // DADOS RECEBIDOS
 // ======================
+
+$dadosFormulario = json_decode(file_get_contents("php://input"), true);
 
 $nome_funcionario = $_POST['nome_funcionario'] ?? null;
 $data_solicitacao = $_POST['data_solicitacao'] ?? null;

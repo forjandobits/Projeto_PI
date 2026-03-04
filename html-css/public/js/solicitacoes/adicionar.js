@@ -1,41 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const form = document.querySelector("#solicitacao");
+    // const form = document.querySelector("#solicitacao");
     const botao = document.querySelector("#concluir");
     const tbody = document.querySelector("#historicoSolicitacoes");
 
-    // function ehJsonValido(texto) {
-    //     try {
-    //         JSON.parse(texto);
-    //         return true;
-    //     } catch {
-    //         return false;
-    //     }
-    // }
-
     botao.addEventListener("click", async () => {
 
-        const nome_funcionario = document.querySelector("#nome").value.trim();
-        if (nome_funcionario.length < 3) {
+        const nome = document.querySelector("#nome").value;
+        const tipo = document.querySelector("#opcoes").value;
+        const observacao = document.querySelector('#observacoes').value;
+        const data = new Date().toLocaleDateString("pt-BR");
+
+        if (nome.length < 3) {
             alert("Nome inválido.");
             return;
         }
 
-        const formData = new FormData(form);
+        const dadosFormulario = {
+            nome_funcionario : nome,
+            tipo_solicitacao : tipo,
+            data_solicitacao : data,
+            observacao : observacao
+        };
+        console.log(dadosFormulario);
 
         try {
 
             const resposta = await fetch("/Projeto_PI/api/processo_add_solicitacao.php", {
             method: "POST",
-            body: formData
+            header:{"Content-Type" : "application/json"},
+            body: JSON.stringify(dadosFormulario)
             });
 
             if (!resposta.ok) {
                 throw new Error(`Erro HTTP: ${resposta.status}`);
             }
-
-            console.log(resposta);
             const dados = await resposta.json();
+            console.log(dados);
 
             if (!dados.sucesso) {
                 alert(dados.mensagem || "Erro ao processar solicitação.");
