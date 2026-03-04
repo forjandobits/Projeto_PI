@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 nome.textContent = funcionario.nome_completo;
                 cargo.textContent = funcionario.nome_cargo;
+                // situacao.textContent = funcionario.situacao;
                 
                 if (funcionario.situacao == 1){
                     situacao.textContent = 'ATIVO'
@@ -33,11 +34,11 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
    async function desligar(){
-       const respostaAtualizar = await fetch("public/js/cadastro_funcionarios/atualizar.php");
-       const funcionarios2 = await respostaAtualizar.json();
-       document.addEventListener("click", function(e) {
-           if (e.target.classList.contains("desligar")) {
-               alert("Clicou!");
+        // const respostaAtualizar = await fetch("public/js/cadastro_funcionarios/atualizar.php");
+        // const funcionarios = await respostaAtualizar.json();
+        document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("desligar")) {
+        alert("Clicou!");
             }
         });
     }
