@@ -36,43 +36,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(`Erro HTTP: ${resposta.status}`);
             }
 
-            const texto = await resposta.text();
-            console.log("Resposta bruta do servidor:");
-            console.log(texto);
-            return;
+            const dados = await resposta.json();
+            console.log(dados )
 
-            // if (!dados.sucesso) {
-            //     alert(dados.mensagem || "Erro ao processar solicitação.");
-            //     return;
-            // }
+            if (!dados.sucesso) {
+                alert(dados.mensagem || "Erro ao processar solicitação.");
+                return;
+            }
 
-            // // ===========================================
+            // ===========================================
 
-            // const novaLinha = document.createElement("tr");
+            const novaLinha = document.createElement("tr");
 
-            // const campos = [
-            //     dados.tipo_solicitacao,
-            //     dados.nome_funcionario,
-            //     dados.data_solicitacao,
-            //     dados.status
-            // ];
+            const campos = [
+                dados.tipo_solicitacao,
+                dados.nome_funcionario,
+                dados.data_solicitacao,
+                dados.status
+            ];
 
-            // campos.forEach(valor => {
-            //     const td = document.createElement("td");
-            //     td.textContent = valor;
-            //     novaLinha.appendChild(td);
-            // });
+            campos.forEach(valor => {
+                const td = document.createElement("td");
+                td.textContent = valor;
+                novaLinha.appendChild(td);
+            });
 
-            // const tdBotao = document.createElement("td");
-            // const btn = document.createElement("button");
-            // btn.textContent = "Visualizar";
-            // btn.classList.add("abrir-modal");
+            const tdBotao = document.createElement("td");
+            const btn = document.createElement("button");
+            btn.textContent = "Visualizar";
+            btn.classList.add("abrir-modal");
 
-            // tdBotao.appendChild(btn);
-            // novaLinha.appendChild(tdBotao);
+            tdBotao.appendChild(btn);
+            novaLinha.appendChild(tdBotao);
 
-            // tbody.appendChild(novaLinha);
-            // form.reset();
+            tbody.appendChild(novaLinha);
+            form.reset();
 
             // ===========================================
 
