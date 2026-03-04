@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $dadosFormulario = json_decode(file_get_contents("php://input"), true);
 
-$nome_funcionario = $_POST['nome_funcionario'] ?? null;
-$data_solicitacao = $_POST['data_solicitacao'] ?? null;
-$tipo_solicitacao = $_POST['tipo_solicitacao'] ?? null;
-$observacao       = $_POST['observacao'] ?? null;
+$nome_funcionario = $dadosFormulario['nome_funcionario'] ?? null;
+$data_solicitacao = $dadosFormulario['data_solicitacao'] ?? null;
+$tipo_solicitacao = $dadosFormulario['tipo_solicitacao'] ?? null;
+$observacao       = $dadosFormulario['observacao'] ?? null;
 $status           = "Pendente";
 
 if (!$nome_funcionario || !$tipo_solicitacao || !$observacao) {
