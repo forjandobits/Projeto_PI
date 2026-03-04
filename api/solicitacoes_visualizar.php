@@ -6,7 +6,7 @@ include(__DIR__ . "/../banco-de-dados/conexao.php");
 
 $id = 1;
 
-$sql = "UPDATE tb_solicitacoes.*, tb_funcionario.nome_completo 
+$sql = "SELECT tb_solicitacoes.*, tb_funcionario.nome_completo 
 FROM tb_solicitacoes 
 INNER JOIN tb_funcionario ON tb_solicitacoes.id_funcionario = tb_funcionario.id_funcionario
 WHERE id_solicitacao = ?";
@@ -26,6 +26,9 @@ if ($resultado->num_rows > 0) {
 
 echo json_encode(["erro" => "Solicitação com id não encontrado"]);
 }
+
+$consulta->close();
+$conn->close();
 
 
 

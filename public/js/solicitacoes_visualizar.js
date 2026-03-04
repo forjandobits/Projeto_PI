@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.querySelector('#opcao-selecionada').textContent = dados.tipo_solicitacao;
                     document.querySelector('#exibir-observacao').textContent = dados.observacao;
 
-                    // document.querySelector('#modal-solicitacoes').classList.add('ativo');
+                    document.querySelector('#modal-solicitacoes').style.display = 'block';
 
 
                 })
