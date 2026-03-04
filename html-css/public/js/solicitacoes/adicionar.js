@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // const form = document.querySelector("#solicitacao");
+    const form = document.querySelector("#solicitacao");
     const botao = document.querySelector("#concluir");
     const tbody = document.querySelector("#historicoSolicitacoes");
 
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const nome = document.querySelector("#nome").value;
         const tipo = document.querySelector("#opcoes").value;
         const observacao = document.querySelector('#observacoes').value;
-        const data = new Date().toLocaleDateString("pt-BR");
+        const data = new Date().toISOString().split("T")[0];;
 
         if (nome.length < 3) {
             alert("Nome inválido.");
