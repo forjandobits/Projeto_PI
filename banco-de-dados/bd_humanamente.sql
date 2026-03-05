@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Fev-2026 às 01:32
+-- Tempo de geração: 05-Mar-2026 às 22:46
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -130,6 +130,22 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
   `idade_filho` int(11) NOT NULL,
   `escolaridade_filho` text NOT NULL,
   PRIMARY KEY (`id_filho`),
+  KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_folhapagamento`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) NOT NULL,
+  `informacoes` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`informacoes`)),
+  `data_lancamento` date DEFAULT curdate(),
+  `mes_referencia` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -292,6 +308,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `tb_arquivo`
   ADD CONSTRAINT `tb_arquivo_ibfk_1` FOREIGN KEY (`id_documento`) REFERENCES `tb_documento` (`id_documento`);
+
+--
+-- Limitadores para a tabela `tb_folhapagamento`
+--
+ALTER TABLE `tb_folhapagamento`
+  ADD CONSTRAINT `tb_folhapagamento_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
 -- Limitadores para a tabela `tb_folhaponto`
