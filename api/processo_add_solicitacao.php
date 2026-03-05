@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once __DIR__ . "/../banco-de-dados/conexao.php";
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -78,3 +78,4 @@ if ($stmtInsert->execute()) {
 
 $stmtInsert->close();
 $conn->close();
+

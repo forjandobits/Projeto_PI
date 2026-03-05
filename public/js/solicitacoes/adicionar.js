@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
+            // ============ Mandar dados pro PHP ============
+
             const resposta = await fetch(`${BASE_URL}/api/processo_add_solicitacao.php`, {
             method: "POST",
             headers:{"Content-Type" : "application/json"},
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!resposta.ok) {
                 throw new Error(`Erro HTTP: ${resposta.status}`);
             }
+            console.log(resposta);
 
             const dados = await resposta.json();
             console.log(dados )
@@ -44,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // ===========================================
+            // ============ Atualizar tabela ============
 
             const novaLinha = document.createElement("tr");
 
@@ -54,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 dados.data_solicitacao,
                 dados.status
             ];
+            console.log(campos);
 
             campos.forEach(valor => {
                 const td = document.createElement("td");
