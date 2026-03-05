@@ -1,9 +1,9 @@
 <?php
 header("Content-Type: application/json");
 
-include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
+require_once __DIR__ . "/../banco-de-dados/conexao.php";
 
-$sql = "UPDATE tb_funcionario SET situacao = 1 WHERE ????"; // PEGAR PELO id DO FUNCIONÁRIO?
+$sql = "UPDATE tb_funcionario SET situacao = 1 WHERE"; // PEGAR PELO id DO FUNCIONÁRIO?
 
 $result = $conn->query($sql);
 

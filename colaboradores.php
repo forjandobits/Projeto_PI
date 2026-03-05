@@ -67,13 +67,13 @@
     <section>
       <form action="" class="form-modal">
 
-        <?php include "./formulario_cadastro.php" ?>
+        <?php include "./components/formulario_cadastro.php" ?>
 
       </form>
     </section>
   </article>
 
-  <script src="public/js/cadastro_funcionarios/cadastro_funcionario.js"></script>
+  <script src="public/js/funcionarios/exibir_funcionario.js"></script>
 </main>
 
 <script>
