@@ -1,6 +1,7 @@
+
 <?php
 session_start();
-require_once __DIR__ . "/../../../../banco-de-dados/conexao.php";
+require_once __DIR__ . "/../../../banco-de-dados/conexao.php";
 
 // Redireciona se usuário não estiver logado
 if (!isset($_SESSION['id_login'])) {

@@ -4,7 +4,7 @@ $user = "root";
 $pass = "";
 $bd = "bd_humanamente_dados";
 $bd_existe = false;
-$caminho_bd = "../banco-de-dados/bd_humanamente_dados.sql"; // Alterei o banco so pra ter acesso aos dados do Login
+$caminho_bd = __DIR__ . "/bd_humanamente_dados.sql"; // Alterei o banco so pra ter acesso aos dados do Login
 
 // Conexão com servidor sem usar nenhum banco
 $conn = new mysqli($host, $user, $pass);
