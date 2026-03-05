@@ -8,13 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Atualizar o status para Autorizado
     btnAceitar.addEventListener('click', function () {
 
-        // const motivo = document.querySelector('modal-motivo-recusar').value;
+        const motivo = document.querySelector('modal-motivo-recusar').value;
+        const id = document.querySelector('id-solicitacao').value;
 
-        // const dados = {
-        //     motivo: modal-motivo-recusar,
-        // };
+        const dados = {
+            motivo: modal-motivo-recusar,
+        };
 
-        // fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
+        fetch("/Projeto_PI/api/solicitacoes_visualizar.php", {
+            method: "POST",
+            body: JSON.stringify({
+                id: id-solicitacao,
+                motivo: motivo
+            })
+        });
             
 
 
