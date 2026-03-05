@@ -130,7 +130,8 @@ textarea{
   box-shadow: 2px 2px var(--cor-sombra-clara);
 }
 
-.form-modal-login>a>button{
+.form-modal-login>button{
+  align-self: center;
   font-weight: bold;
   padding: 15px;
   margin-top: 50px;
