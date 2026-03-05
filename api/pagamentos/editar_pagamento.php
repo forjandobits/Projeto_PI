@@ -1,6 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // include(__DIR__ . "/../../../../banco-de-dados/conexao.php");
+    
     require_once(__DIR__ . "/../../banco-de-dados/conexao.php");
 
     $dados_pagamento_editado = json_decode(file_get_contents("php://input"), true);
