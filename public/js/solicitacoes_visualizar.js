@@ -4,15 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const motivo = document.querySelector("#modal-motivo-recusar");
     const btnAceitar = document.querySelector(".aceitar");
     const btnNegar = document.querySelector(".negar");
-
-    btnAceitar.addEventListener('click', function () {
-        // Atualizar o status para Autorizado
-
-        const motivo = document.querySelector('modal-motivo-recusar').value;
-
-
-
         
+    // Atualizar o status para Autorizado
+    btnAceitar.addEventListener('click', function () {
+
+        // const motivo = document.querySelector('modal-motivo-recusar').value;
+
+        // const dados = {
+        //     motivo: modal-motivo-recusar,
+        // };
+
+        // fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
+            
+
+
         console.log("Solicitação autorizada!");
         alert("Solicitação Aceita!")
     })
