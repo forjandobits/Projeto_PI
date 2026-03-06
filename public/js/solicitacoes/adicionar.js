@@ -6,36 +6,46 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // ============ Função para atualizar tabelas ============
         
-    // async function carregarSolicitacoes() {
+    async function carregarSolicitacoes() {
 
-    //     const resposta = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
+        try {
 
-    //     const dados = await resposta.json();
+            const resposta = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
 
-    //     console.log(dados);
+            if (!resposta.ok) {
+                throw new Error("Erro ao buscar dados");
+            }
 
-    //     const lista = Array.isArray(dados) ? dados : [dados];
+            const dados = await resposta.json();
 
-    //     tbody.innerHTML = "";
+            const lista = Array.isArray(dados) ? dados : [dados];
 
-    //     lista.forEach(item => {
+            tbody.innerHTML = "";
 
-    //         const linha = document.createElement("tr");
+            lista.forEach(item => {
 
-    //         linha.innerHTML = `
-    //             <td>${item.tipo_solicitacao}</td>
-    //             <td>${item.nome_funcionario}</td>
-    //             <td>${item.data_solicitacao}</td>
-    //             <td>${item.status}</td>
-    //         `;
+                const linha = document.createElement("tr");
 
-    //         tbody.appendChild(linha);
+                linha.innerHTML = `
+                    <td>${item.tipo_solicitacao}</td>
+                    <td>${item.nome_completo}</td>
+                    <td>${item.data_solicitacao}</td>
+                    <td>${item.status}</td>
+                    <td><button class='abrir-modal'>Visualizar</button></td>
+                `;
 
-    //     });
+                tbody.appendChild(linha);
 
-    // }
+            });
 
-    // carregarSolicitacoes();
+        }catch (erro) {
+
+        console.error("Erro ao carregar solicitações:", erro);
+
+        }
+    }
+
+    carregarSolicitacoes();
     
     // ====================================================
 
