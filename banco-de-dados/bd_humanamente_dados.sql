@@ -476,22 +476,22 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
 -- Extraindo dados da tabela `tb_proventos`
 --
 
-INSERT INTO `tb_proventos` (`id_beneficio`, `id_funcionario`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 1, 'Horas Extras', '350.00', 0, 10),
-(2, 2, 'Vale Transporte', '220.00', 1, 1),
-(3, 3, 'Comissão de Vendas', '180.50', 0, 1),
-(4, 4, 'Vale Alimentação', '300.00', 0, 1),
-(5, 5, 'Horas Extras', '120.00', 0, 4),
-(6, 6, 'Adicional Noturno', '210.00', 0, 1),
-(7, 7, 'Vale Transporte', '220.00', 1, 1),
-(8, 8, 'Bônus de Desempenho', '500.00', 0, 1),
-(9, 9, 'Horas Extras', '90.00', 0, 3),
-(10, 10, 'Desconto Falta', '150.00', 1, 1),
-(11, 11, 'Comissão Entregas', '260.00', 0, 1),
-(12, 12, 'Vale Alimentação', '300.00', 0, 1),
-(13, 13, 'Horas Extras', '75.00', 0, 2),
-(14, 14, 'Gratificação Cargo', '800.00', 0, 1),
-(15, 15, 'Vale Transporte', '220.00', 1, 1);
+INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
+(1, 'Horas Extras', '350.00', 0, 10),
+(2, 'Vale Transporte', '220.00', 1, 1),
+(3, 'Comissão de Vendas', '180.50', 0, 1),
+(4, 'Vale Alimentação', '300.00', 0, 1),
+(5, 'Horas Extras', '120.00', 0, 4),
+(6, 'Adicional Noturno', '210.00', 0, 1),
+(7, 'Vale Transporte', '220.00', 1, 1),
+(8, 'Bônus de Desempenho', '500.00', 0, 1),
+(9, 'Horas Extras', '90.00', 0, 3),
+(10, 'Desconto Falta', '150.00', 1, 1),
+(11, 'Comissão Entregas', '260.00', 0, 1),
+(12, 'Vale Alimentação', '300.00', 0, 1),
+(13, 'Horas Extras', '75.00', 0, 2),
+(14, 'Gratificação Cargo', '800.00', 0, 1),
+(15, 'Vale Transporte', '220.00', 1, 1);
 
 -- --------------------------------------------------------
 
