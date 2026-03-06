@@ -232,13 +232,11 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
 
 CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
-  `id_funcionario` int(11) NOT NULL,
   `nome_beneficio` varchar(150) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`),
-  KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
