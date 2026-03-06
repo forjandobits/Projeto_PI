@@ -32,23 +32,26 @@ echo json_encode(["erro" => "Solicitação com id não encontrado"]);
 }
 
 // fecha a consulta e a conexão com o bd
-// $consulta->close();
-// $conn->close();
+$consulta->close();
+$conn->close();
 
 
 // Enviando dados do motivo do aceite.
 
-$dados = json_decode(file_get_contents("php://input"), true);
+// $dados = json_decode(file_get_contents("php://input"), true);
 
-$id = (int)$dados['id_solicitacao'];
+// $id = (int)$dados['id_solicitacao'];
 
-$motivo = $conn->real_escape_string($dados["motivo"]);
+// $motivo = $conn->real_escape_string($dados["motivo"]);
 
-$sql = "UPDATE tb_solicitacoes SET motivo = '$motivo' WHERE id_solicitacao = $id";
+// $sql = "UPDATE tb_solicitacoes SET motivo = '$motivo' WHERE id_solicitacao = $id";
 
-$conn->query($sql);
+// if($conn->query($qsl)){
+//    echo json_encode(["status" => "ok"]);
+// } else {
+//    echo json_encode(["erro" => "Erro ao atualizar"]);
+// }
 
-echo json_encode(["status" => "ok"]);
 
 ?>
 
