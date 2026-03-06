@@ -1,8 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+    
     const form = document.querySelector("#solicitacao");
     const botao = document.querySelector("#concluir");
-    const tbody = document.querySelector("#historicoSolicitacoes");
+    const tbody = document.querySelector("#historicoSolicitacoes tbody");
+    
+    // ============ Função para atualizar tabelas ============
+        
+    // async function carregarSolicitacoes() {
+
+    //     const resposta = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
+
+    //     const dados = await resposta.json();
+
+    //     console.log(dados);
+
+    //     const lista = Array.isArray(dados) ? dados : [dados];
+
+    //     tbody.innerHTML = "";
+
+    //     lista.forEach(item => {
+
+    //         const linha = document.createElement("tr");
+
+    //         linha.innerHTML = `
+    //             <td>${item.tipo_solicitacao}</td>
+    //             <td>${item.nome_funcionario}</td>
+    //             <td>${item.data_solicitacao}</td>
+    //             <td>${item.status}</td>
+    //         `;
+
+    //         tbody.appendChild(linha);
+
+    //     });
+
+    // }
+
+    // carregarSolicitacoes();
+    
+    // ====================================================
 
     botao.addEventListener("click", async () => {
 
@@ -46,37 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(dados.mensagem || "Erro ao processar solicitação.");
                 return;
             }
-
-            // ============ Atualizar tabela ============
-
-            const novaLinha = document.createElement("tr");
-
-            const campos = [
-                dados.tipo_solicitacao,
-                dados.nome_funcionario,
-                dados.data_solicitacao,
-                dados.status
-            ];
-            console.log(campos);
-
-            campos.forEach(valor => {
-                const td = document.createElement("td");
-                td.textContent = valor;
-                novaLinha.appendChild(td);
-            });
-
-            const tdBotao = document.createElement("td");
-            const btn = document.createElement("button");
-            btn.textContent = "Visualizar";
-            btn.classList.add("abrir-modal");
-
-            tdBotao.appendChild(btn);
-            novaLinha.appendChild(tdBotao);
-
-            tbody.appendChild(novaLinha);
-            form.reset();
-
-            // ===========================================
 
         } catch (erro) {
             console.error("Erro na requisição:", erro);

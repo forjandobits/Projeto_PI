@@ -67,7 +67,7 @@
     </article>
     
     <!-- ------------------- TABELA ------------------- -->
-    <article>
+    <article id="historicoSolicitacoes">
 
         <table>
             <caption>Histórico de Solicitações</caption>
@@ -81,7 +81,7 @@
                 </tr>
             </thead>
         
-            <tbody id="historicoSolicitacoes">
+            <tbody>
         
                 <!-- Primeira linha-->
                 <tr>

@@ -8,3 +8,16 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$sql = "SELECT tipo_solicitacao, data_solicitacao, observacao
+        FROM tb_solicitacoes";
+
+$result = $conn->query($sql);
+
+$dados = [];
+
+while ($linha = $result->fetch_assoc()) {
+    $dados[] = $linha;
+}
+
+header("Content-Type: application/json");
+echo json_encode($dados);

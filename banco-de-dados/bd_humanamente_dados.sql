@@ -636,7 +636,7 @@ INSERT INTO `tb_proventos` (`id_beneficio`, `id_funcionario`, `nome_beneficio`, 
 (14, 14, 'Vale Alimentação', 500.00, 0, 1),
 (15, 15, 'Vale Alimentação', 500.00, 0, 1);
 
-- --------------------------------------------------------
+-- -------------------------------------------------------
 
 --
 -- Estrutura para tabela `tb_solicitacoes`
@@ -654,17 +654,6 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `tb_solicitacoes`
---
-
-INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_telefone`) VALUES
-(1, 1, '(11) 98855-1200', 'Celular'),
-(2, 1, '(11) 3251-4400', 'Residencial'),
-(3, 2, '(11) 99645-2300', 'Celular'),
-(4, 3, '(11) 97780-5600', 'Celular'),
-(5, 4, '(11) 94022-8810', 'Celular'),
-(6, 5, '(11) 95877-1100', 'Celular');
 
 --
 -- Índices para tabelas despejadas
@@ -702,6 +691,18 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --
+-- -- Despejando dados para a tabela `tb_solicitacoes`
+-- --
+
+-- INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_telefone`) VALUES
+-- (1, 1, '(11) 98855-1200', 'Celular'),
+-- (2, 1, '(11) 3251-4400', 'Residencial'),
+-- (3, 2, '(11) 99645-2300', 'Celular'),
+-- (4, 3, '(11) 97780-5600', 'Celular'),
+-- (5, 4, '(11) 94022-8810', 'Celular'),
+-- (6, 5, '(11) 95877-1100', 'Celular');
 
 --
 -- Despejando dados para a tabela `tb_telefone`
