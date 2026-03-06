@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
   `id_funcionario` int(11) NOT NULL,
   `informacoes` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`informacoes`)),
   `data_lancamento` date DEFAULT curdate(),
-  `mes_referencia` date DEFAULT NULL,
+  `mes_referencia` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

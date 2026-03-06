@@ -270,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
   `id_funcionario` int(11) NOT NULL,
   `informacoes` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`informacoes`)),
   `data_lancamento` date DEFAULT curdate(),
-  `mes_referencia` date DEFAULT NULL,
+  `mes_referencia` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
@@ -280,21 +280,21 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
 --
 
 INSERT INTO `tb_folhapagamento` (`id`, `id_funcionario`, `informacoes`, `data_lancamento`, `mes_referencia`) VALUES
-(1, 1, '{\"salario_base\":2800,\"horas_extras\":350,\"descontos\":220,\"salario_liquido\":2930}', '2026-03-05', '2025-03-01'),
-(2, 2, '{\"salario_base\":1800,\"horas_extras\":0,\"descontos\":220,\"salario_liquido\":1580}', '2026-03-05', '2025-03-01'),
-(3, 3, '{\"salario_base\":1900,\"comissao\":180.50,\"descontos\":200,\"salario_liquido\":1880.50}', '2026-03-05', '2025-03-01'),
-(4, 4, '{\"salario_base\":2000,\"beneficios\":300,\"descontos\":210,\"salario_liquido\":2090}', '2026-03-05', '2025-03-01'),
-(5, 5, '{\"salario_base\":1700,\"horas_extras\":120,\"descontos\":180,\"salario_liquido\":1640}', '2026-03-05', '2025-03-01'),
-(6, 6, '{\"salario_base\":2600,\"adicional_noturno\":210,\"descontos\":250,\"salario_liquido\":2560}', '2026-03-05', '2025-03-01'),
-(7, 7, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":220,\"salario_liquido\":1800}', '2026-03-05', '2025-03-01'),
-(8, 8, '{\"salario_base\":4500,\"bonus\":500,\"descontos\":400,\"salario_liquido\":4600}', '2026-03-05', '2025-03-01'),
-(9, 9, '{\"salario_base\":1700,\"horas_extras\":90,\"descontos\":170,\"salario_liquido\":1620}', '2026-03-05', '2025-03-01'),
-(10, 10, '{\"salario_base\":1600,\"desconto_falta\":150,\"descontos\":200,\"salario_liquido\":1250}', '2026-03-05', '2025-03-01'),
-(11, 11, '{\"salario_base\":2100,\"comissao\":260,\"descontos\":220,\"salario_liquido\":2140}', '2026-03-05', '2025-03-01'),
-(12, 12, '{\"salario_base\":1900,\"beneficios\":300,\"descontos\":200,\"salario_liquido\":2000}', '2026-03-05', '2025-03-01'),
-(13, 13, '{\"salario_base\":1750,\"horas_extras\":75,\"descontos\":180,\"salario_liquido\":1645}', '2026-03-05', '2025-03-01'),
-(14, 14, '{\"salario_base\":5200,\"gratificacao\":800,\"descontos\":600,\"salario_liquido\":5400}', '2026-03-05', '2025-03-01'),
-(15, 15, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":200,\"salario_liquido\":1820}', '2026-03-05', '2025-03-01');
+(1, 1, '{\"salario_base\":2800,\"horas_extras\":350,\"descontos\":220,\"salario_liquido\":2930}', '2026-03-05', '2025-03'),
+(2, 2, '{\"salario_base\":1800,\"horas_extras\":0,\"descontos\":220,\"salario_liquido\":1580}', '2026-03-05', '2025-03'),
+(3, 3, '{\"salario_base\":1900,\"comissao\":180.50,\"descontos\":200,\"salario_liquido\":1880.50}', '2026-03-05', '2025-03'),
+(4, 4, '{\"salario_base\":2000,\"beneficios\":300,\"descontos\":210,\"salario_liquido\":2090}', '2026-03-05', '2025-03'),
+(5, 5, '{\"salario_base\":1700,\"horas_extras\":120,\"descontos\":180,\"salario_liquido\":1640}', '2026-03-05', '2025-03'),
+(6, 6, '{\"salario_base\":2600,\"adicional_noturno\":210,\"descontos\":250,\"salario_liquido\":2560}', '2026-03-05', '2025-03'),
+(7, 7, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":220,\"salario_liquido\":1800}', '2026-03-05', '2025-03'),
+(8, 8, '{\"salario_base\":4500,\"bonus\":500,\"descontos\":400,\"salario_liquido\":4600}', '2026-03-05', '2025-03'),
+(9, 9, '{\"salario_base\":1700,\"horas_extras\":90,\"descontos\":170,\"salario_liquido\":1620}', '2026-03-05', '2025-03'),
+(10, 10, '{\"salario_base\":1600,\"desconto_falta\":150,\"descontos\":200,\"salario_liquido\":1250}', '2026-03-05', '2025-03'),
+(11, 11, '{\"salario_base\":2100,\"comissao\":260,\"descontos\":220,\"salario_liquido\":2140}', '2026-03-05', '2025-03'),
+(12, 12, '{\"salario_base\":1900,\"beneficios\":300,\"descontos\":200,\"salario_liquido\":2000}', '2026-03-05', '2025-03'),
+(13, 13, '{\"salario_base\":1750,\"horas_extras\":75,\"descontos\":180,\"salario_liquido\":1645}', '2026-03-05', '2025-03'),
+(14, 14, '{\"salario_base\":5200,\"gratificacao\":800,\"descontos\":600,\"salario_liquido\":5400}', '2026-03-05', '2025-03'),
+(15, 15, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":200,\"salario_liquido\":1820}', '2026-03-05', '2025-03');
 
 -- --------------------------------------------------------
 
@@ -463,13 +463,11 @@ INSERT INTO `tb_login` (`id_login`, `id_funcionario`, `nome_usuario`, `senha`) V
 
 CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
-  `id_funcionario` int(11) NOT NULL,
   `nome_beneficio` varchar(150) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`),
-  KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --
