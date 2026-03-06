@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     async function listarFuncionarios() {
-        const respostaExibir = await fetch(`${BASE_URL}/api/funcionarios/exibir.php`);
+        const respostaExibir = await fetch(`${BASE_URL}/api/funcionarios/exibir_lista_funcionarios.php`);
         const funcionarios = await respostaExibir.json();
 
         const tabelaFuncionario = document.querySelector('#tabela-saida-colaboradores');
@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
             funcionarios.forEach(funcionario =>{
                 const novaCelulaFuncionario = tabelaFuncionario.insertRow();
-                console.log(funcionario);
 
+                const id = funcionario.id_funcionario;
                 const nome = novaCelulaFuncionario.insertCell();
                 const cargo = novaCelulaFuncionario.insertCell();
                 const situacao = novaCelulaFuncionario.insertCell();
@@ -28,23 +28,49 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
 
                 desligar.innerHTML = "<button class='desligar'>Desligar</button>";
-                visualizar.innerHTML = "<button class='abrir-modal'>Visualizar</button>";
+                visualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
             });
         }
     }
 
     async function exibiInformacoes(){
-        document.addEventListener("click", function(e) {
+        document.addEventListener("click", async function(e) {
             if (e.target.classList.contains("abrir-modal")){
-                    const exibir = document.querySelector(".modal");
-                    exibir.style.display = "flex";
-                    }
-                });
+                const exibir = document.querySelector(".modal");
+                exibir.style.display = "flex";
+
+                const respotaFuncionario = await fetch(`${BASE_URL}/api/funcionarios/exibir_dados_funcionario.php`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id_funcionario: e.target.id
+                    })
+                })
+
+                const dadosFuncionario = await respotaFuncionario.json();
+
+                const nomeCompleto = document.querySelector('#nome-completo');
+                const telefone = document.querySelector('#telefone');
+                // const email = document.querySelector('#email');
+                // const dataNasc = document.querySelector('#data-nasc');
+                // const cpf = document.querySelector('#cpf');
+                // const rg = document.querySelector('#rg');
+                // const genero = document.querySelector('#genero');
+                // const telefone = document.querySelector('#telefone');
+                
+                dadosFuncionario.forEach(dados =>{
+                    nomeCompleto.value = dados.nome_completo;
+                    telefone.value = dados.telefone;
+
+                })
+            }
+        
+        });
     }
 
    async function desligar(){
-        // const respostaAtualizar = await fetch("public/js/cadastro_funcionarios/atualizar.php");
-        // const funcionarios = await respostaAtualizar.json();
             document.addEventListener("click", function(e) {
         if (e.target.classList.contains("desligar")) {
             alert("Clicou!");
