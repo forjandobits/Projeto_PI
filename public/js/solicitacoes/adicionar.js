@@ -1,96 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    const form = document.querySelector("#solicitacao");
+
     const botao = document.querySelector("#concluir");
     const tbody = document.querySelector("#historicoSolicitacoes tbody");
-    
-    // ============ Função para atualizar tabelas ============
-        
+    const form = document.querySelector("#solicitacao");
+
+    // Busca as solicitações no servidor e atualiza a tabela
     async function carregarSolicitacoes() {
 
         try {
 
-            const resposta = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
+            const dados = await fetch(`${BASE_URL}/api/listar_solicitacao.php`)
+            .then(r => r.json());
 
-            if (!resposta.ok) {
-                throw new Error("Erro ao buscar dados");
-            }
-
-            const dados = await resposta.json();
-
-            const lista = Array.isArray(dados) ? dados : [dados];
-
+            const lista = [].concat(dados); // garante que sempre será um array
             tbody.innerHTML = "";
 
             lista.forEach(item => {
-
-                const linha = document.createElement("tr");
-
-                linha.innerHTML = `
-                    <td>${item.tipo_solicitacao}</td>
-                    <td>${item.nome_completo}</td>
-                    <td>${item.data_solicitacao}</td>
-                    <td>${item.status}</td>
-                    <td><button class='abrir-modal'>Visualizar</button></td>
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${item.tipo_solicitacao}</td>
+                        <td>${item.nome_completo}</td>
+                        <td>${item.data_solicitacao}</td>
+                        <td>${item.status}</td>
+                        <td><button class="abrir-modal">Visualizar</button></td>
+                    </tr>
                 `;
-
-                tbody.appendChild(linha);
-
             });
 
-        }catch (erro) {
-
-        console.error("Erro ao carregar solicitações:", erro);
-
+        } catch (erro) {
+            console.error("Erro ao carregar solicitações:", erro);
         }
     }
 
     carregarSolicitacoes();
-    
-    // ====================================================
 
+    // Evento responsável por enviar uma nova solicitação
     botao.addEventListener("click", async () => {
 
         const nome = document.querySelector("#nome").value;
-        const tipo = document.querySelector("#opcoes").value;
-        const observacao = document.querySelector('#observacoes').value;
-        const data = new Date().toISOString().split("T")[0];;
-
-        if (nome.length < 3) {
-            alert("Nome inválido.");
-            return;
-        }
+        if (nome.length < 3) return alert("Nome inválido");
 
         const dadosFormulario = {
-            nome_funcionario : nome,
-            tipo_solicitacao : tipo,
-            data_solicitacao : data,
-            observacao : observacao
+            nome_funcionario: nome,
+            tipo_solicitacao: document.querySelector("#opcoes").value,
+            observacao: document.querySelector("#observacoes").value,
+            data_solicitacao: new Date().toISOString().split("T")[0]
         };
-        console.log(dadosFormulario);
 
         try {
 
-            // ============ Mandar dados pro PHP ============
+            const dados = await fetch(`${BASE_URL}/api/processo_add_solicitacao.php`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(dadosFormulario)
+            }).then(r => r.json());
 
-            const resposta = await fetch(`${BASE_URL}/api/processo_add_solicitacao.php`, {
-            method: "POST",
-            headers:{"Content-Type" : "application/json"},
-            body: JSON.stringify(dadosFormulario)
-            });
+            if (!dados.sucesso) return alert(dados.mensagem || "Erro ao processar solicitação.");
 
-            if (!resposta.ok) {
-                throw new Error(`Erro HTTP: ${resposta.status}`);
-            }
-            console.log(resposta);
-
-            const dados = await resposta.json();
-            console.log(dados )
-
-            if (!dados.sucesso) {
-                alert(dados.mensagem || "Erro ao processar solicitação.");
-                return;
-            }
+            carregarSolicitacoes(); // atualiza tabela após inserir no banco
+            form.reset(); // limpa o formulário
 
         } catch (erro) {
             console.error("Erro na requisição:", erro);
