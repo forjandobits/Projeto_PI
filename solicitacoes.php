@@ -57,6 +57,9 @@
                             <input type="checkbox" name="Pendencia" id="pendente"></input>
 
                             <button type="button" id="concluir">Concluir</button>
+                            
+                            <!-- Div para exibir mensagens de erro/sucesso -->
+                            <div id="mensagem-senha" style="margin-top:10px;"></div>
                         </div>
                     </div>
                 </section>
