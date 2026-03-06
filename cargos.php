@@ -50,7 +50,7 @@
       </section>                          
   </article>
 
-  <article class="modal">
+  <article id="modal" class="modal">
     <section>
       <h3>Cadastro de Cargos</h3>
       <p class="fechar">X</p>

@@ -24,10 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
         // Usa a função enviar() para enviar a requisição pro PHP, enviar() tem que ser chamada com await, usa BASE_URL pra poder pegar o caminho certo
         const resposta = await enviar(`${BASE_URL}/api/criar.php`, {cbo: cbo, nomeCargo: nomeCargo, salario: salario, cargaHoraria: cargaHoraria,
             regime: regime, escala: escala});
+
+
+        
+        // alert("Dados salvos com sucesso!");
+        function salvar(){
+
+            // código para enviar para PHP
+            alert("Salvo com sucesso!");
+            document.getElementById("modal").style.display = "none";
+        }
+        salvar();
+
         
         // Mostra a requisição no terminal
         // Só pra visualização, não faça isso
         console.log(resposta);
         console.log(resposta.mensagem);
     });
+
+    
 });
