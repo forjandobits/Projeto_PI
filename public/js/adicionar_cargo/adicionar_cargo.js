@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // código para enviar para PHP
             alert("Salvo com sucesso!");
+            document.getElementById("formModal").reset();
             document.getElementById("modal").style.display = "none";
         }
         salvar();

@@ -57,7 +57,7 @@
     </section>
     
     <section>
-      <form action="" class="form-modal">
+      <form action="" id="formModal" class="form-modal">
 
         <div class="campo">
             <label for="cbo">CBO:</label>
