@@ -89,7 +89,7 @@
             <tbody>
         
                 <!-- Primeira linha-->
-                <tr>
+                <!-- <tr>
                     <td>Férias</td>
                     <td>Josué Arruda</td>
                     <td>12/11/2025 </td>
@@ -97,7 +97,7 @@
                     <td> 
                         <button class='abrir-modal'>Visualizar</button>
                     </td>
-                </tr>
+                </tr> -->
         
             </tbody>
         </table>
@@ -149,7 +149,7 @@
 
 </main>
 
-<script src="public/js/solicitacoes_visualizar.js"></script>
+<script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
 
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";

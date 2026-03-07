@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const motivo = document.querySelector("#modal-motivo-recusar");
     const btnAceitar = document.querySelector(".aceitar");
     const btnNegar = document.querySelector(".negar");
+    const tbody = document.querySelector("table tbody");
         
     // Atualizar o status para Autorizado
     btnAceitar.addEventListener('click', function () {
@@ -27,8 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         //     console.log(resposta);
         // });
             
-
-
         console.log("Solicitação autorizada!");
         alert("Solicitação Aceita!")
     })
@@ -46,13 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const btnVisualizar = document.querySelectorAll(".abrir-modal");
+    
+    tbody.addEventListener("click", function(e){
 
-    // Percorrer os botões
-    btnVisualizar.forEach(botao => {
+        if(e.target.classList.contains("abrir-modal")){
 
-        // Adiciona um evento de click para cada botão
-        botao.addEventListener("click", function () {
+            console.log("Modal foi aberto");
 
             // Faz requisição e retorna os dados
             fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.querySelector('#modal-opcao-selecionada').value = dados.tipo_solicitacao;
                     document.querySelector('#modal-exibir-observacao').value = dados.observacao;
                     
-                    // document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
+                    document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
 
 
                 })
@@ -82,9 +80,54 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(erro => {
                     console.log("Erro ao buscar dados:", erro);
                 });
-
-        });
-
-    });
+        }
+    })
+    
 
 });
+
+
+
+
+    // const btnVisualizar = document.querySelectorAll(".abrir-modal");
+
+    // // Percorrer os botões
+    // btnVisualizar.forEach(botao => {
+
+    //     // Adiciona um evento de click para cada botão
+    //     botao.addEventListener("click", function () {
+
+    //         // Faz requisição e retorna os dados
+    //         fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
+    //             .then(response => response.json())
+    //             .then(dados => {
+
+    //                 console.log(dados);
+
+    //                 // Se retronar erro interrompe a conexão
+    //                 if (dados.erro) {
+    //                     alert(dados.erro);
+    //                     return;
+    //                 }
+
+    //                 // Preenchendo o modal com os dados
+    //                 document.querySelector('#modal-nome-solicitante').value = dados.nome_completo;
+    //                 document.querySelector('#modal-data-solicitacao').value = dados.data_solicitacao;
+    //                 document.querySelector('#modal-opcao-selecionada').value = dados.tipo_solicitacao;
+    //                 document.querySelector('#modal-exibir-observacao').value = dados.observacao;
+                    
+    //                 document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
+
+
+    //             })
+
+    //             // Mostra o erro caso a requisição falhe
+    //             .catch(erro => {
+    //                 console.log("Erro ao buscar dados:", erro);
+    //             });
+
+    //     });
+
+    // });
+
+

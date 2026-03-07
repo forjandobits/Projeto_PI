@@ -36,22 +36,6 @@ $consulta->close();
 $conn->close();
 
 
-// Enviando dados do motivo do aceite.
-
-// $dados = json_decode(file_get_contents("php://input"), true);
-
-// $id = (int)$dados['id_solicitacao'];
-
-// $motivo = $conn->real_escape_string($dados["motivo"]);
-
-// $sql = "UPDATE tb_solicitacoes SET motivo = '$motivo' WHERE id_solicitacao = $id";
-
-// if($conn->query($qsl)){
-//    echo json_encode(["status" => "ok"]);
-// } else {
-//    echo json_encode(["erro" => "Erro ao atualizar"]);
-// }
-
 
 ?>
 
