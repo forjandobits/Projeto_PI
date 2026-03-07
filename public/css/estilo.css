@@ -229,7 +229,7 @@ body.tema-contraste {
 
 }
 
-/* Mensagens */
+/* ================= MENSAGENS CONFIGURAÇÕES ================= */
 .erro {
     color: red;
 }
@@ -288,5 +288,3 @@ body.tema-contraste {
     display: block;
 }
 
-.inputsenhahotfix{
-  box-sizing: border-box;}
