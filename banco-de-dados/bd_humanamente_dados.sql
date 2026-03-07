@@ -467,7 +467,7 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
-  PRIMARY KEY (`id_beneficio`),
+  PRIMARY KEY (`id_beneficio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --

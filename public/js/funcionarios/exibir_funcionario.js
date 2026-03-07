@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 const dadosFuncionario = await respotaFuncionario.json();
 
                 const nomeCompleto = document.querySelector('#nome-completo');
-                const telefone = document.querySelector('#telefone');
+                // const telefone = document.querySelector('#telefone');
                 // const email = document.querySelector('#email');
                 // const dataNasc = document.querySelector('#data-nasc');
                 // const cpf = document.querySelector('#cpf');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 
                 dadosFuncionario.forEach(dados =>{
                     nomeCompleto.value = dados.nome_completo;
-                    telefone.value = dados.telefone;
+                    // telefone.value = dados.telefone;
 
                 })
             }
