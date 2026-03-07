@@ -13,7 +13,7 @@ AND tb_documento.id_funcionario = tb_funcionario.id_funcionario
 AND tb_banco.id_funcionario = tb_funcionario.id_funcionario
 AND tb_cargo.id_cargo = tb_funcionario.id_cargo
 AND tb_telefone.id_funcionario = tb_telefone.id_funcionario
-AND tb_funcionario.id_funcionario = tb_telefone.id_funcionario;
+AND tb_funcionario.id_funcionario = tb_telefone.id_funcionario
 AND tb_funcionario.id_funcionario = $id_funcionario";
 
 $result = $conn->query($sql);
