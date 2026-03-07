@@ -42,9 +42,6 @@
       </thead>
       
       <tbody id="tabela-saida-espelho-ponto">
-        <!-- <?php // if (isset($_GET["id"])): ?>
-          
-          <?php // endif; ?> -->
           <tr>
             <td>12/11/2025</td>
             <td>Quarta-feira</td>
