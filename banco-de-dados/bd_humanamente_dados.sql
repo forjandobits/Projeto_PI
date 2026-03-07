@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bd_humanamente_dados`
 --
-CREATE DATABASE IF NOT EXISTS `bd_humanamente_dados` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bd_humanamente_dados`;
+CREATE DATABASE IF NOT EXISTS `bd_humanamente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_humanamente`;
 
 -- --------------------------------------------------------
 
@@ -467,7 +467,7 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
-  PRIMARY KEY (`id_beneficio`),
+  PRIMARY KEY (`id_beneficio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --
@@ -475,21 +475,18 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
 --
 
 INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 'Horas Extras', '350.00', 0, 10),
-(2, 'Vale Transporte', '220.00', 1, 1),
-(3, 'Comissão de Vendas', '180.50', 0, 1),
-(4, 'Vale Alimentação', '300.00', 0, 1),
-(5, 'Horas Extras', '120.00', 0, 4),
-(6, 'Adicional Noturno', '210.00', 0, 1),
-(7, 'Vale Transporte', '220.00', 1, 1),
-(8, 'Bônus de Desempenho', '500.00', 0, 1),
-(9, 'Horas Extras', '90.00', 0, 3),
-(10, 'Desconto Falta', '150.00', 1, 1),
-(11, 'Comissão Entregas', '260.00', 0, 1),
-(12, 'Vale Alimentação', '300.00', 0, 1),
-(13, 'Horas Extras', '75.00', 0, 2),
-(14, 'Gratificação Cargo', '800.00', 0, 1),
-(15, 'Vale Transporte', '220.00', 1, 1);
+(1, 'Salário', 1621.00, 0, 1),
+(2, '13º Salário', 1621.00, 0, 1),
+(3, 'Vale Transporte', 150.00, 1, 1),
+(4, 'Comissão', 180, 0, 1),
+(5, 'Vale Alimentação', 450.00, 0, 1),
+(6, 'IRPF', 0.00, 1, 1),
+(7, 'INSS', 0.00, 1, 1),
+(8, 'Bônus de Desempenho', 500.00, 0, 1),
+(9, 'Adicional Noturno', 210.00, 0, 1),
+(10, 'Desconto Falta', 50.0, 1, 1),
+(11, 'Horas Extras', 50.00, 0, 1),
+(12, 'Gratificação Cargo', 200.00, 0, 1)
 
 -- --------------------------------------------------------
 
