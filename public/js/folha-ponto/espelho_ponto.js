@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tabela = document.querySelector("#tabela-saida-espelho-ponto");
     const saidaErros = document.querySelector("#saida-erros");
     const url = window.location.href.toString();
-    const id = url.slice(url.indexOf("?") + 1)
+    const id = url.slice(url.indexOf("?") + 4)
 
-    tabela.textContent = "";
+    // tabela.textContent = "";
 
     if (url === id) {
         saidaErros.style.color = "red";
