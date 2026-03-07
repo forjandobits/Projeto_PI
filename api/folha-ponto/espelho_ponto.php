@@ -17,9 +17,9 @@ if (isset($id) && !empty($id)) {
         $resposta = $resultado->fetch_assoc();
         echo json_encode(["status" => "sucesso", "resposta" => $resposta]);
     } else {
-        echo json_encode(["status" => "erro", "mensagem" => "não foi possível executar a consulta sql"]);
+        echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);
     }
 } else {
-    echo json_encode(["status" => "erro", "mensagem" => "requisição sem id"]);
+    echo json_encode(["status" => "erro", "resposta" => "requisição sem id"]);
 }
 // ?>
