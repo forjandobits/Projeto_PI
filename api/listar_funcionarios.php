@@ -4,9 +4,11 @@
 
 require_once __DIR__ . "/../banco-de-dados/conexao.php";
 
+
 // qdo tiver a tabela situação alterar essa consulta ou aterar a view_folha_ponto
 
 $sql = "SELECT nome_completo, diferenca_horas, situacao FROM view_folha_ponto";
+
 
 $result = $conn->query($sql);
 

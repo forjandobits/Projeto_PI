@@ -1,4 +1,4 @@
-import { enviar } from "../utils/enviar";
+import { enviar } from "../utils/enviar.js";
 
 
 enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
@@ -21,7 +21,7 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
             const colunaSituacao = document.createElement("td");
             colunaSituacao.textContent = funcionario.situacao;
 
-            if (parseInt(funcionario.banco_horas) < 0) {
+            if (parseInt(funcionario.diferenca_horas) < 0) {
                 colunaBanco.style.color = "red";
             }
 
