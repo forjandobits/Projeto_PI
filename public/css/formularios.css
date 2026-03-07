@@ -53,7 +53,7 @@ form {
   color: var(--cor-texto-cinza);
 }
 
-.campo-linha {
+.campo-linha{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,6 +137,47 @@ textarea{
   margin-top: 50px;
 }
 
+/* centralizar imagens tema e criar espaçamento uniforme*/
+#form-tema .areas-form:first-of-type{
+  justify-content: center;
+  gap: 20px 100px;
+} 
+
+/*tamanho máximo imagens tema*/
+#form-tema .grupo-campo{
+  max-width: 400px;
+}
+
+/*colocar o ratio em baixo do texto e acima da img*/
+#form-tema .resumo{
+  flex-direction: column;
+}
+
+/*definir tamanho da imagem e criar borda arredondada*/
+#form-tema img{
+  max-width: 400px;
+  border-radius: 8px;
+  border: 2px solid var(--cor-border-cinza);
+}
+
+/*layout dos botões de tamanho de fonte*/
+#form-tema .opcoes-tamanho{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+#form-tema .opcoes-tamanho label{
+  flex-basis: 100%;
+}
+
+#form-tema .opcoes-tamanho button{
+  justify-self: center;
+  gap: 0px 20px;
+}
+
 small{
   font-size: 1.5em;
   text-decoration: none;
@@ -155,6 +196,13 @@ small{
   gap: 10px;
   margin-top: 30px;
   flex: 1;
+}
+
+#form-tema .opcoes-tamanho button, #form-senha button{
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 1px;
 }
 
 /* ========== Formulário de cadastro com grid ========== */

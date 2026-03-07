@@ -26,13 +26,13 @@
                 </div>        
 
                 <div class="campo">
-                    <label for="repita-senha">Repita Nova Senha:</label>
+                    <label for="repita-senha">Confirme Nova Senha:</label>
                     <input type="password" name="repita_senha" id="repita-senha" class="inputsenhahotfix" required>
                     <div id="msg-repita-senha" class="mensagem-campo"></div>
                 </div>
 
                 <div class="campo">
-                    <button type="submit">Salvar Senha</button>
+                    <button type="submit">Salvar</button>
                 </div>
 
                 <!-- Div para exibir mensagens de erro/sucesso -->
@@ -46,7 +46,7 @@
                 <h2>Alterar Estilo da Página:</h2>
                 <div class="grupo-campo">
                     <div class="campo resumo">
-                        <label for="tema-claro">Tema Claro:</label>
+                        <label for="tema-claro">Tema Claro</label>
                         <input type="radio" name="tema" value="claro" id="tema-claro">
                     </div>
                     <img src="public/img/temas/Tela_Padrao_Configurações.png" alt="Tela com tema claro">
@@ -54,7 +54,7 @@
 
                 <div class="grupo-campo">
                     <div class="campo resumo">
-                        <label for="tema-escuro">Tema Escuro:</label>
+                        <label for="tema-escuro">Tema Escuro</label>
                         <input type="radio" name="tema" value="escuro" id="tema-escuro">
                     </div>
                     <img src="public/img/temas/Tela_Escura_Configurações.png" alt="Tela com tema escuro">
@@ -62,7 +62,7 @@
 
                 <div class="grupo-campo">
                     <div class="campo resumo">
-                        <label for="tema-contraste">Alto Contraste:</label>
+                        <label for="tema-contraste">Alto Contraste</label>
                         <input type="radio" name="tema" value="contraste" id="tema-contraste">
                     </div>
                     <img src="public/img/temas/Tela_Contraste_Configurações.png" alt="Tela com alto contraste">
