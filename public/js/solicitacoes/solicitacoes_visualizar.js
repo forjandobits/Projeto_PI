@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(e.target.classList.contains("abrir-modal")){
 
-            console.log("Modal foi aberto");
+            const id = e.target.dataset.id;
 
             // Faz requisição e retorna os dados
-            fetch("/Projeto_PI/api/solicitacoes_visualizar.php")
+            fetch("/Projeto_PI/api/solicitacoes_visualizar.php?id=${id}")
                 .then(response => response.json())
                 .then(dados => {
 

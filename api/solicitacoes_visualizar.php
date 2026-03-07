@@ -5,7 +5,8 @@ header("Content-Type: application/json");
 // Incluindo o arquivo de conexão com o banco
 include(__DIR__ . "/../banco-de-dados/conexao.php");
 
-$id = 1; // Definindo o ID que será buscado (isso será mudado após a comclusão de ADICIONAR solcitações )
+// $id = 1; // Definindo o ID que será buscado (isso será mudado após a comclusão de ADICIONAR solcitações )
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Buscando os dados da solicitação
 $sql = "SELECT tb_solicitacoes.*, tb_funcionario.nome_completo 
