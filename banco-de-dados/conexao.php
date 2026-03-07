@@ -1,10 +1,10 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "8026";
 $bd = "bd_humanamente";
 $bd_existe = false;
-$caminho_bd = "../banco-de-dados/bd_humanamente.sql";
+$caminho_bd = "../../banco-de-dados/bd_humanamente.sql";
 
 // Conexão com servidor sem usar nenhum banco
 $conn = new mysqli($host, $user, $pass);
