@@ -31,6 +31,7 @@
                             <th>Nome</th>
                             <th>Banco de Horas (HH:MM)</th>
                             <th>Situação</th>
+                           
                             <th></th>
                         </tr>
                     </thead>

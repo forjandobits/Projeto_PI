@@ -24,10 +24,22 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
             if (parseInt(funcionario.diferenca_horas) < 0) {
                 colunaBanco.style.color = "red";
             }
+            const colunaBotao = document.createElement("td");
+
+            const link = document.createElement("a");
+            link.href = "espelho_de_ponto.php?id=" + funcionario.id_funcionario;
+
+            const botao = document.createElement("button");
+            botao.textContent = "Visualizar";
+
+            link.appendChild(botao);
+            colunaBotao.appendChild(link);
 
             linha.appendChild(colunaNome);
             linha.appendChild(colunaBanco);
             linha.appendChild(colunaSituacao);
+            linha.appendChild(colunaBotao);
+           
 
             tbody.appendChild(linha);
         });
