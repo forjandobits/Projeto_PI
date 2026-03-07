@@ -2,11 +2,12 @@
 
 <?php include "./components/sidebar.php" ?>
 
+
 <main>
   <article class="cabecalhos">
     <h1>Controle de Ponto - Visualização</h1>
   </article>
-
+  
   <!-- Para marcar o início e o fim da visualização desejada -->
   <article>
     <form id="busca-pagamentos">
@@ -20,7 +21,7 @@
       </section>
     </form>
   </article>
-
+  
   <article>
     <table>
       <caption>Espelho de Ponto - Nome Funcionário(?)</caption>
@@ -39,76 +40,85 @@
           <th></th>
         </tr>
       </thead>
-    
+      
       <tbody id="tabela-saida-espelho-ponto">
-        <tr>
-          <td>12/11/2025</td>
-          <td>Quarta-feira</td>
-          <td>09:02</td>
-          <td>17:58</td>
-          <td>12:02</td>
-          <td>13:01</td>
-          <td>00:59</td>
-          <td>Não</td>
-          <td>Não</td>
-          <td>07:57</td>
-          <td><button class='abrir-modal'>...</button></td>
-        </tr>
-        <tr>
-          <td>11/11/2025</td>
-          <td>Terça-feira</td>
-          <td>09:02</td>
-          <td>17:58</td>
-          <td>12:02</td>
-          <td>13:01</td>
-          <td>00:59</td>
-          <td>Não</td>
-          <td>Não</td>
-          <td>07:57</td>
-          <td><button class='abrir-modal'>...</button></td>
-        </tr>
-        <tr>
-          <td>10/11/2025</td>
-          <td>Segunda-feira</td>
-          <td>09:02</td>
-          <td>17:58</td>
-          <td>12:02</td>
-          <td>13:01</td>
-          <td>00:59</td>
-          <td>Não</td>
-          <td>Não</td>
-          <td>07:57</td>
-          <td><button class='abrir-modal'>...</button></td>
-        </tr>
-        <tr>
-          <td>07/11/2025</td>
-          <td>Sexta-feira</td>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          <td>Não</td>
-          <td>Sim</td>
-          <td>--</td>
-          <td><button class='abrir-modal'>...</button></td>
-        </tr>
-      </tbody>
-    </table>
+        <!-- <?php // if (isset($_GET["id"])): ?>
+          
+          <?php // endif; ?> -->
+          <tr>
+            <td>12/11/2025</td>
+            <td>Quarta-feira</td>
+            <td>09:02</td>
+            <td>17:58</td>
+            <td>12:02</td>
+            <td>13:01</td>
+            <td>00:59</td>
+            <td>Não</td>
+            <td>Não</td>
+            <td>07:57</td>
+            <td><button class='abrir-modal'>...</button></td>
+          </tr>
+          <tr>
+            <td>11/11/2025</td>
+            <td>Terça-feira</td>
+            <td>09:02</td>
+            <td>17:58</td>
+            <td>12:02</td>
+            <td>13:01</td>
+            <td>00:59</td>
+            <td>Não</td>
+            <td>Não</td>
+            <td>07:57</td>
+            <td><button class='abrir-modal'>...</button></td>
+          </tr>
+          <tr>
+            <td>10/11/2025</td>
+            <td>Segunda-feira</td>
+            <td>09:02</td>
+            <td>17:58</td>
+            <td>12:02</td>
+            <td>13:01</td>
+            <td>00:59</td>
+            <td>Não</td>
+            <td>Não</td>
+            <td>07:57</td>
+            <td><button class='abrir-modal'>...</button></td>
+          </tr>
+          <tr>
+            <td>07/11/2025</td>
+            <td>Sexta-feira</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>Não</td>
+            <td>Sim</td>
+            <td>--</td>
+            <td><button class='abrir-modal'>...</button></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <section class="resumo-final">
-      <p>* Todos os dados exibidos estão no formato horas e minutos (HH:MM)</p>
-    </section>
-
-    <section class="resumo-final">
-      <p>Banco de Horas(*): 02:34</p>
-      <button>Pendências</button>
-      <button>Relatório</button>
-      <button>Salvar</button>
-    </section>
-
+      <article>
+        <section class="resumo-final">
+          <p id="saida-erros"></p>
+        </section>
+      </article>
+      
+      <section class="resumo-final">
+        <p>* Todos os dados exibidos estão no formato horas e minutos (HH:MM)</p>
+      </section>
+      
+      <section class="resumo-final">
+        <p>Banco de Horas(*): 02:34</p>
+        <button>Pendências</button>
+        <button>Relatório</button>
+        <button>Salvar</button>
+      </section>
+    
   </article>
-
+  
   <article class="modal">
     <section>
       <h3>Editar Pontos</h3>
@@ -145,6 +155,7 @@
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+<script type="module" src="public/js/folha-ponto/espelho_ponto.js"></script>
 
 </body>
 </html>
