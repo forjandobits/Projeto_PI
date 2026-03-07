@@ -18,15 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_humanamente_teste`
+-- Banco de dados: `bd_humanamente_dados`
 --
-<<<<<<< HEAD
 CREATE DATABASE IF NOT EXISTS `bd_humanamente_dados` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `bd_humanamente_dados`;
-=======
-CREATE DATABASE IF NOT EXISTS `bd_humanamente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bd_humanamente`;
->>>>>>> 81867de (Quebrando cabeça com o projeto)
 
 -- --------------------------------------------------------
 
@@ -34,8 +29,6 @@ USE `bd_humanamente`;
 -- Estrutura da tabela `tb_arquivo`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_arquivo` (
-  `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
   `id_documento` int(11) NOT NULL,
@@ -72,8 +65,6 @@ INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_a
 -- Estrutura da tabela `tb_banco`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_banco` (
-  `id_banco` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -117,11 +108,6 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `nome_cargo` varchar(100) NOT NULL,
   `salario` decimal(10,2) NOT NULL,
   `carga_horaria` int(11) NOT NULL,
-CREATE TABLE IF NOT EXISTS `tb_cargo` (
-  `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_cargo` varchar(100) NOT NULL,
-  `salario` decimal(10,2) NOT NULL,
-  `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
   `escala` int(11) NOT NULL,
   `cbo` varchar(10) NOT NULL,
@@ -155,8 +141,6 @@ INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `r
 -- Estrutura da tabela `tb_documento`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_documento` (
-  `id_documento` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_documento` (
   `id_documento` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -206,11 +190,7 @@ INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps
 
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
-CREATE TABLE IF NOT EXISTS `tb_endereco` (
-  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `cidade` varchar(60) NOT NULL,
-  `bairro` varchar(50) NOT NULL,
   `cidade` varchar(60) NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
@@ -248,8 +228,6 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `cidade`, `bairro`, 
 -- Estrutura da tabela `tb_filho`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_filho` (
-  `id_filho` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_filho` (
   `id_filho` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -326,10 +304,7 @@ INSERT INTO `tb_folhapagamento` (`id`, `id_funcionario`, `informacoes`, `data_la
 
 CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
-CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
-  `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `data` date NOT NULL,
   `data` date NOT NULL,
   `total_horas_dia` int(11) NOT NULL,
   `horas_extras` int(11) DEFAULT NULL,
@@ -367,8 +342,6 @@ INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_
 -- Estrutura da tabela `tb_funcionario`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_funcionario` (
-  `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
   `id_cargo` int(11) NOT NULL,
@@ -413,14 +386,8 @@ INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `da
 
 CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
-CREATE TABLE IF NOT EXISTS `tb_jornada` (
-  `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
-  `hora_entrada` time NOT NULL,
-  `hora_saida` time DEFAULT NULL,
-  `intervalo_inicio` time DEFAULT NULL,
-  `intervalo_fim` time DEFAULT NULL,
   `hora_entrada` time NOT NULL,
   `hora_saida` time DEFAULT NULL,
   `intervalo_inicio` time DEFAULT NULL,
@@ -458,8 +425,6 @@ INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entr
 -- Estrutura da tabela `tb_login`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_login` (
-  `id_login` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -532,8 +497,6 @@ INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto
 -- Estrutura da tabela `tb_solicitacoes`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
-  `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
