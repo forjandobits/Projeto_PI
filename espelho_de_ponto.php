@@ -24,7 +24,7 @@
   
   <article>
     <table>
-      <caption>Espelho de Ponto - Nome Funcionário(?)</caption>
+      <caption id="saida-nome-funcionario-espelho-ponto">Espelho de Ponto - </caption>
       <thead>
         <tr>
           <th>Data</th>
@@ -42,80 +42,27 @@
       </thead>
       
       <tbody id="tabela-saida-espelho-ponto">
-          <tr>
-            <td>12/11/2025</td>
-            <td>Quarta-feira</td>
-            <td>09:02</td>
-            <td>17:58</td>
-            <td>12:02</td>
-            <td>13:01</td>
-            <td>00:59</td>
-            <td>Não</td>
-            <td>Não</td>
-            <td>07:57</td>
-            <td><button class='abrir-modal'>...</button></td>
-          </tr>
-          <tr>
-            <td>11/11/2025</td>
-            <td>Terça-feira</td>
-            <td>09:02</td>
-            <td>17:58</td>
-            <td>12:02</td>
-            <td>13:01</td>
-            <td>00:59</td>
-            <td>Não</td>
-            <td>Não</td>
-            <td>07:57</td>
-            <td><button class='abrir-modal'>...</button></td>
-          </tr>
-          <tr>
-            <td>10/11/2025</td>
-            <td>Segunda-feira</td>
-            <td>09:02</td>
-            <td>17:58</td>
-            <td>12:02</td>
-            <td>13:01</td>
-            <td>00:59</td>
-            <td>Não</td>
-            <td>Não</td>
-            <td>07:57</td>
-            <td><button class='abrir-modal'>...</button></td>
-          </tr>
-          <tr>
-            <td>07/11/2025</td>
-            <td>Sexta-feira</td>
-            <td>--</td>
-            <td>--</td>
-            <td>--</td>
-            <td>--</td>
-            <td>--</td>
-            <td>Não</td>
-            <td>Sim</td>
-            <td>--</td>
-            <td><button class='abrir-modal'>...</button></td>
-          </tr>
-        </tbody>
-      </table>
+      </tbody>
+    </table>
 
-      <article>
-        <section class="resumo-final">
-          <p id="saida-erros"></p>
-        </section>
-      </article>
-      
+    <article>
       <section class="resumo-final">
-        <p>* Todos os dados exibidos estão no formato horas e minutos (HH:MM)</p>
+        <p id="saida-erros"></p>
       </section>
-      
-      <section class="resumo-final">
-        <p>Banco de Horas(*): 02:34</p>
-        <button>Pendências</button>
-        <button>Relatório</button>
-        <button>Salvar</button>
-      </section>
+    </article>
     
+    <section class="resumo-final">
+      <p>* Todos os dados exibidos estão no formato horas e minutos (HH:MM)</p>
+    </section>
+    
+    <section class="resumo-final">
+      <p>Banco de Horas(*): 02:34</p>
+      <button>Pendências</button>
+      <button>Relatório</button>
+      <button>Salvar</button>
+    </section>
   </article>
-  
+
   <article class="modal">
     <section>
       <h3>Editar Pontos</h3>
@@ -146,7 +93,6 @@
       </form>
     </section>
   </article>
-  
 </main>
 
 <script>
