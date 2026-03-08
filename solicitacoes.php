@@ -144,6 +144,7 @@
                     <button class="aceitar" type="submit">✔ Autorizar</button>
                     <button class="negar" type="submit">✘ Negar</button>
                 </section>
+                <p class="aprovado"></p>
             </form>
         </section>
     </article>
