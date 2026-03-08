@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 nome.textContent = funcionario.nome_completo;
                 cargo.textContent = funcionario.nome_cargo;
-                // situacao.textContent = funcionario.situacao;
                 
                 if (funcionario.situacao == 1){
                     situacao.textContent = 'ATIVO'
@@ -52,18 +51,21 @@ document.addEventListener('DOMContentLoaded', function(){
                 const dadosFuncionario = await respotaFuncionario.json();
 
                 const nomeCompleto = document.querySelector('#nome-completo');
-                // const telefone = document.querySelector('#telefone');
-                // const email = document.querySelector('#email');
-                // const dataNasc = document.querySelector('#data-nasc');
-                // const cpf = document.querySelector('#cpf');
-                // const rg = document.querySelector('#rg');
+                const telefone = document.querySelector('#telefone');
+                const email = document.querySelector('#email');
+                const dataNasc = document.querySelector('#data-nasc');
+                const cpf = document.querySelector('#cpf');
+                const rg = document.querySelector('#rg');
                 // const genero = document.querySelector('#genero');
                 // const telefone = document.querySelector('#telefone');
                 
                 dadosFuncionario.forEach(dados =>{
                     nomeCompleto.value = dados.nome_completo;
-                    // telefone.value = dados.telefone;
-
+                    telefone.value = dados.telefone;
+                    email.value = dados.email
+                    dataNasc.value = dados.data_nascimento
+                    cpf.value = dados.cpf
+                    rg.value = dados.rg
                 })
             }
         
