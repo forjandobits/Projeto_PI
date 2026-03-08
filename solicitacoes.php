@@ -111,6 +111,7 @@
         
         <section>
             <form action="" class="form-modal">
+                <input type="hidden" id="id-solicitacao"> <!-- Deixando o id de forma oculta -->
                 <div class="campo">
                 <label>Nome do Solicitante:</label>
                 <input type="text" name="Nome-Solicitante" id="modal-nome-solicitante" readonly>
@@ -149,12 +150,12 @@
 
 </main>
 
-<script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
-
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+
 <script src="public/js/solicitacoes/adicionar.js"></script>
+<script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
 
 </body>
 </html>

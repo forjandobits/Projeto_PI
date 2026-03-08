@@ -48,12 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
     tbody.addEventListener("click", function(e){
 
-        if(e.target.classList.contains("abrir-modal")){
+        const botao = e.target.closest(".abrir-modal");
+        if(!botao) return;
 
-            const id = e.target.dataset.id;
+        const linha = botao.closest("tr");
+        const id = linha.getAttribute("data-id");
+
+        console.log("ID enviado:", id);
 
             // Faz requisição e retorna os dados
-            fetch("/Projeto_PI/api/solicitacoes_visualizar.php?id=${id}")
+            fetch(`/Projeto_PI/api/solicitacoes_visualizar.php?id=${id}`)
                 .then(response => response.json())
                 .then(dados => {
 
@@ -66,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     // Preenchendo o modal com os dados
+                    document.querySelector('#id-solicitacao').value = dados.id_solicitacao;
                     document.querySelector('#modal-nome-solicitante').value = dados.nome_completo;
                     document.querySelector('#modal-data-solicitacao').value = dados.data_solicitacao;
                     document.querySelector('#modal-opcao-selecionada').value = dados.tipo_solicitacao;
@@ -74,14 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
 
 
+
                 })
 
                 // Mostra o erro caso a requisição falhe
                 .catch(erro => {
                     console.log("Erro ao buscar dados:", erro);
                 });
-        }
-    })
+    });
     
 
 });
