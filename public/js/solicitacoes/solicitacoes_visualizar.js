@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Seleciona campos e botões    
+    // ====== Seleciona campos e botões ======   
     const motivo = document.querySelector("#modal-motivo-recusar");
     const btnAceitar = document.querySelector(".aceitar");
     const btnNegar = document.querySelector(".negar");
@@ -8,14 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensagem = document.querySelector(".aprovado");
     const modal = document.querySelector("#modal-solicitacoes");
         
-    // Atualizar o status para Autorizado
+    // ====== Botão Aceitar ==> Atualiza o status para Autorizado ======
     btnAceitar.addEventListener('click', function () {
 
-        
         const motivoAceitar = document.querySelector('#modal-motivo-recusar').value;
         const statusAprovado = "Aprovado";
         const id = document.querySelector('#id-solicitacao').value;
-
 
         fetch("/Projeto_PI/api/visualizar_adicionar.php", {
             method: "POST",
@@ -40,20 +38,44 @@ document.addEventListener("DOMContentLoaded", () => {
         
     })
 
+    // ====== Botão Negar ==> Atualiza o status para Negado ======
     btnNegar.addEventListener('click', function(e) {
-        // Atualizar o status para negado
-        // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
 
+        const motivoNegar = document.querySelector('#modal-motivo-recusar').value;
+        const statusNegado = "Negado";
+        const id = document.querySelector('#id-solicitacao').value;
+
+        // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
         if (motivo.value.trim() === "") {
             e.preventDefault(); // Aqui o envio do formulário e cancelado
             alert("Motivo da recusa deve ser preenchido!");
-            motivo.focus(); // Coloca o cursor dentro do campo motivo
-        } else {
-            alert("Solicitação negada!");
-        }
+            motivoNegar.focus(); // Coloca o cursor dentro do campo motivo
+            return;
+        } 
+
+        fetch("/Projeto_PI/api/visualizar_adicionar.php", {
+            method: "POST",
+            body: JSON.stringify({
+                id_solicitacao: id,
+                motivo: motivoNegar,
+                status: statusNegado
+            })
+        })
+        .then(r => r.json())
+        .then(resposta => {
+            console.log(resposta);
+
+            mensagem.textContent = "Solicitação negada";
+            setTimeout(() => {
+            modal.style.display = "none";
+            mensagem.textContent = "";
+            }, 4000);
+        });
+
+        console.log("Solicitação Negada") 
     });
 
-    
+    // ====== Evento para preencher o modal de acordo com Histórico de solicitações ======
     tbody.addEventListener("click", function(e){
 
         const botao = e.target.closest(".abrir-modal");
@@ -86,9 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.querySelector('#modal-motivo-recusar').value = dados.motivo || "";
 
                     document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
-
-
-
                 })
 
                 // Mostra o erro caso a requisição falhe
