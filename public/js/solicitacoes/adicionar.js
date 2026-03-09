@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Cria uma linha na tabela ------> Incluir data-id="${item.id_solicitacao}
                 tbody.innerHTML += `
                 <tr class="${item.status.toLowerCase()}" data-id="${item.id_solicitacao}">
-                    <td>${item.tipo_solicitacao}</td>
                     <td>${item.nome_completo}</td>
+                    <td>${item.tipo_solicitacao}</td>
                     <td>${item.data_solicitacao}</td>
                     <td>${item.status}</td>
                     <td>
