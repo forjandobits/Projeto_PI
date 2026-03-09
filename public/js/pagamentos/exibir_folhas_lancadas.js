@@ -1,28 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
+import { listarBeneficiosDescontos, listarFolhasLancadas} from "./conexoes.js";
 
-    async function listarBeneficiosDescontos() {
-        try {
-            const respostaBenDes = await fetch(`${BASE_URL}/api/pagamentos/exibir_beneficios_descontos.php`);
-            const beneficiosDescontos = await respostaBenDes.json();
-            
-            return beneficiosDescontos;
-        } catch (error) {
-            alert(`Ocorreu um erro: \n${error.message}`);
-        }
-    
-    }
-    
-    async function listarFolhasLancadas() {
-        try {
-            const respostaFolhaLancada = await fetch(`${BASE_URL}/api/pagamentos/exibir_folhas_lancadas.php`);
-            const folhaLancada = await respostaFolhaLancada.json();
-            
-            return folhaLancada;
-        } catch (error) {
-            alert(`Ocorreu um erro: \n${error.message}`);
-        }
-    
-    }
+document.addEventListener('DOMContentLoaded', function () {
     
     async function exibirFolhaLancada() {
     
@@ -44,14 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const botaoVisualizar = listaFolhas.insertCell();
                 const botaoBaixar = listaFolhas.insertCell();
     
-                // console.log(folhaLancada);
                 nomeFuncionario.textContent = folhaLancada.nome_completo;
                 cargo.textContent = folhaLancada.nome_cargo;
                 mesReferencia.textContent = folhaLancada.mes_referencia;
                 botaoVisualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
                 botaoBaixar.innerHTML = "<button>Baixar</button>";
-    
-                
+
             })
     
         }
@@ -65,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener("click", async (e) => {
             
             // Garante que o botão pressionado retorna o id da folha de pagamento
-            
             if(e.target.classList.contains("abrir-modal")) {
                 
                 exibir.style.display = "flex";
@@ -159,8 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             });
                         })
                     })
-    
-    
+  
                 })
             }
             
@@ -178,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         
     }
-    
     
     exibirFolhaLancada();
     exibirDadosFolhaLancadas();
