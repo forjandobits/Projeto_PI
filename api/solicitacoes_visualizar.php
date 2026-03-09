@@ -5,7 +5,8 @@ header("Content-Type: application/json");
 // Incluindo o arquivo de conexão com o banco
 include(__DIR__ . "/../banco-de-dados/conexao.php");
 
-$id = 1; // Definindo o ID que será buscado (isso será mudado após a comclusão de ADICIONAR solcitações )
+// $id = 1; // Definindo o ID que será buscado (isso será mudado após a comclusão de ADICIONAR solcitações )
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Buscando os dados da solicitação
 $sql = "SELECT tb_solicitacoes.*, tb_funcionario.nome_completo 
@@ -35,22 +36,6 @@ echo json_encode(["erro" => "Solicitação com id não encontrado"]);
 $consulta->close();
 $conn->close();
 
-
-// Enviando dados do motivo do aceite.
-
-// $dados = json_decode(file_get_contents("php://input"), true);
-
-// $id = (int)$dados['id_solicitacao'];
-
-// $motivo = $conn->real_escape_string($dados["motivo"]);
-
-// $sql = "UPDATE tb_solicitacoes SET motivo = '$motivo' WHERE id_solicitacao = $id";
-
-// if($conn->query($qsl)){
-//    echo json_encode(["status" => "ok"]);
-// } else {
-//    echo json_encode(["erro" => "Erro ao atualizar"]);
-// }
 
 
 ?>

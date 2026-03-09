@@ -89,7 +89,7 @@
             <tbody>
         
                 <!-- Primeira linha-->
-                <tr>
+                <!-- <tr>
                     <td>Férias</td>
                     <td>Josué Arruda</td>
                     <td>12/11/2025 </td>
@@ -97,7 +97,7 @@
                     <td> 
                         <button class='abrir-modal'>Visualizar</button>
                     </td>
-                </tr>
+                </tr> -->
         
             </tbody>
         </table>
@@ -111,6 +111,7 @@
         
         <section>
             <form action="" class="form-modal">
+                <input type="hidden" id="id-solicitacao"> <!-- Deixando o id de forma oculta -->
                 <div class="campo">
                 <label>Nome do Solicitante:</label>
                 <input type="text" name="Nome-Solicitante" id="modal-nome-solicitante" readonly>
@@ -143,18 +144,19 @@
                     <button class="aceitar" type="submit">✔ Autorizar</button>
                     <button class="negar" type="submit">✘ Negar</button>
                 </section>
+                <p class="aprovado"></p>
             </form>
         </section>
     </article>
 
 </main>
 
-<script src="public/js/solicitacoes_visualizar.js"></script>
-
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+
 <script src="public/js/solicitacoes/adicionar.js"></script>
+<script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
 
 </body>
 </html>

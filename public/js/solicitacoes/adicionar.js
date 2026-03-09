@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Percorre cada solicitação retornada
             lista.forEach(item => {
 
-                // Cria uma linha na tabela
+                // Cria uma linha na tabela ------> Incluir data-id="${item.id_solicitacao}
                 tbody.innerHTML += `
-                <tr class="${item.status.toLowerCase()}">
+                <tr class="${item.status.toLowerCase()}" data-id="${item.id_solicitacao}">
                     <td>${item.tipo_solicitacao}</td>
                     <td>${item.nome_completo}</td>
                     <td>${item.data_solicitacao}</td>

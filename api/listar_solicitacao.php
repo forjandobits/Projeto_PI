@@ -12,7 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit;
 }
 
-$sql = "SELECT 
+// incluir s.id_solicitaçao
+$sql = "SELECT
+            s.id_solicitacao, 
             f.id_funcionario,
             s.tipo_solicitacao,
             f.nome_completo,
