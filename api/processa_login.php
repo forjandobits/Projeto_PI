@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicia sessão para armazenar usuário logado
-require_once __DIR__ . "/../../../banco-de-dados/conexao.php"; // Conecta ao banco
+require_once __DIR__ . "/../banco-de-dados/conexao.php"; // Conecta ao banco
 
 // Recebe dados enviados via POST do formulário
 $usuario = $_POST['usuario'] ?? '';

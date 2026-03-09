@@ -230,8 +230,18 @@ body.tema-contraste {
 }
 
 /* ================= MENSAGENS CONFIGURAÇÕES ================= */
-.erro {
-    color: red;
+.erro-login {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    background-color: #ff4d4d;
+    color: white;
+    width: fit-content;
+    align-self: center;
 }
 
 .info {

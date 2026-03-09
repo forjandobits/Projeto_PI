@@ -39,7 +39,7 @@
               <input type="text" id="usuario" name="usuario" placeholder="Usuário">
               <input type="password" id="senha" name="senha" placeholder="Senha">
               <button type="submit">Entrar</button>
-              <p id='erro' style='display:none;color:red'></p>
+              <p id="erro-login" class="erro-login"></p>
             </form>
         </section>
 
