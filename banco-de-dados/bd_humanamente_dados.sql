@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 05-Mar-2026 às 23:15
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Host: localhost
+-- Tempo de geração: 07/03/2026 às 12:38
+-- Versão do servidor: 10.11.16-MariaDB
+-- Versão do PHP: 8.4.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_humanamente_teste`
+-- Banco de dados: `bd_humanamente_dados`
 --
-CREATE DATABASE IF NOT EXISTS `bd_humanamente_teste` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bd_humanamente_teste`;
+CREATE DATABASE IF NOT EXISTS `bd_humanamente_dados` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_humanamente_dados`;
 
 -- --------------------------------------------------------
 
@@ -119,21 +119,21 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
 --
 
 INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `escala`, `cbo`) VALUES
-(1, 'Padeiro', '2800.00', 44, 'CLT', 6, '848105'),
-(2, 'Auxiliar de Padeiro', '1800.00', 44, 'CLT', 6, '848110'),
-(3, 'Confeiteiro', '3000.00', 44, 'CLT', 6, '848205'),
-(4, 'Auxiliar de Confeitaria', '1700.00', 44, 'CLT', 6, '848210'),
-(5, 'Atendente', '1600.00', 44, 'CLT', 6, '521140'),
-(6, 'Caixa', '1700.00', 44, 'CLT', 6, '421125'),
-(7, 'Gerente', '4500.00', 44, 'CLT', 5, '141420'),
-(8, 'Subgerente', '3500.00', 44, 'CLT', 5, '141415'),
-(9, 'Estoquista', '1900.00', 44, 'CLT', 6, '414125'),
-(10, 'Auxiliar de Limpeza', '1500.00', 44, 'CLT', 6, '514320'),
-(11, 'Entregador', '2000.00', 44, 'CLT', 6, '782310'),
-(12, 'Cozinheiro', '2600.00', 44, 'CLT', 6, '513205'),
-(13, 'Auxiliar de Cozinha', '1700.00', 44, 'CLT', 6, '513505'),
-(14, 'Supervisor de Turno', '3200.00', 44, 'CLT', 6, '141420'),
-(15, 'Nutricionista', '4000.00', 40, 'CLT', 5, '223710');
+(1, 'Padeiro', 2800.00, 44, 'CLT', 6, '848105'),
+(2, 'Auxiliar de Padeiro', 1800.00, 44, 'CLT', 6, '848110'),
+(3, 'Confeiteiro', 3000.00, 44, 'CLT', 6, '848205'),
+(4, 'Auxiliar de Confeitaria', 1700.00, 44, 'CLT', 6, '848210'),
+(5, 'Atendente', 1600.00, 44, 'CLT', 6, '521140'),
+(6, 'Caixa', 1700.00, 44, 'CLT', 6, '421125'),
+(7, 'Gerente', 4500.00, 44, 'CLT', 5, '141420'),
+(8, 'Subgerente', 3500.00, 44, 'CLT', 5, '141415'),
+(9, 'Estoquista', 1900.00, 44, 'CLT', 6, '414125'),
+(10, 'Auxiliar de Limpeza', 1500.00, 44, 'CLT', 6, '514320'),
+(11, 'Entregador', 2000.00, 44, 'CLT', 6, '782310'),
+(12, 'Cozinheiro', 2600.00, 44, 'CLT', 6, '513205'),
+(13, 'Auxiliar de Cozinha', 1700.00, 44, 'CLT', 6, '513505'),
+(14, 'Supervisor de Turno', 3200.00, 44, 'CLT', 6, '141420'),
+(15, 'Nutricionista', 4000.00, 40, 'CLT', 5, '223710');
 
 -- --------------------------------------------------------
 
@@ -262,7 +262,7 @@ INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `certidao_filho`, `idade_f
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_folhapagamento`
+-- Estrutura para tabela `tb_folhapagamento`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
@@ -270,31 +270,31 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
   `id_funcionario` int(11) NOT NULL,
   `informacoes` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`informacoes`)),
   `data_lancamento` date DEFAULT curdate(),
-  `mes_referencia` date DEFAULT NULL,
+  `mes_referencia` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tb_folhapagamento`
+-- Despejando dados para a tabela `tb_folhapagamento`
 --
 
 INSERT INTO `tb_folhapagamento` (`id`, `id_funcionario`, `informacoes`, `data_lancamento`, `mes_referencia`) VALUES
-(1, 1, '{\"salario_base\":2800,\"horas_extras\":350,\"descontos\":220,\"salario_liquido\":2930}', '2026-03-05', '2025-03-01'),
-(2, 2, '{\"salario_base\":1800,\"horas_extras\":0,\"descontos\":220,\"salario_liquido\":1580}', '2026-03-05', '2025-03-01'),
-(3, 3, '{\"salario_base\":1900,\"comissao\":180.50,\"descontos\":200,\"salario_liquido\":1880.50}', '2026-03-05', '2025-03-01'),
-(4, 4, '{\"salario_base\":2000,\"beneficios\":300,\"descontos\":210,\"salario_liquido\":2090}', '2026-03-05', '2025-03-01'),
-(5, 5, '{\"salario_base\":1700,\"horas_extras\":120,\"descontos\":180,\"salario_liquido\":1640}', '2026-03-05', '2025-03-01'),
-(6, 6, '{\"salario_base\":2600,\"adicional_noturno\":210,\"descontos\":250,\"salario_liquido\":2560}', '2026-03-05', '2025-03-01'),
-(7, 7, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":220,\"salario_liquido\":1800}', '2026-03-05', '2025-03-01'),
-(8, 8, '{\"salario_base\":4500,\"bonus\":500,\"descontos\":400,\"salario_liquido\":4600}', '2026-03-05', '2025-03-01'),
-(9, 9, '{\"salario_base\":1700,\"horas_extras\":90,\"descontos\":170,\"salario_liquido\":1620}', '2026-03-05', '2025-03-01'),
-(10, 10, '{\"salario_base\":1600,\"desconto_falta\":150,\"descontos\":200,\"salario_liquido\":1250}', '2026-03-05', '2025-03-01'),
-(11, 11, '{\"salario_base\":2100,\"comissao\":260,\"descontos\":220,\"salario_liquido\":2140}', '2026-03-05', '2025-03-01'),
-(12, 12, '{\"salario_base\":1900,\"beneficios\":300,\"descontos\":200,\"salario_liquido\":2000}', '2026-03-05', '2025-03-01'),
-(13, 13, '{\"salario_base\":1750,\"horas_extras\":75,\"descontos\":180,\"salario_liquido\":1645}', '2026-03-05', '2025-03-01'),
-(14, 14, '{\"salario_base\":5200,\"gratificacao\":800,\"descontos\":600,\"salario_liquido\":5400}', '2026-03-05', '2025-03-01'),
-(15, 15, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":200,\"salario_liquido\":1820}', '2026-03-05', '2025-03-01');
+(1, 1, '{\"salario_base\":2800,\"horas_extras\":350,\"descontos\":220,\"salario_liquido\":2930}', '2026-03-05', '2025-03'),
+(2, 2, '{\"salario_base\":1800,\"horas_extras\":0,\"descontos\":220,\"salario_liquido\":1580}', '2026-03-05', '2025-03'),
+(3, 3, '{\"salario_base\":1900,\"comissao\":180.50,\"descontos\":200,\"salario_liquido\":1880.50}', '2026-03-05', '2025-03'),
+(4, 4, '{\"salario_base\":2000,\"beneficios\":300,\"descontos\":210,\"salario_liquido\":2090}', '2026-03-05', '2025-03'),
+(5, 5, '{\"salario_base\":1700,\"horas_extras\":120,\"descontos\":180,\"salario_liquido\":1640}', '2026-03-05', '2025-03'),
+(6, 6, '{\"salario_base\":2600,\"adicional_noturno\":210,\"descontos\":250,\"salario_liquido\":2560}', '2026-03-05', '2025-03'),
+(7, 7, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":220,\"salario_liquido\":1800}', '2026-03-05', '2025-03'),
+(8, 8, '{\"salario_base\":4500,\"bonus\":500,\"descontos\":400,\"salario_liquido\":4600}', '2026-03-05', '2025-03'),
+(9, 9, '{\"salario_base\":1700,\"horas_extras\":90,\"descontos\":170,\"salario_liquido\":1620}', '2026-03-05', '2025-03'),
+(10, 10, '{\"salario_base\":1600,\"desconto_falta\":150,\"descontos\":200,\"salario_liquido\":1250}', '2026-03-05', '2025-03'),
+(11, 11, '{\"salario_base\":2100,\"comissao\":260,\"descontos\":220,\"salario_liquido\":2140}', '2026-03-05', '2025-03'),
+(12, 12, '{\"salario_base\":1900,\"beneficios\":300,\"descontos\":200,\"salario_liquido\":2000}', '2026-03-05', '2025-03'),
+(13, 13, '{\"salario_base\":1750,\"horas_extras\":75,\"descontos\":180,\"salario_liquido\":1645}', '2026-03-05', '2025-03'),
+(14, 14, '{\"salario_base\":5200,\"gratificacao\":800,\"descontos\":600,\"salario_liquido\":5400}', '2026-03-05', '2025-03'),
+(15, 15, '{\"salario_base\":1800,\"beneficios\":220,\"descontos\":200,\"salario_liquido\":1820}', '2026-03-05', '2025-03');
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `observacoes` text DEFAULT NULL,
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_folhaponto`
@@ -396,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_jornada`
@@ -463,35 +463,30 @@ INSERT INTO `tb_login` (`id_login`, `id_funcionario`, `nome_usuario`, `senha`) V
 
 CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
-  `id_funcionario` int(11) NOT NULL,
   `nome_beneficio` varchar(150) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
-  PRIMARY KEY (`id_beneficio`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id_beneficio`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_proventos`
 --
 
-INSERT INTO `tb_proventos` (`id_beneficio`, `id_funcionario`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 1, 'Horas Extras', '350.00', 0, 10),
-(2, 2, 'Vale Transporte', '220.00', 1, 1),
-(3, 3, 'Comissão de Vendas', '180.50', 0, 1),
-(4, 4, 'Vale Alimentação', '300.00', 0, 1),
-(5, 5, 'Horas Extras', '120.00', 0, 4),
-(6, 6, 'Adicional Noturno', '210.00', 0, 1),
-(7, 7, 'Vale Transporte', '220.00', 1, 1),
-(8, 8, 'Bônus de Desempenho', '500.00', 0, 1),
-(9, 9, 'Horas Extras', '90.00', 0, 3),
-(10, 10, 'Desconto Falta', '150.00', 1, 1),
-(11, 11, 'Comissão Entregas', '260.00', 0, 1),
-(12, 12, 'Vale Alimentação', '300.00', 0, 1),
-(13, 13, 'Horas Extras', '75.00', 0, 2),
-(14, 14, 'Gratificação Cargo', '800.00', 0, 1),
-(15, 15, 'Vale Transporte', '220.00', 1, 1);
+INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
+(1, 'Salário', 1621.00, 0, 1),
+(2, '13º Salário', 1621.00, 0, 1),
+(3, 'Vale Transporte', 150.00, 1, 1),
+(4, 'Comissão', 180, 0, 1),
+(5, 'Vale Alimentação', 450.00, 0, 1),
+(6, 'IRPF', 0.00, 1, 1),
+(7, 'INSS', 0.00, 1, 1),
+(8, 'Bônus de Desempenho', 500.00, 0, 1),
+(9, 'Adicional Noturno', 210.00, 0, 1),
+(10, 'Desconto Falta', 50.0, 1, 1),
+(11, 'Horas Extras', 50.00, 0, 1),
+(12, 'Gratificação Cargo', 200.00, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -591,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 --
 DROP TABLE IF EXISTS `view_folha_ponto`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) WHERE `p`.`data` between '2025-10-14' and '2025-10-20' GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria` ORDER BY sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) ASC  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria` ORDER BY sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) ASC ;
 
 --
 -- Restrições para despejos de tabelas
@@ -604,13 +599,13 @@ ALTER TABLE `tb_arquivo`
   ADD CONSTRAINT `tb_arquivo_ibfk_1` FOREIGN KEY (`id_documento`) REFERENCES `tb_documento` (`id_documento`);
 
 --
--- Limitadores para a tabela `tb_folhapagamento`
+-- Restrições para tabelas `tb_folhapagamento`
 --
 ALTER TABLE `tb_folhapagamento`
   ADD CONSTRAINT `tb_folhapagamento_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
--- Limitadores para a tabela `tb_folhaponto`
+-- Restrições para tabelas `tb_folhaponto`
 --
 ALTER TABLE `tb_folhaponto`
   ADD CONSTRAINT `tb_folhaponto_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
