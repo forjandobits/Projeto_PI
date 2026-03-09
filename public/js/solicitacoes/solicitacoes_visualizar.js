@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (motivo.value.trim() === "") {
             e.preventDefault(); // Aqui o envio do formulário e cancelado
             alert("Motivo da recusa deve ser preenchido!");
-            motivoNegar.focus(); // Coloca o cursor dentro do campo motivo
+            motivo.focus(); // Coloca o cursor dentro do campo motivo
             return;
         } 
 
