@@ -1,44 +1,9 @@
+import { listarBeneficiosDescontos, listarFuncionarios} from "./conexoes.js";
+
 document.addEventListener('DOMContentLoaded', function() {
     // Arrays para armazenamento
     const valoresRecebidos = [];
     const valoresUnidos = [];
-    
-    // Função para buscar os valores no banco de dados
-    async function listarBeneficiosDescontos() {
-        try {
-            const respostaBenDes = await fetch(`${BASE_URL}/api/pagamentos/exibir_beneficios_descontos.php`);
-            const beneficiosDescontos = await respostaBenDes.json();
-            
-            return beneficiosDescontos;
-        } catch (error) {
-            alert(`Ocorreu um erro: \n${error.message}`);
-        }
-    
-    }
-    
-    async function listarFolhasLancadas() {
-        try {
-            const respostaFolhaLancada = await fetch(`${BASE_URL}/api/pagamentos/exibir_folhas_lancadas.php`);
-            const folhaLancada = await respostaFolhaLancada.json();
-            
-            return folhaLancada;
-        } catch (error) {
-            alert(`Ocorreu um erro: \n${error.message}`);
-        }
-    
-    }
-    
-    async function listarFuncionarios() {
-        try {
-            const respostaFuncionarios = await fetch(`${BASE_URL}/api/pagamentos/exibir_funcionarios.php`);
-            const funcionarios = await respostaFuncionarios.json();
-            
-            return funcionarios;
-        } catch (error) {
-            alert(`Ocorreu um erro: \n${error.message}`);
-        }
-    
-    }
     
     // Função para manipulação de elementos visuais e experiência de usuário
     
@@ -292,6 +257,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 descontoIRPF = 20;
             }
+
+            // FGTS salario * 0.08 - não desconto
+            // Vale Transporte salario * 0.06 desconto
         }
     
         valoresRecebidos.push({nome:nome.value, mes:mesSelecionado.value, infoBenDes:[{idBenDes: "6", valor: descontoINSS}]});
@@ -463,8 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     
     }
-    
-    
+
     listarNomes();
     criarEventos();
     removerEventos();

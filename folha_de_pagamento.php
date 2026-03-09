@@ -66,7 +66,7 @@
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
-<script src="public/js/pagamentos/eventos_pagamentos.js"></script>
-<script src="public/js/pagamentos/validacoes.js"></script> <!-- teste -->
+<script type="module" src="public/js/pagamentos/eventos_pagamentos.js"></script>
+<script type="module" src="public/js/pagamentos/validacoes.js"></script> <!-- teste -->
 </body>
 </html>

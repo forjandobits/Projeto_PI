@@ -52,6 +52,7 @@
                     </thead>
 
                     <tbody id="tabela-folhas-lancadas">
+                        <!-- Exemplo de sáida -->
                         <tr>
                             <td>Gustavo</td>
                             <td>Padeiro</td>
@@ -60,9 +61,9 @@
                             <td><button>Baixar</button></td>
                         </tr>
                         <tr>
-                            <td>Gustavo</td>
-                            <td>Padeiro</td>
-                            <td>11/2025</td>
+                            <td>Júlia</td>
+                            <td>Confeiteira</td>
+                            <td>12/2025</td>
                             <td><button class='abrir-modal'>Visualizar</button></td>
                             <td><button>Baixar</button></td>
                         </tr>
@@ -99,5 +100,5 @@
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
     </script>
 </body>
-<script src="public/js/pagamentos/exibir_folhas_lancadas.js"></script>
+<script type="module" src="public/js/pagamentos/exibir_folhas_lancadas.js"></script>
 </html>
