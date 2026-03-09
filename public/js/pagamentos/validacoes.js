@@ -6,7 +6,7 @@
 // "Folha Vazia"
 // "Data vazia"
 // "Datas Muito Distantes" = Muito antes ou Muito depois da data atual
-// "Sair sem Salvar"
+// "Sair sem Salvar" 
 
 // até esse comentario ser apagado, por favor não leve nada que
 // esta nesse arquivo coo referencia de nada,
@@ -16,6 +16,20 @@
 // id = "#id"
 // tag = ""
 
+const valor = document.querySelector("#valor");
+valor.addEventListener("keyup", () => {
+    const texto = " ";
+
+    if (valor.value == "" || isNaN(valor.value)) {
+        const texto = "Você não pode deixar a data vazia!!";
+        mostrarMensagem(texto);
+        return;
+    }
+    else {
+        mostrarMensagem(texto);
+        return;
+    }
+})
 
 function nomeVazio() {
     const nome = document.querySelector("#nome");
@@ -27,7 +41,7 @@ function nomeVazio() {
             mostrarMensagem(texto);
             return;
         }
-        else{
+        else {
             const texto = " ";
             mostrarMensagem(texto);
             return;
@@ -35,13 +49,6 @@ function nomeVazio() {
     })
 };
 
-
-
-function valorVazio() {
-    // se qualquer das entradas pedindo um valor monetario estiver vazia, envie uma menssagem de erro
-    // ativação = input
-
-}
 
 
 function nomeExiste() {
@@ -78,7 +85,7 @@ function dataVazia() {
             mostrarMensagem(texto);
             return;
         }
-        else{
+        else {
             const texto = " ";
             mostrarMensagem(texto);
             return;
@@ -96,6 +103,11 @@ function datasDistantes() {
 function sairSalvar() {
     // se o botão de sair o pop-up for clicado, enviar uma menssagem de confirmação
     // ativação = click
+    const salvar = document.querySelector("#enviar-dados")
+
+    salvar.addEventListener("click", () => {
+        alert("deseja salvar?");
+    })
 
 }
 
@@ -108,7 +120,6 @@ function mostrarMensagem(texto) {
 }
 
 nomeVazio();
-valorVazio();
 nomeExiste();
 evenSelec();
 folhaVazia();
