@@ -78,8 +78,8 @@
             <caption>Histórico de Solicitações</caption>
             <thead>
                 <tr>
-                    <th>Solicitação</th>
                     <th>Colaborador</th>
+                    <th>Solicitação</th>
                     <th>Data da Solicitação</th>
                     <th>Status</th>
                     <th></th>
