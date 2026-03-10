@@ -1,10 +1,10 @@
 
 // "Nome Vazio" X
-// "Valor Vazio"
+// "Valor Vazio" X
 // "Nome ñ Existente"
 // "Opção de Evento Selecionada"
 // "Folha Vazia"
-// "Data vazia"
+// "Data vazia" X
 // "Datas Muito Distantes" = Muito antes ou Muito depois da data atual
 // "Sair sem Salvar" 
 
@@ -16,20 +16,7 @@
 // id = "#id"
 // tag = ""
 
-const valor = document.querySelector("#valor");
-valor.addEventListener("keyup", () => {
-    const texto = " ";
 
-    if (valor.value == "" || isNaN(valor.value)) {
-        const texto = "Você não pode deixar a data vazia!!";
-        mostrarMensagem(texto);
-        return;
-    }
-    else {
-        mostrarMensagem(texto);
-        return;
-    }
-})
 
 function nomeVazio() {
     const nome = document.querySelector("#nome");
@@ -112,7 +99,7 @@ function sairSalvar() {
 }
 
 
-function mostrarMensagem(texto) {
+export function mostrarMensagem(texto) {
     const resultado = document.querySelector("#resultado")
     resultado.textContent = texto;
     resultado.style.color = "red";
