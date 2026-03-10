@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 exibir.style.display = "flex";
             });
 
-            let colBtn = document.createElement("tb");
+            let colBtn = document.createElement("td");
             colBtn.appendChild(btn);
             linha.appendChild(colBtn);
 
