@@ -52,9 +52,10 @@
             <label for="estado-civil">Estado Civil:</label>
             <select name="EstadoCivil-Funcionario" id="estado-civil" required >
                 <option value="">-- Selecione --</option>
-                <option>Solteiro</option>
-                <option>Casado</option>
-                <option>Viuvo</option>
+                <option value="Solteiro">Solteiro(a)</option>
+                <option value="Casado">Casado(a)</option>
+                <option value="Viuvo">Viúvo(a)</option>
+                <option value="Divorciado">Divorciado(a)</option>
             </select>
         </div>
 
@@ -76,6 +77,11 @@
         <div class="campo">
             <label for="numero-casa">Número:</label>
             <input type="text" name="NumeroCasa-Funcionario" id="numero-casa"/>
+        </div>
+
+        <div class="campo">
+            <label for="complemento-casa">Complemento:</label>
+            <input type="text" name="ComplementoCasa-Funcionario" id="complemento-casa"/>
         </div>
         
         <div class="campo">
@@ -124,7 +130,7 @@
 
         <div class="campo">
             <label for="cep">CEP:</label>
-            <input type="number" name="CEP-Funcionario" id="cep" required />
+            <input type="text" name="CEP-Funcionario" id="cep" required />
         </div>
             
     </fieldset>
@@ -134,22 +140,22 @@
 
         <div class="campo">
             <label for="cargo">Cargo:</label>
-            <select name="Regime-Funcionario" id="regime" required>
+            <select name="Cargo-Funcionario" id="cargo" required>
                 <option value="">-- Selecione --</option>
-                <option value="CLT">Padeiro</option>
-                <option value="CLT">Gerente</option>
-                <option value="CLT">Caixa</option>
+                <option value="Padeiro">Padeiro</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Caixa">Caixa</option>
             </select>
         </div>
 
         <div class="campo">
             <label for="cbo">CBO:</label>
-            <input type="text" name="CBO-Funcionario" id="cbo" value="8384-05" required disabled/>
+            <input type="text" name="CBO-Funcionario" id="cbo" required disabled/>
         </div>
 
         <div class="campo">
             <label for="regime">Regime Trabalhista:</label>
-            <input type="text" name="Regime-Funcionar" id="regime" value="CLT" required disabled/>
+            <input type="text" name="Regime-Funcionar" id="regime" required disabled/>
         </div>
 
         <div class="campo">

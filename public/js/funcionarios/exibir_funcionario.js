@@ -56,8 +56,17 @@ document.addEventListener('DOMContentLoaded', function(){
                 const dataNasc = document.querySelector('#data-nasc');
                 const cpf = document.querySelector('#cpf');
                 const rg = document.querySelector('#rg');
-                // const genero = document.querySelector('#genero');
-                // const telefone = document.querySelector('#telefone');
+                const genero = document.querySelector('#genero');
+                const estadoCivil = document.querySelector('#estado-civil')
+                const pisPasep = document.querySelector('#pis-pasep')
+                const rua = document.querySelector('#rua')
+                const numeroCasa = document.querySelector('#numero-casa')
+                const complementoCasa = document.querySelector('#complemento-casa')
+                const bairro = document.querySelector('#bairro')
+                const cidade = document.querySelector('#cidade')
+                const estado = document.querySelector('#estado')
+                const cep = document.querySelector('#cep')
+                const cargo = document.querySelector('#cargo')
                 
                 dadosFuncionario.forEach(dados =>{
                     nomeCompleto.value = dados.nome_completo;
@@ -66,6 +75,17 @@ document.addEventListener('DOMContentLoaded', function(){
                     dataNasc.value = dados.data_nascimento
                     cpf.value = dados.cpf
                     rg.value = dados.rg
+                    genero.value = dados.sexo
+                    estadoCivil.value = dados.estado_civil
+                    pisPasep.value = dados.pis_pasep
+                    rua.value = dados.rua
+                    numeroCasa.value = dados.numero_casa
+                    complementoCasa.value = dados.complemento
+                    bairro.value = dados.bairro
+                    cidade.value = dados.cidade
+                    estado.value = dados.estado
+                    cep.value = dados.cep
+                    cargo.value = dados.cargo
                 })
             }
         
