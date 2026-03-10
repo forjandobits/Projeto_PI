@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnAceitar = document.querySelector(".aceitar");
     const btnNegar = document.querySelector(".negar");
     const tbody = document.querySelector("table tbody");
-    const mensagem = document.querySelector(".aprovado");
     const modal = document.querySelector("#modal-solicitacoes");
+    const mensagem = document.querySelector('#mensagem-status');
+    const areasBotoes = document.querySelector('.resumo-final');
 
     
         
@@ -113,9 +114,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (dados.status === "Pendente") {
                         btnAceitar.disabled = false;
                         btnNegar.disabled = false;
+
+                        areasBotoes.style.display = 'block';
+                        mensagem.style.display = 'none';
+
                     }  else {
                         btnAceitar.disabled = true;
                         btnNegar.disabled = true;
+
+                        areasBotoes.style.display = 'none';
+                        mensagem.style.display = 'block';
+                        mensagem.textContent = "Status:" + dados.status;
+
                     }
 
                     document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
