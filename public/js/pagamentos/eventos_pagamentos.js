@@ -1,4 +1,4 @@
-import { listarBeneficiosDescontos, listarFuncionarios} from "./conexoes.js";
+import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario} from "./conexoes.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     // Arrays para armazenamento
@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const nomeInserido = nome.value.trim();
                     
                     const nomes = await buscarNome(nomeInserido);
-                    console.log(nomes);
                     
                     if (nomes.length >= 1){
                         nomes.forEach(nomesRetornados => {
@@ -228,9 +227,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     }
     
+    async function buscarSalario (){
+
+        const salarioBase = await salarioFuncionario(nome.value);
+        const salario = salarioBase.JSON();
+
+        console.log(salario);
+    }
+
     
     // Para valores que devem ser calculados automaticamente, como INSS e IRPF
-    function calcularContribuicoesDescontos(salario){
+    async function calcularContribuicoesDescontos(salario){
+
+        buscarSalario();
         // INSS - Valor de Referência é a base, mas pode ser alterado conforme necessário
         let descontoINSS = 0;
         let descontoIRPF = 0;
@@ -300,6 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const referencia = novasInfos.insertCell(); 
                     const vencimentos = novasInfos.insertCell(); 
                     const descontos = novasInfos.insertCell();
+                    let idConvertido;
         
                     // Para aparecer as informações apenas uma vez e continuar exibindo as outras conforme necessário
                     nomeFuncionario.textContent = "";

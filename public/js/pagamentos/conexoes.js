@@ -34,4 +34,25 @@ async function listarFuncionarios() {
     
 }
 
-export {listarBeneficiosDescontos, listarFolhasLancadas, listarFuncionarios};
+async function salarioFuncionario(nomeFuncionario) {
+    try {
+        const salarioFuncionario = await fetch(`${BASE_URL}/api/pagamentos/salario.php`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeFuncionario: nomeFuncionario
+            })
+        });
+
+        const salario = await salarioFuncionario.json();
+        
+        console.log(salario);
+        return salario;
+    } catch (error) {
+        alert(`Ocorreu um erro: \n${error.message}`);
+    }
+}
+
+export {listarBeneficiosDescontos, listarFolhasLancadas, listarFuncionarios, salarioFuncionario};
