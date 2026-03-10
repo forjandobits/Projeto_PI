@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tbody = document.querySelector("table tbody");
     const mensagem = document.querySelector(".aprovado");
     const modal = document.querySelector("#modal-solicitacoes");
+
+    
         
     // ====== Botão Aceitar ==> Atualiza o status para Autorizado ======
     btnAceitar.addEventListener('click', function () {
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
             modal.style.display = "none";
             mensagem.textContent = "";
-            }, 4000); // Não está funcionando - a pagina é recarregada muito rápido
+            }, 2000); // Não está funcionando - a pagina é recarregada muito rápido
         });
             
         console.log("Solicitação autorizada!");
@@ -106,6 +108,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.querySelector('#modal-opcao-selecionada').value = dados.tipo_solicitacao;
                     document.querySelector('#modal-exibir-observacao').value = dados.observacao;
                     document.querySelector('#modal-motivo-recusar').value = dados.motivo || "";
+
+
+                    if (dados.status === "Pendente") {
+                        btnAceitar.disabled = false;
+                        btnNegar.disabled = false;
+                    }  else {
+                        btnAceitar.disabled = true;
+                        btnNegar.disabled = true;
+                    }
 
                     document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
                 })
