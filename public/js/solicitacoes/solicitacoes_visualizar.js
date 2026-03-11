@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const statusAprovado = "Aprovado";
         const id = document.querySelector('#id-solicitacao').value;
 
-        fetch("/Projeto_PI/api/visualizar_adicionar.php", {
+        fetch("/Projeto_PI/api/visualizar_aceitar_negar.php", {
             method: "POST",
             body: JSON.stringify({
                 id_solicitacao: id,
@@ -30,11 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            mensagem.textContent = "Solicitação aceita";
-            setTimeout(() => {
-            modal.style.display = "none";
-            mensagem.textContent = "";
-            }, 2000); // Não está funcionando - a pagina é recarregada muito rápido
+            // mensagem.textContent = "Solicitação aceita";
+            // mensagem.classList.add("msg-sucesso")
+
+            // setTimeout(() => {
+            // modal.style.display = "none";
+            // }, 5000); // Não está funcionando - a pagina é recarregada muito rápido
         });
             
         console.log("Solicitação autorizada!");
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         } 
 
-        fetch("/Projeto_PI/api/visualizar_adicionar.php", {
+        fetch("/Projeto_PI/api/visualizar_aceitar_negar.php", {
             method: "POST",
             body: JSON.stringify({
                 id_solicitacao: id,
@@ -68,11 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            mensagem.textContent = "Solicitação negada";
-            setTimeout(() => {
-            modal.style.display = "none";
-            mensagem.textContent = "";
-            }, 4000);
+            // mensagem.textContent = "Solicitação negada";
+            // mensagem.classList.add("msg-sucesso")
+
+            // setTimeout(() => {
+            // modal.style.display = "none";
+            // }, 5000);
         });
 
         console.log("Solicitação Negada") 
@@ -115,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         btnAceitar.disabled = false;
                         btnNegar.disabled = false;
 
-                        areasBotoes.style.display = 'block';
+                        areasBotoes.style.display = 'flex';
                         mensagem.style.display = 'none';
 
                     }  else {
@@ -124,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         areasBotoes.style.display = 'none';
                         mensagem.style.display = 'block';
-                        mensagem.textContent = "Status:" + dados.status;
+                        mensagem.textContent = "Status: " + dados.status;
 
                     }
 
