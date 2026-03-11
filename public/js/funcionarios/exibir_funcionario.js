@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 })
 
                 const dadosFuncionario = await respotaFuncionario.json();
-
+                
                 const nomeCompleto = document.querySelector('#nome-completo');
                 const telefone = document.querySelector('#telefone');
                 const email = document.querySelector('#email');
@@ -67,6 +67,21 @@ document.addEventListener('DOMContentLoaded', function(){
                 const estado = document.querySelector('#estado')
                 const cep = document.querySelector('#cep')
                 const cargo = document.querySelector('#cargo')
+                const cbo = document.querySelector('#cbo')
+                const regime = document.querySelector('#regime')
+                const salario = document.querySelector('#remuneracao')
+                const banco = document.querySelector('#banco')
+                const agencia = document.querySelector('#agencia')
+                const conta = document.querySelector('#numero-conta')
+                const pix = document.querySelector('#chave-pix')
+                const certCasamento = document.querySelector('#certidao-casamento')
+                console.log(dadosFuncionario);
+                console.log(certCasamento);
+                // const inputBloqueado =  document.querySelectorAll('input');
+
+                // inputBloqueado.forEach(bloqueio =>{
+                //     inputBloqueado
+                // })
                 
                 dadosFuncionario.forEach(dados =>{
                     nomeCompleto.value = dados.nome_completo;
@@ -85,20 +100,27 @@ document.addEventListener('DOMContentLoaded', function(){
                     cidade.value = dados.cidade
                     estado.value = dados.estado
                     cep.value = dados.cep
-                    cargo.value = dados.cargo
+                    cargo.value = dados.nome_cargo
+                    cbo.value =  dados.cbo
+                    regime.value = dados.regime_trabalhista
+                    salario.value = dados.salario
+                    banco.value = dados.nome_banco
+                    agencia.value = dados.agencia
+                    conta.value = dados.numero_conta
+                    pix.value = dados.chave_pix
+                    certCasamento.checked = dados.certidao_casamento == 1
+
                 })
             }
-        
         });
     }
-
-   async function desligar(){
-            document.addEventListener("click", function(e) {
+async function desligar(){
+    document.addEventListener("click", function(e) {
         if (e.target.classList.contains("desligar")) {
             alert("Clicou!");
-                }
-            });
-    }
+        }
+    });
+}
 
 listarFuncionarios();
 exibiInformacoes();

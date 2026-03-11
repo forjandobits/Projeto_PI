@@ -160,7 +160,7 @@
 
         <div class="campo">
             <label for="remuneracao">Remuneração:</label>
-            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" value="2000.00" required disabled/>
+            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" required disabled/>
         </div>
     </fieldset>
 
@@ -207,10 +207,10 @@
             <input type="checkbox" name="CAM-Funcionario" id="cam"/>
         </div>
 
-        <div class="campo-linha">
+        <!-- <div class="campo-linha">
             <label for="comprovante-escolaridade">Comprovante de Escolaridade</label>
             <input type="checkbox" name="ComprovanteEscolaridade-Funcionario" id="comprovante-escolaridade"/>
-        </div>
+        </div> -->
 
         <div class="campo-linha">
             <label for="filhos">Tem Filhos?</label>
@@ -220,11 +220,6 @@
         <div class="campo-linha">
             <label for="qtd-filhos">Número de Filhos:</label>
             <input type="number" name="Qtd-Filhos-Funcionario" id="qtd-filhos"/>
-        </div>
-        
-        <div class="campo-linha">
-            <label for="possui-pendencias">Possui Pendências?</label>
-            <input type="checkbox" name="Pendencias" id="possui-pendencias" required />
         </div>
 
     </fieldset>
