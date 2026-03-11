@@ -44,5 +44,3 @@
         </article>
     </main>
 
-
-</body>

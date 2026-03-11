@@ -11,6 +11,7 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
 
         dados.forEach(funcionario => {
 
+          
             const linha = document.createElement("tr");
 
             const colunaNome = document.createElement("td");
@@ -33,9 +34,9 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
             const botao = document.createElement("button");
             botao.textContent = "Visualizar";
 
-            botao.addEventListener("click",() => {
-                console.log("clicou no botão");
+            botao.addEventListener("click",() => {                
                 verEspelho(funcionario.id_funcionario);
+                
             })
 
 //            link.appendChild(botao);
@@ -48,19 +49,20 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
            
 
             tbody.appendChild(linha);
+            
         });
- 
+        
         
     })
     .catch(erro => console.error("Erro:", erro));
 
     function verEspelho(id){
-        console.log("ID:", id);   
-        enviar(`${BASE_URL}api/espelho_de_ponto.php`, {id})
+        /* console.log("ID:", id);   
+        enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id})
         .then(dados => {
 
         if(dados.status === "sucesso"){
             console.log(dados.resposta);
-        }
-    });
-}
+        } */
+        window.location.href = `espelho_de_ponto.php?id=${id}`;
+    };
