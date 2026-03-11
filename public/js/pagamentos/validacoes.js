@@ -49,6 +49,20 @@ function evenSelec() {
     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
     // ativação = select
 
+    // Source - https://stackoverflow.com/a/22058483
+    // Posted by scrowler
+    // Retrieved 2026-03-10, License - CC BY-SA 3.0
+
+    function CheckDegree() {
+        var currentDegree = $('#currentDegree').val(); // selected option
+        var minimumDegree = 3;
+
+        if (parseInt(currentDegree) < minimumDegree) {
+            alert(" Current degree is less than Our minimum requirement !");
+            return false; // you'll probably want to do this if it's stopping your form action
+        }
+    };
+
 }
 
 
