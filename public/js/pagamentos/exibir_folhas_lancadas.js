@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             const referencia = novasInfos.insertCell(); 
                             const vencimentos = novasInfos.insertCell(); 
                             const descontos = novasInfos.insertCell();
+                            let idConvertido;
     
                             beneficiosDescontos.forEach(benDes => {
                             

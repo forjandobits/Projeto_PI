@@ -1,4 +1,4 @@
-import { listarBeneficiosDescontos, listarFuncionarios } from "./conexoes.js";
+import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { mostrarMensagem } from "./validacoes.js";
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const valoresUnidos = [];
 
     // Função para manipulação de elementos visuais e experiência de usuário
-
+    
     async function criarEventos() {
         const criarEvento = document.querySelector("#adicionar-evento");
         const beneficiosDescontos = await listarBeneficiosDescontos();
@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const nomeInserido = nome.value.trim();
 
                     const nomes = await buscarNome(nomeInserido);
-                    console.log(nomes);
                     
                     if (nomes.length >= 1){
                         nomes.forEach(nomesRetornados => {
@@ -195,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 nome.value = nomeInput;
                 // Para o valor no formulário caso necessário
                 idSelecionado = nomeSelecionado.dataset.value;
+                // buscarSalario(idSelecionado);
 
                 // Para mostrar o nome que foi selecionado e o ID do mesmo
                 // console.log(`Nome: ${nomeSelecionado.textContent} ID: ${nomeSelecionado.dataset.value}`);
@@ -223,15 +223,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     valoresRecebidos.splice(0);
                 }
 
+                buscarSalario(idSelecionado);
+
                 camposListados.forEach(valoresCampos => {
                     let input = valoresCampos.querySelector('.campo>#valor');
                     let select = valoresCampos.querySelector('.campo>#beneficios');
-
+                    
+                    
                     valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: select.value, valor: input.value }] })
-
-                    if (select.value === "1") {
-                        calcularContribuicoesDescontos(input.value);
-                    }
 
                 });
 
@@ -243,19 +242,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
     
-    async function buscarSalario (){
+    async function buscarSalario (idSelecionado){
 
-        const salarioBase = await salarioFuncionario(nome.value);
-        const salario = salarioBase.JSON();
+        const salarioBase = await salarioFuncionario(idSelecionado);
+        const nomeCargo = document.querySelector("#cargo-exibido");
+        const beneficiosDescontos = await listarBeneficiosDescontos();
 
-        console.log(salario);
+        let idSalario = "";
+        
+        const buscaIdSalario = beneficiosDescontos.find(benDes => benDes.nome_beneficio.trim().toLowerCase() === "salário");
+        // console.log(buscaIdSalario.id_beneficio);
+        // idSalario = buscaIdSalario.id_beneficio;
+        if(buscaIdSalario){
+            idSalario = String(buscaIdSalario.id_beneficio);
+            alert(idSalario);
+        }
+
+        salarioBase.forEach(infoBase => {
+            let salario = Number(infoBase.salario);
+            console.log({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: idSalario, valor: salario }]})
+            let cargo = infoBase.nome_cargo;
+
+            nomeCargo.textContent = cargo;
+            
+            // console.log(idSalario);
+            // Com o valor estático funciona, dinâmico não
+            valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: String(idSalario), valor: salario }]});
+            calcularContribuicoesDescontos(salario);
+            
+        })
+
     }
 
-    
+
     // Para valores que devem ser calculados automaticamente, como INSS e IRPF
     async function calcularContribuicoesDescontos(salario){
 
-        buscarSalario();
         // INSS - Valor de Referência é a base, mas pode ser alterado conforme necessário
         let descontoINSS = 0;
         let descontoIRPF = 0;
@@ -287,6 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Vale Transporte salario * 0.06 desconto
         }
 
+        
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "6", valor: descontoINSS }] });
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "7", valor: descontoIRPF }] });
         // IRPF
@@ -314,6 +337,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const beneficiosDescontos = await listarBeneficiosDescontos();
 
+                alert(valoresRecebidos);
                 valoresRecebidos.forEach(item => {
 
                     // criar uma nova linha e inserir na tabela

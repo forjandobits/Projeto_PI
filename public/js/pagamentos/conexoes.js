@@ -34,7 +34,7 @@ async function listarFuncionarios() {
     
 }
 
-async function salarioFuncionario(nomeFuncionario) {
+async function salarioFuncionario(idFuncionario) {
     try {
         const salarioFuncionario = await fetch(`${BASE_URL}/api/pagamentos/salario.php`, {
             method: "POST",
@@ -42,13 +42,12 @@ async function salarioFuncionario(nomeFuncionario) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nomeFuncionario: nomeFuncionario
+                idFuncionario: idFuncionario
             })
         });
 
         const salario = await salarioFuncionario.json();
         
-        console.log(salario);
         return salario;
     } catch (error) {
         alert(`Ocorreu um erro: \n${error.message}`);

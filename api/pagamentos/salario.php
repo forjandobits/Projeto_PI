@@ -6,15 +6,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $dados = json_decode(file_get_contents("php://input"), true);
 
-    echo $dados;
+    $idFuncionario = $conn->real_escape_string($dados["idFuncionario"]);
 
-    $nomeFuncionario = $conn->real_escape_string($dados["nomeFuncionario"]);
-
-    if($nomeFuncionario){
-        echo "Nome Inserido: " . $nomeFuncionario;
+    if($idFuncionario){
+        // echo "ID Inserido: " . $idFuncionario;
 
         $sql = "SELECT salario, nome_cargo, nome_completo FROM tb_cargo JOIN tb_funcionario 
-            WHERE tb_funcionario.id_cargo = tb_cargo.id_cargo AND tb_funcionario.nome_completo = '$nomeFuncionario'";
+            WHERE tb_funcionario.id_cargo = tb_cargo.id_cargo AND tb_funcionario.id_funcionario = '$idFuncionario'";
         
         $resultado = $conn->query($sql);
 
