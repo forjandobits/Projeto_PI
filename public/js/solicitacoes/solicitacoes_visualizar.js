@@ -5,14 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnAceitar = document.querySelector(".aceitar");
     const btnNegar = document.querySelector(".negar");
     const tbody = document.querySelector("table tbody");
-    const modal = document.querySelector("#modal-solicitacoes");
+    // const modal = document.querySelector("#modal-solicitacoes");
     const mensagem = document.querySelector('#mensagem-status');
     const areasBotoes = document.querySelector('.resumo-final');
 
     
         
     // ====== Botão Aceitar ==> Atualiza o status para Autorizado ======
-    btnAceitar.addEventListener('click', function () {
+    btnAceitar.addEventListener('click', function (e) {
+
+        e.preventDefault(); 
 
         const motivoAceitar = document.querySelector('#modal-motivo-recusar').value;
         const statusAprovado = "Aprovado";
@@ -30,12 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            // mensagem.textContent = "Solicitação aceita";
-            // mensagem.classList.add("msg-sucesso")
+            mensagem.textContent = "Solicitação aceita";
+            mensagem.style.display = "block";
+            mensagem.classList.add("msg-sucesso")
 
-            // setTimeout(() => {
-            // modal.style.display = "none";
-            // }, 5000); // Não está funcionando - a pagina é recarregada muito rápido
+            setTimeout(() => {
+            location.reload(); // recarrega a página
+        }, 4000);
         });
             
         console.log("Solicitação autorizada!");
@@ -45,13 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // ====== Botão Negar ==> Atualiza o status para Negado ======
     btnNegar.addEventListener('click', function(e) {
 
+        e.preventDefault(); 
+
         const motivoNegar = document.querySelector('#modal-motivo-recusar').value;
         const statusNegado = "Negado";
         const id = document.querySelector('#id-solicitacao').value;
 
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
         if (motivo.value.trim() === "") {
-            e.preventDefault(); // Aqui o envio do formulário e cancelado
             alert("Motivo da recusa deve ser preenchido!");
             motivo.focus(); // Coloca o cursor dentro do campo motivo
             return;
@@ -69,12 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            // mensagem.textContent = "Solicitação negada";
-            // mensagem.classList.add("msg-sucesso")
+            mensagem.textContent = "Solicitação negada";
+            mensagem.style.display = "block";
+            mensagem.classList.add("msg-sucesso")
 
-            // setTimeout(() => {
-            // modal.style.display = "none";
-            // }, 5000);
+            setTimeout(() => {
+            location.reload(); // recarrega a página
+        }, 4000);
         });
 
         console.log("Solicitação Negada") 
