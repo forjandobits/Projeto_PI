@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (id != null && id != "") {    
         //console.log("Chamando API com id:", id);
 
-        let resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id: id});
+        let resposta = await enviar(`${BASE_URL}/api/espelho_ponto.php`, {id: id});
         //console.log("Resposta da API:", resposta);
         
         
