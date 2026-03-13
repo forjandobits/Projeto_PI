@@ -24,10 +24,6 @@ if ($stmt->execute()) {
         $dados[] = $row;
     }
 
-    $camposMetadados = ["nome_completo", "id_funcionario", "id_jornada"];
-    
-
-    // echo json_encode($dados);
     echo json_encode(["status" => "sucesso", "resposta" => $dados]);
 } else {
     echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);

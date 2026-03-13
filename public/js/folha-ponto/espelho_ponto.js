@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         saidaNome.textContent += dados[0].nome_completo;
 
-        console.log(dados[0]);
-
         dados.forEach(resultado => {
             let linha = document.createElement("tr");
             linha.id = resultado.id_jornada;
@@ -77,6 +75,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             let colBtn = document.createElement("td");
             colBtn.appendChild(btn);
             linha.appendChild(colBtn);
+            linha.dataset.id_funcionario = resultado.id_funcionario;
+            linha.dataset.id_jornada = resultado.id_jornada;
 
             tabela.appendChild(linha);
         });
