@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             linha.id = resultado.id_jornada;
 
             let colData = document.createElement("td");
-            colData.textContent = resultado.data;
+            colData.textContent = resultado.data.split('-').reverse().join('/');
             linha.appendChild(colData);
 
             let colSemana = document.createElement("td");
