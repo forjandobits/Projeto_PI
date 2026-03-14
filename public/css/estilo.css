@@ -137,6 +137,15 @@ figure:hover {
   box-shadow: 0 14px 40px var(--cor-sombra-escura);
 }
 
+.logo{
+  width: 131.98px;
+  height: 85.89px;
+}
+
+.logo-hm-cerebro{
+  background-image: var(--logo-hm-cerebro);
+}
+
 .imagem-tela-inicial {
   object-fit: cover;
   width: 150px;
@@ -184,7 +193,7 @@ body {
 /* ================= TEMAS ================= */
 
 
-body.tema-claro {
+body.tema-claro{
   --cor-background: #ffffff;
   --cor-texto-escuro: #000000;
   --cor-texto-padrao: #f1f2f3;
@@ -194,11 +203,21 @@ body.tema-claro {
   --cor-background-header:  #f1f2f3;
   --cor-background-tabela: #30adea;
   --cor-background-campo-cinza: #858181;
+  --logo-hm-cerebro: url("../img/Logo_HM_Cerebro.png");
+  --icone-avatar: url("../img/Avatar.png");
+  --icone-cerebro: url("../img/Cerebro.ico");
+  --icone-banco-de-horas: url("../img/icones/pontos.png");
+  --icone-configuracoes: url("../img/icones/configuracoes.png");
+  --icone-funcionarios: url("../img/icones/funcionarios.png");
+  --icone-inicio: url("../img/icones/inicio.png");
+  --icone-recibos: url("../img/icones/pagamentos.png");
+  --icone-pontos: url("../img/icones/pontos.png");
+  --icone-solicitacoes: url("../img/icones/solicitacoes.png");
 } 
 
 
 
-body.tema-escuro {
+body.tema-escuro{
   --cor-titulo-azul: #ffffff;
   --cor-texto-azul: #ffffff;
   --cor-background: #121212;
@@ -212,8 +231,7 @@ body.tema-escuro {
   --cor-background-campo-cinza: #858181;
 }
 
-body.tema-contraste {
-
+body.tema-contraste{
   --cor-background: #ffffff;
   --cor-texto-escuro: #000000;
   --cor-texto-azul: #ffffff;
@@ -226,7 +244,57 @@ body.tema-contraste {
   --cor-background-campo-cinza: #858181;
   --cor-background-azul: #858181;
   --cor-titulo-azul: #000000;
+ --logo-hm-cerebro: url("../img/Logo HM Cerebro Contraste.png");
+  --icone-avatar: url("../img/Avatar Contraste.png");
+  --icone-cerebro: url("../img/Cerebro Contraste.ico");
+  --icone-banco-de-horas: url("../img/icones/pontos config branca.png");
+  --icone-configuracoes: url("../img/icones/configuracoes config branca.png");
+  --icone-funcionarios: url("../img/icones/funcionarios config branca.png");
+  --icone-inicio: url("../img/icones/inicio config branca.png");
+  --icone-recibos: url("../img/icones/pagamentos config branca.png");
+  --icone-pontos: url("../img/icones/pontos config branca.png");
+  --icone-solicitacoes: url("../img/icones/solicitacoes config branca.png");
+}
 
+/* ================ SIDEBAR ================ */
+
+.icone{
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-position: center;
+}
+
+.icone-avatar{
+  background-image: var(icone-avatar);
+}
+
+.icone-banco-de-horas{
+  background-image: var(--icone-banco-de-horas);
+}
+
+.icone-configuracoes{
+  background-image: var(--icone-configuracoes);
+}
+
+.icone-funcionarios{
+  background-image: var(--icone-funcionarios);
+}
+
+.icone-inicio{
+  background-image: var(--icone-inicio);
+}
+
+.icone-recibos{
+  background-image: var(--icone-recibos);
+}
+
+.icone-pontos{
+  background-image: var(--icone-pontos);
+}
+
+.icone-solicitacoes{
+  background-image: var(--icone-solicitacoes);
 }
 
 /* Mensagens */
