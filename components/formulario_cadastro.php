@@ -59,11 +59,6 @@
             </select>
         </div>
 
-        <div class="campo pis-pasep">
-            <label for="pis-pasep">Pis-Pasep:</label>
-            <input  type="number" name="PisPasep-Funcionario" id="pis-pasep" required/>
-        </div>
-
     </fieldset>
         
     <fieldset class="cadastro">
@@ -191,9 +186,22 @@
 
     <fieldset class="cadastro">
         <legend>Documentos</legend>
+        <div class="campo">
+            <label for="numero-conta">Número da Conta:</label>
+            <input type="text" name="NumeroConta-Funcionario" id="numero-conta" required  />
+        </div>
+        <div class="campo">
+            <label for="ctps">CTPS:</label>
+            <input  type="number" name="Ctps-Funcionario" id="ctps" required/>
+        </div>
+
+        <div class="campo">
+            <label for="pis-pasep">Pis-Pasep:</label>
+            <input  type="number" name="PisPasep-Funcionario" id="pis-pasep" required/>
+        </div>
 
         <div class="campo-linha">
-            <label for="certidao-casamento">Certidão de Casamento</label>
+            <label for="certidao-casamento">Certidão de Casamento/Nascimento</label>
             <input type="checkbox" name="CertidaoCasamento-Funcionario" id="certidao-casamento"/>
         </div>
 
@@ -206,11 +214,6 @@
             <label for="cam">Certificado de Alistamento Militar</label>
             <input type="checkbox" name="CAM-Funcionario" id="cam"/>
         </div>
-
-        <!-- <div class="campo-linha">
-            <label for="comprovante-escolaridade">Comprovante de Escolaridade</label>
-            <input type="checkbox" name="ComprovanteEscolaridade-Funcionario" id="comprovante-escolaridade"/>
-        </div> -->
 
         <div class="campo-linha">
             <label for="filhos">Tem Filhos?</label>

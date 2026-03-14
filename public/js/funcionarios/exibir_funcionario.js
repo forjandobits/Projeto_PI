@@ -75,14 +75,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 const conta = document.querySelector('#numero-conta')
                 const pix = document.querySelector('#chave-pix')
                 const certCasamento = document.querySelector('#certidao-casamento')
-                console.log(dadosFuncionario);
-                console.log(certCasamento);
-                // const inputBloqueado =  document.querySelectorAll('input');
-
-                // inputBloqueado.forEach(bloqueio =>{
-                //     inputBloqueado
-                // })
                 
+
+
                 dadosFuncionario.forEach(dados =>{
                     nomeCompleto.value = dados.nome_completo;
                     telefone.value = dados.telefone;
@@ -108,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     agencia.value = dados.agencia
                     conta.value = dados.numero_conta
                     pix.value = dados.chave_pix
-                    certCasamento.checked = dados.certidao_casamento == 1
+                    certCasamento.checked = Number(dados.certidao_casamento) === 1
 
                 })
             }
