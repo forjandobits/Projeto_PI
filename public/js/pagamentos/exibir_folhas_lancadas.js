@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const tabelaFolhasLancadas = document.querySelector("#tabela-folhas-lancadas");
         const folhasLancadas = await listarFolhasLancadas();
     
+        console.log(folhasLancadas);
         
         if(tabelaFolhasLancadas){
     
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const resumoLiquido = document.querySelector(".resumo-final>p");
     
                 let valorLiquido = 0;
+                let valorFGTS = 0;
     
                 const tabelaFolhaSelecionada = document.querySelector("#tabela-saida-folha-pagamento");
     
@@ -96,16 +98,20 @@ document.addEventListener('DOMContentLoaded', function () {
     
                             beneficiosDescontos.forEach(benDes => {
                             
-                                if(benDes.desconto === '0'){
+                                if((benDes.desconto === '0') || (benDes.desconto === '2')){
                 
-                                    id.textContent = info.idBenDes;
-                                    idConvertido = Number(info.idBenDes);
-                                    if(benDes.id_beneficio == idConvertido){
-                                        evento.textContent = benDes.nome_beneficio;
-                                        referencia.textContent = benDes.referencia;
-                                        vencimentos.textContent = info.valor;
-                                        descontos.textContent = "00";
-                                        valorLiquido = valorLiquido + Number(info.valor);
+                                    if(benDes.nome_beneficio === 'FGTS'){
+                                        valorFGTS = Number(info.valor);
+                                    }else {
+                                        id.textContent = info.idBenDes;
+                                        idConvertido = Number(info.idBenDes);
+                                        if (benDes.id_beneficio == idConvertido) {
+                                            evento.textContent = benDes.nome_beneficio;
+                                            referencia.textContent = benDes.referencia;
+                                            vencimentos.textContent = info.valor;
+                                            descontos.textContent = "--";
+                                            valorLiquido = valorLiquido + Number(info.valor);
+                                        }
                                     }
                                 } else {
                 
@@ -114,12 +120,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                     if(benDes.id_beneficio == idConvertido){
                                         evento.textContent = benDes.nome_beneficio;
                                         referencia.textContent = benDes.referencia;
-                                        vencimentos.textContent = "00";
+                                        vencimentos.textContent = "--";
                                         if((benDes.nome_beneficio === "IRPF") && (info.valor === 0)) {
                                             descontos.textContent = "Isento";
                                             descontos.style.color = "#FF0000";
                                         } else {
-                                            descontos.textContent = info.valor.toFixed(2);
+                                            descontos.textContent = info.valor;
                                             descontos.style.color = "#FF0000";
                                         }
                                         valorLiquido = valorLiquido - Number(info.valor);
@@ -127,9 +133,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 };
     
                                 if(valorLiquido < 0){
-                                    resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
+                                    resumoLiquido.textContent = `FGTS (R$): 0,00 - Total Líquido (R$): 0,00`;
                                 } else {
-                                    resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
+                                    resumoLiquido.textContent = `FGTS (R$): ${valorFGTS.toFixed(2)} - Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
                                 }
             
                             });

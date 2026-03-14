@@ -246,30 +246,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const salarioBase = await salarioFuncionario(idSelecionado);
         const nomeCargo = document.querySelector("#cargo-exibido");
-        const beneficiosDescontos = await listarBeneficiosDescontos();
-
-        let idSalario = "";
-        
-        const buscaIdSalario = beneficiosDescontos.find(benDes => benDes.nome_beneficio.trim().toLowerCase() === "salário");
-        // console.log(buscaIdSalario.id_beneficio);
-        // idSalario = buscaIdSalario.id_beneficio;
-        if(buscaIdSalario){
-            idSalario = String(buscaIdSalario.id_beneficio);
-            alert(idSalario);
-        }
 
         salarioBase.forEach(infoBase => {
             let salario = Number(infoBase.salario);
-            console.log({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: idSalario, valor: salario }]})
             let cargo = infoBase.nome_cargo;
 
             nomeCargo.textContent = cargo;
             
             // console.log(idSalario);
             // Com o valor estático funciona, dinâmico não
-            valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: String(idSalario), valor: salario }]});
+            valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "1", valor: salario }]});
             calcularContribuicoesDescontos(salario);
-            
         })
 
     }
@@ -281,6 +268,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // INSS - Valor de Referência é a base, mas pode ser alterado conforme necessário
         let descontoINSS = 0;
         let descontoIRPF = 0;
+        let descontoVT = 0;
+        let valorFGTS = 0;
+        alert(`Salário pego nas contribuições: ${salario}`);
 
         // Até 1621 - 7,5%
         // De 1621.01 até 2902,84 9%
@@ -297,6 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 descontoINSS = salario * 0.14;
             }
 
+            // Menor que 5000 Isento, procurar uma tabela correta
             if (salario < 5001) {
                 descontoIRPF = 0;
             } else if (salario <= 7350) {
@@ -306,14 +297,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // FGTS salario * 0.08 - não desconto
+            valorFGTS = salario * 0.08;
             // Vale Transporte salario * 0.06 desconto
+            descontoVT = salario * 0.06;
         }
-
         
-        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "6", valor: descontoINSS }] });
-        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "7", valor: descontoIRPF }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "3", valor: descontoVT }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "6", valor: descontoIRPF }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "7", valor: descontoINSS }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "13", valor: valorFGTS }] });
         // IRPF
-        // Menor que 5000 Isento, procurar uma tabela correta
     }
 
     function exibirDadosInseridos() {
@@ -334,6 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 let valorLiquido = 0;
+                let valorFGTS = 0;
 
                 const beneficiosDescontos = await listarBeneficiosDescontos();
 
@@ -358,37 +352,41 @@ document.addEventListener('DOMContentLoaded', function () {
                     nomeFuncionario.textContent = nome.value;
                     mes.textContent = item.mes;
 
-                    item.infoBenDes.forEach(i => {
+                    item.infoBenDes.forEach(info => {
 
                         beneficiosDescontos.forEach(benDes => {
 
-                            if (benDes.desconto === '0') {
+                            if ((benDes.desconto === '0') || (benDes.desconto === '2')) {
 
-                                id.textContent = i.idBenDes;
-                                idConvertido = Number(i.idBenDes);
-                                if (benDes.id_beneficio == idConvertido) {
-                                    evento.textContent = benDes.nome_beneficio;
-                                    referencia.textContent = benDes.referencia;
-                                    vencimentos.textContent = i.valor;
-                                    descontos.textContent = "00";
-                                    valorLiquido = valorLiquido + Number(i.valor);
+                                if(benDes.nome_beneficio === 'FGTS'){
+                                    valorFGTS = Number(info.valor);
+                                } else {
+                                    id.textContent = info.idBenDes;
+                                    idConvertido = Number(info.idBenDes);
+                                    if (benDes.id_beneficio == idConvertido) {
+                                        evento.textContent = benDes.nome_beneficio;
+                                        referencia.textContent = benDes.referencia;
+                                        vencimentos.textContent = info.valor;
+                                        descontos.textContent = "--";
+                                        valorLiquido = valorLiquido + Number(info.valor);
+                                    }
                                 }
                             } else {
 
-                                id.textContent = i.idBenDes;
-                                idConvertido = Number(i.idBenDes);
+                                id.textContent = info.idBenDes;
+                                idConvertido = Number(info.idBenDes);
                                 if (benDes.id_beneficio == idConvertido) {
                                     evento.textContent = benDes.nome_beneficio;
                                     referencia.textContent = benDes.referencia;
-                                    vencimentos.textContent = "00";
-                                    if ((benDes.nome_beneficio === "IRPF") && (i.valor === 0)) {
+                                    vencimentos.textContent = "--";
+                                    if ((benDes.nome_beneficio === "IRPF") && (info.valor === 0)) {
                                         descontos.textContent = "Isento";
                                         descontos.style.color = "#FF0000";
                                     } else {
-                                        descontos.textContent = i.valor.toFixed(2);
+                                        descontos.textContent = info.valor;
                                         descontos.style.color = "#FF0000";
                                     }
-                                    valorLiquido = valorLiquido - Number(i.valor);
+                                    valorLiquido = valorLiquido - Number(info.valor);
                                 }
                             };
 
@@ -396,9 +394,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
 
                     if (valorLiquido < 0) {
-                        resumoLiquido.textContent = `Total Líquido (R$): 0,00`;
+                        resumoLiquido.textContent = `FGTS (R$): 0,00 - Total Líquido (R$): 0,00`;
                     } else {
-                        resumoLiquido.textContent = `Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
+                        resumoLiquido.textContent = `FGTS (R$): ${valorFGTS.toFixed(2)} - Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
                     }
 
                 });
