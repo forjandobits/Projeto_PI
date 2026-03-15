@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 const exibir = document.querySelector(".modal");
                 exibir.style.display = "flex";
 
+                const travarCampos = exibir.querySelectorAll("input, select");
+
+                travarCampos.forEach(campos => {
+                    campos.disabled = true;
+                });
+
                 const respotaFuncionario = await fetch(`${BASE_URL}/api/funcionarios/exibir_dados_funcionario.php`, {
                     method: "POST",
                     headers: {
@@ -75,8 +81,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 const conta = document.querySelector('#numero-conta')
                 const pix = document.querySelector('#chave-pix')
                 const certCasamento = document.querySelector('#certidao-casamento')
-                
-
 
                 dadosFuncionario.forEach(dados =>{
                     nomeCompleto.value = dados.nome_completo;
@@ -93,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     complementoCasa.value = dados.complemento
                     bairro.value = dados.bairro
                     cidade.value = dados.cidade
-                    estado.value = dados.estado
+                    estado.value = dados.nome_estado
                     cep.value = dados.cep
                     cargo.value = dados.nome_cargo
                     cbo.value =  dados.cbo
@@ -103,11 +107,12 @@ document.addEventListener('DOMContentLoaded', function(){
                     agencia.value = dados.agencia
                     conta.value = dados.numero_conta
                     pix.value = dados.chave_pix
-                    certCasamento.checked = Number(dados.certidao_casamento) === 1
+                    // certCasamento.checked = Number(dados.certidao_casamento) === 1
 
                 })
             }
         });
+        
     }
 async function desligar(){
     document.addEventListener("click", function(e) {
