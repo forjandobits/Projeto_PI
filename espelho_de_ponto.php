@@ -70,23 +70,23 @@
     </section>
     
     <section>
-      <form action="" class="form-modal">
-        <p>12/11/2025 - Quarta-feira:</p>
+      <form class="form-modal">
+        <p id="informacoes-ponto">12/11/2025 - Quarta-feira:</p>
         <div class="campo-linha">
-          <label for="tempo-entrada">Entrada 1:</label>
-          <input type="time" name="Entrada1" id="tempo-entrada">
+          <label for="hora-entrada">Hora de entrada:</label>
+          <input type="time" id="hora-entrada">
         </div>
         <div class="campo-linha">
-          <label for="tempo-entrada2">Entrada 2:</label>
-          <input type="time" name="Entrada2" id="tempo-entrada2">
+          <label for="intervalo-saida">Saída pro intervalo:</label>
+          <input type="time" id="intervalo-saida">
         </div>
         <div class="campo-linha">
-          <label for="tempo-entrada3">Entrada 3:</label>
-          <input type="time" name="Entrada3" id="tempo-entrada3">
+          <label for="intervalo-retorno">Retorno do intervalo:</label>
+          <input type="time" id="intervalo-retorno">
         </div>
         <div class="campo-linha">
-          <label for="tempo-entrada4">Entrada 4:</label>
-          <input type="time" name="Entrada4" id="tempo-entrada4">
+          <label for="hora-saida">Hora de saída:</label>
+          <input type="time" id="hora-saida">
         </div>
         <button type="button" class="button-claro">Adicionar outra batida</button>
         <button type="submit">Salvar</button>
@@ -99,6 +99,7 @@
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 <script type="module" src="public/js/folha-ponto/espelho_ponto.js"></script>
+<script type="module" src="public/js/folha-ponto/editar_ponto.js"></script>
 
 </body>
 </html>
