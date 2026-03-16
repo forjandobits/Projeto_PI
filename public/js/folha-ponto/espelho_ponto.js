@@ -3,21 +3,23 @@ import { enviar } from "../utils/enviar.js";
 document.addEventListener("DOMContentLoaded", () => {
     const tabela = document.querySelector("#tabela-saida-espelho-ponto");
     const saidaNome = document.querySelector("#saida-nome-funcionario-espelho-ponto");
-    const saidaErros = document.querySelector("#saida-erros");
+    const saidaMensagens = document.querySelector("#saida-erros");
+    const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
 
-    carregarPontos(id, tabela, saidaErros, saidaNome);
+    carregarPontos(id, tabela, saidaMensagens, saidaNome);
 
-    btnSalvarPonto.addEventListener("click", () => {
-        editarPonto();
+    btnSalvarPonto.addEventListener("click", (e) => {
+        e.preventDefault();
 
-        carregarPontos(id, tabela, saidaErros, saidaNome);
+        editarPonto(saidaMensagens);
+
+        carregarPontos(id, tabela, saidaMensagens, saidaNome);
     });
 });
 
-async function carregarPontos(id, tabela, saidaErros, saidaNome) {
+async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
     const exibir = document.querySelector(".modal");
     const informacoesPonto = document.querySelector("#informacoes-ponto");
     const horaEntrada = document.querySelector("#hora-entrada");
@@ -38,7 +40,7 @@ async function carregarPontos(id, tabela, saidaErros, saidaNome) {
 
         dados = resposta.resposta;
 
-        saidaNome.textContent += dados[0].nome_completo;
+        saidaNome.textContent = `Espelho de Ponto - ${dados[0].nome_completo}`;
 
         dados.forEach(resultado => {
             id_funcionario = resultado.id_funcionario;
@@ -96,6 +98,7 @@ async function carregarPontos(id, tabela, saidaErros, saidaNome) {
             btn.className = "abrir-modal"
 
             btn.addEventListener("click", async () => {
+                saidaMensagens.textContent = "";
                 exibir.style.display = "flex";
 
                 resposta = await enviar(`${BASE_URL}/api/folha-ponto/buscar_ponto.php`, { id_funcionario: id_funcionario, id_jornada: id_jornada });
@@ -118,7 +121,28 @@ async function carregarPontos(id, tabela, saidaErros, saidaNome) {
             tabela.appendChild(linha);
         });
     } else {
-        saidaErros.style.color = "red";
-        saidaErros.textContent = "Acesso inapropriado, por favor acesse a página pelo controle de ponto";
+        saidaMensagens.style.color = "red";
+        saidaMensagens.textContent = "Acesso inapropriado, por favor acesse a página pelo controle de ponto";
     }
+}
+
+async function editarPonto(saidaMensagens) {
+    const exibir = document.querySelector(".modal");
+    const informacoesPonto = document.querySelector("#informacoes-ponto");
+    const horaEntrada = document.querySelector("#hora-entrada");
+    const intervaloSaida = document.querySelector("#intervalo-saida");
+    const intervaloRetorno = document.querySelector("#intervalo-retorno");
+    const horaSaida = document.querySelector("#hora-saida");
+    let idFuncionario = informacoesPonto.dataset.id_funcionario;
+    let idJornada = informacoesPonto.dataset.id_jornada;
+    let resposta = {};
+    let dados = [];
+
+    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, {id_funcionario: idFuncionario, id_jornada: idJornada, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value});
+
+    dados = resposta.resposta;
+    
+    exibir.style.display = "none";
+    saidaMensagens.style.color = "green";
+    saidaMensagens.textContent = dados;
 }
