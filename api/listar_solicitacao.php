@@ -14,16 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 
 // incluir s.id_solicitaçao
 $sql = "SELECT
-            s.id_solicitacao, 
-            f.id_funcionario,
-            s.tipo_solicitacao,
-            f.nome_completo,
-            s.data_solicitacao,
-            s.observacao,
-            s.status
-        FROM tb_solicitacoes s
-        JOIN tb_funcionario f 
-        ON s.id_funcionario = f.id_funcionario";
+        s.id_solicitacao, 
+        f.id_funcionario,
+        s.tipo_solicitacao,
+        f.nome_completo,
+        DATE_FORMAT(s.data_solicitacao, '%d/%m/%Y') AS data_solicitacao,
+        s.observacao,
+        s.status
+    FROM tb_solicitacoes s
+    JOIN tb_funcionario f 
+        ON s.id_funcionario = f.id_funcionario
+    ORDER BY 
+    (s.status = 'pendente') DESC,(s.status = 'aprovado') DESC,(s.status = 'negado') DESC,
+    s.data_solicitacao DESC"; 
 
 $result = $conn->query($sql);
 
