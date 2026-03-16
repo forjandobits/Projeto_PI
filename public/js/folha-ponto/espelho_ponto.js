@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const saidaErros = document.querySelector("#saida-erros");
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    const exibir = document.querySelector(".modal");
 
     tabela.textContent = "";
 
@@ -68,15 +67,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             let btn = document.createElement("button");
             btn.textContent = "...";
             btn.className = "abrir-modal"
-            btn.addEventListener("click", () => {
-                exibir.style.display = "flex";
-            });
+            btn.dataset.id_funcionario = resultado.id_funcionario;
+            btn.dataset.id_jornada = resultado.id_jornada;
 
             let colBtn = document.createElement("td");
             colBtn.appendChild(btn);
             linha.appendChild(colBtn);
-            linha.dataset.id_funcionario = resultado.id_funcionario;
-            linha.dataset.id_jornada = resultado.id_jornada;
 
             tabela.appendChild(linha);
         });
