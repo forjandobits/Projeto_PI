@@ -1,12 +1,10 @@
 
 // "Nome Vazio" X
 // "Valor Vazio" X
-// "Nome ñ Existente"
-// "Opção de Evento Selecionada"
-// "Folha Vazia"
+// "Opção de Evento Selecionada" --
 // "Data vazia" X
-// "Datas Muito Distantes" = Muito antes ou Muito depois da data atual
-// "Sair sem Salvar" 
+// "Datas Muito Distantes" = Muito antes ou Muito depois da data atual --
+// "Sair sem Salvar"  --
 
 // até esse comentario ser apagado, por favor não leve nada que
 // esta nesse arquivo coo referencia de nada,
@@ -15,7 +13,6 @@
 // class = ".classe"
 // id = "#id"
 // tag = ""
-
 
 
 function nomeVazio() {
@@ -37,40 +34,25 @@ function nomeVazio() {
 };
 
 
+// function evenSelec() {
+//     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
+//     // ativação = select
+//     // errado, não é pra ta aqui, mas to com preguiça de arrumar o código do zoto
 
-function nomeExiste() {
-    // se o nome digitado na aba "nome" não existir no bd, enviar uma menssagem de erro
-    // ativação = input
+//     let texto = ""
+//     foreach(even == eventoPgamento){
+//         beneficio[even] = beneficios(select)[even].value
+//         if(beneficio[even] == beneficio[even -1]){
+//             texto = "não pode ter 2 eventos iguais!!"
+//             mostrarMensagem(texto)
+//         }
+//         else{
+//             mostrarMensagem(texto)
+//         }
+//     }
 
-}
+// }
 
-
-function evenSelec() {
-    // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-    // ativação = select
-
-    // Source - https://stackoverflow.com/a/22058483
-    // Posted by scrowler
-    // Retrieved 2026-03-10, License - CC BY-SA 3.0
-
-    function CheckDegree() {
-        var currentDegree = $('#currentDegree').val(); // selected option
-        var minimumDegree = 3;
-
-        if (parseInt(currentDegree) < minimumDegree) {
-            alert(" Current degree is less than Our minimum requirement !");
-            return false; // you'll probably want to do this if it's stopping your form action
-        }
-    };
-
-}
-
-
-function folhaVazia() {
-    // se tentarem salvar a folha enquanto não tem nada nela, enviar menssagem de erro
-    // ativação = click
-
-}
 
 
 function dataVazia() {
@@ -98,6 +80,22 @@ function dataVazia() {
 function datasDistantes() {
     // se a data que for introduzida for muito distante da data atual, enviar uma menssagem de confirmação
     // ativação = click
+
+    // não vai dar certo, isso é só a base
+
+    const data = document.querySelector("#data-mes-ano");
+    let texto = "";
+
+    data.addEventListener("click", () =>{
+        dt10 = data + 10
+        if(dt10 == DateTime(currentDate)){
+            texto = "Não pode editar a folha depois do envio";
+            mostrarMensagem(texto);
+        }
+        else{
+            mostrarMensagem(texto)
+        }
+    })
 
 }
 
