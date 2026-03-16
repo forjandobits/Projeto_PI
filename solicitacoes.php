@@ -144,7 +144,10 @@
                     <button class="aceitar" type="submit">✔ Autorizar</button>
                     <button class="negar" type="submit">✘ Negar</button>
                 </section>
-                <p id="mensagem-status"></p>
+                <section>
+                    <h3 id="mensagem-status"></h3>
+                </section>
+                
             </form>
         </section>
     </article>
