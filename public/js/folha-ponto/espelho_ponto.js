@@ -1,78 +1,119 @@
 import { enviar } from "../utils/enviar.js";
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
     const tabela = document.querySelector("#tabela-saida-espelho-ponto");
     const saidaNome = document.querySelector("#saida-nome-funcionario-espelho-ponto");
     const saidaErros = document.querySelector("#saida-erros");
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+    const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
+
+    carregarPontos(id, tabela, saidaErros, saidaNome);
+
+    btnSalvarPonto.addEventListener("click", () => {
+        editarPonto();
+
+        carregarPontos(id, tabela, saidaErros, saidaNome);
+    });
+});
+
+async function carregarPontos(id, tabela, saidaErros, saidaNome) {
+    const exibir = document.querySelector(".modal");
+    const informacoesPonto = document.querySelector("#informacoes-ponto");
+    const horaEntrada = document.querySelector("#hora-entrada");
+    const intervaloSaida = document.querySelector("#intervalo-saida");
+    const intervaloRetorno = document.querySelector("#intervalo-retorno");
+    const horaSaida = document.querySelector("#hora-saida");
+    let resposta = {};
+    let dados = [];
+    let id_funcionario = 0;
+    let id_jornada = 0;
+    let linha = "";
+    let coluna = "";
 
     tabela.textContent = "";
 
-    if (id != null && id != "") {    
-        let resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id: id});
-        
-        let dados = resposta.resposta;
+    if (id != null && id != "") {
+        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, { id: id });
+
+        dados = resposta.resposta;
 
         saidaNome.textContent += dados[0].nome_completo;
 
         dados.forEach(resultado => {
-            let linha = document.createElement("tr");
-            linha.id = resultado.id_jornada;
+            id_funcionario = resultado.id_funcionario;
+            id_jornada = resultado.id_jornada;
 
-            let colData = document.createElement("td");
-            colData.textContent = resultado.data.split('-').reverse().join('/');
-            linha.appendChild(colData);
+            linha = document.createElement("tr");
+            linha.id = id_jornada;
 
-            let colSemana = document.createElement("td");
-            colSemana.textContent = resultado.dia_semana;
-            linha.appendChild(colSemana);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.data.split('-').reverse().join('/');
+            linha.appendChild(coluna);
 
-            let colEntrada = document.createElement("td");
-            colEntrada.textContent = resultado.hora_entrada;
-            linha.appendChild(colEntrada);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.dia_semana;
+            linha.appendChild(coluna);
 
-            let colSaida = document.createElement("td");
-            colSaida.textContent = resultado.hora_saida;
-            linha.appendChild(colSaida);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.hora_entrada;
+            linha.appendChild(coluna);
 
-            let colInterSaida = document.createElement("td");
-            colInterSaida.textContent = resultado.intervalo_inicio;
-            linha.appendChild(colInterSaida);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.hora_saida;
+            linha.appendChild(coluna);
 
-            let colInterRetorno = document.createElement("td");
-            colInterRetorno.textContent = resultado.intervalo_fim;
-            linha.appendChild(colInterRetorno);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.intervalo_inicio;
+            linha.appendChild(coluna);
 
-            let colTotalInter = document.createElement("td");
-            colTotalInter.textContent = resultado.total_intervalo;
-            linha.appendChild(colTotalInter);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.intervalo_fim;
+            linha.appendChild(coluna);
 
-            let colFalta = document.createElement("td");
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.total_intervalo;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
             if (resultado.faltas == null) {
-                colFalta.textContent = "Não";
+                coluna.textContent = "Não";
             } else {
-                colFalta .textContent = "Sim";
+                coluna.textContent = "Sim";
             }
-            linha.appendChild(colFalta);
+            linha.appendChild(coluna);
 
-            let colFeriasAbono = document.createElement("td");
-            colFeriasAbono.textContent = "Não";
-            linha.appendChild(colFeriasAbono);
+            coluna = document.createElement("td");
+            coluna.textContent = "Não";
+            linha.appendChild(coluna);
 
-            let colTotalHoras = document.createElement("td");
-            colTotalHoras.textContent = resultado.total_horas_dia;
-            linha.appendChild(colTotalHoras);
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.total_horas_dia;
+            linha.appendChild(coluna);
 
             let btn = document.createElement("button");
             btn.textContent = "...";
             btn.className = "abrir-modal"
-            btn.dataset.id_funcionario = resultado.id_funcionario;
-            btn.dataset.id_jornada = resultado.id_jornada;
 
-            let colBtn = document.createElement("td");
-            colBtn.appendChild(btn);
-            linha.appendChild(colBtn);
+            btn.addEventListener("click", async () => {
+                exibir.style.display = "flex";
+
+                resposta = await enviar(`${BASE_URL}/api/folha-ponto/buscar_ponto.php`, { id_funcionario: id_funcionario, id_jornada: id_jornada });
+
+                dados = resposta.resposta[0];
+
+                informacoesPonto.textContent = `${dados["data"].split('-').reverse().join('/')} - ${dados["dia_semana"]}`;
+                informacoesPonto.dataset.id_funcionario = id_funcionario;
+                informacoesPonto.dataset.id_jornada = id_jornada;
+                horaEntrada.value = dados["hora_entrada"];
+                intervaloSaida.value = dados["intervalo_inicio"];
+                intervaloRetorno.value = dados["intervalo_fim"];
+                horaSaida.value = dados["hora_saida"];
+            });
+
+            coluna = document.createElement("td");
+            coluna.appendChild(btn);
+            linha.appendChild(coluna);
 
             tabela.appendChild(linha);
         });
@@ -80,4 +121,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         saidaErros.style.color = "red";
         saidaErros.textContent = "Acesso inapropriado, por favor acesse a página pelo controle de ponto";
     }
-});
+}

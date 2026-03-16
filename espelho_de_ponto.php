@@ -89,7 +89,7 @@
           <input type="time" id="hora-saida">
         </div>
         <button type="button" class="button-claro">Adicionar outra batida</button>
-        <button type="submit">Salvar</button>
+        <button type="submit" id="btn-editar-ponto">Salvar</button>
       </form>
     </section>
   </article>
@@ -99,7 +99,5 @@
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 <script type="module" src="public/js/folha-ponto/espelho_ponto.js"></script>
-<script type="module" src="public/js/folha-ponto/editar_ponto.js"></script>
-
 </body>
 </html>
