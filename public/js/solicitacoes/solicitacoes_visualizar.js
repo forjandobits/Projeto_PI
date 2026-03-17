@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             mensagem.textContent = "Solicitação aceita";
             mensagem.style.display = "block";
-            mensagem.classList.add("msg-sucesso")
+            mensagem.classList.add("msg-sucesso", "msg-menor");
 
             setTimeout(() => {
             location.reload(); // recarrega a página
-        }, 4000);
+        }, 2000);
         });
             
         console.log("Solicitação autorizada!");
@@ -56,7 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
         if (motivo.value.trim() === "") {
-            alert("Motivo da recusa deve ser preenchido!");
+            mensagem.textContent = "Motivo da recusa deve ser preenchido!: ";
+            mensagem.style.display = "block";
+            mensagem.classList.add("msg-erro", "msg-menor");
             motivo.focus(); // Coloca o cursor dentro do campo motivo
             return;
         } 
@@ -75,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             mensagem.textContent = "Solicitação negada";
             mensagem.style.display = "block";
-            mensagem.classList.add("msg-sucesso")
+            mensagem.classList.add("msg-sucesso", "msg-menor");
 
             setTimeout(() => {
             location.reload(); // recarrega a página
-        }, 4000);
+        }, 2000);
         });
 
         console.log("Solicitação Negada") 
@@ -126,6 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         mensagem.style.display = 'none';
 
                     }  else {
+                        document.querySelector('#modal-motivo-recusar').readOnly  = true;
+
+
                         btnAceitar.disabled = true;
                         btnNegar.disabled = true;
 
