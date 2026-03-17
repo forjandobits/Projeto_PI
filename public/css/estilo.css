@@ -203,16 +203,16 @@ body.tema-claro{
   --cor-background-header:  #f1f2f3;
   --cor-background-tabela: #30adea;
   --cor-background-campo-cinza: #858181;
-  --logo-hm-cerebro: url("../img/Logo_HM_Cerebro.png");
-  --icone-avatar: url("../img/Avatar.png");
-  --icone-cerebro: url("../img/Cerebro.ico");
-  --icone-banco-de-horas: url("../img/icones/pontos.png");
-  --icone-configuracoes: url("../img/icones/configuracoes.png");
-  --icone-funcionarios: url("../img/icones/funcionarios.png");
-  --icone-inicio: url("../img/icones/inicio.png");
-  --icone-recibos: url("../img/icones/pagamentos.png");
-  --icone-pontos: url("../img/icones/pontos.png");
-  --icone-solicitacoes: url("../img/icones/solicitacoes.png");
+  --logo-hm-cerebro: url("../img/logo-hm-cerebro-claro.png");
+  --icone-avatar: url("../img/avatar-claro.png");
+  --icone-cerebro: url("../img/Cerebro.ico"); /*tem que ajustar, as imagens não estão batendo*/
+  --icone-banco-de-horas: url("../img/icones/pontos-contraste.png");
+  --icone-configuracoes: url("../img/icones/configuracoes-contraste.png");
+  --icone-funcionarios: url("../img/icones/funcionarios-contraste.png");
+  --icone-inicio: url("../img/icones/inicio-contraste.png");
+  --icone-recibos: url("../img/icones/pagamentos-contraste.png");
+  --icone-pontos: url("../img/icones/pontos-contraste.png");
+  --icone-solicitacoes: url("../img/icones/solicitacoes-contraste.png");
 } 
 
 
@@ -244,16 +244,16 @@ body.tema-contraste{
   --cor-background-campo-cinza: #858181;
   --cor-background-azul: #858181;
   --cor-titulo-azul: #000000;
- --logo-hm-cerebro: url("../img/Logo HM Cerebro Contraste.png");
-  --icone-avatar: url("../img/Avatar Contraste.png");
-  --icone-cerebro: url("../img/Cerebro Contraste.ico");
-  --icone-banco-de-horas: url("../img/icones/pontos config branca.png");
-  --icone-configuracoes: url("../img/icones/configuracoes config branca.png");
-  --icone-funcionarios: url("../img/icones/funcionarios config branca.png");
-  --icone-inicio: url("../img/icones/inicio config branca.png");
-  --icone-recibos: url("../img/icones/pagamentos config branca.png");
-  --icone-pontos: url("../img/icones/pontos config branca.png");
-  --icone-solicitacoes: url("../img/icones/solicitacoes config branca.png");
+  --logo-hm-cerebro: url("../img/logo-hm-cerebro-contraste.png");
+  --icone-avatar: url("../img/avatar-contraste.png");
+  --icone-cerebro: url("../img/cerebro-contraste.png");
+  --icone-banco-de-horas: url("../img/icones/pontos-contraste.png");
+  --icone-configuracoes: url("../img/icones/configuracoes-contraste.png");
+  --icone-funcionarios: url("../img/icones/funcionarios-contraste.png");
+  --icone-inicio: url("../img/icones/inicio-contraste.png");
+  --icone-recibos: url("../img/icones/pagamentos-contraste.png");
+  --icone-pontos: url("../img/icones/pontos-contraste.png");
+  --icone-solicitacoes: url("../img/icones/solicitacoes-contraste.png");
 }
 
 /* ================ SIDEBAR ================ */

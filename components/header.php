@@ -32,7 +32,7 @@
 </head>
 <body>
     <header>
-        <img class='logo logo-hm-cerebro' src="public/img/Logo_HM_Cerebro.png" alt="logo humanamente">
+        <img class='logo logo-hm-cerebro' src="public/img/logo-hm-cerebro-claro.png" alt="logo humanamente" data-icon='logo-hm'>
     </header>
 
 <!-- Dessa forma é possível apenas com o "include" chamar todas as configurações passadas 
