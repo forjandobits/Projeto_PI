@@ -95,48 +95,47 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarSolicitacoes();
 
     // ================= AUTOCOMPLETE =================
-    // async function ativarAutocomplete(nome, sugestoesNomes){
+    async function ativarAutocomplete(inputSelector, listaSelector){
 
-    //     try {
-    //         const response = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
-    //         const dados = await response.json();
+        try {
+            const response = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
+            const dados = await response.json();
 
-    //         const nomesLista = [].concat(dados);
+            const nomesLista = [].concat(dados);
 
-    //         const input = document.querySelector("#nome");
-    //         const lista = document.querySelector("#sugestoesNomes");
+            const input = document.querySelector(inputSelector);
+            const lista = document.querySelector(listaSelector);
 
-    //         input.addEventListener("input", function(){
+            input.addEventListener("input", function(){
 
-    //             lista.innerHTML = "";
-    //             const valor = input.value.toLowerCase();
+                lista.innerHTML = "";
+                const valor = input.value.toLowerCase();
 
-    //             if(valor === "") return;
+                if(valor === "") return;
 
-    //             nomesLista.forEach(item => {
+                nomesLista.forEach(item => {
 
-    //                 if(item.nome_completo.toLowerCase().includes(valor)){
+                    if(item.nome_completo.toLowerCase().includes(valor)){
 
-    //                     const li = document.createElement("li");
-    //                     li.textContent = item.nome_completo;
+                        const li = document.createElement("li");
+                        li.textContent = item.nome_completo;
 
-    //                     li.addEventListener("click", () => {
-    //                         input.value = item.nome_completo;
-    //                         lista.innerHTML = "";
-    //                     });
+                        li.addEventListener("click", () => {
+                            input.value = item.nome_completo;
+                            lista.innerHTML = "";
+                        });
 
-    //                     lista.appendChild(li);
-    //                 }
-    //             });
-    //         });
+                        lista.appendChild(li);
+                    }
+                });
+            });
 
-    //     } catch (erro) {
-    //         console.error("Erro:", erro);
-    //         mostrarMensagem("Erro ao carregar autocomplete", "erro");
-    //     }
-    // }
+        } catch (erro) {
+            console.error("Erro:", erro);
+        }
+    }
 
-    // ativarAutocomplete("nome", "sugestoesNomes");
+    ativarAutocomplete("#nome", "#sugestoesNomes");
 
     // ================= ENVIAR SOLICITAÇÃO =================
     botao.addEventListener("click", async (e) => {
