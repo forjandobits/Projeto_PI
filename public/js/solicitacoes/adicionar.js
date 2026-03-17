@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const tbody = document.querySelector("table tbody");
     const form = document.querySelector(".modal-cadastro form");
 
-    let input = document.querySelector("#nome");
-    let lista = document.querySelector("#sugentoesNomes");
-
     // ================= CRIAR ÁREA DE MENSAGEM =================
     // Como não existe um elemento de mensagem no HTML,
     // criamos dinamicamente usando JavaScript
@@ -57,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Faz requisição para API que lista solicitações
             const dados = await fetch(`${BASE_URL}/api/listar_solicitacao.php`)
-            .then(r => r.json());
+            .then(r => r.json()); 
 
             // Garante que sempre será um array
             const lista = [].concat(dados);
@@ -96,19 +93,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Carrega as solicitações ao abrir a página
     carregarSolicitacoes();
-    
-    let nomesLista = []
 
-    nomesLista.forEach(item => {
-            {item.nome_completo}
-    });
+    // ================= AUTOCOMPLETE =================
+    // async function ativarAutocomplete(nome, sugestoesNomes){
 
-    input.addEventListener("input", function(){
+    //     try {
+    //         const response = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
+    //         const dados = await response.json();
 
-        lista.innerHTML = ""
+    //         const nomesLista = [].concat(dados);
 
-        let valor = input.value
-    })
+    //         const input = document.querySelector("#nome");
+    //         const lista = document.querySelector("#sugestoesNomes");
+
+    //         input.addEventListener("input", function(){
+
+    //             lista.innerHTML = "";
+    //             const valor = input.value.toLowerCase();
+
+    //             if(valor === "") return;
+
+    //             nomesLista.forEach(item => {
+
+    //                 if(item.nome_completo.toLowerCase().includes(valor)){
+
+    //                     const li = document.createElement("li");
+    //                     li.textContent = item.nome_completo;
+
+    //                     li.addEventListener("click", () => {
+    //                         input.value = item.nome_completo;
+    //                         lista.innerHTML = "";
+    //                     });
+
+    //                     lista.appendChild(li);
+    //                 }
+    //             });
+    //         });
+
+    //     } catch (erro) {
+    //         console.error("Erro:", erro);
+    //         mostrarMensagem("Erro ao carregar autocomplete", "erro");
+    //     }
+    // }
+
+    // ativarAutocomplete("nome", "sugestoesNomes");
 
     // ================= ENVIAR SOLICITAÇÃO =================
     botao.addEventListener("click", async (e) => {
