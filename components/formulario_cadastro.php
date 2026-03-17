@@ -187,9 +187,15 @@
     <fieldset class="cadastro">
         <legend>Documentos</legend>
         <div class="campo">
-            <label for="numero-conta">Número da Conta:</label>
-            <input type="text" name="NumeroConta-Funcionario" id="numero-conta" required  />
+            <label for="nis">NIS:</label>
+            <input  type="number" name="Nis-Funcionario" id="nis" required/>
         </div>
+
+        <div class="campo">
+            <label for="nit">NIT:</label>
+            <input  type="number" name="Nit-Funcionario" id="nit" required/>
+        </div>
+
         <div class="campo">
             <label for="ctps">CTPS:</label>
             <input  type="number" name="Ctps-Funcionario" id="ctps" required/>
@@ -203,6 +209,11 @@
         <div class="campo-linha">
             <label for="certidao-casamento">Certidão de Casamento/Nascimento</label>
             <input type="checkbox" name="CertidaoCasamento-Funcionario" id="certidao-casamento"/>
+        </div>
+
+        <div class="campo-linha">
+            <label for="cnh">CNH</label>
+            <input type="checkbox" name="Cnh-Funcionario" id="cnh"/>
         </div>
 
         <div class="campo-linha">
@@ -238,7 +249,7 @@
     </fieldset>
 
         <div class="campo resumo">
-            <button type="submit"><Strong>Editar</Strong></button>
+            <button type="submit" class='botao-editar'><Strong>Editar</Strong></button>
             <button type="submit"><Strong>Salvar</Strong></button>
         </div>
 

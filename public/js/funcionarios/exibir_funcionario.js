@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
+
     async function listarFuncionarios() {
         const respostaExibir = await fetch(`${BASE_URL}/api/funcionarios/exibir_lista_funcionarios.php`);
         const funcionarios = await respostaExibir.json();
@@ -33,7 +34,10 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     async function exibiInformacoes(){
+        let idFuncionario;
         document.addEventListener("click", async function(e) {
+            
+
             if (e.target.classList.contains("abrir-modal")){
                 const exibir = document.querySelector(".modal");
                 exibir.style.display = "flex";
@@ -52,10 +56,12 @@ document.addEventListener('DOMContentLoaded', function(){
                     body: JSON.stringify({
                         id_funcionario: e.target.id
                     })
+                    
                 })
+                
+                idFuncionario =  e.target.id;
 
                 const dadosFuncionario = await respotaFuncionario.json();
-                
                 const nomeCompleto = document.querySelector('#nome-completo');
                 const telefone = document.querySelector('#telefone');
                 const email = document.querySelector('#email');
@@ -80,6 +86,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 const agencia = document.querySelector('#agencia')
                 const conta = document.querySelector('#numero-conta')
                 const pix = document.querySelector('#chave-pix')
+                const nis = document.querySelector('#nis')
+                const nit = document.querySelector('#nit')
+
+                const ctps = document.querySelector('#ctps')
                 const certCasamento = document.querySelector('#certidao-casamento')
 
                 dadosFuncionario.forEach(dados =>{
@@ -97,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     complementoCasa.value = dados.complemento
                     bairro.value = dados.bairro
                     cidade.value = dados.cidade
-                    estado.value = dados.nome_estado
+                    estado.value = dados.estado
                     cep.value = dados.cep
                     cargo.value = dados.nome_cargo
                     cbo.value =  dados.cbo
@@ -107,10 +117,27 @@ document.addEventListener('DOMContentLoaded', function(){
                     agencia.value = dados.agencia
                     conta.value = dados.numero_conta
                     pix.value = dados.chave_pix
-                    // certCasamento.checked = Number(dados.certidao_casamento) === 1
+                    ctps.value = dados.ctps
+                    nis.value = dados.nis
+                    nit.value = dados.nit
+                    certCasamento.checked = dados.cartidao_casamento_nascimento;
+
+                    // if (elemento.type === "checkbox") {
+                    // elemento.checked = dadosFuncionario[cartidao_casamento_nascimento] == 1;
+                    // } else {
+                    // elemento.value = dadosFuncionario[cartidao_casamento_nascimento];
+                    // }
 
                 })
             }
+            const botaoEditar = e.target.closest(".botao-editar");
+
+            if(botaoEditar){
+
+                e.preventDefault();
+                window.location.href = `./cadastro_de_funcionario.php?id=${idFuncionario}`;
+            }
+
         });
         
     }
