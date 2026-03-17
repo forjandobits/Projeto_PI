@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tipo_solicitacao: document.querySelector("#opcoes").value,
             observacao: document.querySelector("#observacoes").value,
             data_solicitacao: new Date().toISOString().split("T")[0],
-            pendente: document.querySelector("#pendente").checked
+            // pendente: document.querySelector("#pendente").checked
 
         };
 

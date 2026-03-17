@@ -63,16 +63,19 @@ section{
 
 /* Animações para urgências e pendências */
 
-.pendente {
-  animation: pulsar-amarelo 1.5s infinite;
+.pendente , .pendente:nth-child(odd){
   background-color: var(--cor-pendencia);
 }
 
-.urgente {
-  animation: pulsar-vermelho 1.5s infinite;
+.aprovado , .aprovado:nth-child(odd){
+  background-color: var(--cor-aprovado);
 }
 
-@keyframes pulsar-amarelo {
+.negado , .negado:nth-child(odd) {
+  background-color: var(--cor-negado);
+}
+
+/* @keyframes pulsar-amarelo {
   50%{
     background-color: var(--cor-pendencia);
   }
@@ -82,4 +85,4 @@ section{
   50%{
     background-color: var(--cor-urgencia);
   }
-}
+} */

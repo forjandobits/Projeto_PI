@@ -27,9 +27,11 @@
   --cor-table-hover: #8a8a8a;
   --cor-background-negar: #ff0000;
   --cor-background-aceitar: #0a740a;
+
   /* Alertas */
+  --cor-aprovado:#2ecc71;
   --cor-pendencia: #ffe08a;
-  --cor-urgencia: #ff8a8a;
+  --cor-negado: #ff8a8a;
 
   --fonte-muito-grande: 4.375rem;
   /* 70px */

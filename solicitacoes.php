@@ -55,8 +55,8 @@
                             <input type="file" name="Arquivo" id="arquivo">
                         </div>
                         <div class="campo resumo">
-                            <label for="pendente">Pendente:</label>
-                            <input type="checkbox" name="Pendencia" id="pendente"></input>
+                            <!-- <label for="pendente">Pendente:</label>
+                            <input type="checkbox" name="Pendencia" id="pendente"></input> -->
 
                             <button type="button" id="concluir">Concluir</button>
                             
