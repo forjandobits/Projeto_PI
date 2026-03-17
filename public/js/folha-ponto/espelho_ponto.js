@@ -1,6 +1,10 @@
 import { enviar } from "../utils/enviar.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const hoje = new Date();
+    const mesAtual = hoje.toISOString().slice(0,7);
+    const campoMes = document.querySelector("#data-mes-ano");
+    campoMes.value = mesAtual;
     const tabela = document.querySelector("#tabela-saida-espelho-ponto");
     const saidaNome = document.querySelector("#saida-nome-funcionario-espelho-ponto");
     const saidaErros = document.querySelector("#saida-erros");
@@ -9,86 +13,64 @@ document.addEventListener("DOMContentLoaded", async () => {
     //console.log("ID recebido da URL:", id);
     const exibir = document.querySelector(".modal");
 
-    tabela.textContent = "";
+    // função para carregar os dados do espelho de ponto
+    
+    async function carregarEspelho() {
 
-    if (id != null && id != "") {    
-        //console.log("Chamando API com id:", id);
+    tabela.innerHTML = "";
 
-        let resposta = await enviar(`${BASE_URL}/api/espelho_ponto.php`, {id: id});
-        //console.log("Resposta da API:", resposta);
-        
-        
-        let dados = resposta.resposta;
+    let resposta = await enviar(`${BASE_URL}/api/espelho_ponto.php`, {
+        id: id,
+        mes: campoMes.value
+    });
 
-        //console.log("Dados recebidos:", dados);
+    let dados = resposta.resposta;
 
-        saidaNome.textContent += dados[0].nome_completo;
+    if (!dados || dados.length === 0) {
+        tabela.innerHTML = "<tr><td colspan='11'>Nenhum registro encontrado</td></tr>";
+        return;
+    }
 
-        console.log(dados[0]);
+    saidaNome.textContent = dados[0].nome_completo;
 
-        dados.forEach(resultado => {
-            let linha = document.createElement("tr");
-            linha.id = resultado.id_jornada;
+    dados.forEach(resultado => {
 
-            let colData = document.createElement("td");
-            colData.textContent = resultado.data;
-            linha.appendChild(colData);
+        let linha = document.createElement("tr");
+        linha.id = resultado.id_jornada;
 
-            let colSemana = document.createElement("td");
-            colSemana.textContent = resultado.dia_semana;
-            linha.appendChild(colSemana);
+        linha.innerHTML = `
+            <td>${resultado.data}</td>
+            <td>${resultado.dia_semana}</td>
+            <td>${resultado.hora_entrada}</td>
+            <td>${resultado.hora_saida ?? ""}</td>
+            <td>${resultado.intervalo_inicio ?? ""}</td>
+            <td>${resultado.intervalo_fim ?? ""}</td>
+            <td>${resultado.total_intervalo ?? ""}</td>
+            <td>${resultado.faltas == null ? "Não" : "Sim"}</td>
+            <td>Não</td>
+            <td>${resultado.total_horas_dia}</td>
+            <td><button class="abrir-modal">...</button></td>
+        `;
 
-            let colEntrada = document.createElement("td");
-            colEntrada.textContent = resultado.hora_entrada;
-            linha.appendChild(colEntrada);
-
-            let colSaida = document.createElement("td");
-            colSaida.textContent = resultado.hora_saida;
-            linha.appendChild(colSaida);
-
-            let colInterSaida = document.createElement("td");
-            colInterSaida.textContent = resultado.intervalo_inicio;
-            linha.appendChild(colInterSaida);
-
-            let colInterRetorno = document.createElement("td");
-            colInterRetorno.textContent = resultado.intervalo_fim;
-            linha.appendChild(colInterRetorno);
-
-            let colTotalInter = document.createElement("td");
-            colTotalInter.textContent = resultado.total_intervalo;
-            linha.appendChild(colTotalInter);
-
-            let colFalta = document.createElement("td");
-            if (resultado.faltas == null) {
-                colFalta.textContent = "Não";
-            } else {
-                colFalta .textContent = "Sim";
-            }
-            linha.appendChild(colFalta);
-
-            let colFeriasAbono = document.createElement("td");
-            colFeriasAbono.textContent = "Não";
-            linha.appendChild(colFeriasAbono);
-
-            let colTotalHoras = document.createElement("td");
-            colTotalHoras.textContent = resultado.total_horas_dia;
-            linha.appendChild(colTotalHoras);
-
-            let btn = document.createElement("button");
-            btn.textContent = "...";
-            btn.className = "abrir-modal"
-            btn.addEventListener("click", () => {
-                exibir.style.display = "flex";
-            });
-
-            let colBtn = document.createElement("td");
-            colBtn.appendChild(btn);
-            linha.appendChild(colBtn);
-
-            tabela.appendChild(linha);
+        linha.querySelector(".abrir-modal").addEventListener("click", () => {
+            exibir.style.display = "flex";
         });
+
+        tabela.appendChild(linha);
+
+    });
+
+}
+    
+    if (id != null && id != "") {
+
+    await carregarEspelho();   
+
+    campoMes.addEventListener("change", () => {
+        carregarEspelho();
+    });
     } else {
         saidaErros.style.color = "red";
         saidaErros.textContent = "Acesso inapropriado, por favor acesse a página pelo controle de ponto";
-    }
+    } 
 });

@@ -11,10 +11,11 @@ if (!$requisicao || !isset($requisicao["id"])) {
 }
 
 $id = (int)$requisicao["id"];
+$mes = $requisicao["mes"];
 
-$sql = "SELECT * FROM view_espelho_ponto WHERE id_funcionario = ?";
+$sql = "SELECT * FROM view_espelho_ponto WHERE id_funcionario = ? AND DATE_FORMAT(data, '%Y-%m') = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
+$stmt->bind_param("is", $id, $mes);
 
 if ($stmt->execute()) {
     $resultado = $stmt->get_result();
