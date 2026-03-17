@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tbody = document.querySelector("table tbody");
     const form = document.querySelector(".modal-cadastro form");
 
+    let input = document.querySelector("#nome");
+    let lista = document.querySelector("#sugentoesNomes");
 
     // ================= CRIAR ÁREA DE MENSAGEM =================
     // Como não existe um elemento de mensagem no HTML,
@@ -94,7 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Carrega as solicitações ao abrir a página
     carregarSolicitacoes();
+    
+    let nomesLista = []
 
+    nomesLista.forEach(item => {
+            {item.nome_completo}
+    });
+
+    input.addEventListener("input", function(){
+
+        lista.innerHTML = ""
+
+        let valor = input.value
+    })
 
     // ================= ENVIAR SOLICITAÇÃO =================
     botao.addEventListener("click", async (e) => {
