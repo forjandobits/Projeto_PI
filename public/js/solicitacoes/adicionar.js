@@ -106,6 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const input = document.querySelector(inputSelector);
             const lista = document.querySelector(listaSelector);
 
+            if (!input || !lista) {
+                console.error("Input ou lista não encontrados");
+                return;
+            }
+
             input.addEventListener("input", function(){
 
                 lista.innerHTML = "";
@@ -122,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         li.addEventListener("click", () => {
                             input.value = item.nome_completo;
-                            lista.innerHTML = "";
+                            lista.innerHTML = ""; // limpa corretamente
                         });
 
                         lista.appendChild(li);
@@ -134,18 +139,18 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Erro:", erro);
         }
     }
-
+    
     ativarAutocomplete("#nome", "#sugestoesNomes");
-
+    
     // ================= ENVIAR SOLICITAÇÃO =================
     botao.addEventListener("click", async (e) => {
-
+        
         // Impede o formulário de recarregar a página
         e.preventDefault();
-
+        
         // Captura o nome digitado
         const nome = document.querySelector("#nome").value;
-
+        
         // Validação simples
         if (nome.length < 3) {
 

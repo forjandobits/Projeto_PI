@@ -29,7 +29,8 @@
                             <label for="nome">Colaborador:</label>
                             
                             <input name="Nome" id="nome" type="text" placeholder="Ex.: José da Silva" required>
-                            <ul id="sugentoesNomes"></ul>
+                            <ul id="sugestoesNomes"></ul>
+
                         </div>
                         <div class="campo">
                             <label for="opcoes">Tipo de Solicitação:</label>
