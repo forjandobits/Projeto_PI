@@ -3,7 +3,6 @@
 
 <?php
 require_once __DIR__ . "../banco-de-dados/conexao.php";
-echo "conectou";
 
 $filtro = $_GET['Filtro'] ?? '';
 
@@ -12,7 +11,7 @@ if ($filtro != "") {
     $sql = "SELECT nome_completo FROM tb_funcionario WHERE nome_completo LIKE ?";
     $stmt = $conn->prepare($sql);
 
-    $param = "%" . $filtro . "";
+    $param = "%" . $filtro . "%";
     $stmt->bind_param("s", $param);
 
     $stmt->execute();
@@ -26,10 +25,6 @@ if ($filtro != "") {
 }
 ?>
 
-$sql = "SELECT nome_completo FROM tb_funcionario";
-$resultado = $conn->query($sql);
-?>
-
 <main>
     <article class="cabecalhos">
         <h1>Controle de Ponto</h1>
@@ -39,7 +34,13 @@ $resultado = $conn->query($sql);
         <form method="GET">
             <section class="areas-form">
                 <div class="campo">
-                    <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Funcionário" required>
+                    <input 
+                        type="text"
+                        name="Filtro"
+                        id="filtro"
+                        placeholder="Ex.: Nome do Funcionário"
+                        value="<?= $filtro ?>"
+                        >
                 </div>
 
                 <div class="campo">
@@ -63,7 +64,7 @@ $resultado = $conn->query($sql);
                     </tr>
                 </thead>
 
-                <tbody id="tabela-saida-ponto">
+                <tbody>
 
                     <?php while($row = $resultado->fetch_assoc()) { ?>
 
@@ -71,7 +72,11 @@ $resultado = $conn->query($sql);
                         <td><?= $row['nome_completo'] ?></td>
                         <td>00:00</td>
                         <td>Em Serviço</td>
-                        <td><a href="espelho_de_ponto.php"><button>Visualizar</button></a></td>
+                        <td>
+                            <a href="espelho_de_ponto.php">
+                                <button>Visualizar</button>
+                            </a>
+                        </td>
                     </tr>
 
                     <?php } ?>

@@ -10,7 +10,7 @@ $nome = $_GET['nome_completo'] ?? '';
 $sql = "SELECT nome_completo FROM tb_funcionario WHERE nome_completo LIKE ? LIMIT 10";
 $stmt = $conn->prepare($sql);
 
-$param = "%" .$nome."";
+$param = "%" .$nome."%";
 $stmt->bind_param("s", $param);
 
 $stmt->execute();
