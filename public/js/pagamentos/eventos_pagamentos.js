@@ -253,8 +253,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             nomeCargo.textContent = cargo;
             
-            // console.log(idSalario);
-            // Com o valor estático funciona, dinâmico não
             valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "1", valor: salario }]});
             calcularContribuicoesDescontos(salario);
         })
