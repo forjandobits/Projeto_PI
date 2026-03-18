@@ -13,6 +13,7 @@ if (!$requisicao || !isset($requisicao["id"])) {
 $id = (int)$requisicao["id"];
 $mes = $requisicao["mes"];
 
+
 $sql = "SELECT * FROM view_espelho_ponto WHERE id_funcionario = ? AND DATE_FORMAT(data, '%Y-%m') = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("is", $id, $mes);
@@ -30,4 +31,5 @@ if ($stmt->execute()) {
 } else {
     echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);
 }
+
 ?>

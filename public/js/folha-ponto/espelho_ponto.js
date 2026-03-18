@@ -7,8 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+    //isis
+    const campoMes = document.querySelector("#data-mes-ano");
+    const hoje = new Date();
+    campoMes.value = hoje.toISOString().slice(0,7);
+    //fim isis
 
-    carregarPontos(id, tabela, saidaMensagens, saidaNome);
+    carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
+
+    campoMes.addEventListener("change", () => {
+        carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
+    });
+    
 
     btnSalvarPonto.addEventListener("click", (e) => {
         e.preventDefault();
@@ -16,8 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
         editarPonto(saidaMensagens);
 
         carregarPontos(id, tabela, saidaMensagens, saidaNome);
+        
     });
-        async function carregarEspelho() {
+       /*  async function carregarEspelho() {
 
     tabela.innerHTML = "";
 
@@ -74,5 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         saidaErros.style.color = "red";
         saidaErros.textContent = "Acesso inapropriado, por favor acesse a página pelo controle de ponto";
-    } 
+    }  */
 });

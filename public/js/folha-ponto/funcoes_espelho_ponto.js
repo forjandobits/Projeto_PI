@@ -1,12 +1,18 @@
 import { enviar } from "../utils/enviar.js";
 
-export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
+export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome) {
     const exibir = document.querySelector(".modal");
     const informacoesPonto = document.querySelector("#informacoes-ponto");
     const horaEntrada = document.querySelector("#hora-entrada");
     const intervaloSaida = document.querySelector("#intervalo-saida");
     const intervaloRetorno = document.querySelector("#intervalo-retorno");
     const horaSaida = document.querySelector("#hora-saida");
+    //Isis
+ /*    const hoje = new Date();
+    const mesAtual = hoje.toISOString().slice(0,7);
+    const campoMes = document.querySelector("#data-mes-ano");
+    campoMes.value = mesAtual; */
+    //fim Isis
     let resposta = {};
     let dados = [];
     let id_funcionario = 0;
@@ -17,7 +23,7 @@ export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
     tabela.textContent = "";
 
     if (id != null && id != "") {
-        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, { id: id });
+        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id: id, mes: mes});
 
         dados = resposta.resposta;
 
