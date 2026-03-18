@@ -25,13 +25,16 @@
     
                 <section class="areas-form">
                     <div class="grupo-campo">
+                        
                         <div class="campo">
                             <label for="nome">Colaborador:</label>
                             
-                            <input name="Nome" id="nome" type="text" placeholder="Ex.: José da Silva" required>
-                            <ul id="sugestoesNomes"></ul>
-
+                            <input name="Nome" id="nome" type="text" autocomplete="off" placeholder="Ex.: José da Silva" required>
+                            <!-- <ul id="sugestoesNomes"></ul> -->
+                            <datalist id="sugestoesNomes"></datalist>
+                            
                         </div>
+
                         <div class="campo">
                             <label for="opcoes">Tipo de Solicitação:</label>
                             <select name="Opcoes" id="opcoes" required>

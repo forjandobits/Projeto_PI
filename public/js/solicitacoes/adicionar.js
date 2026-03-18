@@ -95,53 +95,44 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarSolicitacoes();
 
     // ================= AUTOCOMPLETE =================
-    async function ativarAutocomplete(inputSelector, listaSelector){
 
-        try {
-            const response = await fetch(`${BASE_URL}/api/listar_solicitacao.php`);
-            const dados = await response.json();
+    async function autocompleteDatalist(inputSelector, datalistSelector) {
+    try {
+        const response = await fetch(`${BASE_URL}/api/listar_funcionarios.php`);
+        const dados = await response.json();
 
-            const nomesLista = [].concat(dados);
+        const listaNomes = dados.map(item => item.nome_completo);
 
-            const input = document.querySelector(inputSelector);
-            const lista = document.querySelector(listaSelector);
+        const input = document.querySelector(inputSelector);
+        const datalist = document.querySelector(datalistSelector);
 
-            if (!input || !lista) {
-                console.error("Input ou lista não encontrados");
-                return;
-            }
+        input.addEventListener("input", function () {
+            const valor = input.value.toLowerCase().trim();
 
-            input.addEventListener("input", function(){
+            datalist.innerHTML = "";
 
-                lista.innerHTML = "";
-                const valor = input.value.toLowerCase();
+            if (valor === "") return;
 
-                if(valor === "") return;
+            const filtrados = listaNomes
+                .filter(nome => nome.toLowerCase().includes(valor))
+                .slice(0, 5);
 
-                nomesLista.forEach(item => {
+            filtrados.forEach(nome => {
+                const option = document.createElement("option");
+                option.value = nome;
 
-                    if(item.nome_completo.toLowerCase().includes(valor)){
-
-                        const li = document.createElement("li");
-                        li.textContent = item.nome_completo;
-
-                        li.addEventListener("click", () => {
-                            input.value = item.nome_completo;
-                            lista.innerHTML = ""; // limpa corretamente
-                        });
-
-                        lista.appendChild(li);
-                    }
-                });
+                datalist.appendChild(option);
             });
+        });
 
-        } catch (erro) {
-            console.error("Erro:", erro);
-        }
+    } catch (erro) {
+        console.error("Erro no autocomplete:", erro);
     }
-    
-    ativarAutocomplete("#nome", "#sugestoesNomes");
-    
+}
+
+autocompleteDatalist("#nome", "#sugestoesNomes");
+
+
     // ================= ENVIAR SOLICITAÇÃO =================
     botao.addEventListener("click", async (e) => {
         
