@@ -118,10 +118,10 @@ export function mostrarMensagem(texto) {
     return;
 }
 
-nomeVazio();
-nomeExiste();
-evenSelec();
-folhaVazia();
-dataVazia();
-datasDistantes();
-sairSalvar();
+// nomeVazio();
+// nomeExiste();
+// evenSelec();
+// folhaVazia();
+// dataVazia();
+// datasDistantes();
+// sairSalvar();

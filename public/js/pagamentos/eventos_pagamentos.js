@@ -1,4 +1,5 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
+import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { mostrarMensagem } from "./validacoes.js";
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -7,6 +8,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const valoresUnidos = [];
 
     // Função para manipulação de elementos visuais e experiência de usuário
+
+    const parametrosURL = new URLSearchParams(window.location.search);
+    const idFolha = parametrosURL.get('id');
+
+    if(idFolha){
+        alert('Você deve inserir os dados já lançados na folha!');
+
+        exibirDadosFolhaLancadas();
+    }
     
     async function criarEventos() {
         const criarEvento = document.querySelector("#adicionar-evento");
