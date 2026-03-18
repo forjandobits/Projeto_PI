@@ -63,15 +63,15 @@ section{
 
 /* Animações para urgências e pendências */
 
-.pendente , .pendente:nth-child(odd){
+.pendente , .pendente:nth-child(odd) , .pendente:hover {
   background-color: var(--cor-pendencia);
 }
 
-.aprovado , .aprovado:nth-child(odd){
+.aprovado , .aprovado:nth-child(odd) , .aprovado:hover {
   background-color: var(--cor-aprovado);
 }
 
-.negado , .negado:nth-child(odd) {
+.negado , .negado:nth-child(odd) , .negado:hover {
   background-color: var(--cor-negado);
 }
 

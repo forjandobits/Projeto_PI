@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const tbody = document.querySelector("table tbody");
     const form = document.querySelector(".modal-cadastro form");
 
-
     // ================= CRIAR ÁREA DE MENSAGEM =================
     // Como não existe um elemento de mensagem no HTML,
     // criamos dinamicamente usando JavaScript
@@ -55,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Faz requisição para API que lista solicitações
             const dados = await fetch(`${BASE_URL}/api/listar_solicitacao.php`)
-            .then(r => r.json());
+            .then(r => r.json()); 
 
             // Garante que sempre será um array
             const lista = [].concat(dados);
@@ -95,16 +94,54 @@ document.addEventListener("DOMContentLoaded", () => {
     // Carrega as solicitações ao abrir a página
     carregarSolicitacoes();
 
+    // ================= AUTOCOMPLETE =================
+
+    async function autocompleteDatalist(inputSelector, datalistSelector) {
+    try {
+        const response = await fetch(`${BASE_URL}/api/listar_funcionarios.php`);
+        const dados = await response.json();
+
+        const listaNomes = dados.map(item => item.nome_completo);
+
+        const input = document.querySelector(inputSelector);
+        const datalist = document.querySelector(datalistSelector);
+
+        input.addEventListener("input", function () {
+            const valor = input.value.toLowerCase().trim();
+
+            datalist.innerHTML = "";
+
+            if (valor.length < 3) return;
+
+            const filtrados = listaNomes
+                .filter(nome => nome.toLowerCase().includes(valor));
+
+
+            filtrados.forEach(nome => {
+                const option = document.createElement("option");
+                option.value = nome;
+
+                datalist.appendChild(option);
+            });
+        });
+
+    } catch (erro) {
+        console.error("Erro no autocomplete:", erro);
+    }
+}
+
+autocompleteDatalist("#nome", "#sugestoesNomes");
+
 
     // ================= ENVIAR SOLICITAÇÃO =================
     botao.addEventListener("click", async (e) => {
-
+        
         // Impede o formulário de recarregar a página
         e.preventDefault();
-
+        
         // Captura o nome digitado
         const nome = document.querySelector("#nome").value;
-
+        
         // Validação simples
         if (nome.length < 3) {
 
