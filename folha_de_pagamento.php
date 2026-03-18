@@ -15,7 +15,7 @@
 
     <section class="resumo-final">
           <p>Total Líquido (R$): 0,00</p>
-          <button class='abrir-modal'>Eventos</button>
+          <button class='abrir-modal visualizacao'>Eventos</button>
           <button id="enviar-dados">Lançar</button>
     </section>
     
