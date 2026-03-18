@@ -34,24 +34,19 @@ function nomeVazio() {
 };
 
 
-// function evenSelec() {
-//     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-//     // ativação = select
-//     // errado, não é pra ta aqui, mas to com preguiça de arrumar o código do zoto
-
-//     let texto = ""
-//     foreach(even == eventoPgamento){
-//         beneficio[even] = beneficios(select)[even].value
-//         if(beneficio[even] == beneficio[even -1]){
-//             texto = "não pode ter 2 eventos iguais!!"
-//             mostrarMensagem(texto)
-//         }
-//         else{
-//             mostrarMensagem(texto)
-//         }
-//     }
-
-// }
+// se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
+                        // errado, a arrumar
+                        // let texto = "";
+                        // foreach(even == eventoPagamento){
+                        //     let beneficio = beneficios(select)[even].value;
+                        //     if(beneficio[even] == beneficio[even -1]){
+                        //         texto = "não pode ter 2 eventos iguais!!"
+                        //         mostrarMensagem(texto);
+                        //     }
+                        //     else{
+                        //         mostrarMensagem(texto);
+                        //     }
+                        // }
 
 
 
@@ -81,13 +76,14 @@ function datasDistantes() {
     // se a data que for introduzida for muito distante da data atual, enviar uma menssagem de confirmação
     // ativação = click
 
-    // não vai dar certo, isso é só a base
+    // não vai dar certo pois a data que eu estou tentando referenciar não tem dias, isso é só a base
 
     const data = document.querySelector("#data-mes-ano");
     let texto = "";
 
     data.addEventListener("click", () =>{
         dt10 = data + 10
+        
         if(dt10 == DateTime(currentDate)){
             texto = "Não pode editar a folha depois do envio";
             mostrarMensagem(texto);
