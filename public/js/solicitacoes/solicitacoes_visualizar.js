@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const linha = botao.closest("tr");
         const id = linha.getAttribute("data-id");
 
-        console.log("ID enviado:", id);
-
             // Faz requisição e retorna os dados
             fetch(`/Projeto_PI/api/solicitacoes_visualizar.php?id=${id}`)
                 .then(response => response.json())
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.querySelector('#modal-exibir-observacao').value = dados.observacao;
                     document.querySelector('#modal-motivo-recusar').value = dados.motivo || "";
 
-
                     if (dados.status === "Pendente") {
                         btnAceitar.disabled = false;
                         btnNegar.disabled = false;
@@ -50,10 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         areasBotoes.style.display = 'flex';
                         mensagem.style.display = 'none';
                         
-
                     }  else {
                         document.querySelector('#modal-motivo-recusar').readOnly  = true;
-
 
                         btnAceitar.disabled = true;
                         btnNegar.disabled = true;
@@ -62,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         mensagem.className = "";
                         mensagem.style.display = 'block';
                         mensagem.textContent = "Status: " + dados.status;
-
                     }
 
                     document.querySelector('#modal-solicitacoes').style.display = 'block'; // Exibe o modal alterado
@@ -105,9 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             location.reload(); // recarrega a página
         }, 2000);
         });
-            
-        console.log("Solicitação autorizada!");
-        
+                  
     })
 
     // ====== Botão Negar ==> Atualiza o status para Negado ======
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
         if (motivo.value.trim() === "") {
-            mensagem.className = "";
+            mensagem.className = ""; // Limpando a classe mensagem
             mensagem.textContent = "Motivo da recusa deve ser preenchido!: ";
             mensagem.style.display = "block";
             mensagem.classList.add("msg-erro", "msg-menor");
@@ -141,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            mensagem.className = "";
+            mensagem.className = ""; // Limpando a classe mensagem
             mensagem.textContent = "Solicitação negada";
             mensagem.style.display = "block";
             mensagem.classList.add("msg-sucesso", "msg-menor");
@@ -151,11 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2000);
         });
 
-        console.log("Solicitação Negada") 
     });
-
-    
-    
 
 });
 

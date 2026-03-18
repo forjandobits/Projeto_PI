@@ -164,6 +164,8 @@ figure:hover {
 }
 
 .msg-menor {
+  margin: 10px;
+  padding: 10px;
   font-size: 20px;
 }
 
