@@ -196,21 +196,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const temaSalvo = localStorage.getItem("tema");
 
-    if(temaSalvo){
+    if (temaSalvo) {
+
+        document.body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
+        document.body.classList.add("tema-" + temaSalvo);
+
         trocarIcones(temaSalvo);
+
+        const radio = document.querySelector(`input[name="tema"][value="${temaSalvo}"]`);
+        if (radio) radio.checked = true;
     }
 
     function trocarIcones(tema) {
         const icones = document.querySelectorAll("[data-icon]");
 
         icones.forEach(icone => {
-            const nome = icone.dataset.icone;
+            const nome = icone.dataset.icon;
+            const path = icone.dataset.path;
 
-            if(tema === "contraste"){
-                icone.src = `public/img/icones/${nome}-contraste.png`;
+            if (tema === "contraste") {
+                icone.src = `${path}${nome}-contraste.png`;
             } else {
-                icone.src = `public/img/icones/${nome}-claro.png`;
+                icone.src = `${path}${nome}-claro.png`;
             }
+
         });
     }
 

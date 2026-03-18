@@ -142,10 +142,6 @@ figure:hover {
   height: 85.89px;
 }
 
-.logo-hm-cerebro{
-  background-image: var(--logo-hm-cerebro);
-}
-
 .imagem-tela-inicial {
   object-fit: cover;
   width: 150px;
@@ -205,7 +201,7 @@ body.tema-claro{
   --cor-background-campo-cinza: #858181;
   --logo-hm-cerebro: url("../img/logo-hm-cerebro-claro.png");
   --icone-avatar: url("../img/avatar-claro.png");
-  --icone-cerebro: url("../img/Cerebro.ico"); /*tem que ajustar, as imagens não estão batendo*/
+  --icone-cerebro: url("../img/cerebro.png");
   --icone-banco-de-horas: url("../img/icones/pontos-contraste.png");
   --icone-configuracoes: url("../img/icones/configuracoes-contraste.png");
   --icone-funcionarios: url("../img/icones/funcionarios-contraste.png");
@@ -242,7 +238,7 @@ body.tema-contraste{
   --cor-background-header:  #0044ff;
   --cor-background-tabela: #0044ff;
   --cor-background-campo-cinza: #858181;
-  --cor-background-azul: #858181;
+  --cor-background-azul: #f9fd00;
   --cor-titulo-azul: #000000;
   --logo-hm-cerebro: url("../img/logo-hm-cerebro-contraste.png");
   --icone-avatar: url("../img/avatar-contraste.png");
@@ -263,38 +259,7 @@ body.tema-contraste{
   height: 60px;
   background-size: contain;
   background-position: center;
-}
-
-.icone-avatar{
-  background-image: var(icone-avatar);
-}
-
-.icone-banco-de-horas{
-  background-image: var(--icone-banco-de-horas);
-}
-
-.icone-configuracoes{
-  background-image: var(--icone-configuracoes);
-}
-
-.icone-funcionarios{
-  background-image: var(--icone-funcionarios);
-}
-
-.icone-inicio{
-  background-image: var(--icone-inicio);
-}
-
-.icone-recibos{
-  background-image: var(--icone-recibos);
-}
-
-.icone-pontos{
-  background-image: var(--icone-pontos);
-}
-
-.icone-solicitacoes{
-  background-image: var(--icone-solicitacoes);
+  background-repeat: no-repeat;
 }
 
 /* Mensagens */

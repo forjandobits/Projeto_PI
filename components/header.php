@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="public/css/correcoes.css">
     <link rel="stylesheet" href="public/css/modal.css">
 
-    <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="public/cerebro.png" type="image/x-icon" data-icon='cerebro' data-path='public/img/'/>
     <script src="public/js/sidebar.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -32,7 +32,7 @@
 </head>
 <body>
     <header>
-        <img class='logo logo-hm-cerebro' src="public/img/logo-hm-cerebro-claro.png" alt="logo humanamente" data-icon='logo-hm'>
+        <img class='logo logo-hm-cerebro' src="public/img/logo-hm-cerebro-claro.png" alt="logo humanamente" data-icon='logo-hm-cerebro' data-path='public/img/'>
     </header>
 
 <!-- Dessa forma é possível apenas com o "include" chamar todas as configurações passadas 
