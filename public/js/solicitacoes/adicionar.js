@@ -111,11 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             datalist.innerHTML = "";
 
-            if (valor === "") return;
+            if (valor.length < 3) return;
 
             const filtrados = listaNomes
-                .filter(nome => nome.toLowerCase().includes(valor))
-                .slice(0, 5);
+                .filter(nome => nome.toLowerCase().includes(valor));
+
 
             filtrados.forEach(nome => {
                 const option = document.createElement("option");

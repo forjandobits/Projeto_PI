@@ -29,9 +29,11 @@
                         <div class="campo">
                             <label for="nome">Colaborador:</label>
                             
-                            <input name="Nome" id="nome" type="text" autocomplete="off" placeholder="Ex.: José da Silva" required>
+                            <input name="Nome" id="nome" type="text" list="sugestoesNomes" placeholder="Ex.: José da Silva" required>
                             <!-- <ul id="sugestoesNomes"></ul> -->
-                            <datalist id="sugestoesNomes"></datalist>
+                            <datalist id="sugestoesNomes">
+                                <option></option>
+                            </datalist>
                             
                         </div>
 
