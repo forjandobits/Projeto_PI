@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const idFolha = parametrosURL.get('id');
 
     if(idFolha){
-        alert('Você deve inserir os dados já lançados na folha!');
 
         exibirDadosFolhaLancadas();
     }
@@ -278,7 +277,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let descontoIRPF = 0;
         let descontoVT = 0;
         let valorFGTS = 0;
-        alert(`Salário pego nas contribuições: ${salario}`);
 
         // Até 1621 - 7,5%
         // De 1621.01 até 2902,84 9%
@@ -339,7 +337,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const beneficiosDescontos = await listarBeneficiosDescontos();
 
-                alert(valoresRecebidos);
                 valoresRecebidos.forEach(item => {
 
                     // criar uma nova linha e inserir na tabela
