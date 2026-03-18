@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     situacao.textContent = 'DESLIGADO'
                 }
 
-                desligar.innerHTML = "<button class='desligar'>Desligar</button>";
+                // desligar.innerHTML = "<button class='desligar'>Desligar</button>";
+                desligar.innerHTML = `<button class='desligar' id='${id}'>Desligar</button>`;
                 visualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
             });
         }
@@ -141,15 +142,37 @@ document.addEventListener('DOMContentLoaded', function(){
         });
         
     }
-async function desligar(){
-    document.addEventListener("click", function(e) {
-        if (e.target.classList.contains("desligar")) {
-            alert("Clicou!");
-        }
-    });
+    
+    async function desligarFuncionario() {
+
+        document.addEventListener("click", async function(e) {
+
+            if (e.target.classList.contains("desligar")) {
+
+                const botao = e.target;
+                const idFuncionario = botao.getAttribute("id");
+
+                const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id_funcionario: idFuncionario
+                    })
+                });
+
+                const resultado = await resposta.text();
+
+                if (resultado === "ok") {
+                    alert("Desligado com sucesso!");
+                    desativarLinha(botao);
+                }
+            }
+        });
 }
 
 listarFuncionarios();
 exibiInformacoes();
-desligar();
+desligarFuncionario();
 });
