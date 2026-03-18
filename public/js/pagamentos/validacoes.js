@@ -3,7 +3,6 @@
 // "Valor Vazio" X
 // "Opção de Evento Selecionada" --
 // "Data vazia" X
-// "Datas Muito Distantes" = Muito antes ou Muito depois da data atual --
 // "Sair sem Salvar"  --
 
 // até esse comentario ser apagado, por favor não leve nada que
@@ -13,6 +12,10 @@
 // class = ".classe"
 // id = "#id"
 // tag = ""
+
+function bloqueiaBotao(){
+
+}
 
 
 function nomeVazio() {
@@ -33,20 +36,23 @@ function nomeVazio() {
     })
 };
 
-
+function eventoSelecionado(beneficios){
 // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-                        // errado, a arrumar
-                        // let texto = "";
-                        // foreach(even == eventoPagamento){
-                        //     let beneficio = beneficios(select)[even].value;
-                        //     if(beneficio[even] == beneficio[even -1]){
-                        //         texto = "não pode ter 2 eventos iguais!!"
-                        //         mostrarMensagem(texto);
-                        //     }
-                        //     else{
-                        //         mostrarMensagem(texto);
-                        //     }
-                        // }
+    // errado, a arrumar
+    let texto = "";
+    beneficios.foreach((even, eventoPagamento) => {
+
+        let beneficio = beneficios(select)[even].value;
+        if(beneficio[even] == beneficio[even -1]){
+            texto = "não pode ter 2 eventos iguais!!"
+            mostrarMensagem(texto);
+        }
+        else{
+            mostrarMensagem(texto);
+        }
+    });
+    
+}
 
 
 
@@ -72,28 +78,6 @@ function dataVazia() {
 
 }
 
-function datasDistantes() {
-    // se a data que for introduzida for muito distante da data atual, enviar uma menssagem de confirmação
-    // ativação = click
-
-    // não vai dar certo pois a data que eu estou tentando referenciar não tem dias, isso é só a base
-
-    const data = document.querySelector("#data-mes-ano");
-    let texto = "";
-
-    data.addEventListener("click", () =>{
-        dt10 = data + 10
-        
-        if(dt10 == DateTime(currentDate)){
-            texto = "Não pode editar a folha depois do envio";
-            mostrarMensagem(texto);
-        }
-        else{
-            mostrarMensagem(texto)
-        }
-    })
-
-}
 
 function sairSalvar() {
     // se o botão de sair o pop-up for clicado, enviar uma menssagem de confirmação
@@ -114,10 +98,8 @@ export function mostrarMensagem(texto) {
     return;
 }
 
-// nomeVazio();
-// nomeExiste();
-// evenSelec();
-// folhaVazia();
-// dataVazia();
-// datasDistantes();
-// sairSalvar();
+nomeVazio();
+dataVazia();
+sairSalvar();
+bloqueiaBotao();
+eventoSelecionado();

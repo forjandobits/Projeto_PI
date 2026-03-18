@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const beneficiosDescontos = await listarBeneficiosDescontos();
 
         if (criarEvento) {
+            let c = 0;
+
             criarEvento.addEventListener("click", () => {
 
                 // Buscando os elementos para adicionar um após o outro e abaixo
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         label.textContent = "Benefícios:"
                         label.htmlFor = "beneficios";
 
+
                         // Varredura dos elementos retornados que serão 
                         // apresentados nas opções e buscar apenas os benefícios
                         const beneficios = beneficiosDescontos.filter(benDes => benDes.desconto === "0")
@@ -60,10 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
 
                         select.name = "Beneficios";
-                        select.id = "beneficios";
+                        select.id = "beneficios" + c;
                         select.required = true;
                         // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                         div.append(label, select);
+
+                        c++;
                     }
 
                     if (i == 2) {
