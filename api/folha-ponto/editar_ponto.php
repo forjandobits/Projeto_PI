@@ -16,6 +16,7 @@ $hora_entrada = (string)$requisicao["hora_entrada"];
 $hora_saida = (string)$requisicao["hora_saida"];
 $intervalo_inicio = (string)$requisicao["intervalo_inicio"];
 $intervalo_fim = (string)$requisicao["intervalo_fim"];
+$ferias_falta = (int)$requisicao["ferias_falta"];
 
 $sql = "UPDATE tb_jornada SET hora_entrada = ?, hora_saida = ?, intervalo_inicio = ?, intervalo_fim = ? WHERE id_funcionario = ? AND id_jornada = ?;";
 $stmt = $conn->prepare($sql);

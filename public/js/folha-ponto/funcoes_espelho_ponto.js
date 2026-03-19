@@ -114,12 +114,13 @@ export async function editarPonto(saidaMensagens) {
     const intervaloSaida = document.querySelector("#intervalo-saida");
     const intervaloRetorno = document.querySelector("#intervalo-retorno");
     const horaSaida = document.querySelector("#hora-saida");
+    const feriasFaltaAbonada = document.querySelector("#ferias-falta-abonada");
     let idFuncionario = informacoesPonto.dataset.id_funcionario;
     let idJornada = informacoesPonto.dataset.id_jornada;
     let resposta = {};
     let dados = [];
 
-    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, {id_funcionario: idFuncionario, id_jornada: idJornada, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value});
+    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, {id_funcionario: idFuncionario, id_jornada: idJornada, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value, ferias_falta: feriasFaltaAbonada.value});
 
     dados = resposta.resposta;
     
