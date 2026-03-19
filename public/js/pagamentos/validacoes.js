@@ -36,23 +36,23 @@ function nomeVazio() {
     })
 };
 
-function eventoSelecionado(beneficios){
-// se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-    // errado, a arrumar
-    let texto = "";
-    beneficios.foreach((even, eventoPagamento) => {
+// export function eventoSelecionado(beneficios){
+// // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
+//     // errado, a arrumar
+//     let texto = "";
+//     beneficios.foreach((even, eventoPagamento) => {
 
-        let beneficio = beneficios(select)[even].value;
-        if(beneficio[even] == beneficio[even -1]){
-            texto = "não pode ter 2 eventos iguais!!"
-            mostrarMensagem(texto);
-        }
-        else{
-            mostrarMensagem(texto);
-        }
-    });
+//         let beneficio = beneficios(select)[even].value;
+//         if(beneficio[even] == beneficio[even -1]){
+//             texto = "não pode ter 2 eventos iguais!!"
+//             mostrarMensagem(texto);
+//         }
+//         else{
+//             mostrarMensagem(texto);
+//         }
+//     });
     
-}
+// }
 
 
 
@@ -102,4 +102,3 @@ nomeVazio();
 dataVazia();
 sairSalvar();
 bloqueiaBotao();
-eventoSelecionado();
