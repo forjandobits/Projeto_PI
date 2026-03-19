@@ -139,8 +139,7 @@ export async function exibiInformacoes(id) {
 
 }
 
-export async function exibiInformacoes2(id) {
-    console.log('chegou na função')
+export async function exibiInformacoesEditar(id) {
 
     const respotaFuncionario = await fetch(`${BASE_URL}/api/funcionarios/exibir_dados_funcionario.php`, {
         method: "POST",
