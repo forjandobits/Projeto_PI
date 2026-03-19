@@ -1,9 +1,14 @@
 <?php
+
+die("DEBUG API ESPelho");
+
 header("Content-Type: application/json");
 
 require_once __DIR__ . "/../banco-de-dados/conexao.php";
 
 $requisicao = json_decode(file_get_contents("php://input"), true);
+echo json_encode(["debug" => "entrei no espelho_ponto"]);
+exit;
 
 if (!$requisicao || !isset($requisicao["id"])) {
     echo json_encode(["status" => "erro", "resposta" => "requisição inválida"]);
@@ -11,12 +16,28 @@ if (!$requisicao || !isset($requisicao["id"])) {
 }
 
 $id = (int)$requisicao["id"];
-$mes = $requisicao["mes"];
+$mes = $requisicao["mes"] ?? date("Y-m");
+$dataInicio = $mes . "-01";
+$dataFim = date("Y-m-d", strtotime("$dataInicio +1 month"));
+
+echo json_encode([
+    "mes_recebido" => $mes,
+    "data_inicio" => $dataInicio,
+    "data_fim" => $dataFim
+]);
+exit;
 
 
-$sql = "SELECT * FROM view_espelho_ponto WHERE id_funcionario = ? AND DATE_FORMAT(data, '%Y-%m') = ?";
+$sql = "SELECT * 
+        FROM view_espelho_ponto 
+        WHERE id_funcionario = ?
+        AND data >= ?
+        AND data < ?";
+
+
+
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("is", $id, $mes);
+$stmt->bind_param("iss", $id, $dataInicio, $dataFim);
 
 if ($stmt->execute()) {
     $resultado = $stmt->get_result();

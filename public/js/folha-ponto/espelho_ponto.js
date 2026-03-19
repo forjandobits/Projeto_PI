@@ -10,12 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     //isis
     const campoMes = document.querySelector("#data-mes-ano");
     const hoje = new Date();
-    campoMes.value = hoje.toISOString().slice(0,7);
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+
+    campoMes.value = `${ano}-${mes}`;
     //fim isis
 
     carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
 
     campoMes.addEventListener("change", () => {
+        console.log("Mês mudou para:", campoMes.value);
         carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
     });
     
@@ -25,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         editarPonto(saidaMensagens);
 
-        carregarPontos(id, tabela, saidaMensagens, saidaNome);
+        carregarPontos(id,campoMes.value, tabela, saidaMensagens, saidaNome);
         
     });
        /*  async function carregarEspelho() {

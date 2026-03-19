@@ -20,12 +20,25 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     let linha = "";
     let coluna = "";
 
-    tabela.textContent = "";
+    //tabela.textContent = "";
+    tabela.innerHTML = "";
+
+    console.log("mes enviado:", mes);
 
     if (id != null && id != "") {
+        dados = [];
+
         resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id: id, mes: mes});
 
-        dados = resposta.resposta;
+        console.log("Resposta completa:", resposta);
+
+        dados = resposta.resposta || [];
+
+        //se nao tiver registros no mes corrente
+        if (!dados || dados.length === 0) {
+            tabela.innerHTML = "<tr><td colspan='11'>Nenhum registro encontrado</td></tr>";
+        return;
+}
 
         saidaNome.textContent = `Espelho de Ponto - ${dados[0].nome_completo}`;
 
