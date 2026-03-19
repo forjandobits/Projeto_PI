@@ -154,7 +154,7 @@ export async function exibiInformacoes2(id) {
     })
 
     const dadosFuncionario = await respotaFuncionario.json();
-    const nomeCompleto = document.querySelector('#nome-completo');
+    const nomeCompleto = document.querySelector('#nome-completo986');
     const telefone = document.querySelector('#telefone');
     const email = document.querySelector('#email');
     const dataNasc = document.querySelector('#data-nasc');
