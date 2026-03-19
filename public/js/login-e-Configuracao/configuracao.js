@@ -189,7 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
             body.classList.add("tema-" + this.value);
-            trocarIcones(this.value);
+            if (window.trocarIconesGlobal) {
+                window.trocarIconesGlobal(this.value);
+            }
             localStorage.setItem("tema", this.value);
         });
     });
@@ -201,27 +203,25 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
         document.body.classList.add("tema-" + temaSalvo);
 
-        trocarIcones(temaSalvo);
-
         const radio = document.querySelector(`input[name="tema"][value="${temaSalvo}"]`);
         if (radio) radio.checked = true;
     }
 
-    function trocarIcones(tema) {
-        const icones = document.querySelectorAll("[data-icon]");
+    // function trocarIcones(tema) {
+    //     const icones = document.querySelectorAll("[data-icon]");
 
-        icones.forEach(icone => {
-            const nome = icone.dataset.icon;
-            const path = icone.dataset.path;
+    //     icones.forEach(icone => {
+    //         const nome = icone.dataset.icon;
+    //         const path = icone.dataset.path;
 
-            if (tema === "contraste") {
-                icone.src = `${path}${nome}-contraste.png`;
-            } else {
-                icone.src = `${path}${nome}-claro.png`;
-            }
+    //         if (tema === "contraste") {
+    //             icone.src = `${path}${nome}-contraste.png`;
+    //         } else {
+    //             icone.src = `${path}${nome}-claro.png`;
+    //         }
 
-        });
-    }
+    //     });
+    // }
 
 });
 
