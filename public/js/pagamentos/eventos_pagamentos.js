@@ -1,6 +1,7 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { mostrarMensagem } from "./validacoes.js";
+// import { eventoSelecionado } from "./validacoes.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     // Arrays para armazenamento
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const beneficiosDescontos = await listarBeneficiosDescontos();
 
         if (criarEvento) {
+            let c = 0;
+
             criarEvento.addEventListener("click", () => {
 
                 // Buscando os elementos para adicionar um após o outro e abaixo
@@ -44,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         // Conteúdo do label e for
                         label.textContent = "Benefícios:"
-                        label.htmlFor = "beneficios";
+                        label.htmlFor = "beneficios"+c;
+
 
                         // Varredura dos elementos retornados que serão 
                         // apresentados nas opções e buscar apenas os benefícios
@@ -59,21 +63,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
 
                         select.name = "Beneficios";
-                        select.id = "beneficios";
+                        select.id = "beneficios" + c;
                         select.required = true;
                         // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                         div.append(label, select);
+
+                        // eventoSelecionado(beneficios);
                     }
 
                     if (i == 2) {
                         // Parte criar o campo para inserir os valores
                         const label = document.createElement("label");
                         label.textContent = "Valor:"
-                        label.htmlFor = "valor";
+                        label.htmlFor = "valor" + c;
 
                         const input = document.createElement("input");
                         input.name = "Valor";
-                        input.id = "valor";
+                        input.id = "valor" + c;
                         input.type = "number";
                         input.placeholder = "200,00"
                         input.required = true;
@@ -106,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Adicionando os elementos criados à página
                 eventoPagamento.append(secao);
+                c++;
             })
         }
     }
