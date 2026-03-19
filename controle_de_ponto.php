@@ -73,7 +73,7 @@ if ($filtro != "") {
                         <td>00:00</td>
                         <td>Em Serviço</td>
                         <td>
-                            <a href="espelho_de_ponto.php">
+                            <a href="espelho_de_ponto.php?id=<">
                                 <button>Visualizar</button>
                             </a>
                         </td>

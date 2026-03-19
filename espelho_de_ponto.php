@@ -1,3 +1,5 @@
+<?php $id = $_GET['id'] ?? 0; ?>
+
 <?php include "./components/header.php" ?>
 
 <?php include "./components/sidebar.php" ?>
@@ -103,7 +105,9 @@
     <section class="resumo-final">
       <p>Banco de Horas(*): 02:34</p>
       <button>Pendências</button>
-      <button>Relatório</button>
+      <a href ="api/relatorio.php?id=<? $id ?>" target="_blank">
+          <button>Relatório</button>
+      </a>
       <button>Salvar</button>
     </section>
 
