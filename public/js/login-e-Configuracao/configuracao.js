@@ -207,21 +207,5 @@ document.addEventListener("DOMContentLoaded", () => {
         if (radio) radio.checked = true;
     }
 
-    // function trocarIcones(tema) {
-    //     const icones = document.querySelectorAll("[data-icon]");
-
-    //     icones.forEach(icone => {
-    //         const nome = icone.dataset.icon;
-    //         const path = icone.dataset.path;
-
-    //         if (tema === "contraste") {
-    //             icone.src = `${path}${nome}-contraste.png`;
-    //         } else {
-    //             icone.src = `${path}${nome}-claro.png`;
-    //         }
-
-    //     });
-    // }
-
 });
 

@@ -36,7 +36,7 @@
 
                         if (!nome || !path) return;
 
-                        if (tema === "contraste") {
+                        if (tema === "contraste" || tema === "escuro") {
                             icone.src = `${path}${nome}-contraste.png`;
                         } else {
                             icone.src = `${path}${nome}-claro.png`;
