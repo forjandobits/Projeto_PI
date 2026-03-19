@@ -11,6 +11,7 @@ export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
     let dados = [];
     let id_funcionario = 0;
     let id_jornada = 0;
+    let id_ponto = 0
     let linha = "";
     let coluna = "";
 
@@ -26,6 +27,7 @@ export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
         dados.forEach(resultado => {
             id_funcionario = resultado.id_funcionario;
             id_jornada = resultado.id_jornada;
+            id_ponto = resultado.id_ponto;
 
             linha = document.createElement("tr");
             linha.id = id_jornada;
@@ -89,6 +91,7 @@ export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
                 informacoesPonto.textContent = `${dados["data"].split('-').reverse().join('/')} - ${dados["dia_semana"]}`;
                 informacoesPonto.dataset.id_funcionario = id_funcionario;
                 informacoesPonto.dataset.id_jornada = id_jornada;
+                informacoesPonto.dataset.id_ponto = id_ponto;
                 horaEntrada.value = dados["hora_entrada"];
                 intervaloSaida.value = dados["intervalo_inicio"];
                 intervaloRetorno.value = dados["intervalo_fim"];
@@ -117,10 +120,11 @@ export async function editarPonto(saidaMensagens) {
     const feriasFaltaAbonada = document.querySelector("#ferias-falta-abonada");
     let idFuncionario = informacoesPonto.dataset.id_funcionario;
     let idJornada = informacoesPonto.dataset.id_jornada;
+    let idPonto = informacoesPonto.dataset.id_ponto;
     let resposta = {};
     let dados = [];
 
-    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, {id_funcionario: idFuncionario, id_jornada: idJornada, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value, ferias_falta: feriasFaltaAbonada.value});
+    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, {id_funcionario: idFuncionario, id_jornada: idJornada, id_ponto: idPonto, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value, ferias_falta: feriasFaltaAbonada.value});
 
     dados = resposta.resposta;
     
