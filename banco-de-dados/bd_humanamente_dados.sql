@@ -1,12 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.3-1.fc43
--- version 5.2.3-1.fc43
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 07/03/2026 às 12:38
--- Versão do servidor: 10.11.16-MariaDB
--- Versão do PHP: 8.4.18
 -- Host: localhost
 -- Tempo de geração: 07/03/2026 às 12:38
 -- Versão do servidor: 10.11.16-MariaDB
@@ -32,7 +27,6 @@ USE `bd_humanamente_dados`;
 
 --
 -- Estrutura para tabela `tb_arquivo`
--- Estrutura para tabela `tb_arquivo`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
@@ -43,10 +37,8 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   PRIMARY KEY (`id_arquivo`),
   KEY `id_documento` (`id_documento`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_arquivo`
 -- Despejando dados para a tabela `tb_arquivo`
 --
 
@@ -71,7 +63,6 @@ INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_a
 
 --
 -- Estrutura para tabela `tb_banco`
--- Estrutura para tabela `tb_banco`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_banco` (
@@ -84,10 +75,8 @@ CREATE TABLE IF NOT EXISTS `tb_banco` (
   PRIMARY KEY (`id_banco`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_banco`
 -- Despejando dados para a tabela `tb_banco`
 --
 
@@ -112,7 +101,6 @@ INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `agencia`, `numero_conta`,
 
 --
 -- Estrutura para tabela `tb_cargo`
--- Estrutura para tabela `tb_cargo`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_cargo` (
@@ -125,10 +113,8 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `cbo` varchar(10) NOT NULL,
   PRIMARY KEY (`id_cargo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_cargo`
 -- Despejando dados para a tabela `tb_cargo`
 --
 
@@ -148,26 +134,10 @@ INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `r
 (13, 'Auxiliar de Cozinha', 1700.00, 44, 'CLT', 6, '513505'),
 (14, 'Supervisor de Turno', 3200.00, 44, 'CLT', 6, '141420'),
 (15, 'Nutricionista', 4000.00, 40, 'CLT', 5, '223710');
-(1, 'Padeiro', 2800.00, 44, 'CLT', 6, '848105'),
-(2, 'Auxiliar de Padeiro', 1800.00, 44, 'CLT', 6, '848110'),
-(3, 'Confeiteiro', 3000.00, 44, 'CLT', 6, '848205'),
-(4, 'Auxiliar de Confeitaria', 1700.00, 44, 'CLT', 6, '848210'),
-(5, 'Atendente', 1600.00, 44, 'CLT', 6, '521140'),
-(6, 'Caixa', 1700.00, 44, 'CLT', 6, '421125'),
-(7, 'Gerente', 4500.00, 44, 'CLT', 5, '141420'),
-(8, 'Subgerente', 3500.00, 44, 'CLT', 5, '141415'),
-(9, 'Estoquista', 1900.00, 44, 'CLT', 6, '414125'),
-(10, 'Auxiliar de Limpeza', 1500.00, 44, 'CLT', 6, '514320'),
-(11, 'Entregador', 2000.00, 44, 'CLT', 6, '782310'),
-(12, 'Cozinheiro', 2600.00, 44, 'CLT', 6, '513205'),
-(13, 'Auxiliar de Cozinha', 1700.00, 44, 'CLT', 6, '513505'),
-(14, 'Supervisor de Turno', 3200.00, 44, 'CLT', 6, '141420'),
-(15, 'Nutricionista', 4000.00, 40, 'CLT', 5, '223710');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_documento`
 -- Estrutura para tabela `tb_documento`
 --
 
@@ -190,10 +160,8 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   PRIMARY KEY (`id_documento`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_documento`
 -- Despejando dados para a tabela `tb_documento`
 --
 
@@ -218,7 +186,6 @@ INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps
 
 --
 -- Estrutura para tabela `tb_endereco`
--- Estrutura para tabela `tb_endereco`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
@@ -233,10 +200,8 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   PRIMARY KEY (`id_endereco`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_endereco`
 -- Despejando dados para a tabela `tb_endereco`
 --
 
@@ -261,7 +226,6 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `cidade`, `bairro`, 
 
 --
 -- Estrutura para tabela `tb_filho`
--- Estrutura para tabela `tb_filho`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_filho` (
@@ -273,10 +237,8 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_filho`
 -- Despejando dados para a tabela `tb_filho`
 --
 
@@ -301,7 +263,6 @@ INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `certidao_filho`, `idade_f
 
 --
 -- Estrutura para tabela `tb_folhapagamento`
--- Estrutura para tabela `tb_folhapagamento`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
@@ -313,10 +274,8 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_folhapagamento`
 -- Despejando dados para a tabela `tb_folhapagamento`
 --
 
@@ -341,7 +300,6 @@ INSERT INTO `tb_folhapagamento` (`id`, `id_funcionario`, `informacoes`, `data_la
 
 --
 -- Estrutura para tabela `tb_folhaponto`
--- Estrutura para tabela `tb_folhaponto`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
@@ -356,10 +314,8 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_folhaponto`
 -- Despejando dados para a tabela `tb_folhaponto`
 --
 
@@ -384,7 +340,6 @@ INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_
 
 --
 -- Estrutura para tabela `tb_funcionario`
--- Estrutura para tabela `tb_funcionario`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_funcionario` (
@@ -401,10 +356,8 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_funcionario`
 -- Despejando dados para a tabela `tb_funcionario`
 --
 
@@ -429,7 +382,6 @@ INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `da
 
 --
 -- Estrutura para tabela `tb_jornada`
--- Estrutura para tabela `tb_jornada`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_jornada` (
@@ -445,10 +397,8 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_jornada`
 -- Despejando dados para a tabela `tb_jornada`
 --
 
@@ -473,7 +423,6 @@ INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entr
 
 --
 -- Estrutura para tabela `tb_login`
--- Estrutura para tabela `tb_login`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_login` (
@@ -484,10 +433,8 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
   PRIMARY KEY (`id_login`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_login`
 -- Despejando dados para a tabela `tb_login`
 --
 
@@ -512,7 +459,6 @@ INSERT INTO `tb_login` (`id_login`, `id_funcionario`, `nome_usuario`, `senha`) V
 
 --
 -- Estrutura para tabela `tb_proventos`
--- Estrutura para tabela `tb_proventos`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_proventos` (
@@ -523,26 +469,12 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_proventos`
 -- Despejando dados para a tabela `tb_proventos`
 --
 
 INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 'Salário', 1621.00, 0, 1),
-(2, '13º Salário', 1621.00, 0, 1),
-(3, 'Vale Transporte', 150.00, 1, 1),
-(4, 'Comissão', 180, 0, 1),
-(5, 'Vale Alimentação', 450.00, 0, 1),
-(6, 'IRPF', 0.00, 1, 1),
-(7, 'INSS', 0.00, 1, 1),
-(8, 'Bônus de Desempenho', 500.00, 0, 1),
-(9, 'Adicional Noturno', 210.00, 0, 1),
-(10, 'Desconto Falta', 50.0, 1, 1),
-(11, 'Horas Extras', 50.00, 0, 1),
-(12, 'Gratificação Cargo', 200.00, 0, 1);
 (1, 'Salário', 1621.00, 0, 1),
 (2, '13º Salário', 1621.00, 0, 1),
 (3, 'Vale Transporte', 150.00, 1, 1),
@@ -560,7 +492,6 @@ INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto
 
 --
 -- Estrutura para tabela `tb_solicitacoes`
--- Estrutura para tabela `tb_solicitacoes`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
@@ -574,10 +505,8 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   PRIMARY KEY (`id_solicitacao`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_solicitacoes`
 -- Despejando dados para a tabela `tb_solicitacoes`
 --
 
@@ -602,7 +531,6 @@ INSERT INTO `tb_solicitacoes` (`id_solicitacao`, `id_funcionario`, `data_solicit
 
 --
 -- Estrutura para tabela `tb_telefone`
--- Estrutura para tabela `tb_telefone`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_telefone` (
@@ -613,10 +541,8 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tb_telefone`
 -- Despejando dados para a tabela `tb_telefone`
 --
 
@@ -642,8 +568,6 @@ INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_te
 --
 -- Estrutura stand-in para view `view_folha_ponto`
 -- (Veja abaixo para a visão atual)
--- Estrutura stand-in para view `view_folha_ponto`
--- (Veja abaixo para a visão atual)
 --
 CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 `id_funcionario` int(11)
@@ -658,7 +582,6 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para view `view_folha_ponto`
 -- Estrutura para view `view_folha_ponto`
 --
 DROP TABLE IF EXISTS `view_folha_ponto`;
@@ -709,13 +632,11 @@ ALTER TABLE `tb_arquivo`
 
 --
 -- Restrições para tabelas `tb_folhapagamento`
--- Restrições para tabelas `tb_folhapagamento`
 --
 ALTER TABLE `tb_folhapagamento`
   ADD CONSTRAINT `tb_folhapagamento_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
--- Restrições para tabelas `tb_folhaponto`
 -- Restrições para tabelas `tb_folhaponto`
 --
 ALTER TABLE `tb_folhaponto`
@@ -723,13 +644,11 @@ ALTER TABLE `tb_folhaponto`
 
 --
 -- Restrições para tabelas `tb_funcionario`
--- Restrições para tabelas `tb_funcionario`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
 
 --
--- Restrições para tabelas `tb_solicitacoes`
 -- Restrições para tabelas `tb_solicitacoes`
 --
 ALTER TABLE `tb_solicitacoes`

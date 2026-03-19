@@ -1,12 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.3-1.fc43
--- version 5.2.3-1.fc43
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 07/03/2026 às 12:37
--- Versão do servidor: 10.11.16-MariaDB
--- Versão do PHP: 8.4.18
 -- Host: localhost
 -- Tempo de geração: 07/03/2026 às 12:37
 -- Versão do servidor: 10.11.16-MariaDB
@@ -32,7 +27,6 @@ USE `bd_humanamente`;
 
 --
 -- Estrutura para tabela `tb_arquivo`
--- Estrutura para tabela `tb_arquivo`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
@@ -43,12 +37,10 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   PRIMARY KEY (`id_arquivo`),
   KEY `id_documento` (`id_documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_banco`
 -- Estrutura para tabela `tb_banco`
 --
 
@@ -62,12 +54,10 @@ CREATE TABLE IF NOT EXISTS `tb_banco` (
   PRIMARY KEY (`id_banco`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_cargo`
 -- Estrutura para tabela `tb_cargo`
 --
 
@@ -81,12 +71,10 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `cbo` varchar(10) NOT NULL,
   PRIMARY KEY (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_documento`
 -- Estrutura para tabela `tb_documento`
 --
 
@@ -109,12 +97,10 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   PRIMARY KEY (`id_documento`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_endereco`
 -- Estrutura para tabela `tb_endereco`
 --
 
@@ -130,12 +116,10 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   PRIMARY KEY (`id_endereco`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_filho`
 -- Estrutura para tabela `tb_filho`
 --
 
@@ -148,12 +132,10 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_folhapagamento`
 -- Estrutura para tabela `tb_folhapagamento`
 --
 
@@ -166,12 +148,10 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_folhaponto`
 -- Estrutura para tabela `tb_folhaponto`
 --
 
@@ -187,12 +167,10 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_funcionario`
 -- Estrutura para tabela `tb_funcionario`
 --
 
@@ -210,12 +188,10 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_jornada`
 -- Estrutura para tabela `tb_jornada`
 --
 
@@ -232,12 +208,10 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_login`
 -- Estrutura para tabela `tb_login`
 --
 
@@ -249,12 +223,10 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
   PRIMARY KEY (`id_login`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_proventos`
 -- Estrutura para tabela `tb_proventos`
 --
 
@@ -266,12 +238,10 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_solicitacoes`
 -- Estrutura para tabela `tb_solicitacoes`
 --
 
@@ -286,12 +256,10 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   PRIMARY KEY (`id_solicitacao`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_telefone`
 -- Estrutura para tabela `tb_telefone`
 --
 
@@ -303,13 +271,10 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para view `view_folha_ponto`
--- (Veja abaixo para a visão atual)
 -- Estrutura stand-in para view `view_folha_ponto`
 -- (Veja abaixo para a visão atual)
 --
@@ -326,7 +291,6 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para view `view_folha_ponto`
 -- Estrutura para view `view_folha_ponto`
 --
 DROP TABLE IF EXISTS `view_folha_ponto`;
@@ -376,13 +340,11 @@ ALTER TABLE `tb_arquivo`
 
 --
 -- Restrições para tabelas `tb_folhapagamento`
--- Restrições para tabelas `tb_folhapagamento`
 --
 ALTER TABLE `tb_folhapagamento`
   ADD CONSTRAINT `tb_folhapagamento_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
--- Restrições para tabelas `tb_folhaponto`
 -- Restrições para tabelas `tb_folhaponto`
 --
 ALTER TABLE `tb_folhaponto`
@@ -390,13 +352,11 @@ ALTER TABLE `tb_folhaponto`
 
 --
 -- Restrições para tabelas `tb_funcionario`
--- Restrições para tabelas `tb_funcionario`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
 
 --
--- Restrições para tabelas `tb_solicitacoes`
 -- Restrições para tabelas `tb_solicitacoes`
 --
 ALTER TABLE `tb_solicitacoes`
