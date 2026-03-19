@@ -73,7 +73,7 @@
     </section>
   </article>
 
-  <script src="public/js/funcionarios/exibir_funcionario.js"></script>
+  <script type="module" src="public/js/funcionarios/exibir_funcionario.js"></script>
 </main>
 
 <script>

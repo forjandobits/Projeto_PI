@@ -1,13 +1,14 @@
 <?php
+header("Content-Type: application/json");
 include("conexao.php");
 
-$id = $_POST['id'];
+$id = intval($_POST['id']);
 
-$sql = "UPDATE tb_funcionario SET situacao = 0 WHERE id_funcionario = $id";
+$sql = "UPDATE tb_funcionario SET situacao = 1 WHERE id_funcionario = $id";
 
-if (mysqli_query($conn, $sql)) {
-    echo "ok";
+if ($conn->query($sql) === TRUE) {
+    echo json_encode(["success" => true]);
 } else {
-    echo "erro";
+    echo json_encode(["success" => false, "error" => $conn->error]);
 }
 ?>
