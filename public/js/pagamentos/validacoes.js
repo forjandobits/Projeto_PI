@@ -36,23 +36,25 @@ function nomeVazio() {
     })
 };
 
-// export function eventoSelecionado(beneficios){
-// // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-//     // errado, a arrumar
-//     let texto = "";
-//     beneficios.foreach((even, eventoPagamento) => {
+export function eventoSelecionado(grupoCampoLinha){
+    // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
+    // errado, a arrumar
+    let texto = "";
+    let i = 0
 
-//         let beneficio = beneficios(select)[even].value;
-//         if(beneficio[even] == beneficio[even -1]){
-//             texto = "não pode ter 2 eventos iguais!!"
-//             mostrarMensagem(texto);
-//         }
-//         else{
-//             mostrarMensagem(texto);
-//         }
-//     });
+    grupoCampoLinha.foreach((i, beneficios) => {
+
+        let beneficio = beneficios(select)[even].value;
+        if(beneficio[even] == beneficio[even -1]){
+            texto = "não pode ter 2 eventos iguais!!"
+            mostrarMensagem(texto);
+        }
+        else{
+            mostrarMensagem(texto);
+        }
+    });
     
-// }
+}
 
 
 

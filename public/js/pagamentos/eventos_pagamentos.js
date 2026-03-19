@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                         div.append(label, select);
 
-                        // eventoSelecionado(beneficios);
+                        eventoSelecionado(secao);
                     }
 
                     if (i == 2) {
