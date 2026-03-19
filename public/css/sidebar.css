@@ -21,10 +21,11 @@
 .sidebar ul{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: start;
     list-style: none;
     height: 70vh;
+    gap: 10px;
 }
 
 .sidebar li {
@@ -33,7 +34,7 @@
     list-style: none;
 }
 
-.sidebar li:hover {
+.sidebar a:hover {
     background-color: var(--cor-background-hover-cinza);
     border-radius: 8px;
 }
@@ -46,9 +47,13 @@
     gap: 15px;
     padding: 10px;
     width: 100%;
+    height: 100%;
     border-radius: 10px;
-
     transition: background-color 0.2s ease;
+}
+
+.sidebar a img {
+    flex-shrink: 0;
 }
 
 .sidebar span {
@@ -56,7 +61,8 @@
 }
 
 .sidebar.open span {
-    display: flex;
+    display: inline-block;
+    width: 180px;
     font-size: 1.6em;
     margin-left: 5px;
 }
