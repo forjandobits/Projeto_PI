@@ -11,9 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // ====== Evento para preencher o modal de acordo com Histórico de solicitações ======
     tbody.addEventListener("click", function(e){
 
+        // Verificando clique no botão correto
         const botao = e.target.closest(".abrir-modal");
         if(!botao) return;
 
+        // Pegando o id da linha
         const linha = botao.closest("tr");
         const id = linha.getAttribute("data-id");
 
@@ -21,8 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             fetch(`/Projeto_PI/api/solicitacoes_visualizar.php?id=${id}`)
                 .then(response => response.json())
                 .then(dados => {
-
-                    console.log(dados);
 
                     // Se retronar erro interrompe a conexão
                     if (dados.erro) {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
         if (motivo.value.trim() === "") {
             mensagem.className = ""; // Limpando a classe mensagem
-            mensagem.textContent = "Motivo da recusa deve ser preenchido!: ";
+            mensagem.textContent = "Motivo da recusa deve ser preenchido!";
             mensagem.style.display = "block";
             mensagem.classList.add("msg-erro", "msg-menor");
             motivo.focus(); // Coloca o cursor dentro do campo motivo
