@@ -1,6 +1,6 @@
-<?php include "./header.php" ?>
+<?php include "./components/header.php" ?>
 
-<?php include "./sidebar.php" ?>
+<?php include "./components/sidebar.php" ?>
 
 <main>
   <article class="cabecalhos">
@@ -50,14 +50,14 @@
       </section>                          
   </article>
 
-  <article class="modal">
+  <article id="modal" class="modal">
     <section>
       <h3>Cadastro de Cargos</h3>
       <p class="fechar">X</p>
     </section>
     
     <section>
-      <form action="" class="form-modal">
+      <form action="" id="formModal" class="form-modal">
 
         <div class="campo">
             <label for="cbo">CBO:</label>
@@ -84,8 +84,8 @@
             <select name="Regime-Funcionario" id="regime" required>
                 <option value="">-- Selecione --</option>
                 <option value="CLT">CLT</option>
-                <option value="CLT">Pessoa Jurídica (PJ)</option>
-                <option value="CLT">Horista</option>
+                <option value="PJ">Pessoa Jurídica (PJ)</option>
+                <option value="HORISTA">Horista</option>
             </select>
         </div>
 
@@ -95,9 +95,15 @@
         </div>
 
         <div class="campo resumo">
-          <button type="submit">Salvar</button>
+          <button type="submit" id="btnsalvar">Salvar</button>
         </div>
       </form>
     </section>
   </article>
 </main>
+
+<script>
+  const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+</script>
+
+<script type="module" src="public/js/adicionar_cargo/adicionar_cargo.js"></script>

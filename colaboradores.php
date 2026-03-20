@@ -1,6 +1,6 @@
-<?php include "./header.php" ?>
+<?php include "./components/header.php" ?>
 
-<?php include "./sidebar.php" ?>
+<?php include "./components/sidebar.php" ?>
 
 <main>
 
@@ -110,5 +110,8 @@
   <script src="public/js/cadastro_funcionarios/cadastro_funcionario.js"></script>
 </main>
 
+<script>
+  const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+</script>
 </body>
 </html>

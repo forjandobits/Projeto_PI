@@ -1,6 +1,6 @@
-<?php include "./header.php" ?>
+<?php include "./components/header.php" ?>
 
-<?php include "./sidebar.php" ?>
+<?php include "./components/sidebar.php" ?>
 
 <main>
   <article class="cabecalhos">
@@ -10,7 +10,7 @@
   <article>
     <table>
       <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
-      <?php include "./tabela_pagamento.php"?>
+      <?php include "./components/tabela_pagamento.php"?>
     </table>
 
     <section class="resumo-final">
@@ -100,7 +100,8 @@
   
 </main>
 
-
-
+<script>
+  const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+</script>
 </body>
 </html>

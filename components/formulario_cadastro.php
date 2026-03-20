@@ -1,4 +1,4 @@
-<form>
+<form id="formModal">
     <fieldset class="cadastro">
         <legend>Informações Pessoais</legend>
 
@@ -98,7 +98,7 @@
                 <option value="AM">Amazonas</option>
                 <option value="BA">Bahia</option>
                 <option value="CE">Ceará</option>
-                <option value="DF">Distrido Federal</option>
+                <option value="DF">Distrito Federal</option>
                 <option value="ES">Espírito Santo</option>
                 <option value="GO">Goiás</option>
                 <option value="MA">Maranhão</option>
@@ -134,27 +134,27 @@
 
         <div class="campo">
             <label for="cargo">Cargo:</label>
-            <select name="Regime-Funcionario" id="regime" required>
+            <select name="Regime-Funcionario" id="cargo" required>
                 <option value="">-- Selecione --</option>
-                <option value="CLT">Padeiro</option>
-                <option value="CLT">Gerente</option>
-                <option value="CLT">Caixa</option>
+                <option value="1">Padeiro</option>
+                <option value="2">Gerente</option>
+                <option value="2">Caixa</option>
             </select>
         </div>
 
         <div class="campo">
             <label for="cbo">CBO:</label>
-            <input type="text" name="CBO-Funcionario" id="cbo" value="8384-05" required disabled/>
+            <input type="text" name="CBO-Funcionario" id="cbo" value="8384-05" required readonly/>
         </div>
 
         <div class="campo">
             <label for="regime">Regime Trabalhista:</label>
-            <input type="text" name="Regime-Funcionar" id="regime" value="CLT" required disabled/>
+            <input type="text" name="Regime-Funcionario" id="regime" value="CLT" required readonly/>
         </div>
 
         <div class="campo">
             <label for="remuneracao">Remuneração:</label>
-            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" value="2000.00" required disabled/>
+            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" value="2000.00" required readonly/>
         </div>
     </fieldset>
 
@@ -218,7 +218,7 @@
         
         <div class="campo-linha">
             <label for="possui-pendencias">Possui Pendências?</label>
-            <input type="checkbox" name="Pendencias" id="possui-pendencias" required />
+            <input type="checkbox" name="Pendencias" id="possui-pendencias"/>
         </div>
 
     </fieldset>
@@ -234,9 +234,11 @@
     </fieldset>
 
         <div class="campo resumo">
-            <button type="submit"><Strong>Editar</Strong></button>
-            <button type="submit"><Strong>Salvar</Strong></button>
+            <button type="button"><Strong>Editar</Strong></button>
+            <button type="submit" id="btnSalvar"><Strong>Salvar</Strong></button>
         </div>
 
     </fieldset>
 </form>
+
+<script type="module" src="public/js/cadastro_fucionarios/adicionar_funcionario.js"></script>

@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="public/css/correcoes.css">
     <link rel="stylesheet" href="public/css/modal.css">
 
-    <link rel="shortcut icon" href="public\img\Cerebro.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="public/img/Cerebro.ico" type="image/x-icon"/>
     <script src="public/js/sidebar.js"></script>
 </head>
 <body>
     <header>
-        <img src="../html-css/public/img/Logo_HM_Cerebro.png" alt="logo humanamente">
+        <img src="public/img/Logo_HM_Cerebro.png" alt="logo humanamente">
     </header>
 
 <!-- Dessa forma é possível apenas com o "include" chamar todas as configurações passadas 
