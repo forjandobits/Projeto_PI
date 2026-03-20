@@ -52,15 +52,11 @@
             <label for="estado-civil">Estado Civil:</label>
             <select name="EstadoCivil-Funcionario" id="estado-civil" required >
                 <option value="">-- Selecione --</option>
-                <option>Solteiro</option>
-                <option>Casado</option>
-                <option>Viuvo</option>
+                <option value="Solteiro">Solteiro(a)</option>
+                <option value="Casado">Casado(a)</option>
+                <option value="Viuvo">Viúvo(a)</option>
+                <option value="Divorciado">Divorciado(a)</option>
             </select>
-        </div>
-
-        <div class="campo pis-pasep">
-            <label for="pis-pasep">Pis-Pasep:</label>
-            <input  type="number" name="PisPasep-Funcionario" id="pis-pasep" required/>
         </div>
 
     </fieldset>
@@ -76,6 +72,11 @@
         <div class="campo">
             <label for="numero-casa">Número:</label>
             <input type="text" name="NumeroCasa-Funcionario" id="numero-casa"/>
+        </div>
+
+        <div class="campo">
+            <label for="complemento-casa">Complemento:</label>
+            <input type="text" name="ComplementoCasa-Funcionario" id="complemento-casa"/>
         </div>
         
         <div class="campo">
@@ -124,7 +125,7 @@
 
         <div class="campo">
             <label for="cep">CEP:</label>
-            <input type="number" name="CEP-Funcionario" id="cep" required />
+            <input type="text" name="CEP-Funcionario" id="cep" required />
         </div>
             
     </fieldset>
@@ -134,11 +135,11 @@
 
         <div class="campo">
             <label for="cargo">Cargo:</label>
-            <select name="Regime-Funcionario" id="cargo" required>
+            <select name="Cargo-Funcionario" id="cargo" required>
                 <option value="">-- Selecione --</option>
                 <option value="1">Padeiro</option>
                 <option value="2">Gerente</option>
-                <option value="2">Caixa</option>
+                <option value="3">Caixa</option>
             </select>
         </div>
 
@@ -185,10 +186,34 @@
 
     <fieldset class="cadastro">
         <legend>Documentos</legend>
+        <div class="campo">
+            <label for="nis">NIS:</label>
+            <input  type="number" name="Nis-Funcionario" id="nis" required/>
+        </div>
+
+        <div class="campo">
+            <label for="nit">NIT:</label>
+            <input  type="number" name="Nit-Funcionario" id="nit" required/>
+        </div>
+
+        <div class="campo">
+            <label for="ctps">CTPS:</label>
+            <input  type="number" name="Ctps-Funcionario" id="ctps" required/>
+        </div>
+
+        <div class="campo">
+            <label for="pis-pasep">Pis-Pasep:</label>
+            <input  type="number" name="PisPasep-Funcionario" id="pis-pasep" required/>
+        </div>
 
         <div class="campo-linha">
-            <label for="certidao-casamento">Certidão de Casamento</label>
+            <label for="certidao-casamento">Certidão de Casamento/Nascimento</label>
             <input type="checkbox" name="CertidaoCasamento-Funcionario" id="certidao-casamento"/>
+        </div>
+
+        <div class="campo-linha">
+            <label for="cnh">CNH</label>
+            <input type="checkbox" name="Cnh-Funcionario" id="cnh"/>
         </div>
 
         <div class="campo-linha">
@@ -202,11 +227,6 @@
         </div>
 
         <div class="campo-linha">
-            <label for="comprovante-escolaridade">Comprovante de Escolaridade</label>
-            <input type="checkbox" name="ComprovanteEscolaridade-Funcionario" id="comprovante-escolaridade"/>
-        </div>
-
-        <div class="campo-linha">
             <label for="filhos">Tem Filhos?</label>
             <input type="checkbox"  name="Filhos-Funcionario" id="filhos"/>
         </div>
@@ -214,11 +234,6 @@
         <div class="campo-linha">
             <label for="qtd-filhos">Número de Filhos:</label>
             <input type="number" name="Qtd-Filhos-Funcionario" id="qtd-filhos"/>
-        </div>
-        
-        <div class="campo-linha">
-            <label for="possui-pendencias">Possui Pendências?</label>
-            <input type="checkbox" name="Pendencias" id="possui-pendencias"/>
         </div>
 
     </fieldset>
