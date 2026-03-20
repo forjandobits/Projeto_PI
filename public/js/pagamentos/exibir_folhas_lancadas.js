@@ -29,9 +29,6 @@ async function dadosFolhasLancadas(dadosFolhaSelecionada){
         
         const informacoes = JSON.parse(valoresRetornados.informacoes);
         
-        console.log(informacoes);
-        // console.log(typeof(informacoes));
-        
         informacoes.forEach(informacao => {
             // console.log(item);
             
@@ -51,19 +48,23 @@ async function dadosFolhasLancadas(dadosFolhaSelecionada){
                 
                     if((benDes.desconto === '0') || (benDes.desconto === '2')){
     
-                        if(benDes.nome_beneficio === 'FGTS'){
+                        idConvertido = Number(info.idBenDes);
+
+                        if(idConvertido === 2){
                             valorFGTS = Number(info.valor);
-                        }else {
-                            id.textContent = info.idBenDes;
-                            idConvertido = Number(info.idBenDes);
-                            if (benDes.id_beneficio == idConvertido) {
-                                evento.textContent = benDes.nome_beneficio;
-                                referencia.textContent = benDes.referencia;
-                                vencimentos.textContent = info.valor;
-                                descontos.textContent = "--";
+                        } 
+
+                        id.textContent = info.idBenDes;
+                        if (benDes.id_beneficio == idConvertido) {
+                            evento.textContent = benDes.nome_beneficio;
+                            referencia.textContent = benDes.referencia;
+                            vencimentos.textContent = info.valor;
+                            descontos.textContent = "--";
+                            if(idConvertido !== 2){
                                 valorLiquido = valorLiquido + Number(info.valor);
                             }
                         }
+
                     } else {
     
                         id.textContent = info.idBenDes;

@@ -5,25 +5,14 @@ import { mostrarMensagem } from "./validacoes.js";
 
 function reindexar(){
     const selects = document.querySelectorAll("select");
-    const labels = document.querySelectorAll("label");
     const inputs = document.querySelectorAll("input");
 
     selects.forEach((select, index)=>{
         select.id = "beneficios" + index;
-        if(select.name === "Beneficios"){
-            labels.forEach((label)=>{
-                label.htmlFor = "beneficios" + index;
-            });
-        }
     });
 
     inputs.forEach((input, index)=>{
         input.id = "valor" + index;
-        if(input.name === "Valor"){
-            labels.forEach((label)=>{
-                label.htmlFor = "valor" + index;
-            });
-        }
     });
 }
 
@@ -71,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         // Conteúdo do label e for
                         label.textContent = "Benefícios:"
-                        label.htmlFor = "beneficios"+c;
+                        // label.htmlFor = "beneficios"+ c;
+                        label.htmlFor = "beneficios";
 
 
                         // Varredura dos elementos retornados que serão 
@@ -99,7 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Parte criar o campo para inserir os valores
                         const label = document.createElement("label");
                         label.textContent = "Valor:"
-                        label.htmlFor = "valor" + c;
+                        // label.htmlFor = "valor" + c;
+                        label.htmlFor = "valor";
 
                         const input = document.createElement("input");
                         input.name = "Valor";
@@ -271,7 +262,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 camposListados.forEach(valoresCampos => {
                     let input = valoresCampos.querySelector(`.campo>#valor${cont}`);
                     let select = valoresCampos.querySelector(`.campo>#beneficios${cont}`);
-                    alert(input.value);
                     
                     
                     valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: select.value, valor: input.value }] })
@@ -343,10 +333,10 @@ document.addEventListener('DOMContentLoaded', function () {
             descontoVT = salario * 0.06;
         }
         
-        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "3", valor: descontoVT }] });
-        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "6", valor: descontoIRPF }] });
-        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "7", valor: descontoINSS }] });
-        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "13", valor: valorFGTS }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "2", valor: valorFGTS }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "3", valor: descontoINSS }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "4", valor: descontoIRPF }] });
+        valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "5", valor: descontoVT }] });
         // IRPF
     }
 
@@ -398,19 +388,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             if ((benDes.desconto === '0') || (benDes.desconto === '2')) {
 
-                                if(benDes.nome_beneficio === 'FGTS'){
+                                idConvertido = Number(info.idBenDes);
+
+                                if(idConvertido === 2){
                                     valorFGTS = Number(info.valor);
-                                } else {
-                                    id.textContent = info.idBenDes;
-                                    idConvertido = Number(info.idBenDes);
-                                    if (benDes.id_beneficio == idConvertido) {
-                                        evento.textContent = benDes.nome_beneficio;
-                                        referencia.textContent = benDes.referencia;
-                                        vencimentos.textContent = info.valor;
-                                        descontos.textContent = "--";
+                                } 
+
+                                id.textContent = info.idBenDes;
+                                if (benDes.id_beneficio == idConvertido) {
+                                    evento.textContent = benDes.nome_beneficio;
+                                    referencia.textContent = benDes.referencia;
+                                    vencimentos.textContent = info.valor;
+                                    descontos.textContent = "--";
+                                    if(idConvertido !== 2){
                                         valorLiquido = valorLiquido + Number(info.valor);
                                     }
                                 }
+
+
                             } else {
 
                                 id.textContent = info.idBenDes;

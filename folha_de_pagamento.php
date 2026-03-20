@@ -14,7 +14,7 @@
     </table>
 
     <section class="resumo-final">
-          <p>Total Líquido (R$): 0,00</p>
+          <p>FGTS (R$): 0,00 - Total Líquido (R$): 0,00</p>
           <button class='abrir-modal visualizacao'>Eventos</button>
           <button id="enviar-dados">Lançar</button>
     </section>
@@ -51,6 +51,10 @@
         <div class="campo resumo">
           <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
           <button type="button" id="lancar-dados">Salvar</button>
+        </div>
+        
+        <div class="campo">
+          <span>Mensagem de erro</span>
         </div>
         
         
