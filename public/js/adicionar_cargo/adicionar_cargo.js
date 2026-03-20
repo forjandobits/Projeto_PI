@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const escala = document.getElementById("escala").value;
 
         // Usa a função enviar() para enviar a requisição pro PHP, enviar() tem que ser chamada com await, usa BASE_URL pra poder pegar o caminho certo
-        const resposta = await enviar(`${BASE_URL}/api/criar.php`, {cbo: cbo, nomeCargo: nomeCargo, salario: salario, cargaHoraria: cargaHoraria,
+        const resposta = await enviar(`${BASE_URL}/api/criar_cargo.php`, {cbo: cbo, nomeCargo: nomeCargo, salario: salario, cargaHoraria: cargaHoraria,
             regime: regime, escala: escala});
 
 

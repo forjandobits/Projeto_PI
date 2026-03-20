@@ -76,7 +76,7 @@
 
         <div class="campo">
           <label for="carga-horaria">Carga Horária:</label>
-          <input type="number" name="Carga-Horaria" id="carga-horaria" min="0">
+          <input type="time" name="Carga-Horaria" id="carga-horaria" min="0">
         </div>
 
         <div class="campo">
