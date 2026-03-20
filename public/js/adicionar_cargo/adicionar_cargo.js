@@ -37,11 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         salvar();
 
-        
-        // Mostra a requisição no terminal
-        // Só pra visualização, não faça isso
-        console.log(resposta);
-        console.log(resposta.mensagem);
+    
     });
 
     
