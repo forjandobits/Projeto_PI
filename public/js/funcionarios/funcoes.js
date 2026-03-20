@@ -27,7 +27,7 @@ export async function listarFuncionarios() {
 
             // desligar.innerHTML = "<button class='desligar'>Desligar</button>";
             desligar.innerHTML = `<button class='desligar' id='${id}'>Desligar</button>`;
-            visualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
+            visualizar.innerHTML = `<button class='abrir-modal' dataset.id_funcionario=${id} id='${id}'>Visualizar</button>`;
         });
     }
 }
