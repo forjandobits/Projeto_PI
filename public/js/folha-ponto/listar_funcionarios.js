@@ -39,7 +39,7 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
                 
             })
 
-//            link.appendChild(botao);
+
             colunaBotao.appendChild(botao);
 
             linha.appendChild(colunaNome);
@@ -57,12 +57,5 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
     .catch(erro => console.error("Erro:", erro));
 
     function verEspelho(id){
-        /* console.log("ID:", id);   
-        enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id})
-        .then(dados => {
-
-        if(dados.status === "sucesso"){
-            console.log(dados.resposta);
-        } */
         window.location.href = `espelho_de_ponto.php?id=${id}`;
     };

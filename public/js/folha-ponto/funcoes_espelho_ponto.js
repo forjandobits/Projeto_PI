@@ -20,11 +20,8 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     let linha = "";
     let coluna = "";
 
-    //tabela.textContent = "";
-    tabela.innerHTML = "";
-
-    console.log("mes enviado:", mes);
-
+    tabela.textContent = "";
+   
     if (id != null && id != "") {
         dados = [];
 
@@ -38,7 +35,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
         if (!dados || dados.length === 0) {
             tabela.innerHTML = "<tr><td colspan='11'>Nenhum registro encontrado</td></tr>";
         return;
-}
+        }
 
         saidaNome.textContent = `Espelho de Ponto - ${dados[0].nome_completo}`;
 

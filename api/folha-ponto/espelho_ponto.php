@@ -18,14 +18,13 @@ $mes = $requisicao["mes"] ?? date("Y-m");
 $dataInicio = $mes . "-01";
 $dataFim = date("Y-m-d", strtotime("$dataInicio +1 month"));
 
-
+// Buscar dados do espelho de ponto
 
 $sql = "SELECT * 
         FROM view_espelho_ponto 
         WHERE id_funcionario = ?
         AND data >= ?
         AND data < ?";
-
 
 
 $stmt = $conn->prepare($sql);
@@ -39,7 +38,43 @@ if ($stmt->execute()) {
         $dados[] = $row;
     }
 
-    // echo json_encode($dados);
+    // Cálculo do banco de horas
+
+    $sqlBanco = "SELECT 
+        SEC_TO_TIME(
+            SUM(
+                CASE
+                    WHEN v.faltas = 1 THEN 0
+                    WHEN DAYOFWEEK(v.data) IN (1,7) THEN 0
+                    ELSE TIME_TO_SEC(v.total_horas_dia) -
+                        ((c.carga_horaria * 3600) / 5)
+                END
+            )
+        ) AS banco_horas
+
+        FROM view_espelho_ponto v
+
+        JOIN tb_funcionario f
+        ON v.id_funcionario = f.id_funcionario
+
+        JOIN tb_cargo c
+        ON f.id_cargo = c.id_cargo
+
+        WHERE v.id_funcionario = ?
+        AND v.data >= ?
+        AND v.data < ?";
+
+$stmtBanco = $conn->prepare($sqlBanco);
+$stmtBanco->bind_param("iss", $id, $dataInicio, $dataFim);
+
+$stmtBanco->execute();
+$resultBanco = $stmtBanco->get_result();
+
+$bancoHoras = $resultBanco->fetch_assoc();
+    
+
+//Retorna os dados no json
+
     echo json_encode(["status" => "sucesso", "resposta" => $dados]);
 } else {
     echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);

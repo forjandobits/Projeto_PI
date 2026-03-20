@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
 
-    campoMes.addEventListener("change", () => {
-        console.log("Mês mudou para:", campoMes.value);
+    campoMes.addEventListener("change", () => {//add campoMes.value
         carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
     });
     
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         editarPonto(saidaMensagens);
 
-        carregarPontos(id,campoMes.value, tabela, saidaMensagens, saidaNome);
+        carregarPontos(id,campoMes.value, tabela, saidaMensagens, saidaNome);//add campoMes.value
         
     });
 });
