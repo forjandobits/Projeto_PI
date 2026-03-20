@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `nome_banco` varchar(50) NOT NULL,
   `agencia` varchar(20) NOT NULL,
   `numero_conta` varchar(20) NOT NULL,
   `tipo_conta` varchar(40) NOT NULL,
@@ -89,11 +90,11 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `nit` text NOT NULL,
   `registro_profissional` text NOT NULL,
   `comprovante_escolaridade` text NOT NULL,
-  `cnh` text DEFAULT NULL,
-  `cam` text DEFAULT NULL,
+  `cnh` tinyint(1) NOT NULL DEFAULT 0,
+  `cam` tinyint(1) NOT NULL DEFAULT 0,
   `titulo_eleitor` text DEFAULT NULL,
-  `certidao_casamento_nascimento` text DEFAULT NULL,
-  `laudo_pcd` text DEFAULT NULL,
+  `certidao_casamento_nascimento` tinyint(1) NOT NULL DEFAULT 0,
+  `laudo_pcd` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_documento`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -107,6 +108,7 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `estado` varchar(2) NOT NULL,
   `cidade` varchar(60) NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
@@ -162,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `total_horas_dia` int(11) NOT NULL,
   `horas_extras` int(11) DEFAULT NULL,
   `faltas` int(11) DEFAULT NULL,
+  `ferias_falta_abonada` int(11) DEFAULT NULL,
   `atrasos` int(11) DEFAULT NULL,
   `observacoes` text DEFAULT NULL,
   PRIMARY KEY (`id_ponto`),
@@ -203,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `hora_saida` time DEFAULT NULL,
   `intervalo_inicio` time DEFAULT NULL,
   `intervalo_fim` time DEFAULT NULL,
-  `dia_semana` text NOT NULL,
+  `dia_semana` varchar(20) NOT NULL,
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
