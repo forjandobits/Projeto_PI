@@ -96,41 +96,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ================= AUTOCOMPLETE =================
 
+    // Função assíncrona que cria um autocomplete usando datalist
     async function autocompleteDatalist(inputSelector, datalistSelector) {
-    try {
-        const response = await fetch(`${BASE_URL}/api/listar_funcionarios.php`);
-        const dados = await response.json();
+        try {
+            // Faz requisição para a API e pega os dados dos funcionários
+            const response = await fetch(`${BASE_URL}/api/listar_funcionarios.php`);
+            const dados = await response.json();
 
-        const listaNomes = dados.map(item => item.nome_completo);
+            // Extrai apenas os nomes completos da resposta
+            const listaNomes = dados.map(item => item.nome_completo);
 
-        const input = document.querySelector(inputSelector);
-        const datalist = document.querySelector(datalistSelector);
+            // Seleciona o input e o datalist no DOM
+            const input = document.querySelector(inputSelector);
+            const datalist = document.querySelector(datalistSelector);
 
-        input.addEventListener("input", function () {
-            const valor = input.value.toLowerCase().trim();
+            // Evento disparado quando o usuário digita no input
+            input.addEventListener("input", function () {
+                // Pega o valor digitado, remove espaços e deixa minúsculo
+                const valor = input.value.toLowerCase().trim();
 
-            datalist.innerHTML = "";
+                // Limpa as sugestões anteriores
+                datalist.innerHTML = "";
 
-            if (valor.length < 3) return;
+                // Só começa a buscar depois de 3 caracteres (evita sobrecarga)
+                if (valor.length < 3) return;
 
-            const filtrados = listaNomes
-                .filter(nome => nome.toLowerCase().includes(valor));
+                // Filtra os nomes que contêm o texto digitado
+                const filtrados = listaNomes
+                    .filter(nome => nome.toLowerCase().includes(valor));
 
+                // Cria uma opção para cada nome filtrado
+                filtrados.forEach(nome => {
+                    const option = document.createElement("option");
+                    option.value = nome;
 
-            filtrados.forEach(nome => {
-                const option = document.createElement("option");
-                option.value = nome;
-
-                datalist.appendChild(option);
+                    // Adiciona a opção no datalist
+                    datalist.appendChild(option);
+                });
             });
-        });
 
-    } catch (erro) {
-        console.error("Erro no autocomplete:", erro);
+        } catch (erro) {
+            // Trata erros na requisição ou execução
+            console.error("Erro no autocomplete:", erro);
+        }
     }
-}
 
-autocompleteDatalist("#nome", "#sugestoesNomes");
+    // Inicializa a função passando os seletores do input e datalist
+    autocompleteDatalist("#nome", "#sugestoesNomes");
 
 
     // ================= ENVIAR SOLICITAÇÃO =================
