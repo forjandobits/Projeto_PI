@@ -3,6 +3,30 @@ import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { mostrarMensagem } from "./validacoes.js";
 // import { eventoSelecionado } from "./validacoes.js";
 
+function reindexar(){
+    const selects = document.querySelectorAll("select");
+    const labels = document.querySelectorAll("label");
+    const inputs = document.querySelectorAll("input");
+
+    selects.forEach((select, index)=>{
+        select.id = "beneficios" + index;
+        if(select.name === "Beneficios"){
+            labels.forEach((label)=>{
+                label.htmlFor = "beneficios" + index;
+            });
+        }
+    });
+
+    inputs.forEach((input, index)=>{
+        input.id = "valor" + index;
+        if(input.name === "Valor"){
+            labels.forEach((label)=>{
+                label.htmlFor = "valor" + index;
+            });
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // Arrays para armazenamento
     const valoresRecebidos = [];
@@ -17,13 +41,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         exibirDadosFolhaLancadas();
     }
+    let c = 0;
     
     async function criarEventos() {
         const criarEvento = document.querySelector("#adicionar-evento");
         const beneficiosDescontos = await listarBeneficiosDescontos();
 
         if (criarEvento) {
-            let c = 0;
 
             criarEvento.addEventListener("click", () => {
 
@@ -68,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                         div.append(label, select);
 
-                        eventoSelecionado(secao);
+                        // eventoSelecionado(secao);
                     }
 
                     if (i == 2) {
@@ -128,7 +152,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (grupoEvento) {
                     // Remove os elementos da seção
                     grupoEvento.remove();
+                    reindexar();
                 }
+                // c = c - 1;
             }
         })
     }
@@ -230,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function receberBeneficiosSelecionados() {
 
         if (botaoSalvar) {
+            let cont = 0;
 
             botaoSalvar.addEventListener("click", () => {
                 const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
@@ -242,12 +269,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 buscarSalario(idSelecionado);
 
                 camposListados.forEach(valoresCampos => {
-                    let input = valoresCampos.querySelector('.campo>#valor');
-                    let select = valoresCampos.querySelector('.campo>#beneficios');
+                    let input = valoresCampos.querySelector(`.campo>#valor${cont}`);
+                    let select = valoresCampos.querySelector(`.campo>#beneficios${cont}`);
+                    alert(input.value);
                     
                     
                     valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: select.value, valor: input.value }] })
-
+                    cont++;
                 });
 
                 exibir.style.display = "none";
