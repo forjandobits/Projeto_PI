@@ -36,25 +36,32 @@ function nomeVazio() {
     })
 };
 
-export function eventoSelecionado(grupoCampoLinha){
-    // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-    // errado, a arrumar
-    let texto = "";
-    let i = 0
+// export function eventoSelecionado(){
+//     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
+//     // errado, a arrumar
+//     // tentar com array
+//     const gcl = document.querySelector(".grupo-campo-linha")
+//     let texto = "";
+//     let i = 0;
 
-    grupoCampoLinha.foreach((i, beneficios) => {
+//     gcl.forEach((beneficios) => {
+//         let beneficio = beneficios(select)[even].value;
+//         if(beneficio[i] === beneficio[i -1]){
+//             if(beneficio[i] > 0){
+//                 texto = "não pode ter 2 eventos iguais!!"
+//                 mostrarMensagem(texto);
 
-        let beneficio = beneficios(select)[even].value;
-        if(beneficio[even] == beneficio[even -1]){
-            texto = "não pode ter 2 eventos iguais!!"
-            mostrarMensagem(texto);
-        }
-        else{
-            mostrarMensagem(texto);
-        }
-    });
+//             }
+
+//         }
+//         else{
+//             mostrarMensagem(texto);
+
+//         }
+
+//     });
     
-}
+// }
 
 
 
