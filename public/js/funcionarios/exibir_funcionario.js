@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                         certidaoCasamento.checked = false
                     }
-                    
+
                     if (dados.cnh == "1") {
                         cnh.checked = true
                     } else {

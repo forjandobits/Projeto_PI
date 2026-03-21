@@ -249,7 +249,7 @@
     </fieldset>
 
         <div class="campo resumo">
-            <button type="button"><Strong>Editar</Strong></button>
+            <button type="button" class="botao-editar"><Strong>Editar</Strong></button>
             <button type="submit" id="btnSalvar"><Strong>Salvar</Strong></button>
         </div>
 
