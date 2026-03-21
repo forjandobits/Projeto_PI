@@ -161,7 +161,34 @@ async function exibirDadosFolhaLancadas(){
     }
 }
 
+async function gerarRelatorio() {
+    
+    document.addEventListener("click", async (e) =>{
+        const botaoBaixar = e.target.closest(".botao-baixar");
 
+        if(botaoBaixar){
+            const idSelecionado = e.target.id;
+            alert("Clicou para baixar! O id selecionado: " + idSelecionado);
+
+            const respostaFolha = await fetch(`${BASE_URL}/api/pagamentos/exibir_dados_folha.php`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id_folha: idSelecionado
+                })
+            });
+    
+            const dadosFolhaSelecionada = await respostaFolha.json();
+
+            alert(dadosFolhaSelecionada);
+            localStorage.setItem("relatorio_pagamento", JSON.stringify(dadosFolhaSelecionada));
+
+            window.location.href = `${BASE_URL}/components/relatorio_pagamento.php`;
+        }
+    })
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     
@@ -184,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cargo.textContent = folhaLancada.nome_cargo;
             mesReferencia.textContent = folhaLancada.mes_referencia;
             botaoVisualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
-            botaoBaixar.innerHTML = "<button>Baixar</button>";
+            botaoBaixar.innerHTML = `<button class='botao-baixar' id='${id}'>Baixar</button>`;
 
         });
 
@@ -222,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     exibirFolhaLancada();
     exibirDadosFolhaLancadas();
+    gerarRelatorio();
     
 });
 
