@@ -1,4 +1,4 @@
-// import {exibiInformacoesEditar} from './funcoes.js';
+import {exibiInformacoesEditar} from './funcoes.js';
 
 document.addEventListener('DOMContentLoaded', ()=>{
     
