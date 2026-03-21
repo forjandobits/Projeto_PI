@@ -19,9 +19,8 @@
           <button id="enviar-dados">Lançar</button>
     </section>
     
-    <!-- teste --><p id="resultado"></p><!-- teste -->
   </article>
-
+  
   <article class="modal modal-cadastro">
     <section>
       <h3>Eventos da Folha de Pagamento</h3>
@@ -32,33 +31,33 @@
       <form action="" class="form-modal">
         <section class="grupo-campo-linha">
           <div class="campo">
-              <label for="nome">Nome do Funcionário:</label>
-              <input type="text" name="Nome-Funcionario" id="nome" placeholder="Ex.: Nome do Funcionário" required>
-              <ul id="listaNomes"></ul>
+            <label for="nome">Nome do Funcionário:</label>
+            <input type="text" name="Nome-Funcionario" id="nome" placeholder="Ex.: Nome do Funcionário" required>
+            <ul id="listaNomes"></ul>
           </div>
-
+          
           <div class="campo">
             <label for="data-mes-ano">Mês de Referência:</label>
             <input type="month" name="Mes-Ano" id="data-mes-ano" required>
           </div>
-        
+          
         </section> 
-
+        
         <section class="eventos-pagamentos"></section>
-
-
-
+        
+        
+        
         <div class="campo resumo">
           <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
           <button type="button" id="lancar-dados">Salvar</button>
         </div>
         
         <div class="campo">
-          <span>Mensagem de erro</span>
+          <p id="resultado"></p>
         </div>
         
         
-
+        
       </form>
     </section>
   </article>
@@ -71,6 +70,6 @@
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 <script type="module" src="public/js/pagamentos/eventos_pagamentos.js"></script>
-<script type="module" src="public/js/pagamentos/validacoes.js"></script> <!-- teste -->
+<script type="module" src="public/js/pagamentos/validacoes.js"></script>
 </body>
 </html>

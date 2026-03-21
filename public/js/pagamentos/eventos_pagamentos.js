@@ -1,7 +1,13 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { mostrarMensagem } from "./validacoes.js";
-// import { eventoSelecionado } from "./validacoes.js";
+import { eventoSelecionado } from "./validacoes.js";
+
+// Salario - 1
+// FGTS - 2
+// INSS - 3
+// IRPF - 4
+// Vale Transporte - 5
 
 function reindexar(){
     const selects = document.querySelectorAll("select");
@@ -60,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         // Conteúdo do label e for
                         label.textContent = "Benefícios:"
-                        // label.htmlFor = "beneficios"+ c;
+                        // label.htmlFor = "beneficios" + c;
                         label.htmlFor = "beneficios";
 
 
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                         div.append(label, select);
 
-                        // eventoSelecionado(secao);
+                        // eventoSelecionado();
                     }
 
                     if (i == 2) {
