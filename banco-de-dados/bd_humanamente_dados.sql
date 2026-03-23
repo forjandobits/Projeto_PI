@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `url_arquivo` text NOT NULL,
   PRIMARY KEY (`id_arquivo`),
   KEY `id_documento` (`id_documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_arquivo`
@@ -68,13 +68,14 @@ INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_a
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `nome_banco` varchar(50) NOT NULL,
   `agencia` varchar(20) NOT NULL,
   `numero_conta` varchar(20) NOT NULL,
   `tipo_conta` varchar(40) NOT NULL,
   `chave_pix` text NOT NULL,
   PRIMARY KEY (`id_banco`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_banco`
@@ -109,31 +110,30 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `salario` decimal(10,2) NOT NULL,
   `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
-  `escala` int(11) NOT NULL,
   `cbo` varchar(10) NOT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_cargo`
 --
 
-INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `escala`, `cbo`) VALUES
-(1, 'Padeiro', 2800.00, 44, 'CLT', 6, '848105'),
-(2, 'Auxiliar de Padeiro', 1800.00, 44, 'CLT', 6, '848110'),
-(3, 'Confeiteiro', 3000.00, 44, 'CLT', 6, '848205'),
-(4, 'Auxiliar de Confeitaria', 1700.00, 44, 'CLT', 6, '848210'),
-(5, 'Atendente', 1600.00, 44, 'CLT', 6, '521140'),
-(6, 'Caixa', 1700.00, 44, 'CLT', 6, '421125'),
-(7, 'Gerente', 4500.00, 44, 'CLT', 5, '141420'),
-(8, 'Subgerente', 3500.00, 44, 'CLT', 5, '141415'),
-(9, 'Estoquista', 1900.00, 44, 'CLT', 6, '414125'),
-(10, 'Auxiliar de Limpeza', 1500.00, 44, 'CLT', 6, '514320'),
-(11, 'Entregador', 2000.00, 44, 'CLT', 6, '782310'),
-(12, 'Cozinheiro', 2600.00, 44, 'CLT', 6, '513205'),
-(13, 'Auxiliar de Cozinha', 1700.00, 44, 'CLT', 6, '513505'),
-(14, 'Supervisor de Turno', 3200.00, 44, 'CLT', 6, '141420'),
-(15, 'Nutricionista', 4000.00, 40, 'CLT', 5, '223710');
+INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `cbo`) VALUES
+(1, 'Padeiro', 2800.00, 44, 'CLT', '848105'),
+(2, 'Auxiliar de Padeiro', 1800.00, 44, 'CLT', '848110'),
+(3, 'Confeiteiro', 3000.00, 44, 'CLT', '848205'),
+(4, 'Auxiliar de Confeitaria', 1700.00, 44, 'CLT', '848210'),
+(5, 'Atendente', 1600.00, 44, 'CLT', '521140'),
+(6, 'Caixa', 1700.00, 44, 'CLT', '421125'),
+(7, 'Gerente', 4500.00, 44, 'CLT', '141420'),
+(8, 'Subgerente', 3500.00, 44, 'CLT', '141415'),
+(9, 'Estoquista', 1900.00, 44, 'CLT', '414125'),
+(10, 'Auxiliar de Limpeza', 1500.00, 44, 'CLT', '514320'),
+(11, 'Entregador', 2000.00, 44, 'CLT', '782310'),
+(12, 'Cozinheiro', 2600.00, 44, 'CLT', '513205'),
+(13, 'Auxiliar de Cozinha', 1700.00, 44, 'CLT', '513505'),
+(14, 'Supervisor de Turno', 3200.00, 44, 'CLT', '141420'),
+(15, 'Nutricionista', 4000.00, 40, 'CLT', '223710');
 
 -- --------------------------------------------------------
 
@@ -152,14 +152,14 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `nit` text NOT NULL,
   `registro_profissional` text NOT NULL,
   `comprovante_escolaridade` text NOT NULL,
-  `cnh` text DEFAULT NULL,
-  `cam` text DEFAULT NULL,
+  `cnh` tinyint(1) NOT NULL DEFAULT 0,
+  `cam` tinyint(1) NOT NULL DEFAULT 0,
   `titulo_eleitor` text DEFAULT NULL,
-  `certidao_casamento_nascimento` text DEFAULT NULL,
-  `laudo_pcd` text DEFAULT NULL,
+  `certidao_casamento_nascimento` tinyint(1) NOT NULL DEFAULT 0,
+  `laudo_pcd` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_documento`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_documento`
@@ -191,6 +191,7 @@ INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `estado` varchar(2) NOT NULL,
   `cidade` varchar(60) NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
@@ -199,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `complemento` text DEFAULT NULL,
   PRIMARY KEY (`id_endereco`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_endereco`
@@ -231,33 +232,27 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `cidade`, `bairro`, 
 CREATE TABLE IF NOT EXISTS `tb_filho` (
   `id_filho` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `certidao_filho` text NOT NULL,
-  `idade_filho` int(11) NOT NULL,
-  `escolaridade_filho` text NOT NULL,
+  `tem_filho` tinyint(1) NOT NULL DEFAULT 0,
+  `numero_filho` int(11),
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_filho`
 --
 
-INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `certidao_filho`, `idade_filho`, `escolaridade_filho`) VALUES
-(1, 1, 'Certidao 1001', 8, 'Ensino Fundamental'),
-(2, 1, 'Certidao 1002', 5, 'Educação Infantil'),
-(3, 3, 'Certidao 1003', 10, 'Ensino Fundamental'),
-(4, 6, 'Certidao 1004', 6, 'Ensino Fundamental'),
-(5, 7, 'Certidao 1005', 12, 'Ensino Fundamental'),
-(6, 8, 'Certidao 1006', 15, 'Ensino Médio'),
-(7, 10, 'Certidao 1007', 18, 'Ensino Médio'),
-(8, 12, 'Certidao 1008', 7, 'Ensino Fundamental'),
-(9, 14, 'Certidao 1009', 9, 'Ensino Fundamental'),
-(10, 15, 'Certidao 1010', 4, 'Educação Infantil'),
-(11, 7, 'Certidao 1011', 3, 'Educação Infantil'),
-(12, 3, 'Certidao 1012', 2, 'Educação Infantil'),
-(13, 6, 'Certidao 1013', 14, 'Ensino Fundamental'),
-(14, 1, 'Certidao 1014', 16, 'Ensino Médio'),
-(15, 8, 'Certidao 1015', 11, 'Ensino Fundamental');
+INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `tem_filho`, `numero_filho`) VALUES
+(1, 1, 1, 2),
+(2, 2, 1, 5),
+(3, 3, 1, 1),
+(4, 4, 1, 7),
+(5, 5, 1, 1),
+(6, 6, 1, 2),
+(7, 7, 1, 5),
+(8, 8, 1, 1),
+(9, 9, 1, 7),
+(10, 10, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -273,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
   `mes_referencia` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_folhapagamento`
@@ -309,11 +304,12 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `total_horas_dia` int(11) NOT NULL,
   `horas_extras` int(11) DEFAULT NULL,
   `faltas` int(11) DEFAULT NULL,
+  `ferias_falta_abonada` int(11) DEFAULT NULL,
   `atrasos` int(11) DEFAULT NULL,
   `observacoes` text DEFAULT NULL,
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_folhaponto`
@@ -352,10 +348,10 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `email` varchar(100) NOT NULL,
   `data_admissao` date NOT NULL,
   `data_demissao` date DEFAULT NULL,
-  `situacao` int(11) NOT NULL,
+  `situacao` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_funcionario`
@@ -392,11 +388,11 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `hora_saida` time DEFAULT NULL,
   `intervalo_inicio` time DEFAULT NULL,
   `intervalo_fim` time DEFAULT NULL,
-  `dia_semana` text NOT NULL,
+  `dia_semana` varchar(20) NOT NULL,
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_jornada`
@@ -432,7 +428,7 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
   `senha` varchar(50) NOT NULL,
   PRIMARY KEY (`id_login`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_login`
@@ -468,7 +464,7 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `desconto` int(11) NOT NULL DEFAULT 0,
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_proventos`
@@ -504,7 +500,7 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
   `status` text NOT NULL,
   PRIMARY KEY (`id_solicitacao`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_solicitacoes`
@@ -540,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `tipo_telefone` varchar(50) NOT NULL,
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_telefone`
