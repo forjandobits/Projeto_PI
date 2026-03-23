@@ -1,3 +1,5 @@
+<?php include "./components/header.php" ?>
+
 <?php include "./components/sidebar.php" ?>
 
 <main>
@@ -161,13 +163,10 @@
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
-<<<<<<< HEAD
 
 <script src="public/js/solicitacoes/adicionar.js"></script>
 <script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
 
-=======
->>>>>>> origin/BE/cadastroFuncionario
 </body>
 </html>
 
