@@ -307,6 +307,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `ferias_falta_abonada` int(11) DEFAULT NULL,
   `atrasos` int(11) DEFAULT NULL,
   `observacoes` text DEFAULT NULL,
+  `fechado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
