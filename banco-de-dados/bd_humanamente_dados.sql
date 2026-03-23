@@ -1,5 +1,5 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.3-1.fc43
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
@@ -26,20 +26,18 @@ USE `bd_humanamente_dados`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_arquivo`
+-- Estrutura para tabela `tb_arquivo`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
   `id_documento` int(11) NOT NULL,
-  `tipo_documento` varchar(100) NOT NULL,
-  `url_arquivo` text NOT NULL,
-  PRIMARY KEY (`id_arquivo`),
-  KEY `id_documento` (`id_documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `tipo_documento` text NOT NULL,
+  `url_arquivo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_arquivo`
+-- Despejando dados para a tabela `tb_arquivo`
 --
 
 INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_arquivo`) VALUES
@@ -62,22 +60,20 @@ INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_a
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_banco`
+-- Estrutura para tabela `tb_banco`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `agencia` varchar(20) NOT NULL,
-  `numero_conta` varchar(20) NOT NULL,
-  `tipo_conta` varchar(40) NOT NULL,
-  `chave_pix` text NOT NULL,
-  PRIMARY KEY (`id_banco`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `agencia` text NOT NULL,
+  `numero_conta` text NOT NULL,
+  `tipo_conta` text NOT NULL,
+  `chave_pix` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_banco`
+-- Despejando dados para a tabela `tb_banco`
 --
 
 INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `agencia`, `numero_conta`, `tipo_conta`, `chave_pix`) VALUES
@@ -100,7 +96,7 @@ INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `agencia`, `numero_conta`,
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_cargo`
+-- Estrutura para tabela `tb_cargo`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_cargo` (
@@ -109,13 +105,11 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `salario` decimal(10,2) NOT NULL,
   `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
-  `escala` int(11) NOT NULL,
-  `cbo` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `escala` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_cargo`
+-- Despejando dados para a tabela `tb_cargo`
 --
 
 INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `escala`, `cbo`) VALUES
@@ -138,7 +132,7 @@ INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `r
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_documento`
+-- Estrutura para tabela `tb_documento`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_documento` (
@@ -156,13 +150,11 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `cam` text DEFAULT NULL,
   `titulo_eleitor` text DEFAULT NULL,
   `certidao_casamento_nascimento` text DEFAULT NULL,
-  `laudo_pcd` text DEFAULT NULL,
-  PRIMARY KEY (`id_documento`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `laudo_pcd` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_documento`
+-- Despejando dados para a tabela `tb_documento`
 --
 
 INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps`, `pis_pasep`, `nis`, `nit`, `registro_profissional`, `comprovante_escolaridade`, `cnh`, `cam`, `titulo_eleitor`, `certidao_casamento_nascimento`, `laudo_pcd`) VALUES
@@ -185,7 +177,7 @@ INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_endereco`
+-- Estrutura para tabela `tb_endereco`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
@@ -195,14 +187,12 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
   `numero_casa` int(11) NOT NULL,
-  `cep` varchar(15) NOT NULL,
-  `complemento` text DEFAULT NULL,
-  PRIMARY KEY (`id_endereco`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `cep` text NOT NULL,
+  `complemento` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_endereco`
+-- Despejando dados para a tabela `tb_endereco`
 --
 
 INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `cidade`, `bairro`, `rua`, `numero_casa`, `cep`, `complemento`) VALUES
@@ -225,7 +215,7 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `cidade`, `bairro`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_filho`
+-- Estrutura para tabela `tb_filho`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_filho` (
@@ -233,13 +223,11 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
   `id_funcionario` int(11) NOT NULL,
   `certidao_filho` text NOT NULL,
   `idade_filho` int(11) NOT NULL,
-  `escolaridade_filho` text NOT NULL,
-  PRIMARY KEY (`id_filho`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `escolaridade_filho` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_filho`
+-- Despejando dados para a tabela `tb_filho`
 --
 
 INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `certidao_filho`, `idade_filho`, `escolaridade_filho`) VALUES
@@ -299,7 +287,7 @@ INSERT INTO `tb_folhapagamento` (`id`, `id_funcionario`, `informacoes`, `data_la
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_folhaponto`
+-- Estrutura para tabela `tb_folhaponto`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
@@ -316,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tb_folhaponto`
+-- Despejando dados para a tabela `tb_folhaponto`
 --
 
 INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_dia`, `horas_extras`, `faltas`, `atrasos`, `observacoes`) VALUES
@@ -339,26 +327,24 @@ INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_funcionario`
+-- Estrutura para tabela `tb_funcionario`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
   `id_cargo` int(11) NOT NULL,
-  `nome_completo` varchar(100) NOT NULL,
-  `data_nascimento` date NOT NULL,
-  `sexo` varchar(30) NOT NULL,
-  `estado_civil` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `data_admissao` date NOT NULL,
-  `data_demissao` date DEFAULT NULL,
-  `situacao` int(11) NOT NULL,
-  PRIMARY KEY (`id_funcionario`),
-  KEY `id_cargo` (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `nome_completo` text NOT NULL,
+  `data_nascimento` text NOT NULL,
+  `sexo` text NOT NULL,
+  `estado_civil` text NOT NULL DEFAULT '0',
+  `email` text NOT NULL,
+  `data_demissao` text NOT NULL,
+  `data_admissao` text NOT NULL,
+  `situacao` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_funcionario`
+-- Despejando dados para a tabela `tb_funcionario`
 --
 
 INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `data_nascimento`, `sexo`, `estado_civil`, `email`, `data_admissao`, `data_demissao`, `situacao`) VALUES
@@ -381,7 +367,7 @@ INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `da
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_jornada`
+-- Estrutura para tabela `tb_jornada`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_jornada` (
@@ -399,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tb_jornada`
+-- Despejando dados para a tabela `tb_jornada`
 --
 
 INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`) VALUES
@@ -422,178 +408,254 @@ INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entr
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_login`
+-- Estrutura para tabela `tb_login`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `nome_usuario` varchar(100) NOT NULL,
-  `senha` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_login`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `nome_usuario` text NOT NULL,
+  `senha` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_login`
+-- Despejando dados para a tabela `tb_login`
 --
 
 INSERT INTO `tb_login` (`id_login`, `id_funcionario`, `nome_usuario`, `senha`) VALUES
-(1, 1, 'carlos.silva', '123456'),
-(2, 2, 'joao.santos', '123456'),
-(3, 3, 'fernanda.costa', '123456'),
-(4, 4, 'mariana.lima', '123456'),
-(5, 5, 'paulo.mendes', '123456'),
-(6, 6, 'juliana.gomes', '123456'),
-(7, 7, 'ricardo.rocha', '123456'),
-(8, 8, 'patricia.ribeiro', '123456'),
-(9, 9, 'lucas.teixeira', '123456'),
-(10, 10, 'sandra.barros', '123456'),
-(11, 11, 'gabriel.nogueira', '123456'),
-(12, 12, 'roberto.pinto', '123456'),
-(13, 13, 'camila.lopes', '123456'),
-(14, 14, 'eduardo.matos', '123456'),
-(15, 15, 'ana.faria', '123456');
+(1, 1, 'marcos.r', 'Senha@123'),
+(2, 2, 'fernanda.a', 'Senha@123'),
+(3, 3, 'carlos.d', 'Senha@123'),
+(4, 4, 'juliana.t', 'Senha@123'),
+(5, 5, 'rogerio.p', 'Senha@123');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_proventos`
+-- Estrutura da tabela `tb_previsto_beneficios`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_proventos` (
-  `id_beneficio` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_beneficio` varchar(150) NOT NULL,
-  `valor` decimal(10,2) NOT NULL,
-  `desconto` int(11) NOT NULL DEFAULT 0,
-  `referencia` double NOT NULL,
-  PRIMARY KEY (`id_beneficio`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tb_proventos`
---
-
-INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 'Salário', 1621.00, 0, 1),
-(2, '13º Salário', 1621.00, 0, 1),
-(3, 'Vale Transporte', 150.00, 1, 1),
-(4, 'Comissão', 180, 0, 1),
-(5, 'Vale Alimentação', 450.00, 0, 1),
-(6, 'IRPF', 0.00, 1, 1),
-(7, 'INSS', 0.00, 1, 1),
-(8, 'Bônus de Desempenho', 500.00, 0, 1),
-(9, 'Adicional Noturno', 210.00, 0, 1),
-(10, 'Desconto Falta', 50.0, 1, 1),
-(11, 'Horas Extras', 50.00, 0, 1),
-(12, 'Gratificação Cargo', 200.00, 0, 1);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tb_solicitacoes`
---
-
-CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
-  `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tb_previsto_beneficios` (
+  `id_beneficio` int(11) NOT NULL,
   `id_funcionario` int(11) NOT NULL,
-  `data_solicitacao` date NOT NULL,
-  `tipo_solicitacao` text NOT NULL,
-  `observacao` text NOT NULL,
-  `motivo` text DEFAULT NULL,
-  `status` text NOT NULL,
-  PRIMARY KEY (`id_solicitacao`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `insalubridade` int(11) NOT NULL DEFAULT 0,
+  `periculosidade` int(11) NOT NULL DEFAULT 0,
+  `ferias` int(11) NOT NULL DEFAULT 0,
+  `salario_13` int(11) NOT NULL DEFAULT 0,
+  `vale_transporte` int(11) NOT NULL DEFAULT 0,
+  `vale_alimentacao` int(11) NOT NULL DEFAULT 0,
+  `plano_saude` int(11) NOT NULL DEFAULT 0,
+  `inss` int(11) NOT NULL DEFAULT 0,
+  `fgts` int(11) NOT NULL DEFAULT 0,
+  `irrf` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_solicitacoes`
+-- Extraindo dados da tabela `tb_previsto_beneficios`
 --
 
-INSERT INTO `tb_solicitacoes` (`id_solicitacao`, `id_funcionario`, `data_solicitacao`, `tipo_solicitacao`, `observacao`, `motivo`, `status`) VALUES
-(1, 1, '2025-01-10', 'Férias', 'Solicitação de férias de 30 dias', 'Período aquisitivo completo', 'Aprovado'),
-(2, 2, '2025-02-05', 'Troca de turno', 'Deseja trocar turno da manhã para tarde', 'Curso técnico no período da manhã', 'Pendente'),
-(3, 3, '2025-02-12', 'Atestado médico', 'Entrega de atestado médico de 2 dias', 'Consulta e recuperação de gripe', 'Aprovado'),
-(4, 4, '2025-02-18', 'Folga', 'Solicitação de folga em dia específico', 'Compromisso familiar', 'Aprovado'),
-(5, 5, '2025-02-20', 'Troca de escala', 'Solicita alteração da escala semanal', 'Dificuldade de transporte aos domingos', 'Pendente'),
-(6, 6, '2025-02-25', 'Licença', 'Solicitação de licença de 5 dias', 'Problemas de saúde na família', 'Aprovado'),
-(7, 7, '2025-03-01', 'Férias', 'Solicitação de férias de 20 dias', 'Descanso anual', 'Pendente'),
-(8, 8, '2025-03-03', 'Alteração de dados', 'Atualização de endereço no cadastro', 'Mudança de residência', 'Aprovado'),
-(9, 9, '2025-03-04', 'Folga', 'Solicitação de folga em feriado', 'Viagem curta', 'Rejeitado'),
-(10, 10, '2025-03-05', 'Atestado médico', 'Entrega de atestado de 1 dia', 'Consulta odontológica', 'Aprovado'),
-(11, 11, '2025-03-06', 'Troca de turno', 'Trocar turno com colega', 'Facilitar estudo noturno', 'Pendente'),
-(12, 12, '2025-03-07', 'Férias', 'Solicitação de férias de 30 dias', 'Período anual de descanso', 'Pendente'),
-(13, 13, '2025-03-08', 'Folga', 'Solicitação de folga', 'Participação em evento familiar', 'Aprovado'),
-(14, 14, '2025-03-09', 'Licença', 'Licença de 3 dias', 'Tratamento médico', 'Aprovado'),
-(15, 15, '2025-03-10', 'Alteração de dados', 'Atualização de telefone', 'Troca de número pessoal', 'Aprovado');
+INSERT INTO `tb_previsto_beneficios` (`id_beneficio`, `id_funcionario`, `insalubridade`, `periculosidade`, `ferias`, `salario_13`, `vale_transporte`, `vale_alimentacao`, `plano_saude`, `inss`, `fgts`, `irrf`) VALUES
+(1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1),
+(2, 2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0),
+(3, 3, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1),
+(4, 4, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0),
+(5, 5, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_telefone`
+-- Estrutura para tabela `tb_solicitacoes`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_telefone` (
-  `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tb_telefone` (
+  `id_telefone` int(11) NOT NULL,
   `id_funcionario` int(11) NOT NULL,
-  `telefone` varchar(20) NOT NULL,
-  `tipo_telefone` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_telefone`),
-  KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+  `telefone` text NOT NULL,
+  `tipo_telefone` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tb_telefone`
+-- Despejando dados para a tabela `tb_solicitacoes`
 --
 
 INSERT INTO `tb_telefone` (`id_telefone`, `id_funcionario`, `telefone`, `tipo_telefone`) VALUES
-(1, 1, '(33)98811-1200', 'Celular'),
-(2, 2, '(33)98811-1300', 'Celular'),
-(3, 3, '(33)98811-1400', 'Celular'),
-(4, 4, '(33)98811-1500', 'Celular'),
-(5, 5, '(33)98811-1600', 'Celular'),
-(6, 6, '(33)98811-1700', 'Celular'),
-(7, 7, '(33)98811-1800', 'Celular'),
-(8, 8, '(33)98811-1900', 'Celular'),
-(9, 9, '(33)98811-2000', 'Celular'),
-(10, 10, '(33)98811-2100', 'Celular'),
-(11, 11, '(33)98811-2200', 'Celular'),
-(12, 12, '(33)98811-2300', 'Celular'),
-(13, 13, '(33)98811-2400', 'Celular'),
-(14, 14, '(33)98811-2500', 'Celular'),
-(15, 15, '(33)98811-2600', 'Celular');
-
--- --------------------------------------------------------
+(1, 1, '(11) 98855-1200', 'Celular'),
+(2, 1, '(11) 3251-4400', 'Residencial'),
+(3, 2, '(11) 99645-2300', 'Celular'),
+(4, 3, '(11) 97780-5600', 'Celular'),
+(5, 4, '(11) 94022-8810', 'Celular'),
+(6, 5, '(11) 95877-1100', 'Celular');
 
 --
--- Estrutura stand-in para vista `view_folha_ponto`
--- (Veja abaixo para a view atual)
---
-CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
-`id_funcionario` int(11)
-,`nome_completo` varchar(100)
-,`nome_cargo` varchar(100)
-,`carga_semanal_prevista` int(11)
-,`horas_trabalhadas_semana` decimal(32,0)
-,`diferenca_horas` decimal(33,0)
-,`situacao` varchar(16)
-);
-
--- --------------------------------------------------------
-
---
--- Estrutura para vista `view_folha_ponto`
---
-DROP TABLE IF EXISTS `view_folha_ponto`;
-
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria` ORDER BY sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) ASC ;
-
---
--- Restrições para despejos de tabelas
+-- Índices para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `tb_arquivo`
+-- Índices para tabela `tb_arquivo`
+--
+ALTER TABLE `tb_arquivo`
+  ADD PRIMARY KEY (`id_arquivo`),
+  ADD KEY `id_documento` (`id_documento`);
+
+--
+-- Índices para tabela `tb_banco`
+--
+ALTER TABLE `tb_banco`
+  ADD PRIMARY KEY (`id_banco`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_cargo`
+--
+ALTER TABLE `tb_cargo`
+  ADD PRIMARY KEY (`id_cargo`);
+
+--
+-- Índices para tabela `tb_documento`
+--
+ALTER TABLE `tb_documento`
+  ADD PRIMARY KEY (`id_documento`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_endereco`
+--
+ALTER TABLE `tb_endereco`
+  ADD PRIMARY KEY (`id_endereco`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_filho`
+--
+ALTER TABLE `tb_filho`
+  ADD PRIMARY KEY (`id_filho`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_folhaponto`
+--
+ALTER TABLE `tb_folhaponto`
+  ADD PRIMARY KEY (`id_ponto`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_funcionario`
+--
+ALTER TABLE `tb_funcionario`
+  ADD PRIMARY KEY (`id_funcionario`),
+  ADD KEY `id_cargo` (`id_cargo`);
+
+--
+-- Índices para tabela `tb_jornada`
+--
+ALTER TABLE `tb_jornada`
+  ADD PRIMARY KEY (`id_jornada`),
+  ADD KEY `id_funcionario` (`id_funcionario`),
+  ADD KEY `id_ponto` (`id_ponto`);
+
+--
+-- Índices para tabela `tb_login`
+--
+ALTER TABLE `tb_login`
+  ADD PRIMARY KEY (`id_login`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_previsto_beneficios`
+--
+ALTER TABLE `tb_previsto_beneficios`
+  ADD PRIMARY KEY (`id_beneficio`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- Índices para tabela `tb_telefone`
+--
+ALTER TABLE `tb_telefone`
+  ADD PRIMARY KEY (`id_telefone`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `tb_arquivo`
+--
+ALTER TABLE `tb_arquivo`
+  MODIFY `id_arquivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_banco`
+--
+ALTER TABLE `tb_banco`
+  MODIFY `id_banco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_cargo`
+--
+ALTER TABLE `tb_cargo`
+  MODIFY `id_cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_documento`
+--
+ALTER TABLE `tb_documento`
+  MODIFY `id_documento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_endereco`
+--
+ALTER TABLE `tb_endereco`
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_filho`
+--
+ALTER TABLE `tb_filho`
+  MODIFY `id_filho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_folhaponto`
+--
+ALTER TABLE `tb_folhaponto`
+  MODIFY `id_ponto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de tabela `tb_funcionario`
+--
+ALTER TABLE `tb_funcionario`
+  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_jornada`
+--
+ALTER TABLE `tb_jornada`
+  MODIFY `id_jornada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de tabela `tb_login`
+--
+ALTER TABLE `tb_login`
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_previsto_beneficios`
+--
+ALTER TABLE `tb_previsto_beneficios`
+  MODIFY `id_beneficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tb_telefone`
+--
+ALTER TABLE `tb_telefone`
+  MODIFY `id_telefone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `tb_arquivo`
 --
 ALTER TABLE `tb_arquivo`
   ADD CONSTRAINT `tb_arquivo_ibfk_1` FOREIGN KEY (`id_documento`) REFERENCES `tb_documento` (`id_documento`);
@@ -611,16 +673,10 @@ ALTER TABLE `tb_folhaponto`
   ADD CONSTRAINT `tb_folhaponto_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
--- Limitadores para a tabela `tb_funcionario`
+-- Restrições para tabelas `tb_funcionario`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
-
---
--- Limitadores para a tabela `tb_solicitacoes`
---
-ALTER TABLE `tb_solicitacoes`
-  ADD CONSTRAINT `tb_solicitacoes_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

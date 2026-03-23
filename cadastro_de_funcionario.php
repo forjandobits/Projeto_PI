@@ -17,5 +17,10 @@
     <script>
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
     </script>
+<<<<<<< HEAD
+=======
+
+  <script type="module" src="public/js/funcionarios/editar_funcionario.js"></script>
+>>>>>>> origin/BE/cadastroFuncionario
   </body>
 </html>

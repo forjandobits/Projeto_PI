@@ -26,7 +26,6 @@
                       <option value="2">Nome do Colaborador</option>
                       <option value="3">Cargo</option>
                       <option value="4">Situação</option>
-                      <option value="5">Desligado</option>
                   </select>
               </div>
 
@@ -55,58 +54,26 @@
        </tr>
      </thead>
      <tbody id="tabela-saida-colaboradores">
-       <tr>
-         <td>Gustavo</td>
-         <td>Padeiro</td>
-         <td>Disponível</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-         <td>Elisangela</td>
-         <td>Caixa</td>
-         <td>Disponível</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-         <td>Joaquim</td>
-         <td>Balconista</td>
-         <td>Desligado</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-         <td>Regina</td>
-         <td>Caixa</td>
-         <td>Disponível</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
-       <tr>
-         <td>Mateus</td>
-         <td>Gerente</td>
-         <td>Desligado</td>
-         <td><button>Desligar</button></td>
-         <td><button class='abrir-modal'>Visualizar</button></td>
-       </tr>
      </tbody>
    </table>
+   
   </article>
   <article class="modal modal-cadastro">
     <section>
-      <h3>Informações do Funcionário</h3>
+      <h3>Informações do Colaborador</h3>
       <p class="fechar">X</p>
     </section>
     
     <section>
       <form action="" class="form-modal">
 
-        <?php include "./formulario_cadastro.php" ?>
+        <?php include "./components/formulario_cadastro.php" ?>
 
       </form>
     </section>
   </article>
+
+  <script type="module" src="public/js/funcionarios/exibir_funcionario.js"></script>
 </main>
 
 <script>
