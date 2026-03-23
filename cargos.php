@@ -26,25 +26,6 @@
                   </tr>
               </thead>
               <tbody id="tabela-saida-cargos">
-                  <tr>
-                      <td>8483-05</td>
-                      <td>Padeiro</td>
-                      <td>2000,00</td>
-                      <td>8</td>
-                      <td>CLT</td>
-                      <td>40</td>
-                      <td><button class="abrir-modal">Editar</button></td>
-                  </tr>
-                  <tr>
-                      <td>4211-25</td>
-                      <td>Caixa</td>
-                      <td>1631,00</td>
-                      <td>8</td>
-                      <td>CLT</td>
-                      <td>40</td>
-                      <td><button class="abrir-modal">Editar</button></td>
-                  </tr>
-                  
               </tbody>
           </table>
       </section>                          
@@ -107,3 +88,5 @@
 </script>
 
 <script type="module" src="public/js/adicionar_cargo/adicionar_cargo.js"></script>
+
+<script type="module" src="public/js/funcionarios/exibir_cargo.js"></script>
