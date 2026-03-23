@@ -68,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `salario` decimal(10,2) NOT NULL,
   `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
-  `escala` int(11) NOT NULL,
   `cbo` varchar(10) NOT NULL,
   PRIMARY KEY (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -128,9 +127,8 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
 CREATE TABLE IF NOT EXISTS `tb_filho` (
   `id_filho` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
-  `certidao_filho` text NOT NULL,
-  `idade_filho` int(11) NOT NULL,
-  `escolaridade_filho` text NOT NULL,
+  `tem_filho` tinyint(1) NOT NULL DEFAULT 0,
+  `numero_filho` int(11),
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -187,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `email` varchar(100) NOT NULL,
   `data_admissao` date NOT NULL,
   `data_demissao` date DEFAULT NULL,
-  `situacao` int(11) NOT NULL,
+  `situacao` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
