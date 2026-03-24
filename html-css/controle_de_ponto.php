@@ -9,7 +9,7 @@
             </div>
             
             <div class="campo">
-                <button type="submit">Definir jornada</button>
+                <button class="jornada" type="submit">Definir jornada</button>
             </div>
             
         </article>
