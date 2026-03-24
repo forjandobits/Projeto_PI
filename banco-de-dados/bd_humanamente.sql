@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `nis` text NOT NULL,
   `nit` text NOT NULL,
   `registro_profissional` text NOT NULL,
-  `comprovante_escolaridade` text NOT NULL,
   `cnh` tinyint(1) NOT NULL DEFAULT 0,
   `cam` tinyint(1) NOT NULL DEFAULT 0,
   `titulo_eleitor` text DEFAULT NULL,
@@ -206,6 +205,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `intervalo_inicio` time DEFAULT NULL,
   `intervalo_fim` time DEFAULT NULL,
   `dia_semana` varchar(20) NOT NULL,
+  `confirmado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
