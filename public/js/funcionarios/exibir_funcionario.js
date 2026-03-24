@@ -163,6 +163,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
+    
+    async function desativarLinha(botao) {
+        const linha = botao.closest("");
+        const id = botao.getAttribute("id");
+
+        const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_funcionario: id
+            })
+        });
+
+        const dados = await resposta.json();
+
+        if (dados.success && dados.situacao == 0) {
+            if (linha) {
+                linha.style.opacity = "0.5";
+                linha.style.pointerEvents = "none";
+            }
+        }
+    }
 
     async function desligarFuncionario() {
 
@@ -172,6 +196,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const botao = e.target;
                 const idFuncionario = botao.getAttribute("id");
+                
+                console.log(idFuncionario)
+                console.log(botao)
 
                 const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
                     method: "POST",
@@ -183,10 +210,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                 });
 
-                const resultado = await resposta.text();
+                const resultado = await resposta.json();
 
-                if (resultado === "ok") {
-                    alert("Desligado com sucesso!");
+                if (resultado.success) {
+                    console.log(resultado)
                     desativarLinha(botao);
                 }
             }
@@ -195,6 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     listarFuncionarios();
+    desligarFuncionario();
     exibiInformacoes();
-    // desligarFuncionario();
 });
