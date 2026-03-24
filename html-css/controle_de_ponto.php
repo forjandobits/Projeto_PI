@@ -4,7 +4,13 @@
 
     <main>
         <article class="cabecalhos">
-            <h1>Controle de Ponto</h1>
+            <div>
+                <h1>Controle de Ponto</h1>
+            </div>
+            
+            <div class="campo">
+                <button type="submit">Definir jornada</button>
+            </div>
             
         </article>
 
