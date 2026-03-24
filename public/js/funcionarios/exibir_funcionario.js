@@ -2,6 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    function limparTabela() {
+        const tbody = document.querySelector("#tabela-saida-colaboradores");
+        if (tbody) {
+            tbody.innerHTML = "";
+        }
+    }
+
     async function listarFuncionarios() {
         const respostaExibir = await fetch(`${BASE_URL}/api/funcionarios/exibir_lista_funcionarios.php`);
         const funcionarios = await respostaExibir.json();
@@ -20,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         nome.textContent = funcionario.nome_completo;
         cargo.textContent = funcionario.nome_cargo;
 
+
         desligar.innerHTML = `
             <button class='desligar' 
                 id='${id}' 
@@ -36,13 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
             situacao.textContent = 'DESLIGADO';
 
             // ===== VISUAL DA LINHA =====
-            novaCelulaFuncionario.style.backgroundColor = "linha-desligada";
+            // novaCelulaFuncionario.style.backgroundColor = "linha-desligada";
             // novaCelulaFuncionario.style.opacity = "0.6";
 
             // ===== TEXTO CINZA =====
-            Array.from(novaCelulaFuncionario.cells).forEach(celula => {
-                celula.style.color = "#888";
-            });
+            // Array.from(novaCelulaFuncionario.cells).forEach(celula => {
+            //     celula.style.color = "#888";
+            //     // celula.style.hover = none;
+            // });
 
             // ===== DESATIVA BOTÃO DESLIGAR =====
             if (botaoDesligar) {
@@ -183,39 +192,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     async function desativarLinha(botao) {
-    const linha = botao.closest("tr");
-    const id = botao.getAttribute("id");
+        const linha = botao.closest("tr");
+        const id = botao.getAttribute("id");
 
-    const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            id_funcionario: id
-        })
-    });
+        const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_funcionario: id
+            })
+        });
 
-    const dados = await resposta.json();
+        const dados = await resposta.json();
 
-    if (dados.success && dados.situacao == 0) {
-        if (linha) {
-            // ===== FUNDO =====
-            linha.style.backgroundColor = "linha-desligada";
-            // linha.style.opacity = "0.6";
+        if (dados.success && dados.situacao == 0) {
+            if (linha) {
+                // ===== FUNDO =====
+                // linha.style.backgroundColor = "linha-desligada";
+                // linha.style.opacity = "0.6";
 
-            // ===== TEXTO (TODAS AS CÉLULAS) =====
-            Array.from(linha.cells).forEach(celula => {
-                celula.style.color = "#888";
-            });
+                // ===== TEXTO (TODAS AS CÉLULAS) =====
+                // Array.from(linha.cells).forEach(celula => {
+                //     celula.style.color = "#888";
+                // });
 
-            // ===== BOTÃO =====
-            botao.disabled = true;
-            botao.style.opacity = "0.5";
-            botao.style.cursor = "not-allowed";
+                // ===== BOTÃO =====
+                botao.disabled = true;
+                botao.style.opacity = "0.5";
+                botao.style.cursor = "not-allowed";
+            }
         }
     }
-}
 
     async function desligarFuncionario() {
 
@@ -291,6 +300,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // 3. ATUALIZA VISUAL
                 // ======================
 
+                limparTabela();
+                listarFuncionarios();
                 desativarLinha(botao);
             }
         });
