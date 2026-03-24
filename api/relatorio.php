@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . "/../banco-de-dados/conexao.php";
 require_once __DIR__ . "/../fpdf186/fpdf.php";
 

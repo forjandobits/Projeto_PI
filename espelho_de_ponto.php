@@ -1,14 +1,35 @@
 <?php 
 $id = $_GET['id'] ?? 0;
 
-require_once __DIR__ . "/banco-de-dados/conexao.php";
+require_once __DIR__ . "../banco-de-dados/conexao.php";
 
 // 🔹 Buscar funcionário
-$sql = "SELECT nome_completo FROM tb_funcionario WHERE id_funcionario = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$func = $stmt->get_result()->fetch_assoc();
+$sqlFunc = "SELECT nome_completo FROM tb_funcionario WHERE id_funcionario = ?";
+$stmtFunc = $conn->prepare($sqlFunc);
+$stmtFunc->bind_param("i", $id);
+$stmtFunc->execute();
+$func = $stmtFunc->get_result()->fetch_assoc();
+
+// 🔹 Buscar pontos do funcionário
+$sqlPontos = "
+SELECT 
+    fp.data,
+    fp.total_horas_dia,
+    fp.horas_extras,
+    fp.faltas,
+    j.hora_entrada,
+    j.hora_saida,
+    j.intervalo_inicio,
+    j.intervalo_fim
+FROM tb_folhaponto fp
+JOIN tb_jornada j ON fp.id_funcionario = j.id_funcionario
+WHERE fp.id_funcionario = ?
+";
+
+$stmtPontos = $conn->prepare($sqlPontos);
+$stmtPontos->bind_param("i", $id);
+$stmtPontos->execute();
+$resultado = $stmtPontos->get_result();
 ?>
 
 <?php include "./components/header.php" ?>
@@ -55,20 +76,49 @@ $func = $stmt->get_result()->fetch_assoc();
       </thead>
 
       <tbody>
-        <!-- EXEMPLO (depois a gente liga com banco) -->
+
+      <?php if ($resultado->num_rows > 0) { ?>
+
+        <?php while($row = $resultado->fetch_assoc()) { ?>
+
+        <?php
+        $dias = [
+            'Sunday' => 'Domingo',
+            'Monday' => 'Segunda',
+            'Tuesday' => 'Terça',
+            'Wednesday' => 'Quarta',
+            'Thursday' => 'Quinta',
+            'Friday' => 'Sexta',
+            'Saturday' => 'Sábado'
+        ];
+
+        $diaSemana = $dias[date('l', strtotime($row['data']))];
+        ?>
+
         <tr>
-          <td>12/11/2025</td>
-          <td>Quarta</td>
-          <td>09:00</td>
-          <td>18:00</td>
-          <td>12:00</td>
-          <td>13:00</td>
-          <td>01:00</td>
-          <td>Não</td>
-          <td>Não</td>
-          <td>08:00</td>
-          <td><button type="button">...</button></td>
+            <td><?= date('d/m/Y', strtotime($row['data'])) ?></td>
+            <td><?= $diaSemana ?></td>
+            <td><?= $row['hora_entrada'] ?></td>
+            <td><?= $row['hora_saida'] ?></td>
+            <td><?= $row['intervalo_inicio'] ?></td>
+            <td><?= $row['intervalo_fim'] ?></td>
+            <td>-</td>
+            <td><?= $row['faltas'] > 0 ? 'Sim' : 'Não' ?></td>
+            <td>-</td>
+            <td><?= $row['total_horas_dia'] ?></td>
+            <td><button type="button">...</button></td>
         </tr>
+
+        <?php } ?>
+
+      <?php } else { ?>
+
+        <tr>
+            <td colspan="11">Nenhum ponto encontrado</td>
+        </tr>
+
+      <?php } ?>
+
       </tbody>
     </table>
 
@@ -81,7 +131,6 @@ $func = $stmt->get_result()->fetch_assoc();
 
       <button type="button">Pendências</button>
 
-      <!-- 🔥 BOTÃO RELATÓRIO -->
       <a href="/Projeto_PI/api/relatorio.php?id=<?= $id ?>">
         <button type="button">Relatório</button>
       </a>

@@ -8,7 +8,7 @@ $filtro = $_GET['Filtro'] ?? '';
 
 if ($filtro != "") {
 
-    $sql = "SELECT nome_completo FROM tb_funcionario WHERE nome_completo LIKE ?";
+    $sql = "SELECT id_funcionario, nome_completo FROM tb_funcionario WHERE nome_completo LIKE ?";
     $stmt = $conn->prepare($sql);
 
     $param = "%" . $filtro . "%";
@@ -19,7 +19,7 @@ if ($filtro != "") {
 
 } else {
 
-    $sql = "SELECT nome_completo FROM tb_funcionario";
+    $sql = "SELECT id_funcionario, nome_completo FROM tb_funcionario";
     $resultado = $conn->query($sql);
 
 }
@@ -73,8 +73,8 @@ if ($filtro != "") {
                         <td>00:00</td>
                         <td>Em Serviço</td>
                         <td>
-                            <a href="espelho_de_ponto.php?id=<">
-                                <button>Visualizar</button>
+                            <a href="espelho_de_ponto.php?id=<?= $row['id_funcionario'] ?>">
+                                <button type="button">Visualizar</button>
                             </a>
                         </td>
                     </tr>
