@@ -64,4 +64,10 @@
             </section>                          
         </article>
     </main>
+    <script>
+        const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+    </script>
+
+    <script type="module" src="public/js/folha-ponto/definir_jornada.js"></script>
+
 </body>

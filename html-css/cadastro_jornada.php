@@ -1,6 +1,6 @@
-<?php include "./components/header.php" ?>
+<?php include "./header.php" ?>
 
-<?php include "./components/sidebar.php" ?>
+<?php include "./sidebar.php" ?>
 
 <main>
   <article class="cabecalhos">
