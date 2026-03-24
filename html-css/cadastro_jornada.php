@@ -21,17 +21,15 @@
                       <th>Intervalo Saída</th>
                       <th>Intervalo Retorno</th>
                       <th>Hora Saída</th>
-                      <th></th>
                   </tr>
               </thead>
               <tbody id="tabela-saida-cargos">
                   <tr>
-                      <td>8483-05</td>
-                      <td>Padeiro</td>
-                      <td>2000,00</td>
-                      <td>8</td>
-                      <td>CLT</td>
-                      <td>40</td>
+                      <td>Ricardo Batista Rocha</td>
+                      <td>08:00</td>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>17:00</td>
                       <td><button class="abrir-modal">Editar</button></td>
                   </tr>
                   
