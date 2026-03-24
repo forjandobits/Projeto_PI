@@ -7,33 +7,51 @@ document.addEventListener('DOMContentLoaded', function () {
         const funcionarios = await respostaExibir.json();
 
         const tabelaFuncionario = document.querySelector('#tabela-saida-colaboradores');
-        if (tabelaFuncionario) {
-            // tabelaFuncionario.innerHTML = "";
+        funcionarios.forEach(funcionario => {
+        const novaCelulaFuncionario = tabelaFuncionario.insertRow();
 
-            funcionarios.forEach(funcionario => {
-                const novaCelulaFuncionario = tabelaFuncionario.insertRow();
+        const id = funcionario.id_funcionario;
+        const nome = novaCelulaFuncionario.insertCell();
+        const cargo = novaCelulaFuncionario.insertCell();
+        const situacao = novaCelulaFuncionario.insertCell();
+        const desligar = novaCelulaFuncionario.insertCell();
+        const visualizar = novaCelulaFuncionario.insertCell();
 
-                const id = funcionario.id_funcionario;
-                const nome = novaCelulaFuncionario.insertCell();
-                const cargo = novaCelulaFuncionario.insertCell();
-                const situacao = novaCelulaFuncionario.insertCell();
-                const desligar = novaCelulaFuncionario.insertCell();
-                const visualizar = novaCelulaFuncionario.insertCell();
+        nome.textContent = funcionario.nome_completo;
+        cargo.textContent = funcionario.nome_cargo;
 
-                nome.textContent = funcionario.nome_completo;
-                cargo.textContent = funcionario.nome_cargo;
+        desligar.innerHTML = `
+            <button class='desligar' 
+                id='${id}' 
+                data-nome='${funcionario.nome_completo}'>
+                Desligar
+            </button>`;
+        visualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
 
-                if (funcionario.situacao == 1) {
-                    situacao.textContent = 'ATIVO'
-                } else {
-                    situacao.textContent = 'DESLIGADO'
-                }
+        const botaoDesligar = novaCelulaFuncionario.querySelector(".desligar");
 
-                // desligar.innerHTML = "<button class='desligar'>Desligar</button>";
-                desligar.innerHTML = `<button class='desligar' id='${id}'>Desligar</button>`;
-                visualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
+        if (funcionario.situacao == 1) {
+            situacao.textContent = 'ATIVO';
+        } else {
+            situacao.textContent = 'DESLIGADO';
+
+            // ===== VISUAL DA LINHA =====
+            novaCelulaFuncionario.style.backgroundColor = "linha-desligada";
+            // novaCelulaFuncionario.style.opacity = "0.6";
+
+            // ===== TEXTO CINZA =====
+            Array.from(novaCelulaFuncionario.cells).forEach(celula => {
+                celula.style.color = "#888";
             });
+
+            // ===== DESATIVA BOTÃO DESLIGAR =====
+            if (botaoDesligar) {
+                botaoDesligar.disabled = true;
+                botaoDesligar.style.opacity = "0.5";
+                botaoDesligar.style.cursor = "not-allowed";
+            }
         }
+    });
     }
 
     async function exibiInformacoes() {
@@ -165,28 +183,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     async function desativarLinha(botao) {
-        const linha = botao.closest("");
-        const id = botao.getAttribute("id");
+    const linha = botao.closest("tr");
+    const id = botao.getAttribute("id");
 
-        const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id_funcionario: id
-            })
-        });
+    const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_funcionario: id
+        })
+    });
 
-        const dados = await resposta.json();
+    const dados = await resposta.json();
 
-        if (dados.success && dados.situacao == 0) {
-            if (linha) {
-                linha.style.opacity = "0.5";
-                linha.style.pointerEvents = "none";
-            }
+    if (dados.success && dados.situacao == 0) {
+        if (linha) {
+            // ===== FUNDO =====
+            linha.style.backgroundColor = "linha-desligada";
+            // linha.style.opacity = "0.6";
+
+            // ===== TEXTO (TODAS AS CÉLULAS) =====
+            Array.from(linha.cells).forEach(celula => {
+                celula.style.color = "#888";
+            });
+
+            // ===== BOTÃO =====
+            botao.disabled = true;
+            botao.style.opacity = "0.5";
+            botao.style.cursor = "not-allowed";
         }
     }
+}
 
     async function desligarFuncionario() {
 
@@ -196,9 +225,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const botao = e.target;
                 const idFuncionario = botao.getAttribute("id");
-                
-                console.log(idFuncionario)
-                console.log(botao)
+                const nomeFuncionario = botao.dataset.nome;
+
+                if (!nomeFuncionario) {
+                    console.log("Nome não encontrado no botão");
+                    return;
+                }
+
+                // ======================
+                // 1. DESLIGAR FUNCIONÁRIO
+                // ======================
 
                 const resposta = await fetch(`${BASE_URL}/api/funcionarios/desligar.php`, {
                     method: "POST",
@@ -212,13 +248,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const resultado = await resposta.json();
 
-                if (resultado.success) {
-                    console.log(resultado)
-                    desativarLinha(botao);
+                if (!resultado.success) {
+                    console.log("Erro ao desligar funcionário");
+                    return;
                 }
+
+                // ======================
+                // 2. REGISTRAR DEMISSÃO
+                // ======================
+
+                const dadosDemissao = {
+                    id_funcionario: idFuncionario,
+                    nome_funcionario: nomeFuncionario,
+                    data_demissao: new Date().toISOString().split("T")[0],
+                };
+
+                try {
+
+                    const responseDemissao = await fetch(`${BASE_URL}/api/funcionarios/mandar_demissao.php`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(dadosDemissao)
+                    });
+
+                    const dados = await responseDemissao.json();
+
+                    if (!dados.sucesso) {
+                        console.log(dados.mensagem || "Erro ao registrar demissão.");
+                        return;
+                    }
+
+                    console.log("Demissão registrada com sucesso!");
+
+                } catch (erro) {
+                    console.error("Erro:", erro);
+                    console.log("Falha na comunicação com o servidor.");
+                }
+
+                // ======================
+                // 3. ATUALIZA VISUAL
+                // ======================
+
+                desativarLinha(botao);
             }
         });
-
     }
 
     listarFuncionarios();
