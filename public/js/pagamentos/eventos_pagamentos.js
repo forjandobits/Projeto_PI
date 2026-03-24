@@ -9,18 +9,6 @@ import { eventoSelecionado } from "./validacoes.js";
 // IRPF - 4
 // Vale Transporte - 5
 
-function reindexar(){
-    const selects = document.querySelectorAll("select");
-    const inputs = document.querySelectorAll("input");
-
-    selects.forEach((select, index)=>{
-        select.id = "beneficios" + index;
-    });
-
-    inputs.forEach((input, index)=>{
-        input.id = "valor" + index;
-    });
-}
 
 document.addEventListener('DOMContentLoaded', function () {
     // Arrays para armazenamento
@@ -32,12 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const parametrosURL = new URLSearchParams(window.location.search);
     const idFolha = parametrosURL.get('id');
 
-    if(idFolha){
+    if (idFolha) {
 
         exibirDadosFolhaLancadas();
     }
-    let c = 0;
-    
+
     async function criarEventos() {
         const criarEvento = document.querySelector("#adicionar-evento");
         const beneficiosDescontos = await listarBeneficiosDescontos();
@@ -66,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         // Conteúdo do label e for
                         label.textContent = "Benefícios:"
-                        // label.htmlFor = "beneficios" + c;
                         label.htmlFor = "beneficios";
 
 
@@ -83,24 +69,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
 
                         select.name = "Beneficios";
-                        select.id = "beneficios" + c;
+                        select.id = "beneficios";
                         select.required = true;
                         // append() é mais utlizado e permite adicionar mais elementos de uma única vez
                         div.append(label, select);
 
-                        // eventoSelecionado();
                     }
 
                     if (i == 2) {
                         // Parte criar o campo para inserir os valores
                         const label = document.createElement("label");
                         label.textContent = "Valor:"
-                        // label.htmlFor = "valor" + c;
                         label.htmlFor = "valor";
 
                         const input = document.createElement("input");
                         input.name = "Valor";
-                        input.id = "valor" + c;
+                        input.id = "valor";
                         input.type = "number";
                         input.placeholder = "200,00"
                         input.required = true;
@@ -133,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Adicionando os elementos criados à página
                 eventoPagamento.append(secao);
-                c++;
             })
         }
     }
@@ -149,9 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (grupoEvento) {
                     // Remove os elementos da seção
                     grupoEvento.remove();
-                    reindexar();
+                    // reindexar();
                 }
-                // c = c - 1;
             }
         })
     }
@@ -183,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const nomeInserido = nome.value.trim();
 
                     const nomes = await buscarNome(nomeInserido);
-                    
-                    if (nomes.length >= 1){
+
+                    if (nomes.length >= 1) {
                         nomes.forEach(nomesRetornados => {
                             const li = document.createElement("li");
                             li.textContent = `${nomesRetornados.nome_completo}`;
@@ -253,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function receberBeneficiosSelecionados() {
 
         if (botaoSalvar) {
-            let cont = 0;
 
             botaoSalvar.addEventListener("click", () => {
                 const camposListados = document.querySelectorAll(".eventos-pagamentos>.grupo-campo-linha");
@@ -266,23 +247,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 buscarSalario(idSelecionado);
 
                 camposListados.forEach(valoresCampos => {
-                    let input = valoresCampos.querySelector(`.campo>#valor${cont}`);
-                    let select = valoresCampos.querySelector(`.campo>#beneficios${cont}`);
-                    
-                    
+                    let cont = 0;
+                    let input = valoresCampos.querySelector(`.campo>#valor`);
+                    let select = valoresCampos.querySelector(`.campo>#beneficios`);
+
+
                     valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: select.value, valor: input.value }] })
                     cont++;
                 });
-
-                exibir.style.display = "none";
 
                 return;
             });
         }
 
     }
-    
-    async function buscarSalario (idSelecionado){
+
+    async function buscarSalario(idSelecionado) {
 
         const salarioBase = await salarioFuncionario(idSelecionado);
         const nomeCargo = document.querySelector("#cargo-exibido");
@@ -292,8 +272,8 @@ document.addEventListener('DOMContentLoaded', function () {
             let cargo = infoBase.nome_cargo;
 
             nomeCargo.textContent = cargo;
-            
-            valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "1", valor: salario }]});
+
+            valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "1", valor: salario }] });
             calcularContribuicoesDescontos(salario);
         })
 
@@ -301,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Para valores que devem ser calculados automaticamente, como INSS e IRPF
-    async function calcularContribuicoesDescontos(salario){
+    async function calcularContribuicoesDescontos(salario) {
 
         // INSS - Valor de Referência é a base, mas pode ser alterado conforme necessário
         let descontoINSS = 0;
@@ -338,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Vale Transporte salario * 0.06 desconto
             descontoVT = salario * 0.06;
         }
-        
+
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "2", valor: valorFGTS }] });
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "3", valor: descontoINSS }] });
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "4", valor: descontoIRPF }] });
@@ -357,6 +337,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (botaoSalvar) {
 
             botaoSalvar.addEventListener("click", async () => {
+                agruparValoresRecebidos();
+
+                const validado = eventoSelecionado(valoresUnidos);
+
+                if (validado !== true) {
+                    let texto = "não pode ter 2 eventos iguais!!";
+                    mostrarMensagem(texto);
+                    return
+                } else {
+                    exibir.style.display = "none";
+                }
 
                 if (tabelaPagamento) {
 
@@ -380,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const vencimentos = novasInfos.insertCell();
                     const descontos = novasInfos.insertCell();
                     let idConvertido;
-        
+
                     // Para aparecer as informações apenas uma vez e continuar exibindo as outras conforme necessário
                     nomeFuncionario.textContent = "";
                     mes.textContent = "";
@@ -396,9 +387,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 idConvertido = Number(info.idBenDes);
 
-                                if(idConvertido === 2){
+                                if (idConvertido === 2) {
                                     valorFGTS = Number(info.valor);
-                                } 
+                                }
 
                                 id.textContent = info.idBenDes;
                                 if (benDes.id_beneficio == idConvertido) {
@@ -406,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     referencia.textContent = benDes.referencia;
                                     vencimentos.textContent = info.valor;
                                     descontos.textContent = "--";
-                                    if(idConvertido !== 2){
+                                    if (idConvertido !== 2) {
                                         valorLiquido = valorLiquido + Number(info.valor);
                                     }
                                 }
@@ -442,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 });
 
-                agruparValoresRecebidos();
+
             });
         }
 
