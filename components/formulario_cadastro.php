@@ -135,6 +135,7 @@
 
         <div class="campo">
             <label for="cargo">Cargo:</label>
+            
             <select name="Cargo-Funcionario" id="cargo" required>
                 <option value="">-- Selecione --</option>
                 <option value="1">Padeiro</option>
@@ -145,17 +146,17 @@
 
         <div class="campo">
             <label for="cbo">CBO:</label>
-            <input type="text" name="CBO-Funcionario" id="cbo" value="8384-05" required readonly/>
+            <input type="text" name="CBO-Funcionario" id="cbo" value="" required readonly/>
         </div>
 
         <div class="campo">
             <label for="regime">Regime Trabalhista:</label>
-            <input type="text" name="Regime-Funcionario" id="regime" value="CLT" required readonly/>
+            <input type="text" name="Regime-Funcionario" id="regime" value="" required readonly/>
         </div>
 
         <div class="campo">
             <label for="remuneracao">Remuneração:</label>
-            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" value="2000.00" required readonly/>
+            <input type="number" name="Remuneracao-Funcionario" id="remuneracao" value="" required readonly/>
         </div>
     </fieldset>
 
@@ -257,3 +258,4 @@
 </form>
 
 <script type="module" src="public/js/cadastro_fucionarios/adicionar_funcionario.js"></script>
+
