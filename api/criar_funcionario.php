@@ -29,7 +29,10 @@ $cpf = $conn->real_escape_string($requisicao["cpf"]);
 $rg = $conn->real_escape_string($requisicao["rg"]); 
 $genero = $conn->real_escape_string($requisicao["genero"]); 
 $estadoCivil = $conn->real_escape_string($requisicao["estadoCivil"]); 
-$pisPasep = $conn->real_escape_string($requisicao["pisPasep"]); 
+$pisPasep = $conn->real_escape_string($requisicao["pisPasep"]);
+$nis = $conn->real_escape_string($requisicao["nis"]); 
+$nit = $conn->real_escape_string($requisicao["nit"]);
+$ctps = $conn->real_escape_string($requisicao["ctps"]);
 $rua = $conn->real_escape_string($requisicao["rua"]);
 $numeroCasa = $conn->real_escape_string($requisicao["numeroCasa"]);
 $bairro = $conn->real_escape_string($requisicao["bairro"]);
@@ -47,10 +50,8 @@ $chavePix = $conn->real_escape_string($requisicao["chavePix"]);
 $certidaoCasamento = $conn->real_escape_string($requisicao["certidaoCasamento"] ? 1 : 0); 
 $pcd = $conn->real_escape_string($requisicao["pcd"] ? 1 : 0); 
 $cam = $conn->real_escape_string($requisicao["cam"] ? 1 : 0); 
-$comprovanteEscolaridade = $conn->real_escape_string($requisicao["comprovanteEscolaridade"] ? 1 : 0); 
 $filhos = $conn->real_escape_string($requisicao["filhos"] ? 1 : 0);
 $qtdFilhos = $conn->real_escape_string($requisicao["qtdFilhos"]);
-$possuiPendencias = $conn->real_escape_string($requisicao["possuiPendencias"] ? 1 : 0);
 // $arquivos = $conn->real_escape_string($requisicao["arquivos"]);
 
 
@@ -71,8 +72,8 @@ if($conn->query($sql1)) {
 
     $sql4 = "INSERT INTO tb_banco (id_funcionario, agencia, numero_conta, tipo_conta, chave_pix) VALUES ('$idFuncionario', '$agencia', '$numeroConta', '$banco', '$chavePix')";
 
-    $sql5 = "INSERT INTO tb_documento (id_funcionario, rg, cpf, pis_pasep, comprovante_escolaridade, cam, certidao_casamento_nascimento, laudo_pcd) VALUES ('$idFuncionario', '$rg', '$cpf', '$pisPasep',
-    '$comprovanteEscolaridade', '$cam', '$certidaoCasamento', '$pcd')";
+    $sql5 = "INSERT INTO tb_documento (id_funcionario, rg, cpf, ctps, pis_pasep, nis, nit, cam, certidao_casamento_nascimento, laudo_pcd) VALUES ('$idFuncionario', 
+    '$rg', '$cpf', '$ctps', '$pisPasep', '$nis', '$nit', '$cam', '$certidaoCasamento', '$pcd')";
 
     if(
         $conn->query($sql2) &&
