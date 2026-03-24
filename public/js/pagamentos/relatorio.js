@@ -7,19 +7,23 @@ document.addEventListener('DOMContentLoaded', ()=> {
         dadosFolhasLancadas(relatorio_pagamento);
 
         const botaoImprimir = document.querySelector('.botao-imprimir');
+        const botaoRetornar = document.querySelector('.botao-retornar');
 
         botaoImprimir.addEventListener('click', ()=> {
-            alert('Clicou para imprimir!');
+            
             window.onbeforeprint = () => {
                 botaoImprimir.style.display = "none";
+                botaoRetornar.style.display = "none";
             }
 
             window.onafterprint = () => {
                 botaoImprimir.style.display = "block";
+                botaoRetornar.style.display = "block";
             }
             window.print();
         })
     }
+
     window.onload = carregarRelatorio();
-    carregarRelatorio();
+
 })
