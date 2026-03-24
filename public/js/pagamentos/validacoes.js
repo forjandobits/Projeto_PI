@@ -13,7 +13,7 @@
 // id = "#id"
 // tag = ""
 
-function bloqueiaBotao(){
+function bloqueiaBotao() {
 
 }
 
@@ -36,32 +36,31 @@ function nomeVazio() {
     })
 };
 
-// export function eventoSelecionado(){
-//     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-//     // errado, a arrumar
-//     // tentar com array
-//     const gcl = document.querySelector(".grupo-campo-linha")
-//     let texto = "";
-//     let i = 0;
+export function eventoSelecionado(valores) {
+    // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
+    // errado, a arrumar
+    // fazer contagem que acompanha o foreach pra pegar o valor anterior com valores[i-1]
 
-//     gcl.forEach((beneficios) => {
-//         let beneficio = beneficios(select)[even].value;
-//         if(beneficio[i] === beneficio[i -1]){
-//             if(beneficio[i] > 0){
-//                 texto = "não pode ter 2 eventos iguais!!"
-//                 mostrarMensagem(texto);
+    let texto = "";
+    alert("Validando os valores recebidos e unidos!");
+    // alert(valores);
+    console.log(valores);
+    valores.forEach(element => {
+        let beneficio = element.infoBenDes[0].idBenDes;
+        console.log(element);
 
-//             }
+        if (beneficio === beneficio) {
+            return false;
 
-//         }
-//         else{
-//             mostrarMensagem(texto);
+        }
+        else {
+            mostrarMensagem(texto);
 
-//         }
+        }
+    });
 
-//     });
-    
-// }
+
+}
 
 
 
