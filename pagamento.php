@@ -72,7 +72,7 @@
             <section>
             <form action="" class="form-modal">
                 <table>
-                    <caption>Folha de Pagamento - <span id="nome-exibido">Nome Funcionário</span> - <span id="mes">Mês/Ano</span></caption>
+                    <caption>Folha de Pagamento - <span id="nome-exibido">Nome Funcionário</span> - <span id="cargo-exibido">Nome Cargo</span> - <span id="mes">Mês/Ano</span></caption>
 
                     <?php include "./components/tabela_pagamento.php" ?>
                 </table>

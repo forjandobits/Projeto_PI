@@ -1,7 +1,7 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { mostrarMensagem } from "./validacoes.js";
-import { eventoSelecionado } from "./validacoes.js";
+// import { eventoSelecionado } from "./validacoes.js";
 
 // Salario - 1
 // FGTS - 2

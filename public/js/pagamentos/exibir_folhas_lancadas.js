@@ -1,6 +1,6 @@
 import { listarBeneficiosDescontos, listarFolhasLancadas} from "./conexoes.js";
 
-async function dadosFolhasLancadas(dadosFolhaSelecionada){
+export async function dadosFolhasLancadas(dadosFolhaSelecionada){
 
     const beneficiosDescontos = await listarBeneficiosDescontos();
     
@@ -20,8 +20,11 @@ async function dadosFolhasLancadas(dadosFolhaSelecionada){
         nomeFuncionario.textContent = valoresRetornados.nome_completo;
         mes.textContent = valoresRetornados.mes_referencia;
 
-        if(nomeCargo || campoNome){
+        if(nomeCargo){
             nomeCargo.textContent = valoresRetornados.nome_cargo;
+        }
+        
+        if(campoNome){
             campoNome.value = valoresRetornados.nome_completo;
         }
 
@@ -185,7 +188,9 @@ async function gerarRelatorio() {
             alert(dadosFolhaSelecionada);
             localStorage.setItem("relatorio_pagamento", JSON.stringify(dadosFolhaSelecionada));
 
-            window.location.href = `${BASE_URL}/components/relatorio_pagamento.php`;
+            window.location.href = `${BASE_URL}/relatorio_pagamento.php`;
+            // alert('Clicou para imprimir!');
+            // window.print();
         }
     })
 }
