@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const definirJornada = document.querySelector("jornada");
+    const modal = document.querySelector("#modal");
+    btnAbrir = document.querySelector(".abrir-modal");
 
-    btnJornada.addEventListener("click", () => {
+    btnAbrir.forEach(btn => {
+        btn.addEventListener("click", () => {
+            modal.computedStyleMap.display = "block";
+        })
+        
+    });
+
 
         
-    })
+
 })
