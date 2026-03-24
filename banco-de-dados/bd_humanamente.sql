@@ -206,10 +206,11 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `intervalo_inicio` time DEFAULT NULL,
   `intervalo_fim` time DEFAULT NULL,
   `dia_semana` varchar(20) NOT NULL,
+  `confirmado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
