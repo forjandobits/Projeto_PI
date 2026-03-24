@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Mar-2026 às 00:38
+-- Tempo de geração: 25-Mar-2026 às 00:26
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
   `numero_filho` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tb_filho`
@@ -244,15 +244,20 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
 
 INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `tem_filho`, `numero_filho`) VALUES
 (1, 1, 1, 2),
-(2, 2, 1, 5),
-(3, 3, 1, 1),
-(4, 4, 1, 7),
-(5, 5, 1, 1),
+(2, 2, 1, 1),
+(3, 3, 0, NULL),
+(4, 4, 0, NULL),
+(5, 5, 1, 3),
 (6, 6, 1, 2),
-(7, 7, 1, 5),
+(7, 7, 0, NULL),
 (8, 8, 1, 1),
-(9, 9, 1, 7),
-(10, 10, 1, 1);
+(9, 9, 0, NULL),
+(10, 10, 0, NULL),
+(11, 11, 1, 2),
+(12, 12, 1, 2),
+(13, 13, 0, NULL),
+(14, 14, 1, 1),
+(15, 15, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -378,6 +383,44 @@ INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `da
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_horario`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_horario` (
+  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) NOT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
+  PRIMARY KEY (`id_horario`),
+  KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_horario`
+--
+
+INSERT INTO `tb_horario` (`id_horario`, `id_funcionario`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`) VALUES
+(1, 1, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(2, 2, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(3, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(4, 4, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(5, 5, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(6, 6, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(7, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(8, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(9, 9, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(10, 10, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(11, 11, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(12, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(13, 13, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(14, 14, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(15, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tb_jornada`
 --
 
@@ -386,36 +429,36 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
   `hora_entrada` time NOT NULL,
-  `hora_saida` time DEFAULT NULL,
-  `intervalo_inicio` time DEFAULT NULL,
-  `intervalo_fim` time DEFAULT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
   `dia_semana` varchar(20) NOT NULL,
   `confirmado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_jornada`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tb_jornada`
 --
 
-INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`) VALUES
-(1, 1, 1, '05:00:00', '14:00:00', '09:00:00', '10:00:00', 'Segunda'),
-(2, 2, 2, '08:10:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda'),
-(3, 3, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça'),
-(4, 4, 4, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça'),
-(5, 5, 5, '08:15:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta'),
-(6, 6, 6, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quarta'),
-(7, 7, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta'),
-(8, 8, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta'),
-(9, 9, 9, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta'),
-(10, 10, 10, '00:00:00', NULL, NULL, NULL, 'Sexta'),
-(11, 11, 11, '07:00:00', '18:00:00', '12:00:00', '13:00:00', 'Sábado'),
-(12, 12, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sábado'),
-(13, 13, 13, '08:00:00', '15:00:00', '12:00:00', '13:00:00', 'Domingo'),
-(14, 14, 14, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Domingo'),
-(15, 15, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Domingo');
+INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`, `confirmado`) VALUES
+(1, 1, 1, '05:00:00', '14:00:00', '09:00:00', '10:00:00', 'Segunda', 0),
+(2, 2, 2, '08:10:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
+(3, 3, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
+(4, 4, 4, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
+(5, 5, 5, '08:15:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
+(6, 6, 6, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
+(7, 7, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
+(8, 8, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
+(9, 9, 9, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 0),
+(10, 10, 10, '00:00:00', '00:00:00', '00:00:00', '00:00:00', 'Sexta', 0),
+(11, 11, 11, '07:00:00', '18:00:00', '12:00:00', '13:00:00', 'Sábado', 0),
+(12, 12, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sábado', 0),
+(13, 13, 13, '08:00:00', '15:00:00', '12:00:00', '13:00:00', 'Domingo', 0),
+(14, 14, 14, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Domingo', 0),
+(15, 15, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Domingo', 0);
 
 -- --------------------------------------------------------
 
@@ -644,6 +687,12 @@ ALTER TABLE `tb_folhaponto`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
+
+--
+-- Limitadores para a tabela `tb_horario`
+--
+ALTER TABLE `tb_horario`
+  ADD CONSTRAINT `tb_horario_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
 -- Limitadores para a tabela `tb_solicitacoes`
