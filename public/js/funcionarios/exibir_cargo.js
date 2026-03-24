@@ -40,12 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const exibir = document.querySelector(".modal");
                 exibir.style.display = "flex";
 
-                const travarCampos = exibir.querySelectorAll("input, select");
-
-                travarCampos.forEach(campos => {
-                    campos.disabled = true;
-                });
-
                 const respotaCargo = await fetch(`${BASE_URL}/api/funcionarios/exibir_cargo.php`, {
                     method: "POST",
                     headers: {
