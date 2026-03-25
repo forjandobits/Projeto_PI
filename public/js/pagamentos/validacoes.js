@@ -44,9 +44,6 @@ export function eventoSelecionado(valores) {
     const contagem = {};
     let duplicado = false;
     
-    alert("Validando os valores recebidos e unidos!");
-    
-    console.log(valores);
     valores.forEach(valor => {
         valor.infoBenDes.forEach(idVerificado => {
             const id = idVerificado.idBenDes;
@@ -55,20 +52,16 @@ export function eventoSelecionado(valores) {
 
         const duplicados = Object.keys(contagem).filter(id => contagem[id] > 1);
 
-        console.log("IDs duplicados:", duplicados.length);
-
         if (duplicados.length > 0) {
-            console.log("Possui IDs duplicados");
             texto = "não pode ter 2 eventos iguais!!";
             mostrarMensagem(texto);
             duplicado =  true;
         } else {
-            console.log("Não possui IDs duplicados");
             mostrarMensagem(texto);
         }
         
     });
-    
+
     return duplicado;
 }
 

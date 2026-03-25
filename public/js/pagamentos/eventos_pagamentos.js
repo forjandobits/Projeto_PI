@@ -341,7 +341,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const validado = eventoSelecionado(valoresUnidos);
 
-                console.log(validado);
                 if (validado !== false) {
                     return;
                 } else {

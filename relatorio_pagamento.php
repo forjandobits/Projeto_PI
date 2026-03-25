@@ -8,9 +8,9 @@
 
     <section class="resumo-final">
         <p>Total Líquido (R$): 2000,00</p>
-        <button class="botao-imprimir">IMPRIMIR</button>
+        <button class="botao-imprimir">Imprimir</button>
         <!-- <button href="pagamentos.php">VOLTAR</button> -->
-        <button class="botao-retornar"><a href="pagamento.php">VOLTAR</a></button>
+        <button class="botao-retornar"><a href="pagamento.php">Voltar</a></button>
     </section>
 
     <script>
