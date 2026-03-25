@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Mar-2026 às 00:38
+-- Tempo de geração: 24-Mar-2026 às 22:57
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -188,7 +188,24 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `situacao` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_horario`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_horario` (
+  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) NOT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
+  PRIMARY KEY (`id_horario`),
+  KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -201,9 +218,9 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
   `hora_entrada` time NOT NULL,
-  `hora_saida` time DEFAULT NULL,
-  `intervalo_inicio` time DEFAULT NULL,
-  `intervalo_fim` time DEFAULT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
   `dia_semana` varchar(20) NOT NULL,
   `confirmado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_jornada`),
@@ -388,7 +405,13 @@ ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
 
 --
--- Restrições para tabelas `tb_solicitacoes`
+-- Limitadores para a tabela `tb_horario`
+--
+ALTER TABLE `tb_horario`
+  ADD CONSTRAINT `tb_horario_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
+
+--
+-- Limitadores para a tabela `tb_solicitacoes`
 --
 ALTER TABLE `tb_solicitacoes`
   ADD CONSTRAINT `tb_solicitacoes_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
