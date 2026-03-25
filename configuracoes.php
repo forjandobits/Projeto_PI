@@ -1,5 +1,5 @@
-<?php include "./header.php" ?>
-<?php include "./sidebar.php" ?>
+<?php include "./components/header.php" ?>
+<?php include "./components/sidebar.php" ?>
     
     <main>
         <article class="cabecalhos">
@@ -68,6 +68,10 @@
             
         </article>
     </main>
+
+    <script>
+      const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+    </script>
 </body>
 
 </html>
