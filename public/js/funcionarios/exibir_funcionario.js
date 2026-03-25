@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         cnh.checked = false
                     }
 
-                    if (dados.pcd == "1") {
+                    if (dados.laudo_pcd == "1") {
                         pcd.checked = true
                     } else {
                         pcd.checked = false
