@@ -19,6 +19,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     let id_jornada = 0;
     let linha = "";
     let coluna = "";
+    let saldo_mes = "";
 
     tabela.textContent = "";
    
@@ -30,6 +31,13 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
         console.log("Resposta completa:", resposta);
 
         dados = resposta.resposta || [];
+        saldo_mes = resposta.saldo_mes || "00:00:00";
+
+        //campoSaldo.textContent = `Banco de Horas(*): ${saldo_mes}`;
+
+        // if (campoSaldo) {
+        //     campoSaldo.textContent = saldo_mes;
+        // }
 
         //se nao tiver registros no mes corrente
         if (!dados || dados.length === 0) {

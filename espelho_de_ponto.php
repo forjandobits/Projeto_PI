@@ -56,7 +56,7 @@
     </section>
     
     <section class="resumo-final">
-      <p>Banco de Horas(*): 02:34</p>
+      <p id = "saldo_mes">Banco de Horas(*): 00:00</p>
       <button>Pendências</button>
       <button>Relatório</button>
       <button>Salvar</button>
