@@ -1,7 +1,7 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { mostrarMensagem } from "./validacoes.js";
-// import { eventoSelecionado } from "./validacoes.js";
+import { eventoSelecionado } from "./validacoes.js";
 
 // Salario - 1
 // FGTS - 2
@@ -341,10 +341,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const validado = eventoSelecionado(valoresUnidos);
 
-                if (validado !== true) {
-                    let texto = "não pode ter 2 eventos iguais!!";
-                    mostrarMensagem(texto);
-                    return
+                console.log(validado);
+                if (validado !== false) {
+                    return;
                 } else {
                     exibir.style.display = "none";
                 }

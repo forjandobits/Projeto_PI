@@ -38,28 +38,38 @@ function nomeVazio() {
 
 export function eventoSelecionado(valores) {
     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
-    // errado, a arrumar
     // fazer contagem que acompanha o foreach pra pegar o valor anterior com valores[i-1]
 
     let texto = "";
+    const contagem = {};
+    let duplicado = false;
+    
     alert("Validando os valores recebidos e unidos!");
-    // alert(valores);
+    
     console.log(valores);
-    valores.forEach(element => {
-        let beneficio = element.infoBenDes[0].idBenDes;
-        console.log(element);
+    valores.forEach(valor => {
+        valor.infoBenDes.forEach(idVerificado => {
+            const id = idVerificado.idBenDes;
+            contagem[id] = (contagem[id] || 0) + 1;
+        })
 
-        if (beneficio === beneficio) {
-            return false;
+        const duplicados = Object.keys(contagem).filter(id => contagem[id] > 1);
 
-        }
-        else {
+        console.log("IDs duplicados:", duplicados.length);
+
+        if (duplicados.length > 0) {
+            console.log("Possui IDs duplicados");
+            texto = "não pode ter 2 eventos iguais!!";
             mostrarMensagem(texto);
-
+            duplicado =  true;
+        } else {
+            console.log("Não possui IDs duplicados");
+            mostrarMensagem(texto);
         }
+        
     });
-
-
+    
+    return duplicado;
 }
 
 
