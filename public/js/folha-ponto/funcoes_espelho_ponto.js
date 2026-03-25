@@ -84,7 +84,7 @@ export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
                 saidaMensagens.textContent = "";
                 exibir.style.display = "flex";
 
-                resposta = await enviar(`${BASE_URL}/api/folha-ponto/buscar_ponto.php`, { id_funcionario: id_funcionario, id_jornada: id_jornada });
+                resposta = await enviar(`${BASE_URL}/api/folha-ponto/buscar_jornada.php`, { id_funcionario: id_funcionario, id_jornada: id_jornada });
 
                 dados = resposta.resposta[0];
 
@@ -131,4 +131,18 @@ export async function editarPonto(saidaMensagens) {
     exibir.style.display = "none";
     saidaMensagens.style.color = "green";
     saidaMensagens.textContent = dados;
+}
+
+export async function fecharMes(id, mesReferencia, saidaMensagens) {
+    let resposta = {};
+
+    resposta = await enviar(`${BASE_URL}/api/folha-ponto/fechar_pontos.php`, {id_funcionario: id, mes_fechar: mesReferencia});
+
+    if (resposta["status"] == "sucesso") {
+        saidaMensagens.style.color = "green";
+        saidaMensagens.textContent = resposta["resposta"];
+    } else {
+        saidaMensagens.style.color = "red";
+        saidaMensagens.textContent = resposta["resposta"];
+    }
 }

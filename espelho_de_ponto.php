@@ -59,7 +59,7 @@
       <p>Banco de Horas(*): 02:34</p>
       <button>Pendências</button>
       <button>Relatório</button>
-      <button>Salvar</button>
+      <button id="btn-fechar">Fechar</button>
     </section>
   </article>
 
