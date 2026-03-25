@@ -31,28 +31,11 @@
                             <th>Nome</th>
                             <th>Banco de Horas (HH:MM)</th>
                             <th>Situação</th>
+                           
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="tabela-saida-ponto">
-                        <tr>
-                            <td>Gustavo</td>
-                            <td>00:00</td>
-                            <td>Férias</td>
-                            <td><a href="espelho_de_ponto.php?id=1"><button>Visualizar</button></a></td>
-                        </tr>
-                        <tr>
-                            <td>Elisangela</td>
-                            <td>00:45</td>
-                            <td>Afastado(a)</td>
-                            <td><a href="espelho_de_ponto.php?id=2"><button>Visualizar</button></a></td>
-                        </tr>
-                        <tr>
-                            <td>Joaquim</td>
-                            <td>04:00</td>
-                            <td>Em Seviço</td>
-                            <td><a href="espelho_de_ponto.php?id=3"><button>Visualizar</button></a></td>
-                        </tr>
+                    <tbody id="tabela-saida-ponto">                      
                     </tbody>
                 </table>
             </section>                          
@@ -62,4 +45,5 @@
     <script>
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
     </script>
+    <script type="module" src="public/js/folha-ponto/listar_funcionarios.js"></script><!--atenção para o tipo module-->
 </body>

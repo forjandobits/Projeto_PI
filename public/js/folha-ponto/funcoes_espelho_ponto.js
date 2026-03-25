@@ -1,26 +1,50 @@
 import { enviar } from "../utils/enviar.js";
 
-export async function carregarPontos(id, tabela, saidaMensagens, saidaNome) {
+export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome) {
     const exibir = document.querySelector(".modal");
     const informacoesPonto = document.querySelector("#informacoes-ponto");
     const horaEntrada = document.querySelector("#hora-entrada");
     const intervaloSaida = document.querySelector("#intervalo-saida");
     const intervaloRetorno = document.querySelector("#intervalo-retorno");
     const horaSaida = document.querySelector("#hora-saida");
+    const campoSaldo = document.querySelector("#saldo_mes");
+    //Isis
+ /*    const hoje = new Date();
+    const mesAtual = hoje.toISOString().slice(0,7);
+    const campoMes = document.querySelector("#data-mes-ano");
+    campoMes.value = mesAtual; */
+    //fim Isis
     let resposta = {};
     let dados = [];
     let id_funcionario = 0;
     let id_jornada = 0;
-    let id_ponto = 0
     let linha = "";
     let coluna = "";
+    let saldo_acumulado = "";
 
     tabela.textContent = "";
-
+   
     if (id != null && id != "") {
-        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, { id: id });
+        dados = [];
 
-        dados = resposta.resposta;
+        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id: id, mes: mes});
+
+        console.log("Resposta completa:", resposta);
+
+        dados = resposta.resposta || [];
+        saldo_acumulado = resposta.saldo_acumulado || "00:00:00";
+
+        campoSaldo.textContent = `Banco de Horas(*): ${saldo_acumulado}`;
+
+        // if (campoSaldo) {
+        //     campoSaldo.textContent = saldo_mes;
+        // }
+
+        //se nao tiver registros no mes corrente
+        if (!dados || dados.length === 0) {
+            tabela.innerHTML = "<tr><td colspan='11'>Nenhum registro encontrado</td></tr>";
+        return;
+        }
 
         saidaNome.textContent = `Espelho de Ponto - ${dados[0].nome_completo}`;
 
