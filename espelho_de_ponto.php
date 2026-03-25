@@ -10,26 +10,21 @@ $stmtFunc->bind_param("i", $id);
 $stmtFunc->execute();
 $func = $stmtFunc->get_result()->fetch_assoc();
 
-// 🔹 Buscar pontos do funcionário
+// 🔹 Buscar pontos do funcionário (SEM JOIN)
 $sqlPontos = "
-SELECT 
-    fp.data,
-    fp.total_horas_dia,
-    fp.horas_extras,
-    fp.faltas,
-    j.hora_entrada,
-    j.hora_saida,
-    j.intervalo_inicio,
-    j.intervalo_fim
-FROM tb_folhaponto fp
-JOIN tb_jornada j ON fp.id_funcionario = j.id_funcionario
-WHERE fp.id_funcionario = ?
+SELECT data, total_horas_dia, horas_extras, faltas
+FROM tb_folhaponto
+WHERE id_funcionario = ?
 ";
 
 $stmtPontos = $conn->prepare($sqlPontos);
 $stmtPontos->bind_param("i", $id);
 $stmtPontos->execute();
 $resultado = $stmtPontos->get_result();
+
+// 🔹 Buscar jornada (fixa)
+$sqlJornada = "SELECT hora_entrada, hora_saida, intervalo_inicio, intervalo_fim FROM tb_jornada LIMIT 1";
+$jornada = $conn->query($sqlJornada)->fetch_assoc();
 ?>
 
 <?php include "./components/header.php" ?>
@@ -93,16 +88,24 @@ $resultado = $stmtPontos->get_result();
         ];
 
         $diaSemana = $dias[date('l', strtotime($row['data']))];
+
+        // 🔹 calcular intervalo
+        $intervalo = "-";
+        if ($jornada['intervalo_inicio'] && $jornada['intervalo_fim']) {
+            $inicio = strtotime($jornada['intervalo_inicio']);
+            $fim = strtotime($jornada['intervalo_fim']);
+            $intervalo = gmdate("H:i", $fim - $inicio);
+        }
         ?>
 
         <tr>
             <td><?= date('d/m/Y', strtotime($row['data'])) ?></td>
             <td><?= $diaSemana ?></td>
-            <td><?= $row['hora_entrada'] ?></td>
-            <td><?= $row['hora_saida'] ?></td>
-            <td><?= $row['intervalo_inicio'] ?></td>
-            <td><?= $row['intervalo_fim'] ?></td>
-            <td>-</td>
+            <td><?= $jornada['hora_entrada'] ?></td>
+            <td><?= $jornada['hora_saida'] ?></td>
+            <td><?= $jornada['intervalo_inicio'] ?></td>
+            <td><?= $jornada['intervalo_fim'] ?></td>
+            <td><?= $intervalo ?></td>
             <td><?= $row['faltas'] > 0 ? 'Sim' : 'Não' ?></td>
             <td>-</td>
             <td><?= $row['total_horas_dia'] ?></td>
@@ -132,7 +135,7 @@ $resultado = $stmtPontos->get_result();
       <button type="button">Pendências</button>
 
       <a href="/Projeto_PI/api/relatorio.php?id=<?= $id ?>">
-        <button type="button">Relatório</button>
+    <button type="button">Gerar PDF</button>
       </a>
 
       <button type="button">Salvar</button>
