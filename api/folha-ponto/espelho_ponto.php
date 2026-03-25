@@ -64,15 +64,17 @@ if ($stmt->execute()) {
     //     AND v.data >= ?
     //     AND v.data < ?";
 
-$sqlBanco = "SELECT 
-                SEC_TO_TIME(
-                    SUM(
-                        CASE
-                            WHEN v.faltas = 1 THEN -((c.carga_horaria * 3600)/5)
-                            ELSE TIME_TO_SEC(v.total_horas_dia) - ((c.carga_horaria * 3600)/5)
-                        END
-                    )
-                ) AS saldo_mes
+$sqlBanco = "SELECT
+        TIME_FORMAT(
+            SEC_TO_TIME(SUM(saldo_mes_segundos)),
+        '%H:%i') AS saldo_acumulado
+        FROM (
+
+            SELECT
+            SUM(TIME_TO_SEC(v.total_horas_dia))
+            -
+            COUNT(v.data) * ((c.carga_horaria * 3600)/5)
+            AS saldo_mes_segundos
 
             FROM view_espelho_ponto v
 
@@ -83,11 +85,13 @@ $sqlBanco = "SELECT
             ON f.id_cargo = c.id_cargo
 
             WHERE v.id_funcionario = ?
-            AND v.data >= ?
-            AND v.data < ?";
+
+            GROUP BY YEAR(v.data), MONTH(v.data)
+
+        ) meses";
 
 $stmtBanco = $conn->prepare($sqlBanco);
-$stmtBanco->bind_param("iss", $id, $dataInicio, $dataFim);
+$stmtBanco->bind_param("i", $id);
 
 $stmtBanco->execute();
 $resultBanco = $stmtBanco->get_result();
@@ -96,11 +100,13 @@ $resultBanco = $stmtBanco->get_result();
 //     $bancoHoras[] = $row;
 // }
 $bancoHoras = $resultBanco->fetch_assoc();
+
+$saldo_acumulado = $bancoHoras["saldo_acumulado"] ?? "00:00";
     
 
 //Retorna os dados no json
 
-    echo json_encode(["status" => "sucesso", "resposta" => $dados, "saldo_mes" => $bancoHoras["saldo_mes"]]);
+    echo json_encode(["status" => "sucesso", "resposta" => $dados, "saldo_acumulado" => $saldo_acumulado]);
 } else {
     echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);
 }

@@ -7,6 +7,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     const intervaloSaida = document.querySelector("#intervalo-saida");
     const intervaloRetorno = document.querySelector("#intervalo-retorno");
     const horaSaida = document.querySelector("#hora-saida");
+    const campoSaldo = document.querySelector("#saldo_mes");
     //Isis
  /*    const hoje = new Date();
     const mesAtual = hoje.toISOString().slice(0,7);
@@ -19,7 +20,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     let id_jornada = 0;
     let linha = "";
     let coluna = "";
-    let saldo_mes = "";
+    let saldo_acumulado = "";
 
     tabela.textContent = "";
    
@@ -31,9 +32,9 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
         console.log("Resposta completa:", resposta);
 
         dados = resposta.resposta || [];
-        saldo_mes = resposta.saldo_mes || "00:00:00";
+        saldo_acumulado = resposta.saldo_acumulado || "00:00:00";
 
-        //campoSaldo.textContent = `Banco de Horas(*): ${saldo_mes}`;
+        campoSaldo.textContent = `Banco de Horas(*): ${saldo_acumulado}`;
 
         // if (campoSaldo) {
         //     campoSaldo.textContent = saldo_mes;
