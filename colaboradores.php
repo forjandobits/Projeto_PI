@@ -20,21 +20,9 @@
   <article>
       <form method="GET">
           <section class="areas-form">
-              <div class="campo">
-                  <select id="opcao-filtro">
-                      <option value="1" default>-- Selecione --</option>
-                      <option value="2">Nome do Colaborador</option>
-                      <option value="3">Cargo</option>
-                      <option value="4">Situação</option>
-                  </select>
-              </div>
 
               <div class="campo">
                   <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Colaborador, Cargo, ..." required>
-              </div>
-
-              <div class="campo">
-                  <button>Buscar</button>
               </div>
           </section>
       </form>

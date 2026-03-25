@@ -2,13 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    async function listarFuncionarios() {
-        const respostaExibir = await fetch(`${BASE_URL}/api/funcionarios/exibir_lista_funcionarios.php`);
-        const funcionarios = await respostaExibir.json();
+    async function listarFuncionarios(funcionarios) {
 
         const tabelaFuncionario = document.querySelector('#tabela-saida-colaboradores');
         if (tabelaFuncionario) {
-            // tabelaFuncionario.innerHTML = "";
+            tabelaFuncionario.textContent = "";
 
             funcionarios.forEach(funcionario => {
                 const novaCelulaFuncionario = tabelaFuncionario.insertRow();
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     situacao.textContent = 'DESLIGADO'
                 }
 
-                // desligar.innerHTML = "<button class='desligar'>Desligar</button>";
                 desligar.innerHTML = `<button class='desligar' id='${id}'>Desligar</button>`;
                 visualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
             });
@@ -194,7 +191,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
+    async function exibirFuncionarioCadastrado() {
+        const respostaExibir = await fetch(`${BASE_URL}/api/funcionarios/exibir_lista_funcionarios.php`);
+        const funcionarios = await respostaExibir.json();
+
+        const filtroBusca = document.querySelector("#filtro");
+
+        if (filtroBusca) {
+
+            filtroBusca.addEventListener('input', (e) => {
+
+                const valorBuscado = e.target.value.toLowerCase();
+                console.log(valorBuscado);
+
+                const resultadoBusca = funcionarios.filter(buscaFuncionario => {
+
+                    return (buscaFuncionario.nome_completo.toLowerCase().includes(valorBuscado) ||
+                        buscaFuncionario.nome_cargo.toLowerCase().includes(valorBuscado));
+
+                })
+
+                listarFuncionarios(resultadoBusca);
+            })
+
+            listarFuncionarios(funcionarios);
+        }
+        
+    }
+
     listarFuncionarios();
     exibiInformacoes();
-    // desligarFuncionario();
+    exibirFuncionarioCadastrado();
 });

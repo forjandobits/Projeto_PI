@@ -19,9 +19,8 @@
                       <th>CBO</th>
                       <th>Nome do Cargo</th>
                       <th>Salário</th>
-                      <th>Carga Horária (Horas)</th>
+                      <th>Carga Horária Semanal</th>
                       <th>Regime Trabalhista</th>
-                      <th>Escala (Horas Semanais)</th>
                       <th></th>
                   </tr>
               </thead>
