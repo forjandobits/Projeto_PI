@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // código para enviar para PHP
             alert("Salvo com sucesso!");
             document.getElementById("formModal").reset();
-            document.getElementById("formModal").style.display = "none";
+            window.location.href = "colaboradores.php"
         }
         salvar();
 
