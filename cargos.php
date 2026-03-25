@@ -85,12 +85,8 @@
 
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
-<<<<<<< HEAD
-</script>
-=======
 </script>
 
 <script type="module" src="public/js/adicionar_cargo/adicionar_cargo.js"></script>
 
 <script type="module" src="public/js/funcionarios/exibir_cargo.js"></script>
->>>>>>> origin/BE/cadastroFuncionario
