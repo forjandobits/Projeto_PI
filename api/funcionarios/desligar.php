@@ -1,14 +1,43 @@
 <?php
 header("Content-Type: application/json");
-include("conexao.php");
+require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 
-$id = intval($_POST['id']);
+$dados = json_decode(file_get_contents("php://input"), true);
 
-$sql = "UPDATE tb_funcionario SET situacao = 1 WHERE id_funcionario = $id";
+if (!isset($dados['id_funcionario'])) {
+    echo json_encode(["success" => false, "error" => "ID não enviado"]);
+    exit;
+}
 
-if ($conn->query($sql) === TRUE) {
-    echo json_encode(["success" => true]);
+$id = intval($dados['id_funcionario']);
+
+// Atualiza
+$stmt = $conn->prepare("UPDATE tb_funcionario SET situacao = 0 WHERE id_funcionario = ?");
+$stmt->bind_param("i", $id);
+
+if (!$stmt->execute()) {
+    echo json_encode(["success" => false, "error" => $stmt->error]);
+    exit;
+}
+
+// Busca a situação atualizada
+$stmt = $conn->prepare("SELECT situacao FROM tb_funcionario WHERE id_funcionario = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $funcionario = $result->fetch_assoc();
+
+    echo json_encode([
+        "success" => true,
+        "situacao" => $funcionario['situacao']
+    ]);
 } else {
-    echo json_encode(["success" => false, "error" => $conn->error]);
+    echo json_encode([
+        "success" => false,
+        "error" => "Funcionário não encontrado"
+    ]);
 }
 ?>
