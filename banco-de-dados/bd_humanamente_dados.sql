@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Mar-2026 às 00:38
+-- Tempo de geração: 25-Mar-2026 às 00:26
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -151,7 +151,6 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `nis` text NOT NULL,
   `nit` text NOT NULL,
   `registro_profissional` text NOT NULL,
-  `comprovante_escolaridade` text NOT NULL,
   `cnh` tinyint(1) NOT NULL DEFAULT 0,
   `cam` tinyint(1) NOT NULL DEFAULT 0,
   `titulo_eleitor` text DEFAULT NULL,
@@ -165,22 +164,22 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
 -- Despejando dados para a tabela `tb_documento`
 --
 
-INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps`, `pis_pasep`, `nis`, `nit`, `registro_profissional`, `comprovante_escolaridade`, `cnh`, `cam`, `titulo_eleitor`, `certidao_casamento_nascimento`, `laudo_pcd`) VALUES
-(1, 1, 'MG-12.345.678', '123.456.789-01', '12345678901', '12345678901', '12345678901', '12345678901', 'REG-001', 'Ensino Médio', 0, 0, '123456789012', 0, 0),
-(2, 2, 'MG-23.456.789', '234.567.890-12', '23456789012', '23456789012', '23456789012', '23456789012', 'REG-002', 'Ensino Médio', 0, 0, '234567890123', 0, 0),
-(3, 3, 'MG-34.567.890', '345.678.901-23', '34567890123', '34567890123', '34567890123', '34567890123', 'REG-003', 'Ensino Superior', 0, 0, '345678901234', 0, 0),
-(4, 4, 'MG-45.678.901', '456.789.012-34', '45678901234', '45678901234', '45678901234', '45678901234', 'REG-004', 'Ensino Médio', 0, 0, '456789012345', 0, 0),
-(5, 5, 'MG-56.789.012', '567.890.123-45', '56789012345', '56789012345', '56789012345', '56789012345', 'REG-005', 'Ensino Médio', 0, 0, '567890123456', 0, 0),
-(6, 6, 'MG-67.890.123', '678.901.234-56', '67890123456', '67890123456', '67890123456', '67890123456', 'REG-006', 'Ensino Médio', 0, 0, '678901234567', 0, 0),
-(7, 7, 'MG-78.901.234', '789.012.345-67', '78901234567', '78901234567', '78901234567', '78901234567', 'REG-007', 'Ensino Superior', 0, 0, '789012345678', 0, 0),
-(8, 8, 'MG-89.012.345', '890.123.456-78', '89012345678', '89012345678', '89012345678', '89012345678', 'REG-008', 'Ensino Médio', 0, 0, '890123456789', 0, 0),
-(9, 9, 'MG-90.123.456', '901.234.567-89', '90123456789', '90123456789', '90123456789', '90123456789', 'REG-009', 'Ensino Médio', 0, 0, '901234567890', 0, 0),
-(10, 10, 'MG-10.234.567', '012.345.678-90', '01234567890', '01234567890', '01234567890', '01234567890', 'REG-010', 'Ensino Fundamental', 0, 0, '012345678901', 0, 0),
-(11, 11, 'MG-11.345.678', '111.222.333-44', '11122233344', '11122233344', '11122233344', '11122233344', 'REG-011', 'Ensino Médio', 0, 0, '111222333444', 0, 0),
-(12, 12, 'MG-22.456.789', '222.333.444-55', '22233344455', '22233344455', '22233344455', '22233344455', 'REG-012', 'Ensino Médio', 0, 0, '222333444555', 0, 0),
-(13, 13, 'MG-33.567.890', '333.444.555-66', '33344455566', '33344455566', '33344455566', '33344455566', 'REG-013', 'Ensino Médio', 0, 0, '333444555666', 0, 0),
-(14, 14, 'MG-44.678.901', '444.555.666-77', '44455566677', '44455566677', '44455566677', '44455566677', 'REG-014', 'Ensino Superior', 0, 0, '444555666777', 0, 0),
-(15, 15, 'MG-55.789.012', '555.666.777-88', '55566677788', '55566677788', '55566677788', '55566677788', 'REG-015', 'Ensino Superior', 0, 0, '555666777888', 0, 0);
+INSERT INTO `tb_documento` (`id_documento`, `id_funcionario`, `rg`, `cpf`, `ctps`, `pis_pasep`, `nis`, `nit`, `registro_profissional`, `cnh`, `cam`, `titulo_eleitor`, `certidao_casamento_nascimento`, `laudo_pcd`) VALUES
+(1, 1, 'MG-12.345.678', '123.456.789-01', '12345678901', '12345678901', '12345678901', '12345678901', 'REG-001', 0, 0, '123456789012', 0, 0),
+(2, 2, 'MG-23.456.789', '234.567.890-12', '23456789012', '23456789012', '23456789012', '23456789012', 'REG-002', 0, 0, '234567890123', 0, 0),
+(3, 3, 'MG-34.567.890', '345.678.901-23', '34567890123', '34567890123', '34567890123', '34567890123', 'REG-003', 0, 0, '345678901234', 0, 0),
+(4, 4, 'MG-45.678.901', '456.789.012-34', '45678901234', '45678901234', '45678901234', '45678901234', 'REG-004', 0, 0, '456789012345', 0, 0),
+(5, 5, 'MG-56.789.012', '567.890.123-45', '56789012345', '56789012345', '56789012345', '56789012345', 'REG-005', 0, 0, '567890123456', 0, 0),
+(6, 6, 'MG-67.890.123', '678.901.234-56', '67890123456', '67890123456', '67890123456', '67890123456', 'REG-006', 0, 0, '678901234567', 0, 0),
+(7, 7, 'MG-78.901.234', '789.012.345-67', '78901234567', '78901234567', '78901234567', '78901234567', 'REG-007', 0, 0, '789012345678', 0, 0),
+(8, 8, 'MG-89.012.345', '890.123.456-78', '89012345678', '89012345678', '89012345678', '89012345678', 'REG-008', 0, 0, '890123456789', 0, 0),
+(9, 9, 'MG-90.123.456', '901.234.567-89', '90123456789', '90123456789', '90123456789', '90123456789', 'REG-009', 0, 0, '901234567890', 0, 0),
+(10, 10, 'MG-10.234.567', '012.345.678-90', '01234567890', '01234567890', '01234567890', '01234567890', 'REG-010', 0, 0, '012345678901', 0, 0),
+(11, 11, 'MG-11.345.678', '111.222.333-44', '11122233344', '11122233344', '11122233344', '11122233344', 'REG-011', 0, 0, '111222333444', 0, 0),
+(12, 12, 'MG-22.456.789', '222.333.444-55', '22233344455', '22233344455', '22233344455', '22233344455', 'REG-012', 0, 0, '222333444555', 0, 0),
+(13, 13, 'MG-33.567.890', '333.444.555-66', '33344455566', '33344455566', '33344455566', '33344455566', 'REG-013', 0, 0, '333444555666', 0, 0),
+(14, 14, 'MG-44.678.901', '444.555.666-77', '44455566677', '44455566677', '44455566677', '44455566677', 'REG-014', 0, 0, '444555666777', 0, 0),
+(15, 15, 'MG-55.789.012', '555.666.777-88', '55566677788', '55566677788', '55566677788', '55566677788', 'REG-015', 0, 0, '555666777888', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -236,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
   `numero_filho` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_filho`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tb_filho`
@@ -244,15 +243,20 @@ CREATE TABLE IF NOT EXISTS `tb_filho` (
 
 INSERT INTO `tb_filho` (`id_filho`, `id_funcionario`, `tem_filho`, `numero_filho`) VALUES
 (1, 1, 1, 2),
-(2, 2, 1, 5),
-(3, 3, 1, 1),
-(4, 4, 1, 7),
-(5, 5, 1, 1),
+(2, 2, 1, 1),
+(3, 3, 0, NULL),
+(4, 4, 0, NULL),
+(5, 5, 1, 3),
 (6, 6, 1, 2),
-(7, 7, 1, 5),
+(7, 7, 0, NULL),
 (8, 8, 1, 1),
-(9, 9, 1, 7),
-(10, 10, 1, 1);
+(9, 9, 0, NULL),
+(10, 10, 0, NULL),
+(11, 11, 1, 2),
+(12, 12, 1, 2),
+(13, 13, 0, NULL),
+(14, 14, 1, 1),
+(15, 15, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -378,6 +382,44 @@ INSERT INTO `tb_funcionario` (`id_funcionario`, `id_cargo`, `nome_completo`, `da
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_horario`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_horario` (
+  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) NOT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
+  PRIMARY KEY (`id_horario`),
+  KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_horario`
+--
+
+INSERT INTO `tb_horario` (`id_horario`, `id_funcionario`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`) VALUES
+(1, 1, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(2, 2, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(3, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(4, 4, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(5, 5, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(6, 6, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(7, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(8, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(9, 9, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(10, 10, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(11, 11, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(12, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(13, 13, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(14, 14, '08:00:00', '17:00:00', '12:00:00', '13:00:00'),
+(15, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `tb_jornada`
 --
 
@@ -386,9 +428,9 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
   `hora_entrada` time NOT NULL,
-  `hora_saida` time DEFAULT NULL,
-  `intervalo_inicio` time DEFAULT NULL,
-  `intervalo_fim` time DEFAULT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
   `dia_semana` varchar(20) NOT NULL,
   `confirmado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_jornada`),
@@ -400,22 +442,22 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 -- Despejando dados para a tabela `tb_jornada`
 --
 
-INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`) VALUES
-(1, 1, 1, '05:00:00', '14:00:00', '09:00:00', '10:00:00', 'Segunda'),
-(2, 2, 2, '08:10:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda'),
-(3, 3, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça'),
-(4, 4, 4, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça'),
-(5, 5, 5, '08:15:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta'),
-(6, 6, 6, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quarta'),
-(7, 7, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta'),
-(8, 8, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta'),
-(9, 9, 9, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta'),
-(10, 10, 10, '00:00:00', NULL, NULL, NULL, 'Sexta'),
-(11, 11, 11, '07:00:00', '18:00:00', '12:00:00', '13:00:00', 'Sábado'),
-(12, 12, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sábado'),
-(13, 13, 13, '08:00:00', '15:00:00', '12:00:00', '13:00:00', 'Domingo'),
-(14, 14, 14, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Domingo'),
-(15, 15, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Domingo');
+INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`, `confirmado`) VALUES
+(1, 1, 1, '05:00:00', '14:00:00', '09:00:00', '10:00:00', 'Segunda', 0),
+(2, 2, 2, '08:10:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
+(3, 3, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
+(4, 4, 4, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
+(5, 5, 5, '08:15:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
+(6, 6, 6, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
+(7, 7, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
+(8, 8, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
+(9, 9, 9, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 0),
+(10, 10, 10, '00:00:00', '00:00:00', '00:00:00', '00:00:00', 'Sexta', 0),
+(11, 11, 11, '07:00:00', '18:00:00', '12:00:00', '13:00:00', 'Sábado', 0),
+(12, 12, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sábado', 0),
+(13, 13, 13, '08:00:00', '15:00:00', '12:00:00', '13:00:00', 'Domingo', 0),
+(14, 14, 14, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Domingo', 0),
+(15, 15, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Domingo', 0);
 
 -- --------------------------------------------------------
 
@@ -602,15 +644,6 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `view_espelho_ponto`
---
-DROP TABLE IF EXISTS `view_espelho_ponto`;
-
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
-
--- --------------------------------------------------------
-
---
 -- Estrutura para vista `view_folha_ponto`
 --
 DROP TABLE IF EXISTS `view_folha_ponto`;
@@ -623,7 +656,7 @@ CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DE
 --
 CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 `data` date
-,`dia_semana` text
+,`dia_semana` varchar(20)
 ,`hora_entrada` time
 ,`hora_saida` time
 ,`intervalo_inicio` time
@@ -634,6 +667,7 @@ CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 ,`nome_completo` varchar(100)
 ,`id_funcionario` int(11)
 ,`id_jornada` int(11)
+,`id_ponto` int(11)
 );
 
 -- --------------------------------------------------------
@@ -643,8 +677,8 @@ CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 --
 DROP TABLE IF EXISTS `view_espelho_ponto`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
-COMMIT;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
+
 
 --
 -- Restrições para tabelas despejadas
@@ -675,7 +709,13 @@ ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `tb_funcionario_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `tb_cargo` (`id_cargo`);
 
 --
--- Restrições para tabelas `tb_solicitacoes`
+-- Limitadores para a tabela `tb_horario`
+--
+ALTER TABLE `tb_horario`
+  ADD CONSTRAINT `tb_horario_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
+
+--
+-- Limitadores para a tabela `tb_solicitacoes`
 --
 ALTER TABLE `tb_solicitacoes`
   ADD CONSTRAINT `tb_solicitacoes_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);

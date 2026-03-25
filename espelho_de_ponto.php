@@ -88,6 +88,13 @@
           <label for="hora-saida">Hora de saída:</label>
           <input type="time" id="hora-saida">
         </div>
+        <div class="campo-linha">
+          <label for="ferias-falta-abonada">Férias/Falta Abonada:</label>
+          <select id="ferias-falta-abonada">
+            <option value="0">Não</option>
+            <option value="1">Sim</option>
+          </select>
+        </div>
         <button type="button" class="button-claro">Adicionar outra batida</button>
         <button type="submit" id="btn-editar-ponto">Salvar</button>
       </form>
