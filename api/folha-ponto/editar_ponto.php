@@ -22,7 +22,7 @@ $ferias_falta = (int)$requisicao["ferias_falta"];
 $sql = "UPDATE tb_jornada SET hora_entrada = ?, hora_saida = ?, intervalo_inicio = ?, intervalo_fim = ? WHERE id_funcionario = ? AND id_jornada = ?;";
 $stmt1 = $conn->prepare($sql);
 $stmt1->bind_param("ssssii", $hora_entrada, $hora_saida, $intervalo_inicio, $intervalo_fim, $id_funcionario, $id_jornada);
-$sql = "UPDATE tb_ponto SET ferias_falta_abonada = ? WHERE id_funcionario = ? AND id_ponto = ?";
+$sql = "UPDATE tb_folhaponto SET ferias_falta_abonada = ? WHERE id_funcionario = ? AND id_ponto = ?";
 $stmt2 = $conn->prepare($sql);
 $stmt2->bind_param("iii", $ferias_falta, $id_funcionario, $id_ponto);
 
