@@ -28,20 +28,15 @@ if (!$func) {
     die("Funcionário não encontrado");
 }
 
-// 🔹 PONTOS DO MÊS
-$mesAtual = date('m');
-$anoAtual = date('Y');
-
 $sql = "
 SELECT data, total_horas_dia, horas_extras, faltas
 FROM tb_folhaponto
 WHERE id_funcionario = ?
-AND MONTH(data) = ?
-AND YEAR(data) = ?
+ORDER BY data DESC
 ";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("iii", $id, $mesAtual, $anoAtual);
+$stmt->bind_param("i", $id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
