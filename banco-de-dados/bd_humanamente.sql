@@ -19,7 +19,10 @@ SET time_zone = "+00:00";
 
 --
 -- Banco de dados: `bd_humanamente`
+-- Banco de dados: `bd_humanamente`
 --
+CREATE DATABASE IF NOT EXISTS `bd_humanamente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_humanamente`;
 CREATE DATABASE IF NOT EXISTS `bd_humanamente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `bd_humanamente`;
 
@@ -29,6 +32,8 @@ USE `bd_humanamente`;
 -- Estrutura para tabela `tb_arquivo`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_arquivo` (
+  `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_arquivo` (
   `id_arquivo` int(11) NOT NULL AUTO_INCREMENT,
   `id_documento` int(11) NOT NULL,
@@ -44,6 +49,8 @@ CREATE TABLE IF NOT EXISTS `tb_arquivo` (
 -- Estrutura para tabela `tb_banco`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_banco` (
+  `id_banco` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -67,6 +74,11 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
   `nome_cargo` varchar(100) NOT NULL,
   `salario` decimal(10,2) NOT NULL,
   `carga_horaria` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_cargo` (
+  `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_cargo` varchar(100) NOT NULL,
+  `salario` decimal(10,2) NOT NULL,
+  `carga_horaria` int(11) NOT NULL,
   `regime_trabalhista` text NOT NULL,
   `cbo` varchar(10) NOT NULL,
   PRIMARY KEY (`id_cargo`)
@@ -78,6 +90,8 @@ CREATE TABLE IF NOT EXISTS `tb_cargo` (
 -- Estrutura para tabela `tb_documento`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_documento` (
+  `id_documento` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_documento` (
   `id_documento` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -103,6 +117,8 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
 -- Estrutura para tabela `tb_endereco`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_endereco` (
+  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -156,7 +172,10 @@ CREATE TABLE IF NOT EXISTS `tb_folhapagamento` (
 
 CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
+  `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `data` date NOT NULL,
   `data` date NOT NULL,
   `total_horas_dia` int(11) NOT NULL,
   `horas_extras` int(11) DEFAULT NULL,
@@ -215,6 +234,8 @@ CREATE TABLE IF NOT EXISTS `tb_horario` (
 
 CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_jornada` (
+  `id_jornada` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
   `hora_entrada` time NOT NULL,
@@ -234,6 +255,8 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 -- Estrutura para tabela `tb_login`
 --
 
+CREATE TABLE IF NOT EXISTS `tb_login` (
+  `id_login` int(11) NOT NULL AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `tb_login` (
   `id_login` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
@@ -284,7 +307,13 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
 
 CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tb_telefone` (
+  `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `tipo_telefone` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_telefone`),
+  KEY `id_funcionario` (`id_funcionario`)
   `telefone` varchar(20) NOT NULL,
   `tipo_telefone` varchar(50) NOT NULL,
   PRIMARY KEY (`id_telefone`),
@@ -324,7 +353,11 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 ,`nome_completo` varchar(100)
 ,`nome_cargo` varchar(100)
 ,`carga_semanal_prevista` int(11)
+,`nome_completo` varchar(100)
+,`nome_cargo` varchar(100)
+,`carga_semanal_prevista` int(11)
 ,`horas_trabalhadas_semana` decimal(32,0)
+,`diferenca_horas` decimal(33,0)
 ,`diferenca_horas` decimal(33,0)
 ,`situacao` varchar(16)
 );

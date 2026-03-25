@@ -1,110 +1,145 @@
+<?php 
+$id = $_GET['id'] ?? 0;
+
+require_once __DIR__ . "../banco-de-dados/conexao.php";
+
+// 🔹 Buscar funcionário
+$sqlFunc = "SELECT nome_completo FROM tb_funcionario WHERE id_funcionario = ?";
+$stmtFunc = $conn->prepare($sqlFunc);
+$stmtFunc->bind_param("i", $id);
+$stmtFunc->execute();
+$func = $stmtFunc->get_result()->fetch_assoc();
+
+// 🔹 Buscar pontos do funcionário (SEM JOIN)
+$sqlPontos = "
+SELECT data, total_horas_dia, horas_extras, faltas
+FROM tb_folhaponto
+WHERE id_funcionario = ?
+";
+
+$stmtPontos = $conn->prepare($sqlPontos);
+$stmtPontos->bind_param("i", $id);
+$stmtPontos->execute();
+$resultado = $stmtPontos->get_result();
+
+// 🔹 Buscar jornada (fixa)
+$sqlJornada = "SELECT hora_entrada, hora_saida, intervalo_inicio, intervalo_fim FROM tb_jornada LIMIT 1";
+$jornada = $conn->query($sqlJornada)->fetch_assoc();
+?>
+
 <?php include "./components/header.php" ?>
-
 <?php include "./components/sidebar.php" ?>
-
 
 <main>
   <article class="cabecalhos">
     <h1>Controle de Ponto - Visualização</h1>
   </article>
-  
-  <!-- Para marcar o início e o fim da visualização desejada -->
+
   <article>
-    <form id="busca-pagamentos">
+    <form>
       <section class="areas-form">
         <div class="grupo-campo">
           <div class="campo">
-            <label for="data-inicio">Mês de Referência:</label>
-            <input type="month" name="Mes-Ano" id="data-mes-ano">
+            <label>Mês de Referência:</label>
+            <input type="month">
           </div>
         </div>
       </section>
     </form>
   </article>
-  
+
   <article>
     <table>
-      <caption id="saida-nome-funcionario-espelho-ponto">Espelho de Ponto - </caption>
+      <caption>
+        Espelho de Ponto - <?= $func['nome_completo'] ?? 'Funcionário não encontrado' ?>
+      </caption>
+
       <thead>
         <tr>
           <th>Data</th>
-          <th>Dia da Semana</th>
-          <th>Hora de Entrada*</th>
-          <th>Hora de Saída*</th>
-          <th>Intervalo Saída*</th>
-          <th>Intervalo Retorno*</th>
-          <th>Total Intervalo*</th>
+          <th>Dia</th>
+          <th>Entrada</th>
+          <th>Saída</th>
+          <th>Intervalo Saída</th>
+          <th>Intervalo Retorno</th>
+          <th>Total Intervalo</th>
           <th>Falta</th>
-          <th>Férias/Falta Abonada</th>
-          <th>Total de Horas*</th>
+          <th>Abono</th>
+          <th>Total Horas</th>
           <th></th>
         </tr>
       </thead>
-      
-      <tbody id="tabela-saida-espelho-ponto">
+
+      <tbody>
+
+      <?php if ($resultado->num_rows > 0) { ?>
+
+        <?php while($row = $resultado->fetch_assoc()) { ?>
+
+        <?php
+        $dias = [
+            'Sunday' => 'Domingo',
+            'Monday' => 'Segunda',
+            'Tuesday' => 'Terça',
+            'Wednesday' => 'Quarta',
+            'Thursday' => 'Quinta',
+            'Friday' => 'Sexta',
+            'Saturday' => 'Sábado'
+        ];
+
+        $diaSemana = $dias[date('l', strtotime($row['data']))];
+
+        // 🔹 calcular intervalo
+        $intervalo = "-";
+        if ($jornada['intervalo_inicio'] && $jornada['intervalo_fim']) {
+            $inicio = strtotime($jornada['intervalo_inicio']);
+            $fim = strtotime($jornada['intervalo_fim']);
+            $intervalo = gmdate("H:i", $fim - $inicio);
+        }
+        ?>
+
+        <tr>
+            <td><?= date('d/m/Y', strtotime($row['data'])) ?></td>
+            <td><?= $diaSemana ?></td>
+            <td><?= $jornada['hora_entrada'] ?></td>
+            <td><?= $jornada['hora_saida'] ?></td>
+            <td><?= $jornada['intervalo_inicio'] ?></td>
+            <td><?= $jornada['intervalo_fim'] ?></td>
+            <td><?= $intervalo ?></td>
+            <td><?= $row['faltas'] > 0 ? 'Sim' : 'Não' ?></td>
+            <td>-</td>
+            <td><?= $row['total_horas_dia'] ?></td>
+            <td><button type="button">...</button></td>
+        </tr>
+
+        <?php } ?>
+
+      <?php } else { ?>
+
+        <tr>
+            <td colspan="11">Nenhum ponto encontrado</td>
+        </tr>
+
+      <?php } ?>
+
       </tbody>
     </table>
 
-    <article>
-      <section class="resumo-final">
-        <p id="saida-erros"></p>
-      </section>
-    </article>
-    
     <section class="resumo-final">
-      <p>* Todos os dados exibidos estão no formato horas e minutos (HH:MM)</p>
+      <p>* Dados em HH:MM</p>
     </section>
-    
+
     <section class="resumo-final">
-      <p id = "saldo_mes"></p>
-      <button>Pendências</button>
-      <button>Relatório</button>
-      <button>Salvar</button>
+      <p>Banco de Horas: 02:34</p>
+
+      <button type="button">Pendências</button>
+
+      <a href="/Projeto_PI/api/relatorio.php?id=<?= $id ?>">
+    <button type="button">Gerar PDF</button>
+      </a>
+
+      <button type="button">Salvar</button>
     </section>
   </article>
 
-  <article class="modal">
-    <section>
-      <h3>Editar Pontos</h3>
-      <p class="fechar">X</p>
-    </section>
-    
-    <section>
-      <form class="form-modal">
-        <p id="informacoes-ponto">12/11/2025 - Quarta-feira:</p>
-        <div class="campo-linha">
-          <label for="hora-entrada">Hora de entrada:</label>
-          <input type="time" id="hora-entrada">
-        </div>
-        <div class="campo-linha">
-          <label for="intervalo-saida">Saída pro intervalo:</label>
-          <input type="time" id="intervalo-saida">
-        </div>
-        <div class="campo-linha">
-          <label for="intervalo-retorno">Retorno do intervalo:</label>
-          <input type="time" id="intervalo-retorno">
-        </div>
-        <div class="campo-linha">
-          <label for="hora-saida">Hora de saída:</label>
-          <input type="time" id="hora-saida">
-        </div>
-        <div class="campo-linha">
-          <label for="ferias-falta-abonada">Férias/Falta Abonada:</label>
-          <select id="ferias-falta-abonada">
-            <option value="0">Não</option>
-            <option value="1">Sim</option>
-          </select>
-        </div>
-        <button type="button" class="button-claro">Adicionar outra batida</button>
-        <button type="submit" id="btn-editar-ponto">Salvar</button>
-      </form>
-    </section>
-  </article>
 </main>
-
-<script>
-  const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
-</script>
-<script type="module" src="public/js/folha-ponto/espelho_ponto.js"></script>
-</body>
-</html>
