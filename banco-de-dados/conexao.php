@@ -9,6 +9,8 @@ $caminho_bd = "../banco-de-dados/bd_humanamente_dados.sql";
 // Conexão com servidor sem usar nenhum banco
 $conn = new mysqli($host, $user, $pass);
 
+$conn->set_charset("utf8mb4");
+
 // Traz a lista de bancos de dados existentes
 $bancos_existentes = $conn->query("SHOW DATABASES");
 

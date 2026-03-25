@@ -38,9 +38,11 @@ export async function exibiInformacoesEditar(id) {
     const pix = document.querySelector('#chave-pix')
     const nis = document.querySelector('#nis')
     const nit = document.querySelector('#nit')
-
     const ctps = document.querySelector('#ctps')
-    const certCasamento = document.querySelector('#certidao-casamento')
+    const certidaoCasamento = document.querySelector('#certidao-casamento')
+    const cnh = document.querySelector('#cnh')
+    const pcd = document.querySelector('#pcd')
+    const certificadoAlistamento = document.querySelector('#cam')
 
     dadosFuncionario.forEach(dados => {
         nomeCompleto.value = dados.nome_completo;
@@ -72,9 +74,27 @@ export async function exibiInformacoesEditar(id) {
         nit.value = dados.nit
 
         if (dados.certidao_casamento_nascimento == "1") {
-            certCasamento.checked = true
+            certidaoCasamento.checked = true
         } else {
-            certCasamento.checked = false
+            certidaoCasamento.checked = false
+        }
+
+        if (dados.cnh == "1") {
+            cnh.checked = true
+        } else {
+            cnh.checked = false
+        }
+
+        if (dados.laudo_pcd == "1") {
+            pcd.checked = true
+        } else {
+            pcd.checked = false
+        }
+
+        if (dados.cam == "1") {
+            certificadoAlistamento.checked = true
+        } else {
+            certificadoAlistamento.checked = false
         }
     })
 }

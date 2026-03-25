@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const rg = document.getElementById("rg").value;
         const genero = document.getElementById("genero").value;
         const estadoCivil = document.getElementById("estado-civil").value;
-        const pisPasep = document.getElementById("pis-pasep").value;
         const rua = document.getElementById("rua").value;
         const numeroCasa = document.getElementById("numero-casa").value;
         const bairro = document.getElementById("bairro").value;
@@ -37,22 +36,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const agencia = document.getElementById("agencia").value;
         const numeroConta = document.getElementById("numero-conta").value;
         const chavePix = document.getElementById("chave-pix").value;
+        const nis = document.getElementById("nis").value;
+        const nit = document.getElementById("nit").value;
+        const ctps = document.getElementById("ctps").value;
+        const pisPasep = document.getElementById("pis-pasep").value;
         const certidaoCasamento = document.getElementById("certidao-casamento").checked;
         const pcd = document.getElementById("pcd").checked;
         const cam = document.getElementById("cam").checked;
-        const comprovanteEscolaridade = document.getElementById("comprovante-escolaridade").checked;
         const filhos = document.getElementById("filhos").checked;
         const qtdFilhos = document.getElementById("qtd-filhos").value;
-        const possuiPendencias = document.getElementById("possui-pendencias").checked;
+        
         // const arquivos = document.getElementById("arquivos").value;
 
 
 
         // Usa a função enviar() para enviar a requisição pro PHP, enviar() tem que ser chamada com await, usa BASE_URL pra poder pegar o caminho certo
         const resposta = await enviar(`${BASE_URL}/api/criar_funcionario.php`, {nomeCompleto: nomeCompleto, telefone: telefone, email: email, dataNasc: dataNasc, cpf: cpf, rg: rg, genero: genero,
-            estadoCivil: estadoCivil, pisPasep: pisPasep, rua: rua, numeroCasa: numeroCasa, bairro: bairro, cidade: cidade, estado: estado, cep: cep, cargo: cargo, cbo: cbo, regime: regime,
+            estadoCivil: estadoCivil, pisPasep: pisPasep, nis: nis, nit: nit, ctps: ctps, rua: rua, numeroCasa: numeroCasa, bairro: bairro, cidade: cidade, estado: estado, cep: cep, cargo: cargo, cbo: cbo, regime: regime,
             remuneracao: remuneracao, banco: banco, agencia: agencia, numeroConta: numeroConta, chavePix: chavePix, certidaoCasamento: certidaoCasamento, pcd: pcd, cam: cam, 
-            comprovanteEscolaridade: comprovanteEscolaridade, filhos: filhos, qtdFilhos: qtdFilhos, possuiPendencias: possuiPendencias});
+            filhos: filhos, qtdFilhos: qtdFilhos});
 
 
         
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // código para enviar para PHP
             alert("Salvo com sucesso!");
             document.getElementById("formModal").reset();
-            document.getElementById("formModal").style.display = "none";
+            window.location.href = "colaboradores.php"
         }
         salvar();
 

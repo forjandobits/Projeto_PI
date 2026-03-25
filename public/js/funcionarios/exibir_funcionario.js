@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     cidade.value = dados.cidade
                     estado.value = dados.estado
                     cep.value = dados.cep
-                    cargo.value = dados.nome_cargo
+                    cargo.value = dados.id_cargo
                     cbo.value = dados.cbo
                     regime.value = dados.regime_trabalhista
                     salario.value = dados.salario
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         cnh.checked = false
                     }
 
-                    if (dados.pcd == "1") {
+                    if (dados.laudo_pcd == "1") {
                         pcd.checked = true
                     } else {
                         pcd.checked = false
