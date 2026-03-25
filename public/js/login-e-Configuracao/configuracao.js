@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const body = document.body;
@@ -178,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("fonte-media")?.addEventListener("click", () => aplicarFonte("media"));
     document.getElementById("fonte-maior")?.addEventListener("click", () => aplicarFonte("maior"));
 
-
     const temasPermitidos = ["claro", "escuro", "contraste"];
 
     document.querySelectorAll('input[name="tema"]').forEach(radio => {
@@ -188,8 +189,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
             body.classList.add("tema-" + this.value);
+            if (window.trocarIconesGlobal) {
+                window.trocarIconesGlobal(this.value);
+            }
             localStorage.setItem("tema", this.value);
         });
     });
 
+    const temaSalvo = localStorage.getItem("tema");
+
+    if (temaSalvo) {
+
+        document.body.classList.remove("tema-claro", "tema-escuro", "tema-contraste");
+        document.body.classList.add("tema-" + temaSalvo);
+
+        const radio = document.querySelector(`input[name="tema"][value="${temaSalvo}"]`);
+        if (radio) radio.checked = true;
+    }
+
 });
+

@@ -132,6 +132,7 @@ Em todas as página foi adicionado um pequeno script que define a variável BASE
 
 - Importação JS -> JS: caminho iniciando em `./`
 - Importação PHP -> PHP: caminho iniciando em `__DIR__ .`
-- Importação BD -> PHP: use a linha `require_once __DIR__ . "/../db/conexao.php"`;
+- Importação BD -> PHP: use a linha `require_once __DIR__ . "/../banco-de-dados/conexao.php";` (Se estiver trabalhando direto em API)
+- Importação BD -> PHP: use a linha `require_once __DIR__ . "/../../banco-de-dados/conexao.php";` (Se estiver trabalhando em uma subpasta de API)
 - Requisição JS -> PHP: use a função enviar() no JS com um caminho que comece com `${BASE_URL}/`
 
