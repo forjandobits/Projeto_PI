@@ -5,6 +5,7 @@
 --
 -- Host: 127.0.0.1
 -- Tempo de geração: 24-Mar-2026 às 22:57
+-- Tempo de geração: 24-Mar-2026 às 22:57
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -266,6 +267,24 @@ CREATE TABLE IF NOT EXISTS `tb_horario` (
   PRIMARY KEY (`id_horario`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_horario`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_horario` (
+  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) NOT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
+  PRIMARY KEY (`id_horario`),
+  KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -280,6 +299,9 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   `id_funcionario` int(11) NOT NULL,
   `id_ponto` int(11) NOT NULL,
   `hora_entrada` time NOT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
   `hora_saida` time NOT NULL,
   `intervalo_inicio` time NOT NULL,
   `intervalo_fim` time NOT NULL,
@@ -367,6 +389,7 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `tipo_telefone` varchar(50) NOT NULL,
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

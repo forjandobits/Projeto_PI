@@ -71,9 +71,8 @@ if ($filtro != "") {
         </article>
     </main>
 
-
-<script>
-const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
-</script>
-<script type="module" src="public/js/folha-ponto/listar_funcionarios.js"></script><!--atenção para o tipo module-->
+    <script>
+      const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
+    </script>
+    <script type="module" src="public/js/folha-ponto/listar_funcionarios.js"></script><!--atenção para o tipo module-->
 </body>

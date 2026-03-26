@@ -166,22 +166,6 @@ INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `r
 (13, 'Auxiliar de Cozinha', '1700.00', 44, 'CLT', '513505'),
 (14, 'Supervisor de Turno', '3200.00', 44, 'CLT', '141420'),
 (15, 'Nutricionista', '4000.00', 40, 'CLT', '223710');
-INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `cbo`) VALUES
-(1, 'Padeiro', '2800.00', 44, 'CLT', '848105'),
-(2, 'Auxiliar de Padeiro', '1800.00', 44, 'CLT', '848110'),
-(3, 'Confeiteiro', '3000.00', 44, 'CLT', '848205'),
-(4, 'Auxiliar de Confeitaria', '1700.00', 44, 'CLT', '848210'),
-(5, 'Atendente', '1600.00', 44, 'CLT', '521140'),
-(6, 'Caixa', '1700.00', 44, 'CLT', '421125'),
-(7, 'Gerente', '4500.00', 44, 'CLT', '141420'),
-(8, 'Subgerente', '3500.00', 44, 'CLT', '141415'),
-(9, 'Estoquista', '1900.00', 44, 'CLT', '414125'),
-(10, 'Auxiliar de Limpeza', '1500.00', 44, 'CLT', '514320'),
-(11, 'Entregador', '2000.00', 44, 'CLT', '782310'),
-(12, 'Cozinheiro', '2600.00', 44, 'CLT', '513205'),
-(13, 'Auxiliar de Cozinha', '1700.00', 44, 'CLT', '513505'),
-(14, 'Supervisor de Turno', '3200.00', 44, 'CLT', '141420'),
-(15, 'Nutricionista', '4000.00', 40, 'CLT', '223710');
 
 -- --------------------------------------------------------
 
@@ -526,7 +510,6 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_jornada`
@@ -614,26 +597,11 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
-  PRIMARY KEY (`id_beneficio`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tb_proventos`
 --
 
-INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 'Salário', '1621.00', 0, 1),
-(2, '13º Salário', '1621.00', 0, 1),
-(3, 'Vale Transporte', '150.00', 1, 1),
-(4, 'Comissão', '180.00', 0, 1),
-(5, 'Vale Alimentação', '450.00', 0, 1),
-(6, 'IRPF', '0.00', 1, 1),
-(7, 'INSS', '0.00', 1, 1),
-(8, 'Bônus de Desempenho', '500.00', 0, 1),
-(9, 'Adicional Noturno', '210.00', 0, 1),
-(10, 'Desconto Falta', '50.00', 1, 1),
-(11, 'Horas Extras', '50.00', 0, 1),
-(12, 'Gratificação Cargo', '200.00', 0, 1);
 INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
 (1, 'Salário', '1621.00', 0, 1),
 (2, '13º Salário', '1621.00', 0, 1),
@@ -759,49 +727,10 @@ CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 ,`id_jornada` int(11)
 ,`id_ponto` int(11)
 );
-(1, 1, '(33)98811-1200', 'Celular'),
-(2, 2, '(33)98811-1300', 'Celular'),
-(3, 3, '(33)98811-1400', 'Celular'),
-(4, 4, '(33)98811-1500', 'Celular'),
-(5, 5, '(33)98811-1600', 'Celular'),
-(6, 6, '(33)98811-1700', 'Celular'),
-(7, 7, '(33)98811-1800', 'Celular'),
-(8, 8, '(33)98811-1900', 'Celular'),
-(9, 9, '(33)98811-2000', 'Celular'),
-(10, 10, '(33)98811-2100', 'Celular'),
-(11, 11, '(33)98811-2200', 'Celular'),
-(12, 12, '(33)98811-2300', 'Celular'),
-(13, 13, '(33)98811-2400', 'Celular'),
-(14, 14, '(33)98811-2500', 'Celular'),
-(15, 15, '(33)98811-2600', 'Celular');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `view_espelho_ponto`
--- (Veja abaixo para a view atual)
---
-CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
-`data` date
-,`dia_semana` varchar(20)
-,`hora_entrada` time
-,`hora_saida` time
-,`intervalo_inicio` time
-,`intervalo_fim` time
-,`total_intervalo` time
-,`faltas` int(11)
-,`total_horas_dia` time
-,`nome_completo` varchar(100)
-,`id_funcionario` int(11)
-,`id_jornada` int(11)
-,`id_ponto` int(11)
-);
-
--- --------------------------------------------------------
-
---
--- Estrutura stand-in para vista `view_folha_ponto`
--- (Veja abaixo para a view atual)
 -- Estrutura stand-in para vista `view_folha_ponto`
 -- (Veja abaixo para a view atual)
 --
