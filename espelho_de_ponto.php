@@ -1,4 +1,5 @@
 <?php include "./components/header.php" ?>
+
 <?php include "./components/sidebar.php" ?>
 
 
@@ -6,7 +7,7 @@
   <article class="cabecalhos">
     <h1>Controle de Ponto - Visualização</h1>
   </article>
-
+  
   <!-- Para marcar o início e o fim da visualização desejada -->
   <article>
     <form id="busca-pagamentos">
@@ -39,6 +40,7 @@
           <th></th>
         </tr>
       </thead>
+      
       <tbody id="tabela-saida-espelho-ponto">
       </tbody>
     </table>
