@@ -9,10 +9,10 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     const horaSaida = document.querySelector("#hora-saida");
     const campoSaldo = document.querySelector("#saldo_mes");
     //Isis
- /*    const hoje = new Date();
-    const mesAtual = hoje.toISOString().slice(0,7);
-    const campoMes = document.querySelector("#data-mes-ano");
-    campoMes.value = mesAtual; */
+    /*    const hoje = new Date();
+       const mesAtual = hoje.toISOString().slice(0,7);
+       const campoMes = document.querySelector("#data-mes-ano");
+       campoMes.value = mesAtual; */
     //fim Isis
     let resposta = {};
     let dados = [];
@@ -23,11 +23,11 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     let saldo_acumulado = "";
 
     tabela.textContent = "";
-   
+
     if (id != null && id != "") {
         dados = [];
 
-        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, {id: id, mes: mes});
+        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, { id: id, mes: mes });
 
         console.log("Resposta completa:", resposta);
 
@@ -43,7 +43,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
         //se nao tiver registros no mes corrente
         if (!dados || dados.length === 0) {
             tabela.innerHTML = "<tr><td colspan='11'>Nenhum registro encontrado</td></tr>";
-        return;
+            return;
         }
 
         saidaNome.textContent = `Espelho de Ponto - ${dados[0].nome_completo}`;
@@ -148,10 +148,10 @@ export async function editarPonto(saidaMensagens) {
     let resposta = {};
     let dados = [];
 
-    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, {id_funcionario: idFuncionario, id_jornada: idJornada, id_ponto: idPonto, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value, ferias_falta: feriasFaltaAbonada.value});
+    resposta = await enviar(`${BASE_URL}/api/folha-ponto/editar_ponto.php`, { id_funcionario: idFuncionario, id_jornada: idJornada, id_ponto: idPonto, hora_entrada: horaEntrada.value, hora_saida: horaSaida.value, intervalo_inicio: intervaloSaida.value, intervalo_fim: intervaloRetorno.value, ferias_falta: feriasFaltaAbonada.value });
 
     dados = resposta.resposta;
-    
+
     exibir.style.display = "none";
     saidaMensagens.style.color = "green";
     saidaMensagens.textContent = dados;
@@ -160,7 +160,7 @@ export async function editarPonto(saidaMensagens) {
 export async function fecharMes(id, mesReferencia, saidaMensagens) {
     let resposta = {};
 
-    resposta = await enviar(`${BASE_URL}/api/folha-ponto/fechar_pontos.php`, {id_funcionario: id, mes_fechar: mesReferencia});
+    resposta = await enviar(`${BASE_URL}/api/folha-ponto/fechar_pontos.php`, { id_funcionario: id, mes_fechar: mesReferencia });
 
     if (resposta["status"] == "sucesso") {
         saidaMensagens.style.color = "green";
