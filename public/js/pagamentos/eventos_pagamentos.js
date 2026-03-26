@@ -2,19 +2,10 @@ import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } fro
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
 import { eventoSelecionado, dataVazia, nomeVazio, valorVazio, mostrarMensagem } from "./validacoes.js";
 
-// Salario - 1
-// FGTS - 2
-// INSS - 3
-// IRPF - 4
-// Vale Transporte - 5
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Arrays para armazenamento
     const valoresRecebidos = [];
     const valoresUnidos = [];
-
-    // Função para manipulação de elementos visuais e experiência de usuário
 
     const parametrosURL = new URLSearchParams(window.location.search);
     const idFolha = parametrosURL.get('id');
@@ -200,10 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 nome.value = nomeInput;
                 // Para o valor no formulário caso necessário
                 idSelecionado = nomeSelecionado.dataset.value;
-                // buscarSalario(idSelecionado);
-
-                // Para mostrar o nome que foi selecionado e o ID do mesmo
-                // console.log(`Nome: ${nomeSelecionado.textContent} ID: ${nomeSelecionado.dataset.value}`);
 
                 // Fecha a listagem de nomes
                 listaNomes.style.display = "none";
@@ -267,10 +254,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // Para valores que devem ser calculados automaticamente, como INSS e IRPF
+    // Para valores que devem ser calculados automaticamente, como INSS e IRPF, outros
     async function calcularContribuicoesDescontos(salario) {
 
-        // INSS - Valor de Referência é a base, mas pode ser alterado conforme necessário
         let descontoINSS = 0;
         let descontoIRPF = 0;
         let descontoVT = 0;
@@ -291,13 +277,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 descontoINSS = salario * 0.14;
             }
 
-            // Menor que 5000 Isento, procurar uma tabela correta
-            if (salario < 5001) {
+            // Menor que 5000 Isento, e cálculo progressivo para outras faixas 
+            if (salario <= 5000) {
                 descontoIRPF = 0;
-            } else if (salario <= 7350) {
-                descontoIRPF = 10;
+            } else if (salario <= 6000) {
+                descontoIRPF = (salario * 0.075) - 375;
+            } else if (salario <= 7000) {
+                descontoIRPF = (salario * 0.15) - 825;
+            } else if (salario <= 8000) {
+                descontoIRPF = (salario * 0.225) - 1350;
             } else {
-                descontoIRPF = 20;
+                descontoIRPF = (salario * 0.275) - 1850;
             }
 
             // FGTS salario * 0.08 - não desconto
@@ -324,30 +314,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (botaoSalvar) {
 
             botaoSalvar.addEventListener("click", async () => {
-                agruparValoresRecebidos();
-
-                const beneRecebe = eventoSelecionado(valoresUnidos);
-                const valorRecebe = valorVazio(valoresUnidos);
-                const dataRecebe = dataVazia(mesSelecionado.value);
-                const nomeRecebe = nomeVazio(nome.value);
-                
-                if (beneRecebe !== false) {
-                    // ---- Valor Vazio ----
-                    return;
-                } else if (valorRecebe !== false) {
-                    // ---- Beneficios iguais ----
-                    return;
-                } else if (dataRecebe !== false) {
-                    // ---- Data Vazia ----
-                    return;
-                } else if (nomeRecebe !== false) {
-                    // ---- Nome Vazio ----
-                    return;
-                } else {
-                    mostrarMensagem("")
-                    exibir.style.display = "none";
-                }
-
 
                 if (tabelaPagamento) {
 
@@ -395,7 +361,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 if (benDes.id_beneficio == idConvertido) {
                                     evento.textContent = benDes.nome_beneficio;
                                     referencia.textContent = benDes.referencia;
-                                    vencimentos.textContent = info.valor;
+                                    // vencimentos.textContent = info.valor;
+                                    vencimentos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                                     descontos.textContent = "--";
                                     if (idConvertido !== 2) {
                                         valorLiquido = valorLiquido + Number(info.valor);
@@ -415,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         descontos.textContent = "Isento";
                                         descontos.style.color = "#FF0000";
                                     } else {
-                                        descontos.textContent = info.valor;
+                                        descontos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                                         descontos.style.color = "#FF0000";
                                     }
                                     valorLiquido = valorLiquido - Number(info.valor);
@@ -428,13 +395,29 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (valorLiquido < 0) {
                         resumoLiquido.textContent = `FGTS (R$): 0,00 - Total Líquido (R$): 0,00`;
                     } else {
-                        resumoLiquido.textContent = `FGTS (R$): ${valorFGTS.toFixed(2)} - Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
+                        resumoLiquido.textContent = `FGTS (R$): ${valorFGTS.toFixed(2).replace(".", ",")} - Total Líquido (R$): ${valorLiquido.toFixed(2).replace(".", ",")}`;
                     }
 
                 });
 
 
+                agruparValoresRecebidos();
+
+                const beneRecebe = eventoSelecionado(valoresUnidos);
+                const valorRecebe = valorVazio(valoresUnidos);
+                const dataRecebe = dataVazia(mesSelecionado.value);
+                const nomeRecebe = nomeVazio(nome.value);
+                
+                if ((beneRecebe !== false) || (valorRecebe !== false) || (dataRecebe !== false) || (nomeRecebe !== false)) {
+                    // ---- Valor Vazio ----
+                    tabelaPagamento.textContent = "";
+                    return;
+                } else {
+                    mostrarMensagem("")
+                    exibir.style.display = "none";
+                }
             });
+            
         }
 
     }
@@ -468,7 +451,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const botaoEnviar = document.querySelector("#enviar-dados");
 
         if (botaoEnviar) {
-
+            console.log(valoresRecebidos);
+            console.log(valoresUnidos);
             botaoEnviar.addEventListener("click", async (e) => {
                 const parametrosURL = new URLSearchParams(window.location.search);
 

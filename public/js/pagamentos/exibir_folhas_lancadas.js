@@ -33,7 +33,6 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
         const informacoes = JSON.parse(valoresRetornados.informacoes);
         
         informacoes.forEach(informacao => {
-            // console.log(item);
             
             
             informacao.infoBenDes.forEach(info =>{
@@ -61,7 +60,8 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
                         if (benDes.id_beneficio == idConvertido) {
                             evento.textContent = benDes.nome_beneficio;
                             referencia.textContent = benDes.referencia;
-                            vencimentos.textContent = info.valor;
+                            // vencimentos.textContent = info.valor;
+                            vencimentos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                             descontos.textContent = "--";
                             if(idConvertido !== 2){
                                 valorLiquido = valorLiquido + Number(info.valor);
@@ -80,7 +80,8 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
                                 descontos.textContent = "Isento";
                                 descontos.style.color = "#FF0000";
                             } else {
-                                descontos.textContent = info.valor;
+                                // descontos.textContent = info.valor;
+                                descontos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                                 descontos.style.color = "#FF0000";
                             }
                             valorLiquido = valorLiquido - Number(info.valor);
@@ -90,7 +91,7 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
                     if(valorLiquido < 0){
                         resumoLiquido.textContent = `FGTS (R$): 0,00 - Total Líquido (R$): 0,00`;
                     } else {
-                        resumoLiquido.textContent = `FGTS (R$): ${valorFGTS.toFixed(2)} - Total Líquido (R$): ${valorLiquido.toFixed(2)}`;
+                        resumoLiquido.textContent = `FGTS (R$): ${valorFGTS.toFixed(2).replace(".", ",")} - Total Líquido (R$): ${valorLiquido.toFixed(2).replace(".", ",")}`;
                     }
 
                 });
@@ -171,7 +172,6 @@ async function gerarRelatorio() {
 
         if(botaoBaixar){
             const idSelecionado = e.target.id;
-            // alert("Clicou para baixar! O id selecionado: " + idSelecionado);
 
             const respostaFolha = await fetch(`${BASE_URL}/api/pagamentos/exibir_dados_folha.php`, {
                 method: "POST",
@@ -185,12 +185,9 @@ async function gerarRelatorio() {
     
             const dadosFolhaSelecionada = await respostaFolha.json();
 
-            // alert(dadosFolhaSelecionada);
             localStorage.setItem("relatorio_pagamento", JSON.stringify(dadosFolhaSelecionada));
 
             window.location.href = `${BASE_URL}/relatorio_pagamento.php`;
-            // alert('Clicou para imprimir!');
-            // window.print();
         }
     })
 }
@@ -225,17 +222,13 @@ document.addEventListener('DOMContentLoaded', function () {
     async function exibirFolhaLancada() {
 
         const folhasLancadas = await listarFolhasLancadas();
-        // const buttonBusca = document.querySelector("#buscar");
         const filtroBusca = document.querySelector("#filtro");
 
         if(filtroBusca){
 
             filtroBusca.addEventListener('input', (e) => {
     
-                // buttonBusca.addEventListener('click', (e) => {
-                // const valorBuscado = filtroBusca.value.toLowerCase();
                 const valorBuscado = e.target.value.toLowerCase();
-                // alert(valorBuscado);
                 
                 const resultadoBusca = folhasLancadas.filter(buscaFolhasLancadas => {
     
