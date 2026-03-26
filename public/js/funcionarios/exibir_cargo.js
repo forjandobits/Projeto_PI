@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const exibir = document.querySelector(".modal");
                 exibir.style.display = "flex";
 
-                const respotaCargo = await fetch(`${BASE_URL}/api/funcionarios/exibir_cargo.php`, {
+                const respostaCargo = await fetch(`${BASE_URL}/api/funcionarios/puxar_cargo_info.php`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 idCargo = e.target.id;
 
-                const dadosCargo = await respotaCargo.json();
+                const dadosCargo = await respostaCargo.json();
                 const cbo = document.querySelector('#cbo')
 
 
