@@ -11,21 +11,24 @@ $dados = json_decode(file_get_contents("php://input"), true);
 // Convertendo o valor do id em inteiro
 $id = (int)$dados['id_solicitacao'];
 
-$motivo = $conn->real_escape_string($dados["motivo"]);
-$status = $conn->real_escape_string($dados["status"]);
+$motivo = $dados["motivo"];
+$status = $dados["status"];
 
 
 // Alterando o motivo e o status
-$sql = "UPDATE tb_solicitacoes SET motivo = '$motivo', status = '$status' WHERE id_solicitacao = $id";
+$sql = "UPDATE tb_solicitacoes SET motivo = ?, status = ? WHERE id_solicitacao = ?";
 
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssi", $motivo, $status, $id);
 
-if($conn->query($sql)){
+if($stmt->execute()){
    echo json_encode(["status" => "ok"]);
 } else {
    echo json_encode(["erro" => "Erro ao atualizar"]);
 }
 
 // Fechando a conexão
+$stmt->close();
 $conn->close();
 
 ?>

@@ -14,10 +14,10 @@ INNER JOIN tb_funcionario ON tb_solicitacoes.id_funcionario = tb_funcionario.id_
 WHERE id_solicitacao = ?";
 
 // Preparando a query
-$consulta = $conn->prepare($sql);
-$consulta->bind_param("i", $id);
-$consulta->execute(); // Consultando o bd
-$resultado = $consulta->get_result(); // Pega o resultado da consulta
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute(); // Consultando o bd
+$resultado = $stmt->get_result(); // Pega o resultado da consulta
 
 // Verifica se a consulta realmente retornou um registro
 if ($resultado->num_rows > 0) {
@@ -32,7 +32,7 @@ echo json_encode(["erro" => "Solicitação com id não encontrado"]);
 }
 
 // fecha a consulta e a conexão com o bd
-$consulta->close();
+$stmt->close();
 $conn->close();
 
 ?>

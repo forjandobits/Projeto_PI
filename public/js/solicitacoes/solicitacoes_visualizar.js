@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch("/Projeto_PI/api/visualizar_aceitar_negar.php", {
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 id_solicitacao: id,
                 motivo: motivoAceitar,
@@ -112,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = document.querySelector('#id-solicitacao').value;
 
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
-        if (motivo.value.trim() === "") {
+        if (motivoNegar.trim() === "") {
             mensagem.className = ""; // Limpando a classe mensagem
             mensagem.textContent = "Motivo da recusa deve ser preenchido!";
             mensagem.style.display = "block";
@@ -123,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch("/Projeto_PI/api/visualizar_aceitar_negar.php", {
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 id_solicitacao: id,
                 motivo: motivoNegar,
