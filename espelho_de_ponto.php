@@ -1,11 +1,13 @@
 <?php include "./components/header.php" ?>
 <?php include "./components/sidebar.php" ?>
 
+
 <main>
   <article class="cabecalhos">
     <h1>Controle de Ponto - Visualização</h1>
   </article>
 
+  <!-- Para marcar o início e o fim da visualização desejada -->
   <article>
     <form id="busca-pagamentos">
       <section class="areas-form">
@@ -18,7 +20,7 @@
       </section>
     </form>
   </article>
-
+  
   <article>
     <table>
       <caption id="saida-nome-funcionario-espelho-ponto">Espelho de Ponto - </caption>
@@ -37,7 +39,6 @@
           <th></th>
         </tr>
       </thead>
-      
       <tbody id="tabela-saida-espelho-ponto">
       </tbody>
     </table>
@@ -54,9 +55,8 @@
     
     <section class="resumo-final">
       <p id = "saldo_mes"></p>
-      <a href="/Projeto_PI/api/relatorio.php?id=<?= $id ?>">
-        <button type="button">Gerar PDF</button>
-      </a>
+      <button>Pendências</button>
+      <button>Relatório</button>
       <button>Salvar</button>
     </section>
   </article>
@@ -85,13 +85,6 @@
         <div class="campo-linha">
           <label for="hora-saida">Hora de saída:</label>
           <input type="time" id="hora-saida">
-        </div>
-        <div class="campo-linha">
-          <label for="ferias-falta-abonada">Férias/Falta Abonada:</label>
-          <select id="ferias-falta-abonada">
-            <option value="0">Não</option>
-            <option value="1">Sim</option>
-          </select>
         </div>
         <button type="button" class="button-claro">Adicionar outra batida</button>
         <button type="submit" id="btn-editar-ponto">Salvar</button>

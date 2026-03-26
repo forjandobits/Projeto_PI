@@ -3,7 +3,6 @@ $host = "localhost";
 $user = "root";
 $pass = "";
 $bd = "bd_humanamente_dados";
-$bd = "bd_humanamente_dados";
 $bd_existe = false;
 $caminho_bd = "../../banco-de-dados/bd_humanamente_dados.sql";
 

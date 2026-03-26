@@ -1,7 +1,7 @@
 import { enviar } from "../utils/enviar.js";
 
 
-enviar(`${BASE_URL}/api/folha-ponto/listar_funcionarios.php`, {})
+enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
     .then(dados => {
 
         
@@ -18,12 +18,12 @@ enviar(`${BASE_URL}/api/folha-ponto/listar_funcionarios.php`, {})
             colunaNome.textContent = funcionario.nome_completo;
 
             const colunaBanco = document.createElement("td");
-            colunaBanco.textContent = funcionario.saldo_mes;
+            colunaBanco.textContent = funcionario.diferenca_horas;
 
             const colunaSituacao = document.createElement("td");
             colunaSituacao.textContent = funcionario.situacao;
 
-            if (parseInt(funcionario.saldo_mes) < 0) {
+            if (parseInt(funcionario.diferenca_horas) < 0) {
                 colunaBanco.style.color = "red";
             }
             const colunaBotao = document.createElement("td");
@@ -54,7 +54,7 @@ enviar(`${BASE_URL}/api/folha-ponto/listar_funcionarios.php`, {})
         
         
     })
-    // .catch(erro => console.error("Erro:", erro));
+    .catch(erro => console.error("Erro:", erro));
 
     function verEspelho(id){
         window.location.href = `espelho_de_ponto.php?id=${id}`;

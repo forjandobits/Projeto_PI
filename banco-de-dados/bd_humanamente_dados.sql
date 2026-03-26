@@ -58,6 +58,21 @@ INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_a
 (13, 13, 'CPF', '/home/user/documentos/funcionario13/cpf.pdf'),
 (14, 14, 'Registro Profissional', '/home/user/documentos/funcionario14/registro_profissional.pdf'),
 (15, 15, 'RG', '/home/user/documentos/funcionario15/rg.jpg');
+(1, 1, 'RG', '/home/user/documentos/funcionario1/rg.pdf'),
+(2, 2, 'CPF', '/home/user/documentos/funcionario2/cpf.pdf'),
+(3, 3, 'CTPS', '/home/user/documentos/funcionario3/ctps.pdf'),
+(4, 4, 'Comprovante Escolaridade', '/home/user/documentos/funcionario4/escolaridade.pdf'),
+(5, 5, 'CNH', '/home/user/documentos/funcionario5/cnh.jpg'),
+(6, 6, 'RG', '/home/user/documentos/funcionario6/rg.jpg'),
+(7, 7, 'CPF', '/home/user/documentos/funcionario7/cpf.pdf'),
+(8, 8, 'Título de Eleitor', '/home/user/documentos/funcionario8/titulo_eleitor.pdf'),
+(9, 9, 'Certidão de Nascimento', '/home/user/documentos/funcionario9/certidao.jpg'),
+(10, 10, 'RG', '/home/user/documentos/funcionario10/rg.pdf'),
+(11, 11, 'CNH', '/home/user/documentos/funcionario11/cnh.jpg'),
+(12, 12, 'Comprovante Escolaridade', '/home/user/documentos/funcionario12/escolaridade.pdf'),
+(13, 13, 'CPF', '/home/user/documentos/funcionario13/cpf.pdf'),
+(14, 14, 'Registro Profissional', '/home/user/documentos/funcionario14/registro_profissional.pdf'),
+(15, 15, 'RG', '/home/user/documentos/funcionario15/rg.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,6 +83,7 @@ INSERT INTO `tb_arquivo` (`id_arquivo`, `id_documento`, `tipo_documento`, `url_a
 CREATE TABLE IF NOT EXISTS `tb_banco` (
   `id_banco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `nome_banco` varchar(50) NOT NULL,
   `nome_banco` varchar(50) NOT NULL,
   `agencia` varchar(20) NOT NULL,
   `numero_conta` varchar(20) NOT NULL,
@@ -81,6 +97,22 @@ CREATE TABLE IF NOT EXISTS `tb_banco` (
 -- Despejando dados para a tabela `tb_banco`
 --
 
+INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `nome_banco`, `agencia`, `numero_conta`, `tipo_conta`, `chave_pix`) VALUES
+(1, 1, '', '1234', '45879-1', 'Corrente', 'carlos.silva@email.com'),
+(2, 2, '', '1234', '45879-2', 'Corrente', 'joao.santos@email.com'),
+(3, 3, '', '1234', '45879-3', 'Poupança', 'fernanda.costa@email.com'),
+(4, 4, '', '1234', '45879-4', 'Corrente', 'mariana.lima@email.com'),
+(5, 5, '', '1234', '45879-5', 'Corrente', 'paulo.mendes@email.com'),
+(6, 6, '', '1234', '45879-6', 'Poupança', 'juliana.gomes@email.com'),
+(7, 7, '', '1234', '45879-7', 'Corrente', 'ricardo.rocha@email.com'),
+(8, 8, '', '1234', '45879-8', 'Corrente', 'patricia.ribeiro@email.com'),
+(9, 9, '', '1234', '45879-9', 'Poupança', 'lucas.teixeira@email.com'),
+(10, 10, '', '1234', '45879-10', 'Corrente', 'sandra.barros@email.com'),
+(11, 11, '', '1234', '45879-11', 'Corrente', 'gabriel.nogueira@email.com'),
+(12, 12, '', '1234', '45879-12', 'Poupança', 'roberto.pinto@email.com'),
+(13, 13, '', '1234', '45879-13', 'Corrente', 'camila.lopes@email.com'),
+(14, 14, '', '1234', '45879-14', 'Corrente', 'eduardo.matos@email.com'),
+(15, 15, '', '1234', '45879-15', 'Poupança', 'ana.faria@email.com');
 INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `nome_banco`, `agencia`, `numero_conta`, `tipo_conta`, `chave_pix`) VALUES
 (1, 1, '', '1234', '45879-1', 'Corrente', 'carlos.silva@email.com'),
 (2, 2, '', '1234', '45879-2', 'Corrente', 'joao.santos@email.com'),
@@ -134,6 +166,22 @@ INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `r
 (13, 'Auxiliar de Cozinha', '1700.00', 44, 'CLT', '513505'),
 (14, 'Supervisor de Turno', '3200.00', 44, 'CLT', '141420'),
 (15, 'Nutricionista', '4000.00', 40, 'CLT', '223710');
+INSERT INTO `tb_cargo` (`id_cargo`, `nome_cargo`, `salario`, `carga_horaria`, `regime_trabalhista`, `cbo`) VALUES
+(1, 'Padeiro', '2800.00', 44, 'CLT', '848105'),
+(2, 'Auxiliar de Padeiro', '1800.00', 44, 'CLT', '848110'),
+(3, 'Confeiteiro', '3000.00', 44, 'CLT', '848205'),
+(4, 'Auxiliar de Confeitaria', '1700.00', 44, 'CLT', '848210'),
+(5, 'Atendente', '1600.00', 44, 'CLT', '521140'),
+(6, 'Caixa', '1700.00', 44, 'CLT', '421125'),
+(7, 'Gerente', '4500.00', 44, 'CLT', '141420'),
+(8, 'Subgerente', '3500.00', 44, 'CLT', '141415'),
+(9, 'Estoquista', '1900.00', 44, 'CLT', '414125'),
+(10, 'Auxiliar de Limpeza', '1500.00', 44, 'CLT', '514320'),
+(11, 'Entregador', '2000.00', 44, 'CLT', '782310'),
+(12, 'Cozinheiro', '2600.00', 44, 'CLT', '513205'),
+(13, 'Auxiliar de Cozinha', '1700.00', 44, 'CLT', '513505'),
+(14, 'Supervisor de Turno', '3200.00', 44, 'CLT', '141420'),
+(15, 'Nutricionista', '4000.00', 40, 'CLT', '223710');
 
 -- --------------------------------------------------------
 
@@ -154,6 +202,8 @@ CREATE TABLE IF NOT EXISTS `tb_documento` (
   `cnh` tinyint(1) NOT NULL DEFAULT 0,
   `cam` tinyint(1) NOT NULL DEFAULT 0,
   `titulo_eleitor` text DEFAULT NULL,
+  `certidao_casamento_nascimento` tinyint(1) NOT NULL DEFAULT 0,
+  `laudo_pcd` tinyint(1) NOT NULL DEFAULT 0,
   `certidao_casamento_nascimento` tinyint(1) NOT NULL DEFAULT 0,
   `laudo_pcd` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_documento`),
@@ -191,6 +241,7 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `estado` varchar(2) NOT NULL,
+  `estado` varchar(2) NOT NULL,
   `cidade` varchar(60) NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `rua` text NOT NULL,
@@ -221,6 +272,22 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `estado`, `cidade`, 
 (13, 13, '', 'Governador Valadares', 'Altinópolis', 'Rua das Palmeiras', 95, '35030-600', NULL),
 (14, 14, '', 'Governador Valadares', 'Centro', 'Rua Marechal Floriano', 300, '35010-400', 'Apto 201'),
 (15, 15, '', 'Governador Valadares', 'Morada do Vale', 'Rua das Acácias', 41, '35020-700', NULL);
+INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `estado`, `cidade`, `bairro`, `rua`, `numero_casa`, `cep`, `complemento`) VALUES
+(1, 1, '', 'Governador Valadares', 'Centro', 'Rua Afonso Pena', 120, '35010-000', NULL),
+(2, 2, '', 'Governador Valadares', 'Grã-Duquesa', 'Rua Bahia', 55, '35020-000', NULL),
+(3, 3, '', 'Governador Valadares', 'Lourdes', 'Rua Minas Gerais', 88, '35030-000', 'Apto 101'),
+(4, 4, '', 'Governador Valadares', 'São Pedro', 'Rua das Flores', 230, '35040-000', NULL),
+(5, 5, '', 'Governador Valadares', 'Centro', 'Rua Sete de Setembro', 12, '35010-100', NULL),
+(6, 6, '', 'Governador Valadares', 'Vila Isa', 'Rua Goiás', 90, '35020-200', 'Casa B'),
+(7, 7, '', 'Governador Valadares', 'Centro', 'Av Brasil', 500, '35010-200', 'Apto 402'),
+(8, 8, '', 'Governador Valadares', 'Morada do Vale', 'Rua do Sol', 145, '35020-300', NULL),
+(9, 9, '', 'Governador Valadares', 'Santos Dumont', 'Rua do Comércio', 74, '35030-400', NULL),
+(10, 10, '', 'Governador Valadares', 'Centro', 'Rua Paraná', 65, '35010-300', NULL),
+(11, 11, '', 'Governador Valadares', 'Grã-Duquesa', 'Rua Sergipe', 31, '35020-500', NULL),
+(12, 12, '', 'Governador Valadares', 'Vila Bretas', 'Rua Amazonas', 210, '35040-200', NULL),
+(13, 13, '', 'Governador Valadares', 'Altinópolis', 'Rua das Palmeiras', 95, '35030-600', NULL),
+(14, 14, '', 'Governador Valadares', 'Centro', 'Rua Marechal Floriano', 300, '35010-400', 'Apto 201'),
+(15, 15, '', 'Governador Valadares', 'Morada do Vale', 'Rua das Acácias', 41, '35020-700', NULL);
 
 -- --------------------------------------------------------
 
@@ -231,6 +298,8 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_funcionario`, `estado`, `cidade`, 
 CREATE TABLE IF NOT EXISTS `tb_filho` (
   `id_filho` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
+  `tem_filho` tinyint(1) NOT NULL DEFAULT 0,
+  `numero_filho` int(11) DEFAULT NULL,
   `tem_filho` tinyint(1) NOT NULL DEFAULT 0,
   `numero_filho` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_filho`),
@@ -309,17 +378,36 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `horas_extras` int(11) DEFAULT NULL,
   `faltas` int(11) DEFAULT NULL,
   `ferias_falta_abonada` int(11) DEFAULT NULL,
+  `ferias_falta_abonada` int(11) DEFAULT NULL,
   `atrasos` int(11) DEFAULT NULL,
   `observacoes` text DEFAULT NULL,
   `fechado` tinyint(1) NOT NULL DEFAULT 0,
+  `fechado` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_ponto`),
   KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_folhaponto`
 --
 
+INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_dia`, `horas_extras`, `faltas`, `ferias_falta_abonada`, `atrasos`, `observacoes`, `fechado`) VALUES
+(1, 1, '2025-03-03', 8, 2, NULL, NULL, NULL, 'Produção maior de pães', 0),
+(2, 2, '2025-03-03', 8, NULL, NULL, NULL, 1, 'Atraso por transporte', 0),
+(3, 3, '2025-03-04', 8, NULL, NULL, NULL, NULL, NULL, 0),
+(4, 4, '2025-03-04', 8, NULL, NULL, NULL, NULL, NULL, 0),
+(5, 5, '2025-03-05', 8, NULL, NULL, NULL, 1, 'Atraso leve', 0),
+(6, 6, '2025-03-05', 8, 1, NULL, NULL, NULL, 'Movimento alto na padaria', 0),
+(7, 7, '2025-03-06', 8, NULL, NULL, NULL, NULL, NULL, 0),
+(8, 8, '2025-03-06', 8, NULL, NULL, NULL, NULL, NULL, 0),
+(9, 9, '2025-03-07', 8, NULL, NULL, NULL, NULL, NULL, 0),
+(10, 10, '2025-03-07', 0, NULL, 1, NULL, NULL, 'Falta justificada', 0),
+(11, 11, '2025-03-08', 8, 2, NULL, NULL, NULL, 'Muitas entregas', 0),
+(12, 12, '2025-03-08', 8, NULL, NULL, NULL, NULL, NULL, 0),
+(13, 13, '2025-03-09', 6, NULL, NULL, NULL, NULL, 'Saiu mais cedo', 0),
+(14, 14, '2025-03-09', 8, 1, NULL, NULL, NULL, 'Supervisão de turno', 0),
+(15, 15, '2025-03-09', 8, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_dia`, `horas_extras`, `faltas`, `ferias_falta_abonada`, `atrasos`, `observacoes`, `fechado`) VALUES
 (1, 1, '2025-03-03', 8, 2, NULL, NULL, NULL, 'Produção maior de pães', 0),
 (2, 2, '2025-03-03', 8, NULL, NULL, NULL, 1, 'Atraso por transporte', 0),
@@ -353,6 +441,7 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `email` varchar(100) NOT NULL,
   `data_admissao` date NOT NULL,
   `data_demissao` date DEFAULT NULL,
+  `situacao` tinyint(1) NOT NULL DEFAULT 1,
   `situacao` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_funcionario`),
   KEY `id_cargo` (`id_cargo`)
@@ -437,6 +526,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   KEY `id_funcionario` (`id_funcionario`),
   KEY `id_ponto` (`id_ponto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_jornada`
@@ -494,6 +584,21 @@ INSERT INTO `tb_login` (`id_login`, `id_funcionario`, `nome_usuario`, `senha`) V
 (13, 13, 'camila.lopes', '123456'),
 (14, 14, 'eduardo.matos', '123456'),
 (15, 15, 'ana.faria', '123456');
+(1, 1, 'carlos.silva', '123456'),
+(2, 2, 'joao.santos', '123456'),
+(3, 3, 'fernanda.costa', '123456'),
+(4, 4, 'mariana.lima', '123456'),
+(5, 5, 'paulo.mendes', '123456'),
+(6, 6, 'juliana.gomes', '123456'),
+(7, 7, 'ricardo.rocha', '123456'),
+(8, 8, 'patricia.ribeiro', '123456'),
+(9, 9, 'lucas.teixeira', '123456'),
+(10, 10, 'sandra.barros', '123456'),
+(11, 11, 'gabriel.nogueira', '123456'),
+(12, 12, 'roberto.pinto', '123456'),
+(13, 13, 'camila.lopes', '123456'),
+(14, 14, 'eduardo.matos', '123456'),
+(15, 15, 'ana.faria', '123456');
 
 -- --------------------------------------------------------
 
@@ -509,11 +614,26 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
   `referencia` double NOT NULL,
   PRIMARY KEY (`id_beneficio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id_beneficio`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tb_proventos`
 --
 
+INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
+(1, 'Salário', '1621.00', 0, 1),
+(2, '13º Salário', '1621.00', 0, 1),
+(3, 'Vale Transporte', '150.00', 1, 1),
+(4, 'Comissão', '180.00', 0, 1),
+(5, 'Vale Alimentação', '450.00', 0, 1),
+(6, 'IRPF', '0.00', 1, 1),
+(7, 'INSS', '0.00', 1, 1),
+(8, 'Bônus de Desempenho', '500.00', 0, 1),
+(9, 'Adicional Noturno', '210.00', 0, 1),
+(10, 'Desconto Falta', '50.00', 1, 1),
+(11, 'Horas Extras', '50.00', 0, 1),
+(12, 'Gratificação Cargo', '200.00', 0, 1);
 INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
 (1, 'Salário', '1621.00', 0, 1),
 (2, '13º Salário', '1621.00', 0, 1),
@@ -551,6 +671,21 @@ CREATE TABLE IF NOT EXISTS `tb_solicitacoes` (
 --
 
 INSERT INTO `tb_solicitacoes` (`id_solicitacao`, `id_funcionario`, `data_solicitacao`, `tipo_solicitacao`, `observacao`, `motivo`, `status`) VALUES
+(1, 1, '2025-01-10', 'Férias', 'Solicitação de férias de 30 dias', 'Período aquisitivo completo', 'Aprovado'),
+(2, 2, '2025-02-05', 'Troca de turno', 'Deseja trocar turno da manhã para tarde', 'Curso técnico no período da manhã', 'Pendente'),
+(3, 3, '2025-02-12', 'Atestado médico', 'Entrega de atestado médico de 2 dias', 'Consulta e recuperação de gripe', 'Aprovado'),
+(4, 4, '2025-02-18', 'Folga', 'Solicitação de folga em dia específico', 'Compromisso familiar', 'Aprovado'),
+(5, 5, '2025-02-20', 'Troca de escala', 'Solicita alteração da escala semanal', 'Dificuldade de transporte aos domingos', 'Pendente'),
+(6, 6, '2025-02-25', 'Licença', 'Solicitação de licença de 5 dias', 'Problemas de saúde na família', 'Aprovado'),
+(7, 7, '2025-03-01', 'Férias', 'Solicitação de férias de 20 dias', 'Descanso anual', 'Pendente'),
+(8, 8, '2025-03-03', 'Alteração de dados', 'Atualização de endereço no cadastro', 'Mudança de residência', 'Aprovado'),
+(9, 9, '2025-03-04', 'Folga', 'Solicitação de folga em feriado', 'Viagem curta', 'Rejeitado'),
+(10, 10, '2025-03-05', 'Atestado médico', 'Entrega de atestado de 1 dia', 'Consulta odontológica', 'Aprovado'),
+(11, 11, '2025-03-06', 'Troca de turno', 'Trocar turno com colega', 'Facilitar estudo noturno', 'Pendente'),
+(12, 12, '2025-03-07', 'Férias', 'Solicitação de férias de 30 dias', 'Período anual de descanso', 'Pendente'),
+(13, 13, '2025-03-08', 'Folga', 'Solicitação de folga', 'Participação em evento familiar', 'Aprovado'),
+(14, 14, '2025-03-09', 'Licença', 'Licença de 3 dias', 'Tratamento médico', 'Aprovado'),
+(15, 15, '2025-03-10', 'Alteração de dados', 'Atualização de telefone', 'Troca de número pessoal', 'Aprovado');
 (1, 1, '2025-01-10', 'Férias', 'Solicitação de férias de 30 dias', 'Período aquisitivo completo', 'Aprovado'),
 (2, 2, '2025-02-05', 'Troca de turno', 'Deseja trocar turno da manhã para tarde', 'Curso técnico no período da manhã', 'Pendente'),
 (3, 3, '2025-02-12', 'Atestado médico', 'Entrega de atestado médico de 2 dias', 'Consulta e recuperação de gripe', 'Aprovado'),
@@ -624,10 +759,49 @@ CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 ,`id_jornada` int(11)
 ,`id_ponto` int(11)
 );
+(1, 1, '(33)98811-1200', 'Celular'),
+(2, 2, '(33)98811-1300', 'Celular'),
+(3, 3, '(33)98811-1400', 'Celular'),
+(4, 4, '(33)98811-1500', 'Celular'),
+(5, 5, '(33)98811-1600', 'Celular'),
+(6, 6, '(33)98811-1700', 'Celular'),
+(7, 7, '(33)98811-1800', 'Celular'),
+(8, 8, '(33)98811-1900', 'Celular'),
+(9, 9, '(33)98811-2000', 'Celular'),
+(10, 10, '(33)98811-2100', 'Celular'),
+(11, 11, '(33)98811-2200', 'Celular'),
+(12, 12, '(33)98811-2300', 'Celular'),
+(13, 13, '(33)98811-2400', 'Celular'),
+(14, 14, '(33)98811-2500', 'Celular'),
+(15, 15, '(33)98811-2600', 'Celular');
 
 -- --------------------------------------------------------
 
 --
+-- Estrutura stand-in para vista `view_espelho_ponto`
+-- (Veja abaixo para a view atual)
+--
+CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
+`data` date
+,`dia_semana` varchar(20)
+,`hora_entrada` time
+,`hora_saida` time
+,`intervalo_inicio` time
+,`intervalo_fim` time
+,`total_intervalo` time
+,`faltas` int(11)
+,`total_horas_dia` time
+,`nome_completo` varchar(100)
+,`id_funcionario` int(11)
+,`id_jornada` int(11)
+,`id_ponto` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para vista `view_folha_ponto`
+-- (Veja abaixo para a view atual)
 -- Estrutura stand-in para vista `view_folha_ponto`
 -- (Veja abaixo para a view atual)
 --
@@ -689,6 +863,12 @@ CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DE
 --
 ALTER TABLE `tb_arquivo`
   ADD CONSTRAINT `tb_arquivo_ibfk_1` FOREIGN KEY (`id_documento`) REFERENCES `tb_documento` (`id_documento`);
+
+--
+-- Restrições para tabelas `tb_folhapagamento`
+--
+ALTER TABLE `tb_folhapagamento`
+  ADD CONSTRAINT `tb_folhapagamento_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`);
 
 --
 -- Restrições para tabelas `tb_folhapagamento`

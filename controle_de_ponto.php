@@ -51,27 +51,29 @@ if ($filtro != "") {
         </form>
     </article>
 
-    <article>
-        <section>
-            <table>
-                <caption>Histórico de Pontos</caption>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Banco de Horas (HH:MM)</th>
-                        <th>Situação</th>
-                        <th></th>
-                    </tr>
-                </thead>
+        <article>
+            <section>
+                <table id="">
+                    <caption>Histórico de Pontos</caption>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Banco de Horas (HH:MM)</th>
+                            <th>Situação</th>
+                           
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody id="tabela-saida-ponto">                      
-                </tbody>
-            </table>
-        </section>                          
-    </article>
-</main>
+                    </tbody>
+                </table>
+            </section>                          
+        </article>
+    </main>
+
 
 <script>
 const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
-    <script type="module" src="public/js/folha-ponto/listar_funcionarios.js"></script><!--atenção para o tipo module-->
+<script type="module" src="public/js/folha-ponto/listar_funcionarios.js"></script><!--atenção para o tipo module-->
 </body>
