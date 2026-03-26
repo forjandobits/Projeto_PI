@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
+    function limparModal() {
+        const campos = [
+            '#cbo',
+            '#nome-cargo',
+            '#salario',
+            '#carga-horaria',
+            '#regime',
+            '#escala'
+        ];
+
+        campos.forEach(seletor => {
+            const el = document.querySelector(seletor);
+            if (el) el.value = "";
+        });
+    }
 
     async function listarCargos() {
         const respostaExibirCargo = await fetch(`${BASE_URL}/api/funcionarios/exibir_cargo.php`);
@@ -39,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (e.target.classList.contains("abrir-modal")) {
                 e.preventDefault();
+                limparModal()
 
                 const exibir = document.querySelector(".modal");
                 if (exibir) {
