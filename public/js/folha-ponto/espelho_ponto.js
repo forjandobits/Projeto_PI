@@ -23,15 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     campoMes.addEventListener("change", () => {//add campoMes.value
         carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
     });
-    
+
 
     btnSalvarPonto.addEventListener("click", (e) => {
         e.preventDefault();
 
         editarPonto(saidaMensagens);
 
-        carregarPontos(id,campoMes.value, tabela, saidaMensagens, saidaNome);//add campoMes.value
-        
+        carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);//add campoMes.value
     });
 
     btnFecharMes.addEventListener("click", () => {

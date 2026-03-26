@@ -1,17 +1,17 @@
 import { enviar } from "../utils/enviar.js";
 
 
-enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
+enviar(`${BASE_URL}./api/folha-ponto/listar_funcionarios.php`, {})
     .then(dados => {
 
-        
+
         const tbody = document.querySelector("#tabela-saida-ponto");
 
         tbody.innerHTML = "";
 
         dados.forEach(funcionario => {
 
-          
+
             const linha = document.createElement("tr");
 
             const colunaNome = document.createElement("td");
@@ -34,9 +34,9 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
             const botao = document.createElement("button");
             botao.textContent = "Visualizar";
 
-            botao.addEventListener("click",() => {                
+            botao.addEventListener("click", () => {
                 verEspelho(funcionario.id_funcionario);
-                
+
             })
 
 
@@ -46,16 +46,16 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
             linha.appendChild(colunaBanco);
             linha.appendChild(colunaSituacao);
             linha.appendChild(colunaBotao);
-           
+
 
             tbody.appendChild(linha);
-            
+
         });
-        
-        
+
+
     })
     .catch(erro => console.error("Erro:", erro));
 
-    function verEspelho(id){
-        window.location.href = `espelho_de_ponto.php?id=${id}`;
-    };
+function verEspelho(id) {
+    window.location.href = `espelho_de_ponto.php?id=${id}`;
+};
