@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const salario = novaCelulaCargo.insertCell();
                 const cargaHoraria = novaCelulaCargo.insertCell();
                 const regime = novaCelulaCargo.insertCell();
-                const escala = novaCelulaCargo.insertCell();
                 const editar = novaCelulaCargo.insertCell();
 
                 cbo.textContent = cargo.cbo;
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 salario.textContent = cargo.salario;
                 cargaHoraria.textContent = cargo.carga_horaria;
                 regime.textContent = cargo.regime_trabalhista;
-                escala.textContent = cargo.escala;
 
 
                 editar.innerHTML = `<button class='abrir-modal' id='${id_cargo}'>Editar</button>`;

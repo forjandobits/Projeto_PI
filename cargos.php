@@ -69,11 +69,6 @@
             </select>
         </div>
 
-        <div class="campo">
-          <label for="escala">Escala:</label>
-          <input type="number" name="Escala" id="escala">
-        </div>
-
         <div class="campo resumo">
           <button type="submit" id="btnsalvar">Salvar</button>
         </div>
