@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const salario = novaCelulaCargo.insertCell();
                 const cargaHoraria = novaCelulaCargo.insertCell();
                 const regime = novaCelulaCargo.insertCell();
-                const escala = novaCelulaCargo.insertCell();
+                // const escala = novaCelulaCargo.insertCell();
                 const editar = novaCelulaCargo.insertCell();
 
                 cbo.textContent = cargo.cbo;
@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         '#nome-cargo': 'nome_cargo',
                         '#salario': 'salario',
                         '#carga-horaria': 'carga_horaria',
-                        '#regime': 'regime_trabalhista',
-                        '#escala': 'escala'
+                        '#regime': 'regime_trabalhista'
+                        // '#escala': 'escala'
                     };
 
                     Object.entries(campos).forEach(([seletor, chave]) => {

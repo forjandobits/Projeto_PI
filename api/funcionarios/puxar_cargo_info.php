@@ -27,8 +27,8 @@ try {
         salario,
         carga_horaria,
         regime_trabalhista,
-        cbo,
-        escala
+        cbo 
+        -- escala
         FROM tb_cargo 
         WHERE id_cargo = ?");
 
