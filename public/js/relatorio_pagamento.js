@@ -1,3 +1,5 @@
+// O que esse arquivo faz?
+
 import { dadosFolhasLancadas } from "./exibir_folhas_lancadas.js";
 
 document.addEventListener('DOMContentLoaded', () => {
