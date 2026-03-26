@@ -1,7 +1,6 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
-import { mostrarMensagem } from "./validacoes.js";
-import { eventoSelecionado } from "./validacoes.js";
+import { eventoSelecionado, dataVazia, nomeVazio, valorVazio, mostrarMensagem } from "./validacoes.js";
 
 // Salario - 1
 // FGTS - 2
@@ -89,20 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         input.placeholder = "200,00"
                         input.required = true;
                         div.append(label, input);
-
-                        input.addEventListener("keyup", () => {
-                            let texto = " ";
-
-                            if (input.value == "" || isNaN(input.value)) {
-                                texto = "Você não pode deixar o valor vazio!!";
-                                mostrarMensagem(texto);
-                                return;
-                            }
-                            else {
-                                mostrarMensagem(texto);
-                                return;
-                            }
-                        })
                     }
 
                     if (i == 3) {
@@ -266,16 +251,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const salarioBase = await salarioFuncionario(idSelecionado);
         const nomeCargo = document.querySelector("#cargo-exibido");
-
-        salarioBase.forEach(infoBase => {
-            let salario = Number(infoBase.salario);
-            let cargo = infoBase.nome_cargo;
-
-            nomeCargo.textContent = cargo;
-
-            valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "1", valor: salario }] });
-            calcularContribuicoesDescontos(salario);
-        })
+        
+        if(salarioBase){
+            salarioBase.forEach(infoBase => {
+                let salario = Number(infoBase.salario);
+                let cargo = infoBase.nome_cargo;
+    
+                nomeCargo.textContent = cargo;
+    
+                valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "1", valor: salario }] });
+                calcularContribuicoesDescontos(salario);
+            })
+        }
 
     }
 
@@ -339,13 +326,28 @@ document.addEventListener('DOMContentLoaded', function () {
             botaoSalvar.addEventListener("click", async () => {
                 agruparValoresRecebidos();
 
-                const validado = eventoSelecionado(valoresUnidos);
-
-                if (validado !== false) {
+                const beneRecebe = eventoSelecionado(valoresUnidos);
+                const valorRecebe = valorVazio(valoresUnidos);
+                const dataRecebe = dataVazia(mesSelecionado.value);
+                const nomeRecebe = nomeVazio(nome.value);
+                
+                if (beneRecebe !== false) {
+                    // ---- Valor Vazio ----
+                    return;
+                } else if (valorRecebe !== false) {
+                    // ---- Beneficios iguais ----
+                    return;
+                } else if (dataRecebe !== false) {
+                    // ---- Data Vazia ----
+                    return;
+                } else if (nomeRecebe !== false) {
+                    // ---- Nome Vazio ----
                     return;
                 } else {
+                    mostrarMensagem("")
                     exibir.style.display = "none";
                 }
+
 
                 if (tabelaPagamento) {
 

@@ -70,6 +70,5 @@
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 <script type="module" src="public/js/pagamentos/eventos_pagamentos.js"></script>
-<script type="module" src="public/js/pagamentos/validacoes.js"></script>
 </body>
 </html>

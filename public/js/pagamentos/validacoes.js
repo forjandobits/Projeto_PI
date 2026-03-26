@@ -1,40 +1,12 @@
-
 // "Nome Vazio" X
 // "Valor Vazio" X
-// "Opção de Evento Selecionada" --
+// "Opção de Evento Selecionada" X
 // "Data vazia" X
-// "Sair sem Salvar"  --
-
-// até esse comentario ser apagado, por favor não leve nada que
-// esta nesse arquivo coo referencia de nada,
-// a não ser que esteja especificado como seguro para tal
 
 // class = ".classe"
 // id = "#id"
 // tag = ""
 
-function bloqueiaBotao() {
-
-}
-
-
-function nomeVazio() {
-    const nome = document.querySelector("#nome");
-
-    nome.addEventListener("keyup", () => {
-
-        if (nome.value == "") {
-            const texto = "Você não pode deixar o nome vazio!!";
-            mostrarMensagem(texto);
-            return;
-        }
-        else {
-            const texto = " ";
-            mostrarMensagem(texto);
-            return;
-        }
-    })
-};
 
 export function eventoSelecionado(valores) {
     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
@@ -43,7 +15,7 @@ export function eventoSelecionado(valores) {
     let texto = "";
     const contagem = {};
     let duplicado = false;
-    
+
     valores.forEach(valor => {
         valor.infoBenDes.forEach(idVerificado => {
             const id = idVerificado.idBenDes;
@@ -55,51 +27,71 @@ export function eventoSelecionado(valores) {
         if (duplicados.length > 0) {
             texto = "não pode ter 2 eventos iguais!!";
             mostrarMensagem(texto);
-            duplicado =  true;
-        } else {
-            mostrarMensagem(texto);
+            duplicado = true;
         }
-        
     });
 
     return duplicado;
 }
 
-
-
-function dataVazia() {
-    // se a data estiver vazia, enviar uma menssagem de erro
-    // ativação = input
-
-    const data = document.querySelector("#data-mes-ano");
-
-    data.addEventListener("keyup", () => {
-
-        if (data.value == "") {
-            const texto = "Você não pode deixar a data vazia!!";
-            mostrarMensagem(texto);
-            return;
-        }
-        else {
-            const texto = " ";
-            mostrarMensagem(texto);
-            return;
-        }
-    })
-
-}
-
-
-function sairSalvar() {
-    // se o botão de sair o pop-up for clicado, enviar uma menssagem de confirmação
+export function valorVazio(valores) {
+    // se o valir estiver vazio, enviar uma menssagem de erro
     // ativação = click
-    const salvar = document.querySelector("#enviar-dados")
 
-    salvar.addEventListener("click", () => {
-        alert("deseja salvar?");
-    })
+    let texto = "";
+    let vazio = false;
+
+    valores.forEach(elemento => {
+        elemento.infoBenDes.forEach(valorCada => {
+            const val = valorCada.valor;
+
+            if (val == "") {
+                texto = "Você não pode deixar o valor vazio!!";
+                mostrarMensagem(texto);
+                vazio = true;
+            }
+        })
+    });
+
+    return vazio;
+}
+
+
+export function dataVazia(data) {
+    // se a data estiver vazia, enviar uma menssagem de erro
+    // ativação = click
+
+    let texto = "";
+    let vazio = false;
+    const dataR = data;
+
+    if (dataR == "") {
+        texto = "Você não pode deixar a data vazia!!";
+        mostrarMensagem(texto);
+        vazio = true;
+    }
+
+    return vazio;
 
 }
+
+
+export function nomeVazio(valores) {
+    // se o nome estiver vazio, enviar uma menssagem de erro
+    // ativação = click
+
+    let texto = "";
+    let vazio = false;
+    const nome = valores;
+
+    if (nome == "") {
+        texto = "Você não pode deixar o nome vazio!!";
+        mostrarMensagem(texto);
+        vazio = true;
+    }
+
+    return vazio;
+};
 
 
 export function mostrarMensagem(texto) {
@@ -108,8 +100,3 @@ export function mostrarMensagem(texto) {
     resultado.style.color = "red";
     return;
 }
-
-nomeVazio();
-dataVazia();
-sairSalvar();
-bloqueiaBotao();
