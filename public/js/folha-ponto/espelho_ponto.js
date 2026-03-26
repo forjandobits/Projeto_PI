@@ -1,12 +1,14 @@
+import { carregarPontos, editarPonto, fecharMes } from "./funcoes_espelho_ponto.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const tabela = document.querySelector("#tabela-saida-espelho-ponto");
     const saidaNome = document.querySelector("#saida-nome-funcionario-espelho-ponto");
     const saidaMensagens = document.querySelector("#saida-erros");
     const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
     const btnFecharMes = document.querySelector("#btn-fechar");
+    const mesReferencia = 3;
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    const mesReferencia = 3;
     //isis
     const campoMes = document.querySelector("#data-mes-ano");
     const hoje = new Date();
@@ -28,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         editarPonto(saidaMensagens);
 
-        carregarPontos(id, tabela, saidaMensagens, saidaNome);
+        carregarPontos(id,campoMes.value, tabela, saidaMensagens, saidaNome);//add campoMes.value
+        
     });
 
     btnFecharMes.addEventListener("click", () => {
