@@ -1,7 +1,7 @@
 import { enviar } from "../utils/enviar.js";
 
 
-enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
+enviar(`${BASE_URL}/api/folha-ponto/listar_funcionarios.php`, {})
     .then(dados => {
 
         
@@ -54,7 +54,7 @@ enviar(`${BASE_URL}./api/listar_funcionarios.php`, {})
         
         
     })
-    .catch(erro => console.error("Erro:", erro));
+    // .catch(erro => console.error("Erro:", erro));
 
     function verEspelho(id){
         window.location.href = `espelho_de_ponto.php?id=${id}`;

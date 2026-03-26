@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const saidaMensagens = document.querySelector("#saida-erros");
     const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
     const btnFecharMes = document.querySelector("#btn-fechar");
-    const mesReferencia = 3;
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+    const mesReferencia = 3;
     //isis
     const campoMes = document.querySelector("#data-mes-ano");
     const hoje = new Date();

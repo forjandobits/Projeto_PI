@@ -1,14 +1,11 @@
 <?php include "./components/header.php" ?>
-
 <?php include "./components/sidebar.php" ?>
-
 
 <main>
   <article class="cabecalhos">
     <h1>Controle de Ponto - Visualização</h1>
   </article>
-  
-  <!-- Para marcar o início e o fim da visualização desejada -->
+
   <article>
     <form id="busca-pagamentos">
       <section class="areas-form">
@@ -21,7 +18,7 @@
       </section>
     </form>
   </article>
-  
+
   <article>
     <table>
       <caption id="saida-nome-funcionario-espelho-ponto">Espelho de Ponto - </caption>
@@ -57,8 +54,9 @@
     
     <section class="resumo-final">
       <p id = "saldo_mes"></p>
-      <button>Pendências</button>
-      <button>Relatório</button>
+      <a href="/Projeto_PI/api/relatorio.php?id=<?= $id ?>">
+        <button type="button">Gerar PDF</button>
+      </a>
       <button>Salvar</button>
     </section>
   </article>
