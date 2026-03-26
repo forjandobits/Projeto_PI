@@ -27,48 +27,95 @@ document.addEventListener('DOMContentLoaded', function () {
                 escala.textContent = cargo.escala;
 
 
-                editar.innerHTML = `<button class='abrir-modal' id='${id_cargo}'>Editar</button>`;
+                editar.innerHTML = `<button type="button" class="abrir-modal" id="${id_cargo}">Editar</button>`;
             })
         }
     }
 
-    async function exibiInformacoes(){
+    async function exibiInformacoes() {
         let idCargo;
-        document.addEventListener("click", async function(e) {
-            
-            if (e.target.classList.contains("abrir-modal")){
-                const exibir = document.querySelector(".modal");
-                exibir.style.display = "flex";
 
-                const respostaCargo = await fetch(`${BASE_URL}/api/funcionarios/puxar_cargo_info.php`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        id_cargo: e.target.id
-                    })
-                })
+        document.addEventListener("click", async function (e) {
+
+            if (e.target.classList.contains("abrir-modal")) {
+                e.preventDefault();
+
+                const exibir = document.querySelector(".modal");
+                if (exibir) {
+                    exibir.style.display = "flex";
+                }
 
                 idCargo = e.target.id;
 
-                const dadosCargo = await respostaCargo.json();
-                const cbo = document.querySelector('#cbo')
+                try {
+                    const respostaCargo = await fetch(`${BASE_URL}/api/funcionarios/puxar_cargo_info.php`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            id_cargo: idCargo
+                        })
+                    });
 
+                    // pega como texto primeiro (debug seguro)
+                    const texto = await respostaCargo.text();
+                    console.log("Resposta do PHP:", texto);
 
-                dadosCargo.forEach(dados =>{
-                    cbo.value = dados.cbo;
-                })
+                    const dadosCargo = JSON.parse(texto);
+
+                    // valida erro vindo do PHP
+                    if (dadosCargo.success === false) {
+                        console.error("Erro:", dadosCargo.error);
+                        return;
+                    }
+
+                    // preenche campos
+                    const cbo = document.querySelector('#cbo');
+
+                    if (cbo && dadosCargo.cbo !== undefined) {
+                        cbo.value = dadosCargo.cbo;
+                    } else {
+                        console.warn("Campo cbo não encontrado ou não veio na resposta");
+                    }
+
+                    const campos = {
+                        '#cbo': 'cbo',
+                        '#nome-cargo': 'nome_cargo',
+                        '#salario': 'salario',
+                        '#carga-horaria': 'carga_horaria',
+                        '#regime': 'regime_trabalhista',
+                        '#escala': 'escala'
+                    };
+
+                    Object.entries(campos).forEach(([seletor, chave]) => {
+                        const elemento = document.querySelector(seletor);
+
+                        if (elemento) {
+                            elemento.value = dadosCargo[chave] ?? "";
+                        } else {
+                            console.warn(`Campo não encontrado: ${seletor}`);
+                        }
+                    });
+
+                } catch (erro) {
+                    console.error("Erro no fetch:", erro);
+                }
             }
+
             const botaoEditar = e.target.closest(".botao-editar");
 
             if (botaoEditar) {
-
                 e.preventDefault();
+
+                if (!idCargo) {
+                    console.warn("ID do cargo não definido");
+                    return;
+                }
+
                 window.location.href = `./cargos?id=${idCargo}`;
             }
         });
-        
     }
 
     listarCargos();
