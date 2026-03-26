@@ -53,20 +53,21 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 
 
 $sql = "SELECT 
-        f.nome_completo,
-        MAX(v.diferenca_horas) AS diferenca_horas,
-        MAX(v.situacao) AS situacao,
-        s.saldo_mes
-            FROM view_folha_ponto v
-            JOIN view_saldo_mensal s 
-                ON v.id_funcionario = s.id_funcionario
-            JOIN tb_funcionario f 
-                ON v.id_funcionario = f.id_funcionario
-            GROUP BY f.nome_completo, s.saldo_mes";
+    v.id_funcionario,
+    f.nome_completo,
+    MAX(v.diferenca_horas) AS diferenca_horas,
+    MAX(v.situacao) AS situacao,
+    s.saldo_mes
+    FROM view_folha_ponto v
+    JOIN view_saldo_mensal s 
+        ON v.id_funcionario = s.id_funcionario
+    JOIN tb_funcionario f 
+        ON v.id_funcionario = f.id_funcionario
+    GROUP BY v.id_funcionario, f.nome_completo, s.saldo_mes";
 
 
 
- $result = $conn->query($sql);
+$result = $conn->query($sql);
 
 // criamos uma variável chamada dados para receber os dados da consulta sql
 $dados=[];
