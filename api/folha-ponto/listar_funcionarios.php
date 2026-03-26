@@ -2,7 +2,7 @@
 // incluindo o arquivo referente a conexao
 //include "../banco-de-dados/conexao.php";
 
-require_once __DIR__ . "/../banco-de-dados/conexao.php";
+require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 
 
 // qdo tiver a tabela situação alterar essa consulta ou aterar a view_folha_ponto
