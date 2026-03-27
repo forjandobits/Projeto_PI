@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             // Faz requisição para API que lista solicitações
-            const dados = await fetch(`${BASE_URL}/api/listar_solicitacao.php`)
+            const dados = await fetch(`${BASE_URL}/api/solicitacoes/listar_solicitacao.php`)
             .then(r => r.json()); 
 
             // Garante que sempre será um array
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             // Envia os dados para a API
-            const dados = await fetch(`${BASE_URL}/api/processo_add_solicitacao.php`, {
+            const dados = await fetch(`${BASE_URL}/api/solicitacoes/processo_add_solicitacao.php`, {
 
                 method: "POST",
                 headers: {

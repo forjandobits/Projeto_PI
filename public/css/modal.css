@@ -10,12 +10,12 @@
     background-color: black;
 } */
 
-.modal {
+.modal{
     display: none;
     position: fixed;
     background-color: var(--cor-background);
     border: 3px solid var(--cor-border-cinza);
-    color: va(--cor-texto-escuro);
+    color: var(--cor-texto-escuro);
     flex: 1;
     top: 120px;
     z-index: 1;
@@ -43,7 +43,7 @@
     color: var(--cor-mensagem-vermelho);
 }
 
-.modal>section{
+.modal>section , .modal-edicao>section , .modal-adicionar>section{
     display: flex;
     width: 100%;
 }
