@@ -1,0 +1,217 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    const botao = document.querySelector(".resumo button");
+    const tbody = document.querySelector("table tbody");
+    const form = document.querySelector(".modal-cadastro form");
+
+    // ================= CRIAR ÁREA DE MENSAGEM =================
+    // Como não existe um elemento de mensagem no HTML,
+    // criamos dinamicamente usando JavaScript
+    const msgBox = document.createElement("div");
+
+    // Classe base definida no CSS
+    msgBox.classList.add("mensagem-campo");
+
+    // Inserimos a caixa de mensagem no final do formulário
+    form.appendChild(msgBox);
+
+
+    // ================= FUNÇÃO DE MENSAGEM =================
+    // Esta função exibe mensagens de erro, sucesso ou informação
+    function mostrarMensagem(texto, tipo) {
+
+        // Define o texto da mensagem
+        msgBox.textContent = texto;
+
+        // Reseta as classes para evitar conflito
+        msgBox.className = "mensagem-campo";
+
+        // Adiciona classe de cor dependendo do tipo
+        if (tipo === "erro") {
+            msgBox.classList.add("msg-erro"); // vermelho
+        }
+
+        if (tipo === "sucesso") {
+            msgBox.classList.add("msg-sucesso"); // verde
+        }
+
+        if (tipo === "info") {
+            msgBox.classList.add("info"); // azul
+        }
+
+        // Faz a mensagem desaparecer após 4 segundos
+        setTimeout(() => {
+            msgBox.textContent = "";
+            msgBox.className = "mensagem-campo";
+        }, 4000);
+    }
+
+
+    // ================= CARREGAR SOLICITAÇÕES =================
+    async function carregarSolicitacoes() {
+
+        try {
+
+            // Faz requisição para API que lista solicitações
+            const dados = await fetch(`${BASE_URL}/api/solicitacoes/listar_solicitacao.php`)
+            .then(r => r.json()); 
+
+            // Garante que sempre será um array
+            const lista = [].concat(dados);
+
+            // Limpa a tabela antes de inserir novos dados
+            tbody.innerHTML = "";
+
+            // Percorre cada solicitação retornada
+            lista.forEach(item => {
+
+                // Cria uma linha na tabela ------> Incluir data-id="${item.id_solicitacao}
+                tbody.innerHTML += `
+                <tr class="${item.status.toLowerCase()}" data-id="${item.id_solicitacao}">
+                    <td>${item.nome_completo}</td>
+                    <td>${item.tipo_solicitacao}</td>
+                    <td>${item.data_solicitacao}</td>
+                    <td>${item.status}</td>
+                    <td>
+                        <button class="abrir-modal">Visualizar</button>
+                    </td>
+                </tr>
+                `;
+
+            });
+
+        } catch (erro) {
+
+            console.error("Erro:", erro);
+
+            // Exibe erro visual
+            mostrarMensagem("Erro ao carregar solicitações.", "erro");
+
+        }
+
+    }
+
+    // Carrega as solicitações ao abrir a página
+    carregarSolicitacoes();
+
+    // ================= AUTOCOMPLETE =================
+
+    // Função assíncrona que cria um autocomplete usando datalist
+    async function autocompleteDatalist(inputSelector, datalistSelector) {
+        try {
+            // Faz requisição para a API e pega os dados dos funcionários
+            const response = await fetch(`${BASE_URL}/api/listar_funcionarios.php`);
+            const dados = await response.json();
+
+            // Extrai apenas os nomes completos da resposta
+            const listaNomes = dados.map(item => item.nome_completo);
+
+            // Seleciona o input e o datalist no DOM
+            const input = document.querySelector(inputSelector);
+            const datalist = document.querySelector(datalistSelector);
+
+            // Evento disparado quando o usuário digita no input
+            input.addEventListener("input", function () {
+                // Pega o valor digitado, remove espaços e deixa minúsculo
+                const valor = input.value.toLowerCase().trim();
+
+                // Limpa as sugestões anteriores
+                datalist.innerHTML = "";
+
+                // Só começa a buscar depois de 3 caracteres (evita sobrecarga)
+                if (valor.length < 3) return;
+
+                // Filtra os nomes que contêm o texto digitado
+                const filtrados = listaNomes
+                    .filter(nome => nome.toLowerCase().includes(valor));
+
+                // Cria uma opção para cada nome filtrado
+                filtrados.forEach(nome => {
+                    const option = document.createElement("option");
+                    option.value = nome;
+
+                    // Adiciona a opção no datalist
+                    datalist.appendChild(option);
+                });
+            });
+
+        } catch (erro) {
+            // Trata erros na requisição ou execução
+            console.error("Erro no autocomplete:", erro);
+        }
+    }
+
+    // Inicializa a função passando os seletores do input e datalist
+    autocompleteDatalist("#nome", "#sugestoesNomes");
+
+
+    // ================= ENVIAR SOLICITAÇÃO =================
+    botao.addEventListener("click", async (e) => {
+        
+        // Impede o formulário de recarregar a página
+        e.preventDefault();
+        
+        // Captura o nome digitado
+        const nome = document.querySelector("#nome").value;
+        
+        // Validação simples
+        if (nome.length < 3) {
+
+            mostrarMensagem("Nome inválido. Digite pelo menos 3 caracteres.", "erro");
+            return;
+
+        }
+
+        // Objeto com dados que serão enviados para o servidor
+        const dadosFormulario = {
+
+            nome_funcionario: nome,
+            tipo_solicitacao: document.querySelector("#opcoes").value,
+            observacao: document.querySelector("#observacoes").value,
+            data_solicitacao: new Date().toISOString().split("T")[0],
+            // pendente: document.querySelector("#pendente").checked
+
+        };
+
+        try {
+
+            // Envia os dados para a API
+            const dados = await fetch(`${BASE_URL}/api/solicitacoes/processo_add_solicitacao.php`, {
+
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dadosFormulario)
+
+            }).then(r => r.json());
+
+            // Se a API retornar erro
+            if (!dados.sucesso) {
+
+                mostrarMensagem(dados.mensagem || "Erro ao processar solicitação.", "erro");
+                return;
+
+            }
+
+            // Mensagem de sucesso
+            mostrarMensagem("Solicitação enviada com sucesso!", "sucesso");
+
+            // Atualiza tabela
+            carregarSolicitacoes();
+
+            // Limpa formulário
+            form.reset();
+
+        } catch (erro) {
+
+            console.error("Erro:", erro);
+
+            // Erro de comunicação com servidor
+            mostrarMensagem("Falha na comunicação com o servidor.", "erro");
+
+        }
+
+    });
+
+});

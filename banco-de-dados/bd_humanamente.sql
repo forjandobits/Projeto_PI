@@ -192,6 +192,23 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_horario`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_horario` (
+  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) NOT NULL,
+  `hora_entrada` time NOT NULL,
+  `hora_saida` time NOT NULL,
+  `intervalo_inicio` time NOT NULL,
+  `intervalo_fim` time NOT NULL,
+  PRIMARY KEY (`id_horario`),
+  KEY `id_funcionario` (`id_funcionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `tb_jornada`
 --
 
@@ -271,6 +288,28 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   PRIMARY KEY (`id_telefone`),
   KEY `id_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para vista `view_espelho_ponto`
+-- (Veja abaixo para a view atual)
+--
+CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
+`data` date
+,`dia_semana` varchar(20)
+,`hora_entrada` time
+,`hora_saida` time
+,`intervalo_inicio` time
+,`intervalo_fim` time
+,`total_intervalo` time
+,`faltas` int(11)
+,`total_horas_dia` time
+,`nome_completo` varchar(100)
+,`id_funcionario` int(11)
+,`id_jornada` int(11)
+,`id_ponto` int(11)
+);
 
 -- --------------------------------------------------------
 

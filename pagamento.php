@@ -15,22 +15,12 @@
             
             <form method="GET">
                 <section class="areas-form">
-                    <div class="campo">
-                        <select id="opcao-filtro">
-                            <option value="1" default>-- Selecione --</option>
-                            <option value="2">Cargo</option>
-                            <option value="3">Data</option>
-                            <option value="4">Nome do Colaborador</option>
-                        </select>
-                    </div>
 
                     <div class="campo">
-                        <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Colaborador, Cargo, ..." required>
+                        <label for="filtro">Buscar:</label>
+                        <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Colaborador ou Cargo" required>
                     </div>
 
-                    <div class="campo">
-                        <button>Buscar</button>
-                    </div>
                 </section>
             </form>
         
@@ -51,7 +41,8 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-saida-pagamentos">
+                    <tbody id="tabela-folhas-lancadas">
+                        <!-- Exemplo de sáida -->
                         <tr>
                             <td>Gustavo</td>
                             <td>Padeiro</td>
@@ -60,9 +51,9 @@
                             <td><button>Baixar</button></td>
                         </tr>
                         <tr>
-                            <td>Gustavo</td>
-                            <td>Padeiro</td>
-                            <td>11/2025</td>
+                            <td>Júlia</td>
+                            <td>Confeiteira</td>
+                            <td>12/2025</td>
                             <td><button class='abrir-modal'>Visualizar</button></td>
                             <td><button>Baixar</button></td>
                         </tr>
@@ -81,14 +72,14 @@
             <section>
             <form action="" class="form-modal">
                 <table>
-                    <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
+                    <caption>Folha de Pagamento - <span id="nome-exibido">Nome Funcionário</span> - <span id="cargo-exibido">Nome Cargo</span> - <span id="mes">Mês/Ano</span></caption>
 
                     <?php include "./components/tabela_pagamento.php" ?>
                 </table>
                 
                 <section class="resumo-final">
                     <p>Total Líquido (R$): 2000,00</p>
-                    <button><a href="./folha_de_pagamento.php">Editar</a></button>
+                    <button class="botao-editar">Editar</button>
                 </section>
             </form>
             </section>
@@ -99,5 +90,5 @@
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
     </script>
 </body>
-
+<script type="module" src="public/js/pagamentos/exibir_folhas_lancadas.js"></script>
 </html>

@@ -6,9 +6,8 @@
   <article class="cabecalhos">
     <h1>Cargos</h1>
 
-    <button class="abrir-modal">Adicionar</button>
+    <button class="abrir-modal abrir-modal-adicionar" >Adicionar</button>
   </article>
-
 
   <article>
       <section>
@@ -19,45 +18,27 @@
                       <th>CBO</th>
                       <th>Nome do Cargo</th>
                       <th>Salário</th>
-                      <th>Carga Horária (Horas)</th>
+                      <th>Carga Horária Semanal</th>
                       <th>Regime Trabalhista</th>
-                      <th>Escala (Horas Semanais)</th>
                       <th></th>
                   </tr>
               </thead>
               <tbody id="tabela-saida-cargos">
-                  <tr>
-                      <td>8483-05</td>
-                      <td>Padeiro</td>
-                      <td>2000,00</td>
-                      <td>8</td>
-                      <td>CLT</td>
-                      <td>40</td>
-                      <td><button class="abrir-modal">Editar</button></td>
-                  </tr>
-                  <tr>
-                      <td>4211-25</td>
-                      <td>Caixa</td>
-                      <td>1631,00</td>
-                      <td>8</td>
-                      <td>CLT</td>
-                      <td>40</td>
-                      <td><button class="abrir-modal">Editar</button></td>
-                  </tr>
-                  
               </tbody>
           </table>
       </section>                          
   </article>
 
-  <article class="modal">
+  <!-- =================== Modal de edição de dados =================== -->
+
+  <article class="modal" id="edicao-cargo">
     <section>
-      <h3>Cadastro de Cargos</h3>
+      <h3>Editar Cargos</h3>
       <p class="fechar">X</p>
     </section>
     
     <section>
-      <form action="" class="form-modal">
+      <form action="" id="formModal" class="form-modal">
 
         <div class="campo">
             <label for="cbo">CBO:</label>
@@ -84,24 +65,22 @@
             <select name="Regime-Funcionario" id="regime" required>
                 <option value="">-- Selecione --</option>
                 <option value="CLT">CLT</option>
-                <option value="CLT">Pessoa Jurídica (PJ)</option>
-                <option value="CLT">Horista</option>
+                <option value="PJ">Pessoa Jurídica (PJ)</option>
+                <option value="HORISTA">Horista</option>
             </select>
         </div>
-
-        <div class="campo">
-          <label for="escala">Escala:</label>
-          <input type="number" name="Escala" id="escala">
-        </div>
-
+        
         <div class="campo resumo">
-          <button type="submit">Salvar</button>
+          <button type="submit" id="btnsalvar">Salvar</button>
         </div>
       </form>
     </section>
   </article>
+
 </main>
 
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+
+<script type="module" src="public/js/cargo/main_cargo.js"></script>
