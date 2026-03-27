@@ -1,100 +1,139 @@
-export async function exibiInformacoesEditar(id) {
+ import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 
+
+export async function exibiInformacoesEditar(id) {
     const respotaFuncionario = await fetch(`${BASE_URL}/api/funcionarios/exibir_dados_funcionario.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_funcionario: id })
+    });
+
+
+    const dadosFuncionario = await respotaFuncionario.json();
+
+
+    // Função helper para preencher inputs com segurança
+    const valorSeguro = (valor, tipo) => {
+        if (valor === undefined || valor === null) return '';
+        if (tipo === 'number') return Number(valor) || '';
+        if (tipo === 'date') return valor; // certifique-se que vem como 'YYYY-MM-DD'
+        return String(valor);
+    }
+
+
+    // Seleciona todos os campos
+    const campos = {
+        nomeCompleto: document.querySelector('#nome-completo'),
+        telefone: document.querySelector('#telefone'),
+        email: document.querySelector('#email'),
+        dataNasc: document.querySelector('#data-nasc'),
+        cpf: document.querySelector('#cpf'),
+        rg: document.querySelector('#rg'),
+        genero: document.querySelector('#genero'),
+        estadoCivil: document.querySelector('#estado-civil'),
+        pisPasep: document.querySelector('#pis-pasep'),
+        rua: document.querySelector('#rua'),
+        numeroCasa: document.querySelector('#numero-casa'),
+        complementoCasa: document.querySelector('#complemento-casa'),
+        bairro: document.querySelector('#bairro'),
+        cidade: document.querySelector('#cidade'),
+        estado: document.querySelector('#estado'),
+        cep: document.querySelector('#cep'),
+        cargo: document.querySelector('#cargo'),
+        cbo: document.querySelector('#cbo'),
+        regime: document.querySelector('#regime'),
+        salario: document.querySelector('#remuneracao'),
+        banco: document.querySelector('#banco'),
+        agencia: document.querySelector('#agencia'),
+        conta: document.querySelector('#numero-conta'),
+        pix: document.querySelector('#chave-pix'),
+        nis: document.querySelector('#nis'),
+        nit: document.querySelector('#nit'),
+        ctps: document.querySelector('#ctps'),
+        certCasamento: document.querySelector('#certidao-casamento')
+    }
+
+
+    // Preenche os campos com segurança
+    dadosFuncionario.forEach(dados => {
+        campos.nomeCompleto.value = valorSeguro(dados.nome_completo);
+        campos.telefone.value = valorSeguro(dados.telefone);
+        campos.email.value = valorSeguro(dados.email);
+        campos.dataNasc.value = valorSeguro(dados.data_nascimento, 'date');
+        campos.cpf.value = valorSeguro(dados.cpf);
+        campos.rg.value = valorSeguro(dados.rg);
+        campos.genero.value = valorSeguro(dados.sexo);
+        campos.estadoCivil.value = valorSeguro(dados.estado_civil);
+        campos.pisPasep.value = valorSeguro(dados.pis_pasep);
+        campos.rua.value = valorSeguro(dados.rua);
+        campos.numeroCasa.value = valorSeguro(dados.numero_casa, 'number');
+        campos.complementoCasa.value = valorSeguro(dados.complemento);
+        campos.bairro.value = valorSeguro(dados.bairro);
+        campos.cidade.value = valorSeguro(dados.cidade);
+        campos.estado.value = valorSeguro(dados.estado);
+        campos.cep.value = valorSeguro(dados.cep);
+        campos.cargo.value = valorSeguro(dados.nome_cargo);
+        campos.cbo.value = valorSeguro(dados.cbo);
+        campos.regime.value = valorSeguro(dados.regime_trabalhista);
+        campos.salario.value = valorSeguro(dados.salario, 'number');
+        campos.banco.value = valorSeguro(dados.nome_banco);
+        campos.agencia.value = valorSeguro(dados.agencia, 'number');
+        campos.conta.value = valorSeguro(dados.numero_conta);
+        campos.pix.value = valorSeguro(dados.chave_pix);
+        campos.ctps.value = valorSeguro(dados.ctps);
+        campos.nis.value = valorSeguro(dados.nis);
+        campos.nit.value = valorSeguro(dados.nit);
+
+
+        campos.certCasamento.checked = dados.certidao_casamento_nascimento === "1";
+    })
+}
+
+
+export async function editarFuncionario(id) {
+
+
+    const dados = {
+        id_funcionario: id,
+        nome_completo: document.querySelector('#nome-completo').value,
+        email: document.querySelector('#email').value,
+        data_nascimento: document.querySelector('#data-nasc').value,
+        sexo: document.querySelector('#genero').value,
+        estado_civil: document.querySelector('#estado-civil').value,
+        id_cargo: document.querySelector('#cargo').value,
+
+
+        telefone: document.querySelector('#telefone').value,
+
+
+        rua: document.querySelector('#rua').value,
+        numero_casa: document.querySelector('#numero-casa').value,
+        bairro: document.querySelector('#bairro').value,
+        cidade: document.querySelector('#cidade').value,
+        cep: document.querySelector('#cep').value,
+
+
+        agencia: document.querySelector('#agencia').value,
+        numero_conta: document.querySelector('#numero-conta').value,
+        chave_pix: document.querySelector('#chave-pix').value
+    };
+
+
+    const resposta = await fetch(`${BASE_URL}/api/funcionarios/editar_funcionario.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            id_funcionario: id
-        })
+        body: JSON.stringify(dados)
+    });
 
-    })
 
-    const dadosFuncionario = await respotaFuncionario.json();
-    const nomeCompleto = document.querySelector('#nome-completo');
-    const telefone = document.querySelector('#telefone');
-    const email = document.querySelector('#email');
-    const dataNasc = document.querySelector('#data-nasc');
-    const cpf = document.querySelector('#cpf');
-    const rg = document.querySelector('#rg');
-    const genero = document.querySelector('#genero');
-    const estadoCivil = document.querySelector('#estado-civil')
-    const pisPasep = document.querySelector('#pis-pasep')
-    const rua = document.querySelector('#rua')
-    const numeroCasa = document.querySelector('#numero-casa')
-    const complementoCasa = document.querySelector('#complemento-casa')
-    const bairro = document.querySelector('#bairro')
-    const cidade = document.querySelector('#cidade')
-    const estado = document.querySelector('#estado')
-    const cep = document.querySelector('#cep')
-    const cargo = document.querySelector('#cargo')
-    const cbo = document.querySelector('#cbo')
-    const regime = document.querySelector('#regime')
-    const salario = document.querySelector('#remuneracao')
-    const banco = document.querySelector('#banco')
-    const agencia = document.querySelector('#agencia')
-    const conta = document.querySelector('#numero-conta')
-    const pix = document.querySelector('#chave-pix')
-    const nis = document.querySelector('#nis')
-    const nit = document.querySelector('#nit')
-    const ctps = document.querySelector('#ctps')
-    const certidaoCasamento = document.querySelector('#certidao-casamento')
-    const cnh = document.querySelector('#cnh')
-    const pcd = document.querySelector('#pcd')
-    const certificadoAlistamento = document.querySelector('#cam')
+    const result = await resposta.json();
 
-    dadosFuncionario.forEach(dados => {
-        nomeCompleto.value = dados.nome_completo;
-        telefone.value = dados.telefone;
-        email.value = dados.email
-        dataNasc.value = dados.data_nascimento
-        cpf.value = dados.cpf
-        rg.value = dados.rg
-        genero.value = dados.sexo
-        estadoCivil.value = dados.estado_civil
-        pisPasep.value = dados.pis_pasep
-        rua.value = dados.rua
-        numeroCasa.value = dados.numero_casa
-        complementoCasa.value = dados.complemento
-        bairro.value = dados.bairro
-        cidade.value = dados.cidade
-        estado.value = dados.estado
-        cep.value = dados.cep
-        cargo.value = dados.nome_cargo
-        cbo.value = dados.cbo
-        regime.value = dados.regime_trabalhista
-        salario.value = dados.salario
-        banco.value = dados.nome_banco
-        agencia.value = dados.agencia
-        conta.value = dados.numero_conta
-        pix.value = dados.chave_pix
-        ctps.value = dados.ctps
-        nis.value = dados.nis
-        nit.value = dados.nit
 
-        if (dados.certidao_casamento_nascimento == "1") {
-            certidaoCasamento.checked = true
-        } else {
-            certidaoCasamento.checked = false
-        }
-
-        if (dados.cnh == "1") {
-            cnh.checked = true
-        } else {
-            cnh.checked = false
-        }
-
-        if (dados.laudo_pcd == "1") {
-            pcd.checked = true
-        } else {
-            pcd.checked = false
-        }
-
-        if (dados.cam == "1") {
-            certificadoAlistamento.checked = true
-        } else {
-            certificadoAlistamento.checked = false
-        }
-    })
+    if (result.success) {
+        mostrarMensagem("Atualizado com sucesso!", "sucesso");
+    } else {
+        mostrarMensagem("Erro ao atualizar", "erro");
+    }
 }

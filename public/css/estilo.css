@@ -183,3 +183,46 @@ figure:hover {
   margin-top: 5px;
 }
 
+/* Blur no fundo quando a mensagem aparecer */
+.mensagem_blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px); /* aplica o blur */
+  background-color: rgba(0, 0, 0, 0.3); /* escurece o fundo levemente */
+  z-index: 9998; /* atrás da mensagem */
+}
+
+/* Mensagem popup centralizada */
+.mensagem_popup {
+  text-align: center;
+  min-width: 300px;
+  max-width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 25px;
+  border-radius: 10px;
+  color: var(--cor-texto-padrao);
+  font-weight: bold;
+  z-index: 9999; /* acima do blur */
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.mensagem_popup.sucesso {
+  background-color: var(--cor-aprovado);
+}
+
+.mensagem_popup.erro {
+  background-color: var(--cor-negado);
+}
+
+.mensagem_popup.sumir_animacao {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+}
+
