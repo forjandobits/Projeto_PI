@@ -45,7 +45,7 @@ export function valorVazio(valores) {
         elemento.infoBenDes.forEach(valorCada => {
             const val = valorCada.valor;
 
-            if (val == "") {
+            if (val === "") {
                 texto = "Você não pode deixar o valor vazio!!";
                 mostrarMensagem(texto);
                 vazio = true;
