@@ -42,20 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         btnAceitar.disabled = false;
                         btnNegar.disabled = false;
 
-                        document.querySelector('#modal-motivo-recusar').readOnly  = false;
+                        document.querySelector('#modal-motivo-recusar').readOnly  = false; // Somente leitura desabilitado
 
                         areasBotoes.style.display = 'flex';
-                        mensagem.style.display = 'none';
+                        mensagem.style.display = 'none'; // Escondendo a mensagem
                         
                     }  else {
-                        document.querySelector('#modal-motivo-recusar').readOnly  = true;
+                        document.querySelector('#modal-motivo-recusar').readOnly  = true; // readOnly -> Somente leitura
 
                         btnAceitar.disabled = true;
                         btnNegar.disabled = true;
 
                         areasBotoes.style.display = 'none';
                         mensagem.className = "";
-                        mensagem.style.display = 'block';
+                        mensagem.style.display = 'block'; // Mensagem visível
                         mensagem.textContent = "Status: " + dados.status;
                     }
 
