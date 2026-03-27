@@ -6,9 +6,8 @@
   <article class="cabecalhos">
     <h1>Cargos</h1>
 
-    <button class="abrir-modal">Adicionar</button>
+    <button class="abrir-modal abrir-modal-adicionar" >Adicionar</button>
   </article>
-
 
   <article>
       <section>
@@ -19,9 +18,8 @@
                       <th>CBO</th>
                       <th>Nome do Cargo</th>
                       <th>Salário</th>
-                      <th>Carga Horária (Horas)</th>
+                      <th>Carga Horária Semanal</th>
                       <th>Regime Trabalhista</th>
-                      <th>Escala (Horas Semanais)</th>
                       <th></th>
                   </tr>
               </thead>
@@ -31,9 +29,11 @@
       </section>                          
   </article>
 
-  <article id="modal" class="modal">
+  <!-- =================== Modal de edição de dados =================== -->
+
+  <article class="modal" id="edicao-cargo">
     <section>
-      <h3>Cadastro de Cargos</h3>
+      <h3>Editar Cargos</h3>
       <p class="fechar">X</p>
     </section>
     
@@ -57,7 +57,7 @@
 
         <div class="campo">
           <label for="carga-horaria">Carga Horária:</label>
-          <input type="time" name="Carga-Horaria" id="carga-horaria" min="0">
+          <input type="number" name="Carga-Horaria" id="carga-horaria" min="0">
         </div>
 
         <div class="campo">
@@ -69,24 +69,18 @@
                 <option value="HORISTA">Horista</option>
             </select>
         </div>
-
-        <div class="campo">
-          <label for="escala">Escala:</label>
-          <input type="number" name="Escala" id="escala">
-        </div>
-
+        
         <div class="campo resumo">
           <button type="submit" id="btnsalvar">Salvar</button>
         </div>
       </form>
     </section>
   </article>
+
 </main>
 
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 
-<script type="module" src="public/js/adicionar_cargo/adicionar_cargo.js"></script>
-
-<script type="module" src="public/js/funcionarios/exibir_cargo.js"></script>
+<script type="module" src="public/js/cargo/main_cargo.js"></script>

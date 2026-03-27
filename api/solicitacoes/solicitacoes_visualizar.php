@@ -3,7 +3,7 @@
 header("Content-Type: application/json");
 
 // Incluindo o arquivo de conexão com o banco
-include(__DIR__ . "/../banco-de-dados/conexao.php");
+include(__DIR__ . "/../../banco-de-dados/conexao.php");
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
