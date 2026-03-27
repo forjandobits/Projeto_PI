@@ -67,6 +67,7 @@ $sql = "SELECT
 
 
 
+
 $result = $conn->query($sql);
 
 // criamos uma variável chamada dados para receber os dados da consulta sql
