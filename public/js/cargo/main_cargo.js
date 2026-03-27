@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const btnSalvar = document.getElementById("btnsalvar");
 
-    // 🔹 pega dados do formulário
+    // pega dados do formulário
     function pegarDadosFormulario() {
         return {
             cbo: document.getElementById("cbo").value,
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // 🔹 botão salvar (create ou update)
+    // botão salvar (create ou update)
     btnSalvar.addEventListener("click", async (e) => {
         e.preventDefault();
 
@@ -44,20 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
         let resposta;
 
         if (idCargoAtual) {
-            // ✏️ EDITAR
+            // EDITAR
             resposta = await atualizarCargo(idCargoAtual, dados);
             console.log("Atualizado:", resposta);
         } else {
-            // ➕ CRIAR
+            // CRIAR
             resposta = await adicionarCargo(dados);
             console.log("Criado:", resposta);
         }
 
-        // 🔹 atualiza tabela
+        // atualiza tabela
         await listarCargos();
     });
 
-    // 🔹 inicialização
+    // inicialização
     listarCargos();
     configurarEdicao();
 

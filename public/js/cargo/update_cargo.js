@@ -1,4 +1,4 @@
-// 🔹 Auto-preencher campos ao selecionar cargo
+// Auto-preencher campos ao selecionar cargo
 export function configurarSelectCargo() {
     const select = document.getElementById("cargo");
 
