@@ -1,1 +1,0 @@
-<?php require_once __DIR__ . "/../banco-de-dados/conexao.php"?>
