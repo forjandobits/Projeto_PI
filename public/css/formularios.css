@@ -182,3 +182,31 @@ small{
   grid-column-start: 1;
   grid-column-end: 4;
 }
+
+/* Listagem de nomes*/
+
+#listaNomes{
+  color: var(--cor-texto-escuro);
+  background-color: var(--cor-background-cinza);
+  display: none;
+  position: absolute;
+  width: 400px;
+  max-width: 400px;
+  top: 190px;
+  max-height: 150px;
+  list-style: none;
+  border: 1px solid #000;
+  border-top: none;
+  scroll-behavior: smooth;
+  text-overflow: clip;
+}
+
+#listaNomes li{
+  padding: 5px;
+  border-bottom: 1px solid #000;
+}
+
+#listaNomes>li:hover{
+  color: var(--cor-texto-padrao);
+  background-color: var(--cor-background-hover);
+}
