@@ -9,17 +9,18 @@
 
   <article>
     <table>
-      <caption>Folha de Pagamento - Mês/Ano(?) - Nome Funcionário(?)</caption>
+      <caption>Folha de Pagamento - <span id="nome-exibido">Nome Funcionário</span> - <span id="cargo-exibido">Nome Cargo</span> - <span id="mes">Mês/Ano</span></caption>
       <?php include "./components/tabela_pagamento.php"?>
     </table>
 
     <section class="resumo-final">
-          <p>Total Líquido (R$): 2000,00</p>
-          <button class='abrir-modal'>Eventos</button>
-          <button>Salvar</button>
+          <p>FGTS (R$): 0,00 - Total Líquido (R$): 0,00</p>
+          <button class='abrir-modal visualizacao'>Eventos</button>
+          <button id="enviar-dados">Lançar</button>
     </section>
+    
   </article>
-
+  
   <article class="modal modal-cadastro">
     <section>
       <h3>Eventos da Folha de Pagamento</h3>
@@ -30,68 +31,33 @@
       <form action="" class="form-modal">
         <section class="grupo-campo-linha">
           <div class="campo">
-              <label for="nome">Nome do Funcionário:</label>
-              <input type="text" name="Nome-Funcionario" id="nome" placeholder="Ex.: Nome do Funcionário" required>
+            <label for="nome">Nome do Funcionário:</label>
+            <input type="text" name="Nome-Funcionario" id="nome" placeholder="Ex.: Nome do Funcionário" required>
+            <ul id="listaNomes"></ul>
           </div>
-
+          
           <div class="campo">
             <label for="data-mes-ano">Mês de Referência:</label>
-            <input type="month" name="Mes-Ano" id="data-mes-ano">
+            <input type="month" name="Mes-Ano" id="data-mes-ano" required>
           </div>
-        
+          
         </section> 
-
-        <section class="grupo-campo-linha">
-
-          <div class="campo">
-            <label for="beneficios">Benefício/Descontos:</label>
-            <select name="Beneficios" id="beneficio" required>
-              <!-- <option value="">-- Selecione --</option> -->
-              <option value="01">01 - Comissão</option>
-              <option value="06">06 - Imposto de Renda (IRRF)</option>
-              <option value="07">07 - Vale Alimentação</option>
-              <option value="08">08 - Vale Transporte</option>
-            </select>
-          </div>
-
-          <div class="campo">
-            <label for="valor">Valor:</label>
-            <input type="number" name="Valor" id="valor" value="200.00" required>
-          </div>
-
-          <div class="campo">
-            <button class="negar">✘ Remover</button>
-          </div>
-
-        </section>
         
-        <section class="grupo-campo-linha">
-
-          <div class="campo">
-            <label for="beneficios1">Benefício/Descontos:</label>
-            <select name="Beneficios1" id="beneficios1" required>
-              <option value="">-- Selecione --</option>
-              <option value="06">06 - Imposto de Renda (IRRF)</option>
-              <option value="07">07 - Vale Alimentação</option>
-              <option value="08">08 - Vale Transporte</option>
-            </select>
-          </div>
-
-          <div class="campo">
-            <label for="valor1">Valor:</label>
-            <input type="number" name="Valor1" id="valor1" value="0" required>
-          </div>
-
-          <div class="campo">
-            <button class="negar">✘ Remover</button>
-          </div>
-      
-        </section>
-
+        <section class="eventos-pagamentos"></section>
+        
+        
+        
         <div class="campo resumo">
-          <button type="button" class="button-claro">Inserir Outro</button>
-          <button type="submit">Salvar Alterações</button>
+          <button type="button" class="button-claro" id="adicionar-evento">Inserir</button>
+          <button type="button" id="lancar-dados">Salvar</button>
         </div>
+        
+        <div class="campo">
+          <p id="resultado"></p>
+        </div>
+        
+        
+        
       </form>
     </section>
   </article>
@@ -103,5 +69,6 @@
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+<script type="module" src="public/js/pagamentos/eventos_pagamentos.js"></script>
 </body>
 </html>

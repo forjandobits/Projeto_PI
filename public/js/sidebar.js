@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fecha o modal se ele existir
     if(fechar){
         fechar.forEach(fecharModais => {
-            console.log(fecharModais);
+            // console.log(fecharModais);
             fecharModais.addEventListener("click", ()=>{
                 exibir.style.display = "none";
                 if(modalSolicitacoes || exibirSolicitacoes){

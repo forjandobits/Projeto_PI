@@ -21,6 +21,9 @@
   --cor-background-cinza: #cfcfcf;
   --cor-background-odd-cinza: #b6b6b6;
   --cor-background-campo-cinza: #e8e8e8;
+  --cor-background-sidebar: #f1f2f3;
+  --cor-background-header:  #f1f2f3;
+  --cor-background-tabela: #30adea;
   /* Hovers */
   --cor-background-hover: #2366bf;
   --cor-background-hover-cinza: #cfcfcf;
@@ -45,6 +48,13 @@
   /* 18px */
   --fonte-minuscula: 0.875rem;
   /* 14px */
+
+
+    /* ================== SOMBRAS ================== */
+
+  --shadow-soft: 0 2px 6px rgba(0,0,0,0.1);
+  --shadow-medium: 0 6px 18px rgba(0,0,0,0.2);
+  --shadow-strong: 0 14px 40px rgba(0,0,0,0.3);
 }
 
 /* ========== Seletor Geral ========== */
@@ -79,7 +89,7 @@ main.open{
 header {
   display: flex;
   justify-content: right;
-  background-color: var(--cor-background);
+  background-color: var(--cor-background-header);
   height: 10vh;
 }
 
@@ -129,6 +139,11 @@ figure:hover {
   box-shadow: 0 14px 40px var(--cor-sombra-escura);
 }
 
+.logo{
+  width: 131.98px;
+  height: 85.89px;
+}
+
 .imagem-tela-inicial {
   object-fit: cover;
   width: 150px;
@@ -167,6 +182,12 @@ figure:hover {
   margin: 10px;
   padding: 10px;
   font-size: 20px;
+}
+
+body {
+  background-color: var(--cor-background);
+  color: var(--cor-texto-escuro);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /*========================== Folha de Pagamento ============================ */
@@ -224,5 +245,162 @@ figure:hover {
 .mensagem_popup.sumir_animacao {
   opacity: 0;
   transform: translate(-50%, -60%);
+.fonte-menor {
+    font-size: 14px;
+}
+
+.fonte-media {
+    font-size: 16px;
+}
+
+.fonte-maior {
+    font-size: 20px;
+}
+/* ================= TEMAS ================= */
+
+
+body.tema-claro{
+  --cor-background: #ffffff;
+  --cor-texto-escuro: #000000;
+  --cor-texto-padrao: #f1f2f3;
+  --cor-background-cinza: #cfcfcf;
+  --cor-sombra-escura: #000000;
+  --cor-background-sidebar: #f1f2f3;
+  --cor-background-header:  #f1f2f3;
+  --cor-background-tabela: #30adea;
+  --cor-background-campo-cinza: #858181;
+  --cor-background-sidebar-hover: #d7e6ee;
+  --logo-hm-cerebro: url("../img/logo-hm-cerebro-claro.png");
+  --icone-avatar: url("../img/avatar-claro.png");
+  --icone-cerebro: url("../img/cerebro.png");
+  --icone-banco-de-horas: url("../img/icones/pontos-contraste.png");
+  --icone-configuracoes: url("../img/icones/configuracoes-contraste.png");
+  --icone-funcionarios: url("../img/icones/funcionarios-contraste.png");
+  --icone-inicio: url("../img/icones/inicio-contraste.png");
+  --icone-recibos: url("../img/icones/pagamentos-contraste.png");
+  --icone-pontos: url("../img/icones/pontos-contraste.png");
+  --icone-solicitacoes: url("../img/icones/solicitacoes-contraste.png");
+} 
+
+
+
+body.tema-escuro{
+  --cor-titulo-azul: #ffffff;
+  --cor-texto-azul: #ffffff;
+  --cor-background: #121212;
+  --cor-texto-escuro: #ffffff;
+  --cor-texto-padrao: #ffffff;
+  --cor-background-cinza: #1e1e1e;
+  --cor-background-sidebar-hover: #2a2a2a;
+  --cor-sombra-escura: #000000;
+  --cor-background-sidebar: #3a3a3a;
+  --cor-background-header:#3a3a3a;
+  --cor-background-tabela: #30adea;
+  --cor-background-campo-cinza: #858181;
+}
+
+body.tema-contraste{
+  --cor-background: #ffffff;
+  --cor-texto-escuro: #000000;
+  --cor-texto-azul: #ffffff;
+  --cor-texto-padrao: #000000;
+  --cor-background-cinza: #cfcfcf;
+  --cor-sombra-escura: #000000;
+  --cor-background-sidebar: #0044ff;
+  --cor-background-header:  #0044ff;
+  --cor-background-tabela: #0044ff;
+  --cor-background-campo-cinza: #858181;
+  --cor-background-sidebar-hover: rgba(255, 255, 255, 0.2);
+  --cor-background-azul: #ffffff;
+  --cor-titulo-azul: #000000;
+  --logo-hm-cerebro: url("../img/logo-hm-cerebro-contraste.png");
+  --icone-avatar: url("../img/avatar-contraste.png");
+  --icone-cerebro: url("../img/cerebro-contraste.png");
+  --icone-banco-de-horas: url("../img/icones/pontos-contraste.png");
+  --icone-configuracoes: url("../img/icones/configuracoes-contraste.png");
+  --icone-funcionarios: url("../img/icones/funcionarios-contraste.png");
+  --icone-inicio: url("../img/icones/inicio-contraste.png");
+  --icone-recibos: url("../img/icones/pagamentos-contraste.png");
+  --icone-pontos: url("../img/icones/pontos-contraste.png");
+  --icone-solicitacoes: url("../img/icones/solicitacoes-contraste.png");
+}
+
+/* ================ SIDEBAR ================ */
+
+.icone{
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= MENSAGENS CONFIGURAÇÕES ================= */
+.erro-login {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    background-color: #ff4d4d;
+    color: white;
+    width: fit-content;
+    align-self: center;
+}
+
+.info {
+    color: blue;
+}
+
+.sucesso {
+    color: green;
+}
+
+.mensagem-forca {
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+/* Estados */
+.fraca-msg {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.media-msg {
+    background-color: #ff9800;
+    color: white;
+}
+
+.forte-msg {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.mensagem-campo {
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.msg-erro {
+    background: #ff4d4d;
+    color: white;
+    display: block;
+}
+
+.msg-sucesso {
+    background: #2ecc71;
+    color: white;
+    display: block;
 }
 

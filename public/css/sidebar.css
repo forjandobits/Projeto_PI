@@ -5,54 +5,82 @@
     justify-content: space-between;
     overflow: hidden;
     position: fixed;
-    background-color: var(--cor-background);
+    background-color: var(--cor-background-sidebar);
     color: var(--cor-titulo-azul);
     min-height: 100dvh;
     height: 100vh;
     max-height: 100dvh;
     top: 0;
     width: 100px;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .open {
-    width: 300px;
+    width: 330px;
 }
 
 .sidebar ul{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: start;
     list-style: none;
     height: 70vh;
+    gap: 10px;
 }
 
 .sidebar li {
     width: 100%;
+    height: 80px;
+    list-style: none;
 }
 
-.sidebar li:hover {
-    background-color: var(--cor-background-hover-cinza);
+.sidebar a:hover {
+    background-color: var(--cor-background-sidebar-hover);
+    border-radius: 8px;
 }
 
 .sidebar a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--cor-texto-azul);
     gap: 15px;
-    padding: 0 10px;
+    padding: 10px;
     width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar a img {
+    flex-shrink: 0;
 }
 
 .sidebar span {
     display: none;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .sidebar.open span {
-    display: flex;
+    display: inline-block;
+    width: 180px;
     font-size: 1.6em;
     margin-left: 5px;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sidebar a span {
+    transition: transform 0.2s ease, font-weight 0.2s ease;
+}
+
+.sidebar a:hover span {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+    letter-spacing: 0.5px;
 }
 
 .avatar{
@@ -66,7 +94,7 @@
 .sair{
     justify-content: center;
     font-size: 1.5em;
-    background-color: var(--cor-titulo-azul);
+    background-color: var(--cor-background-azul);
     padding: 10px !important;
     color: var(--cor-texto-padrao) !important; /* Utilizar apenas em último caso*/
     border-radius: 10px;

@@ -34,18 +34,20 @@
 
         <section>
           <h2>CONECTAR-SE</h2>
-          <form class="form-modal-login">
-            <input type='text' name="CPF-Login" id='cpf-login' placeholder='CPF' required/>
-            <input type='password' name="Senha" id='senha-login' placeholder='Digite sua senha' required/>
-            <p id='erro'>Dados incorretos!</p> <!-- Exemplo de mensagem a ser exibida: 'Preencha os dados corretamente' -->
-            <a href='link.com'><small>ESQUECI MINHA SENHA</small></a>
-            <a href="inicial.php"><button type='button'>ENTRAR</button></a>
-          </form>
+            <!-- Alterei os ids dos inputs para serem compativeis com o bd, e tambem coloquei o 'action' no form -->
+            <form class="form-modal-login" id="form-login" action="api/processa_login.php" method="POST">
+              <input type="text" id="usuario" name="usuario" placeholder="Usuário">
+              <input type="password" id="senha" name="senha" placeholder="Senha">
+              <button type="submit">Entrar</button>
+              <p id="erro-login" class="erro-login"></p>
+            </form>
         </section>
 
       </article>
       
     </main>
+
+    <script src='public/js/login-e-Configuracao/login.js'></script>
 
     <script>
       const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";

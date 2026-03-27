@@ -42,20 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         btnAceitar.disabled = false;
                         btnNegar.disabled = false;
 
-                        document.querySelector('#modal-motivo-recusar').readOnly  = false;
+                        document.querySelector('#modal-motivo-recusar').readOnly  = false; // Somente leitura desabilitado
 
                         areasBotoes.style.display = 'flex';
-                        mensagem.style.display = 'none';
+                        mensagem.style.display = 'none'; // Escondendo a mensagem
                         
                     }  else {
-                        document.querySelector('#modal-motivo-recusar').readOnly  = true;
+                        document.querySelector('#modal-motivo-recusar').readOnly  = true; // readOnly -> Somente leitura
 
                         btnAceitar.disabled = true;
                         btnNegar.disabled = true;
 
                         areasBotoes.style.display = 'none';
                         mensagem.className = "";
-                        mensagem.style.display = 'block';
+                        mensagem.style.display = 'block'; // Mensagem visível
                         mensagem.textContent = "Status: " + dados.status;
                     }
 
@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch("/Projeto_PI/api/solicitacoes/visualizar_aceitar_negar.php", {
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 id_solicitacao: id,
                 motivo: motivoAceitar,
@@ -112,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = document.querySelector('#id-solicitacao').value;
 
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
-        if (motivo.value.trim() === "") {
+        if (motivoNegar.trim() === "") {
             mensagem.className = ""; // Limpando a classe mensagem
             mensagem.textContent = "Motivo da recusa deve ser preenchido!";
             mensagem.style.display = "block";
@@ -123,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch("/Projeto_PI/api/solicitacoes/visualizar_aceitar_negar.php", {
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 id_solicitacao: id,
                 motivo: motivoNegar,
