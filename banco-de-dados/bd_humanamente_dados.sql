@@ -516,18 +516,19 @@ CREATE TABLE IF NOT EXISTS `tb_proventos` (
 --
 
 INSERT INTO `tb_proventos` (`id_beneficio`, `nome_beneficio`, `valor`, `desconto`, `referencia`) VALUES
-(1, 'Salário', '1621.00', 0, 1),
-(2, '13º Salário', '1621.00', 0, 1),
-(3, 'Vale Transporte', '150.00', 1, 1),
-(4, 'Comissão', '180.00', 0, 1),
-(5, 'Vale Alimentação', '450.00', 0, 1),
-(6, 'IRPF', '0.00', 1, 1),
-(7, 'INSS', '0.00', 1, 1),
-(8, 'Bônus de Desempenho', '500.00', 0, 1),
-(9, 'Adicional Noturno', '210.00', 0, 1),
-(10, 'Desconto Falta', '50.00', 1, 1),
-(11, 'Horas Extras', '50.00', 0, 1),
-(12, 'Gratificação Cargo', '200.00', 0, 1);
+(1, 'Salário', '1621.00', 2, 2),
+(2, 'FGTS', '6.00', 2, 1),
+(3, 'INSS', '0.00', 1, 1),
+(4, 'IRPF', '0.00', 1, 1),
+(5, 'Vale Transporte', '150.00', 1, 1),
+(6, '13º Salário', '1621.00', 0, 1),
+(7, 'Comissão', '180.00', 0, 1),
+(8, 'Vale Alimentação', '450.00', 0, 1),
+(9, 'Bônus de Desempenho', '500.00', 0, 1),
+(10, 'Adicional Noturno', '210.00', 0, 1),
+(11, 'Desconto Falta', '50.00', 1, 1),
+(12, 'Horas Extras', '50.00', 0, 1),
+(13, 'Gratificação Cargo', '200.00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -637,6 +638,8 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 ,`nome_completo` varchar(100)
 ,`nome_cargo` varchar(100)
 ,`carga_semanal_prevista` int(11)
+,`ano` int(4)
+,`semana` int(2)
 ,`horas_trabalhadas_semana` decimal(32,0)
 ,`diferenca_horas` decimal(33,0)
 ,`situacao` varchar(16)
@@ -645,11 +648,11 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `view_espelho_ponto`
+-- Estrutura para vista `view_folha_ponto`
 --
-DROP TABLE IF EXISTS `view_espelho_ponto`;
+DROP TABLE IF EXISTS `view_folha_ponto`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_folha_ponto`  AS SELECT `f`.`id_funcionario` AS `id_funcionario`, `f`.`nome_completo` AS `nome_completo`, `c`.`nome_cargo` AS `nome_cargo`, `c`.`carga_horaria` AS `carga_semanal_prevista`, year(`p`.`data`) AS `ano`, week(`p`.`data`,1) AS `semana`, sum(`p`.`total_horas_dia`) AS `horas_trabalhadas_semana`, sum(`p`.`total_horas_dia`) - cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) AS `diferenca_horas`, CASE WHEN sum(`p`.`total_horas_dia`) < cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Faltando horas' WHEN sum(`p`.`total_horas_dia`) = cast(replace(replace(`c`.`carga_horaria`,'h',''),' semanais','') as signed) THEN 'Cumpriu certinho' ELSE 'Excedeu horas' END AS `situacao` FROM ((`tb_funcionario` `f` join `tb_cargo` `c` on(`f`.`id_cargo` = `c`.`id_cargo`)) join `tb_folhaponto` `p` on(`f`.`id_funcionario` = `p`.`id_funcionario`)) GROUP BY `f`.`id_funcionario`, `f`.`nome_completo`, `c`.`nome_cargo`, `c`.`carga_horaria`, year(`p`.`data`), week(`p`.`data`,1) ;
 
 -- --------------------------------------------------------
 
