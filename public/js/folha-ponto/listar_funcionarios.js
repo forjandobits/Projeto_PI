@@ -1,6 +1,5 @@
 import { enviar } from "../utils/enviar.js";
 
-
 enviar(`${BASE_URL}./api/folha-ponto/listar_funcionarios.php`, {})
     .then(dados => {
         console.log(dados);
@@ -18,12 +17,12 @@ enviar(`${BASE_URL}./api/folha-ponto/listar_funcionarios.php`, {})
             colunaNome.textContent = funcionario.nome_completo;
 
             const colunaBanco = document.createElement("td");
-            colunaBanco.textContent = funcionario.diferenca_horas;
+            colunaBanco.textContent = funcionario.saldo_mes;
 
             const colunaSituacao = document.createElement("td");
             colunaSituacao.textContent = funcionario.situacao;
 
-            if (parseInt(funcionario.diferenca_horas) < 0) {
+            if (parseInt(funcionario.saldo_mes) < 0) {
                 colunaBanco.style.color = "red";
             }
             const colunaBotao = document.createElement("td");
