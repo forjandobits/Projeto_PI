@@ -1,79 +1,90 @@
-
-// Importa a função de enviar
-// import { enviar } from "./utils/enviar.js";
 import { enviar } from "../utils/enviar.js";
+import { mostrarMensagem } from '../utils/mostrarMensagem.js';
 
-// Recomendo colocar para só carregar o JS depois de apresentar a página (torna carregamento mais rápido)
+async function carregarCargos() {
+    try {
+        const response = await fetch("api/listar_cargos.php");
+        const cargos = await response.json();
+        const select = document.getElementById("cargo");
+        cargos.forEach(cargo => {
+            const option = document.createElement("option");
+            option.value = cargo.id_cargo;
+            option.textContent = cargo.nome_cargo;
+            select.appendChild(option);
+        });
+    } catch (error) {
+        mostrarMensagem("Erro ao carregar cargos", "erro");
+        console.error(error);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Pega os botões da página
+    carregarCargos();
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    // Se estiver editando, não adiciona o listener de salvar novo
+    if (id) return;
+
     const btnSalvar = document.getElementById("btnSalvar");
-
-    // Colocar evento no botão btnFuncionario, tem q ser com função async para usar await ao chamar enviar
     btnSalvar.addEventListener("click", async (e) => {
-        // Tem que bloquear o evento padrão (submit) se não recarrega a página e quebra o resto
         e.preventDefault();
-        
-        // Pega as entradas da página
-        const nomeCompleto = document.getElementById("nome-completo").value;
-        const telefone = document.getElementById("telefone").value;
-        const email = document.getElementById("email").value;
-        const dataNasc = document.getElementById("data-nasc").value;
-        const cpf = document.getElementById("cpf").value;
-        const rg = document.getElementById("rg").value;
-        const genero = document.getElementById("genero").value;
-        const estadoCivil = document.getElementById("estado-civil").value;
-        const rua = document.getElementById("rua").value;
-        const numeroCasa = document.getElementById("numero-casa").value;
-        const bairro = document.getElementById("bairro").value;
-        const cidade = document.getElementById("cidade").value;
-        const estado = document.getElementById("estado").value;
-        const cep = document.getElementById("cep").value;
+
         const cargo = document.getElementById("cargo").value;
-        const cbo = document.getElementById("cbo").value;
-        const regime = document.getElementById("regime").value;
-        const remuneracao = document.getElementById("remuneracao").value;
-        const banco = document.getElementById("banco").value;
-        const agencia = document.getElementById("agencia").value;
-        const numeroConta = document.getElementById("numero-conta").value;
-        const chavePix = document.getElementById("chave-pix").value;
-        const nis = document.getElementById("nis").value;
-        const nit = document.getElementById("nit").value;
-        const ctps = document.getElementById("ctps").value;
-        const pisPasep = document.getElementById("pis-pasep").value;
-        const certidaoCasamento = document.getElementById("certidao-casamento").checked;
-        const pcd = document.getElementById("pcd").checked;
-        const cam = document.getElementById("cam").checked;
-        const filhos = document.getElementById("filhos").checked;
-        const qtdFilhos = document.getElementById("qtd-filhos").value;
-        
-        // const arquivos = document.getElementById("arquivos").value;
-
-
-
-        // Usa a função enviar() para enviar a requisição pro PHP, enviar() tem que ser chamada com await, usa BASE_URL pra poder pegar o caminho certo
-        const resposta = await enviar(`${BASE_URL}/api/criar_funcionario.php`, {nomeCompleto: nomeCompleto, telefone: telefone, email: email, dataNasc: dataNasc, cpf: cpf, rg: rg, genero: genero,
-            estadoCivil: estadoCivil, pisPasep: pisPasep, nis: nis, nit: nit, ctps: ctps, rua: rua, numeroCasa: numeroCasa, bairro: bairro, cidade: cidade, estado: estado, cep: cep, cargo: cargo, cbo: cbo, regime: regime,
-            remuneracao: remuneracao, banco: banco, agencia: agencia, numeroConta: numeroConta, chavePix: chavePix, certidaoCasamento: certidaoCasamento, pcd: pcd, cam: cam, 
-            filhos: filhos, qtdFilhos: qtdFilhos});
-
-
-        
-        // alert("Dados salvos com sucesso!");
-        function salvar(){
-
-            // código para enviar para PHP
-            alert("Salvo com sucesso!");
-            document.getElementById("formModal").reset();
-            window.location.href = "colaboradores.php"
+        if (!cargo) {
+            mostrarMensagem("Selecione um cargo!", "erro");
+            return;
         }
-        salvar();
 
-        
-        // Mostra a requisição no terminal
-        // Só pra visualização, não faça isso
-        console.log(resposta);
-        console.log(resposta.mensagem);
+        const formData = {
+            nomeCompleto: document.getElementById("nome-completo").value,
+            telefone: document.getElementById("telefone").value,
+            email: document.getElementById("email").value,
+            dataNasc: document.getElementById("data-nasc").value || null,
+            cpf: document.getElementById("cpf").value,
+            rg: document.getElementById("rg").value,
+            genero: document.getElementById("genero").value,
+            estadoCivil: document.getElementById("estado-civil").value,
+            rua: document.getElementById("rua").value,
+            numeroCasa: document.getElementById("numero-casa").value || null,
+            bairro: document.getElementById("bairro").value,
+            cidade: document.getElementById("cidade").value,
+            estado: document.getElementById("estado").value,
+            cep: document.getElementById("cep").value,
+            cargo: cargo,
+            cbo: document.getElementById("cbo").value || "",
+            regime: document.getElementById("regime").value || "",
+            remuneracao: document.getElementById("remuneracao").value || 0,
+            banco: document.getElementById("banco").value,
+            agencia: document.getElementById("agencia").value,
+            numeroConta: document.getElementById("numero-conta").value,
+            chavePix: document.getElementById("chave-pix").value,
+            nis: document.getElementById("nis").value || 0,
+            nit: document.getElementById("nit").value || 0,
+            ctps: document.getElementById("ctps").value || 0,
+            pisPasep: document.getElementById("pis-pasep").value || 0,
+            certidaoCasamento: document.getElementById("certidao-casamento").checked ? 1 : 0,
+            cnh: document.getElementById("cnh").checked ? 1 : 0,
+            pcd: document.getElementById("pcd").checked ? 1 : 0,
+            cam: document.getElementById("cam").checked ? 1 : 0,
+            filhos: document.getElementById("filhos").checked ? 1 : 0,
+            qtdFilhos: document.getElementById("qtd-filhos").value || 0
+        };
+
+        try {
+            const resposta = await enviar(`${BASE_URL}/api/criar_funcionario.php`, formData);
+
+            if (resposta.sucesso) {
+                mostrarMensagem("Funcionário cadastrado com sucesso!", "sucesso");
+                document.getElementById("formModal").reset();
+                window.location.href = "colaboradores.php";
+            } else {
+                mostrarMensagem(resposta.mensagem || "Erro ao cadastrar funcionário", "erro");
+            }
+        } catch (error) {
+            mostrarMensagem("Erro na requisição de cadastro", "erro");
+            console.error(error);
+        }
     });
-
-    
 });

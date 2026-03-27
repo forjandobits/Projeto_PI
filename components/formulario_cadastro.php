@@ -136,12 +136,10 @@
         <div class="campo">
             <label for="cargo">Cargo:</label>
             
-            <select name="Cargo-Funcionario" id="cargo" required>
-                <option value="">-- Selecione --</option>
-                <option value="1">Padeiro</option>
-                <option value="2">Gerente</option>
-                <option value="3">Caixa</option>
+            <select id="cargo" name="cargo" required>
+                <option value="">Selecione um cargo</option>
             </select>
+            
         </div>
 
         <div class="campo">

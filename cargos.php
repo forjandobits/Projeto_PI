@@ -65,8 +65,6 @@
             <select name="Regime-Funcionario" id="regime" required>
                 <option value="">-- Selecione --</option>
                 <option value="CLT">CLT</option>
-                <option value="PJ">Pessoa Jurídica (PJ)</option>
-                <option value="HORISTA">Horista</option>
             </select>
         </div>
         
