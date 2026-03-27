@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "3", valor: descontoINSS }] });
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "4", valor: descontoIRPF }] });
         valoresRecebidos.push({ nome: nome.value, mes: mesSelecionado.value, infoBenDes: [{ idBenDes: "5", valor: descontoVT }] });
-        // IRPF
+        
     }
 
     function exibirDadosInseridos() {
@@ -333,7 +333,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     // criar novas celulas
                     const id = novasInfos.insertCell();
                     const evento = novasInfos.insertCell();
-                    const referencia = novasInfos.insertCell();
                     const vencimentos = novasInfos.insertCell();
                     const descontos = novasInfos.insertCell();
                     let idConvertido;
@@ -343,7 +342,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     mes.textContent = "";
 
                     nomeFuncionario.textContent = nome.value;
-                    mes.textContent = item.mes;
+                    const data = item.mes;
+                    const [ano, meses] = data.split('-');
+                    const dataFormatada = `${meses} / ${ano}`;
+                    mes.textContent = dataFormatada;
 
                     item.infoBenDes.forEach(info => {
 
@@ -360,8 +362,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                 id.textContent = info.idBenDes;
                                 if (benDes.id_beneficio == idConvertido) {
                                     evento.textContent = benDes.nome_beneficio;
-                                    referencia.textContent = benDes.referencia;
-                                    // vencimentos.textContent = info.valor;
                                     vencimentos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                                     descontos.textContent = "--";
                                     if (idConvertido !== 2) {
@@ -376,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                 idConvertido = Number(info.idBenDes);
                                 if (benDes.id_beneficio == idConvertido) {
                                     evento.textContent = benDes.nome_beneficio;
-                                    referencia.textContent = benDes.referencia;
                                     vencimentos.textContent = "--";
                                     if ((benDes.nome_beneficio === "IRPF") && (info.valor === 0)) {
                                         descontos.textContent = "Isento";

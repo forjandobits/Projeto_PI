@@ -18,7 +18,10 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
     dadosFolhaSelecionada.forEach(valoresRetornados => {
     
         nomeFuncionario.textContent = valoresRetornados.nome_completo;
-        mes.textContent = valoresRetornados.mes_referencia;
+        const data = valoresRetornados.mes_referencia;
+        const [ano, meses] = data.split('-');
+        const dataFormatada = `${meses} / ${ano}`;
+        mes.textContent = dataFormatada;
 
         if(nomeCargo){
             nomeCargo.textContent = valoresRetornados.nome_cargo;
@@ -41,7 +44,6 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
                 // criar novas celulas
                 const id = novasInfos.insertCell();
                 const evento = novasInfos.insertCell(); 
-                const referencia = novasInfos.insertCell(); 
                 const vencimentos = novasInfos.insertCell(); 
                 const descontos = novasInfos.insertCell();
                 let idConvertido;
@@ -59,8 +61,6 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
                         id.textContent = info.idBenDes;
                         if (benDes.id_beneficio == idConvertido) {
                             evento.textContent = benDes.nome_beneficio;
-                            referencia.textContent = benDes.referencia;
-                            // vencimentos.textContent = info.valor;
                             vencimentos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                             descontos.textContent = "--";
                             if(idConvertido !== 2){
@@ -74,13 +74,11 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
                         idConvertido = Number(info.idBenDes);
                         if(benDes.id_beneficio == idConvertido){
                             evento.textContent = benDes.nome_beneficio;
-                            referencia.textContent = benDes.referencia;
                             vencimentos.textContent = "--";
                             if((benDes.nome_beneficio === "IRPF") && (info.valor === 0)) {
                                 descontos.textContent = "Isento";
                                 descontos.style.color = "#FF0000";
                             } else {
-                                // descontos.textContent = info.valor;
                                 descontos.textContent = Number(info.valor).toFixed(2).replace(".", ",");
                                 descontos.style.color = "#FF0000";
                             }
@@ -211,7 +209,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             nomeFuncionario.textContent = folhaLancada.nome_completo;
             cargo.textContent = folhaLancada.nome_cargo;
-            mesReferencia.textContent = folhaLancada.mes_referencia;
+            const data = folhaLancada.mes_referencia;
+            const [ano, meses] = data.split('-');
+            const dataFormatada = `${meses} / ${ano}`;
+            mesReferencia.textContent = dataFormatada;
             botaoVisualizar.innerHTML = `<button class='abrir-modal' id='${id}'>Visualizar</button>`;
             botaoBaixar.innerHTML = `<button class='botao-baixar' id='${id}'>Baixar</button>`;
 
