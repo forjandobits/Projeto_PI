@@ -3,6 +3,41 @@
 // import { enviar } from "./utils/enviar.js";
 import { enviar } from "../utils/enviar.js";
 
+
+// Carregar cargos no select
+async function carregarCargos() {
+    const response = await fetch("api/listar_cargos.php");
+    const cargos = await response.json();
+
+    const select = document.getElementById("cargo");
+
+    cargos.forEach(cargo => {
+        const option = document.createElement("option");
+        option.value = cargo.id_cargo;
+        option.textContent = cargo.nome_cargo;
+        select.appendChild(option);
+    });
+}
+
+// Quando selecionar um cargo
+document.getElementById("cargo").addEventListener("change", async function () {
+    const id = this.value;
+
+    if (!id) return;
+
+    const response = await fetch(`api/buscar_cargo.php?id=${id}`);
+    const dados = await response.json();
+
+    // Preencher os campos
+    document.getElementById("cbo").value = dados.cbo || "";
+    document.getElementById("regime").value = dados.regime_trabalhista || "";
+    document.getElementById("remuneracao").value = dados.salario || "";
+});
+
+// Executa ao carregar a página
+carregarCargos();
+
+
 // Recomendo colocar para só carregar o JS depois de apresentar a página (torna carregamento mais rápido)
 document.addEventListener("DOMContentLoaded", () => {
     // Pega os botões da página
@@ -12,6 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
     btnSalvar.addEventListener("click", async (e) => {
         // Tem que bloquear o evento padrão (submit) se não recarrega a página e quebra o resto
         e.preventDefault();
+
+        const cargo = document.getElementById("cargo").value;
+
+        if (!cargo) {
+            alert("Selecione um cargo!");
+            return;
+    }
         
         // Pega as entradas da página
         const nomeCompleto = document.getElementById("nome-completo").value;
@@ -28,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const cidade = document.getElementById("cidade").value;
         const estado = document.getElementById("estado").value;
         const cep = document.getElementById("cep").value;
-        const cargo = document.getElementById("cargo").value;
+        // const cargo = document.getElementById("cargo").value;
         const cbo = document.getElementById("cbo").value;
         const regime = document.getElementById("regime").value;
         const remuneracao = document.getElementById("remuneracao").value;
@@ -55,6 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
             estadoCivil: estadoCivil, pisPasep: pisPasep, nis: nis, nit: nit, ctps: ctps, rua: rua, numeroCasa: numeroCasa, bairro: bairro, cidade: cidade, estado: estado, cep: cep, cargo: cargo, cbo: cbo, regime: regime,
             remuneracao: remuneracao, banco: banco, agencia: agencia, numeroConta: numeroConta, chavePix: chavePix, certidaoCasamento: certidaoCasamento, pcd: pcd, cam: cam, 
             filhos: filhos, qtdFilhos: qtdFilhos});
+
+
+
+        
 
 
         

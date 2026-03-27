@@ -55,22 +55,25 @@ $qtdFilhos = $conn->real_escape_string($requisicao["qtdFilhos"]);
 // $arquivos = $conn->real_escape_string($requisicao["arquivos"]);
 
 
+// var_dump($cargo);
+// exit;
 
 // Query sql para inserir funcionário
-$sql1 = "INSERT INTO tb_funcionario (id_cargo, nome_completo, data_nascimento, sexo, estado_civil, email) VALUES ('$cargo', '$nomeCompleto', '$dataNasc', '$genero', '$estadoCivil', '$email')";
+$sql1 = "INSERT INTO tb_funcionario (id_cargo, nome_completo, data_nascimento, sexo, estado_civil, email) VALUES ($cargo, '$nomeCompleto', '$dataNasc', '$genero', '$estadoCivil', '$email')";
 
 // Verifica se é possível rodar a query
 
 if($conn->query($sql1)) {
     
-    $idFuncionario = $conn->insert_id;
+
+    $idFuncionario = (int)$conn->insert_id;
 
 
-    $sql2 = "INSERT INTO tb_endereco (id_funcionario, cidade, bairro, rua, numero_casa, cep) VALUES ('$idFuncionario', '$cidade', '$bairro', '$rua', '$numeroCasa', '$cep')";
+    $sql2 = "INSERT INTO tb_endereco (id_funcionario, cidade, bairro, rua, numero_casa, cep) VALUES ($idFuncionario, '$cidade', '$bairro', '$rua', '$numeroCasa', '$cep')";
 
-    $sql3 = "INSERT INTO tb_telefone (id_funcionario, telefone) VALUES ('$idFuncionario', '$telefone')";
+    $sql3 = "INSERT INTO tb_telefone (id_funcionario, telefone) VALUES ($idFuncionario, '$telefone')";
 
-    $sql4 = "INSERT INTO tb_banco (id_funcionario, agencia, numero_conta, tipo_conta, chave_pix) VALUES ('$idFuncionario', '$agencia', '$numeroConta', '$banco', '$chavePix')";
+    $sql4 = "INSERT INTO tb_banco (id_funcionario, agencia, numero_conta, tipo_conta, chave_pix) VALUES ($idFuncionario, '$agencia', '$numeroConta', '$banco', '$chavePix')";
 
     $sql5 = "INSERT INTO tb_documento (id_funcionario, rg, cpf, ctps, pis_pasep, nis, nit, cam, certidao_casamento_nascimento, laudo_pcd) VALUES ('$idFuncionario', 
     '$rg', '$cpf', '$ctps', '$pisPasep', '$nis', '$nit', '$cam', '$certidaoCasamento', '$pcd')";
