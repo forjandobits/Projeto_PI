@@ -19,17 +19,26 @@
         </section>
 
         <section>
-            <form action="">
+            <form id="solicitacao" action="public/js/solicitacoes/adicionar.js" method="POST">
     
                 <section class="areas-form">
                     <div class="grupo-campo">
+                        
                         <div class="campo">
                             <label for="nome">Colaborador:</label>
-                            <input name="Nome" id="nome" type="text" placeholder="Ex.: José da Silva" required>
+                            
+                            <input name="Nome" id="nome" type="text" list="sugestoesNomes" placeholder="Ex.: José da Silva" required>
+                            <!-- <ul id="sugestoesNomes"></ul> -->
+                            <datalist id="sugestoesNomes">
+                                <option></option>
+                            </datalist>
+                            
                         </div>
+
                         <div class="campo">
                             <label for="opcoes">Tipo de Solicitação:</label>
-                            <select name="" id="opcoes" required>
+                            <select name="Opcoes" id="opcoes" required>
+
                                 <option>Férias</option>
                                 <option>Folga</option>
                                 <option>Revisão</option>
@@ -52,9 +61,13 @@
                             <input type="file" name="Arquivo" id="arquivo">
                         </div>
                         <div class="campo resumo">
-                            <label for="pendente">Pendente:</label>
-                            <input type="checkbox" name="Pendencia" id="pendente"></input>
-                            <button>Concluir</button>
+                            <!-- <label for="pendente">Pendente:</label>
+                            <input type="checkbox" name="Pendencia" id="pendente"></input> -->
+
+                            <button type="button" id="concluir">Concluir</button>
+                            
+                            <!-- Div para exibir mensagens de erro/sucesso -->
+                            <div id="mensagem-senha" style="margin-top:10px;"></div>
                         </div>
                     </div>
                 </section>
@@ -64,16 +77,15 @@
 
     </article>
     
-    
     <!-- ------------------- TABELA ------------------- -->
-    <article>
+    <article id="historicoSolicitacoes">
 
         <table>
             <caption>Histórico de Solicitações</caption>
             <thead>
                 <tr>
-                    <th>Solicitação</th>
                     <th>Colaborador</th>
+                    <th>Solicitação</th>
                     <th>Data da Solicitação</th>
                     <th>Status</th>
                     <th></th>
@@ -83,7 +95,7 @@
             <tbody>
         
                 <!-- Primeira linha-->
-                <tr>
+                <!-- <tr>
                     <td>Férias</td>
                     <td>Josué Arruda</td>
                     <td>12/11/2025 </td>
@@ -91,69 +103,7 @@
                     <td> 
                         <button class='abrir-modal'>Visualizar</button>
                     </td>
-                </tr>
-        
-                <!-- Linha expandida cinza-->
-                <!-- TENTAR MUDAR ESTE PADRÃO  -->
-                <!-- <tr class="linha-visualizar">
-                    <td>Início: 17/12/2025</td>
-                    <td>Término: 16/01/2026</td>
-                    <td>
-                        <button>✔</button>
-                        <button>✘</button>
-                    </td>
                 </tr> -->
-        
-                <!-- Segunda linha -->
-                <tr>
-                    <td>Revisão</td>
-                    <td>Dani Oliveira</td>
-                    <td>17/11/2025 </td>
-                    <td>Resolvida</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Outros</td>
-                    <td>Joaquim Oliveira</td>
-                    <td>17/11/2025 </td>
-                    <td>Resolvida</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr class="pendente">
-                    <td>Atestado</td>
-                    <td>José Silva</td>
-                    <td>18/11/2025 </td>
-                    <td>Pendente</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr class="pendente">
-                    <td>Folga</td>
-                    <td>João Cunha</td>
-                    <td>20/11/2025 </td>
-                    <td>Pendente</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
-
-                <tr class="urgente">
-                    <td>Outros</td>
-                    <td>Camilo dos Santos</td>
-                    <td>25/11/2025 </td>
-                    <td>Urgente</td>
-                    <td> 
-                        <button class='abrir-modal'>Visualizar</button>
-                    </td>
-                </tr>
         
             </tbody>
         </table>
@@ -167,38 +117,43 @@
         
         <section>
             <form action="" class="form-modal">
+                <input type="hidden" id="id-solicitacao"> <!-- Deixando o id de forma oculta -->
                 <div class="campo">
                 <label>Nome do Solicitante:</label>
-                <!-- <input type="text" name="Nome-Solicitante" id="nome-solicitante" placeholder="Josué Arruda" disabled> -->
-                <p id="nome-solicitante">Josué Arruda</p>
+                <input type="text" name="Nome-Solicitante" id="modal-nome-solicitante" readonly>
+                <!-- <p id="nome-solicitante"></p> -->
                 </div>
                 <div class="campo">
                 <label>Data da Solicitação:</label>
-                <input type="text" name="Nome-Solicitante" id="data-solicitacao" placeholder="12/11/2025" disabled>
-                <!-- <p id="data-solicitacao">12/11/2025</p> -->
+                <input type="text" id="modal-data-solicitacao" readonly>
+                <!-- <p id="data-solicitacao"></p> -->
                 </div>
                 <div class="campo">
                 <label for="opcao-selecionada">Tipo de Solicitação:</label>
-                <input type="text" name="Opcao-Selecionada" id="opcao-selecionada" placeholder="Férias" disabled>
-                <!-- <p id="opcao-selecionada">Férias</p> -->
+                <input type="text" name="Opcao-Selecionada" id="modal-opcao-selecionada" readonly>
+                <!-- <p id="opcao-selecionada"></p> -->
                 </div>
                 <div class="campo">
-                <label for="exibir-oberservacao">Observação:</label>
-                <input type="text" name="Exibir-Oberservacao" id="exibir-oberservacao" placeholder="Motivo completo" disabled>
-                <!-- <p id="exibir-observacao">Motivo completo</p> -->
+                <label for="exibir-observacao">Observação:</label>
+                <input type="text" name="Exibir-Observacao" id="modal-exibir-observacao" readonly>
+                <!-- <p id="exibir-observacao"></p> -->
                 </div>
                 <div class="campo">
                 <label for="motivo-recusar">Motivo da Recusa ou Aceite:</label>
-                <textarea name="Recusar" id="motivo-recusar" placeholder="Motivo pelo qual foi aceita ou não a solicitação" required></textarea>
+                <textarea name="Recusar" id="modal-motivo-recusar" placeholder="Motivo pelo qual foi aceita ou não a solicitação" ></textarea>
                 </div>
                 <div class="campo">
                 <label for="arquivos-anexados">Arquivos Anexados:</label>
-                <input type="file" name="Arquivos-Anexados" id="arquivos-anexados" disabled>
+                <input type="file" name="Arquivos-Anexados" id="modal-arquivos-anexados" disabled>
                 </div>
                 <section class="resumo-final">
                     <button class="aceitar" type="submit">✔ Autorizar</button>
                     <button class="negar" type="submit">✘ Negar</button>
                 </section>
+                <section>
+                    <h3 id="mensagem-status"></h3>
+                </section>
+                
             </form>
         </section>
     </article>
@@ -208,5 +163,12 @@
 <script>
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
+
+<script src="public/js/solicitacoes/adicionar.js"></script>
+<script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
+
 </body>
 </html>
+
+
+
