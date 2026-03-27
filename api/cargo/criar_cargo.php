@@ -14,10 +14,9 @@ $nomeCargo = $conn->real_escape_string($requisicao["nomeCargo"]);
 $salario = $conn->real_escape_string($requisicao["salario"]);
 $cargaHoraria = $conn->real_escape_string($requisicao["cargaHoraria"]);
 $regime = $conn->real_escape_string($requisicao["regime"]);
-$escala = $conn->real_escape_string($requisicao["escala"]);
 
 // Query sql para inserir funcionário
-$sql = "INSERT INTO tb_cargo (nome_cargo, salario, carga_horaria, regime_trabalhista, escala, cbo) VALUES ('$nomeCargo', '$salario', '$cargaHoraria', '$regime', '$escala', '$cbo')";
+$sql = "INSERT INTO tb_cargo (nome_cargo, salario, carga_horaria, regime_trabalhista, cbo) VALUES ('$nomeCargo', '$salario', '$cargaHoraria', '$regime','$cbo')";
 
 // Verifica se é possível rodar a query
 if ($conn->query($sql)) {

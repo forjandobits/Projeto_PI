@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
             '#nome-cargo',
             '#salario',
             '#carga-horaria',
-            '#regime',
-            '#escala'
+            '#regime'
         ];
 
         campos.forEach(seletor => {
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function listarCargos() {
-        const respostaExibirCargo = await fetch(`${BASE_URL}/api/funcionarios/exibir_cargo.php`);
+        const respostaExibirCargo = await fetch(`${BASE_URL}/api/cargo/exibir_cargo.php`);
         const cargos = await respostaExibirCargo.json();
 
         const tabelaCargo = document.querySelector('#tabela-saida-cargos')
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const salario = novaCelulaCargo.insertCell();
                 const cargaHoraria = novaCelulaCargo.insertCell();
                 const regime = novaCelulaCargo.insertCell();
-                // const escala = novaCelulaCargo.insertCell();
                 const editar = novaCelulaCargo.insertCell();
 
                 cbo.textContent = cargo.cbo;
@@ -39,10 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 salario.textContent = cargo.salario;
                 cargaHoraria.textContent = cargo.carga_horaria;
                 regime.textContent = cargo.regime_trabalhista;
-                escala.textContent = cargo.escala;
 
 
-                editar.innerHTML = `<button type="button" class="abrir-modal" id="${id_cargo}">Editar</button>`;
+                editar.innerHTML = `<button type="button" class="abrir-modal-edicao" id="${id_cargo}">Editar</button>`;
             })
         }
     }
@@ -52,11 +49,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.addEventListener("click", async function (e) {
 
-            if (e.target.classList.contains("abrir-modal")) {
+            if (e.target.classList.contains("abrir-modal-edicao")) {
                 e.preventDefault();
                 limparModal()
 
-                const exibir = document.querySelector(".modal");
+                const exibir = document.querySelector("#edicao-cargo");
                 if (exibir) {
                     exibir.style.display = "flex";
                 }
@@ -64,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 idCargo = e.target.id;
 
                 try {
-                    const respostaCargo = await fetch(`${BASE_URL}/api/funcionarios/puxar_cargo_info.php`, {
+                    const respostaCargo = await fetch(`${BASE_URL}/api/cargo/puxar_cargo_info.php`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -101,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         '#salario': 'salario',
                         '#carga-horaria': 'carga_horaria',
                         '#regime': 'regime_trabalhista'
-                        // '#escala': 'escala'
                     };
 
                     Object.entries(campos).forEach(([seletor, chave]) => {
