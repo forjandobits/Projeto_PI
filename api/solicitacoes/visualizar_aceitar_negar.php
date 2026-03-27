@@ -3,7 +3,7 @@
 header("Content-Type: application/json");
 
 // Incluindo o arquivo de conexão com o banco
-include(__DIR__ . "/../banco-de-dados/conexao.php");
+include(__DIR__ . "/../../banco-de-dados/conexao.php");
 
 // Lendo a requisição, transformando em json e armazeando na variável
 $dados = json_decode(file_get_contents("php://input"), true);
