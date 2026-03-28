@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = linha.getAttribute("data-id");
 
             // Faz requisição e retorna os dados
-            fetch(`/Projeto_PI/api/solicitacoes/solicitacoes_visualizar.php?id=${id}`)
+            fetch(`${BASE_URL}/api/solicitacoes/solicitacoes_visualizar.php?id=${id}`)
                 .then(response => response.json())
                 .then(dados => {
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const statusAprovado = "Aprovado";
         const id = document.querySelector('#id-solicitacao').value;
 
-        fetch("/Projeto_PI/api/solicitacoes/visualizar_aceitar_negar.php", {
+        fetch(`${BASE_URL}/api/solicitacoes/visualizar_aceitar_negar.php`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         } 
 
-        fetch("/Projeto_PI/api/solicitacoes/visualizar_aceitar_negar.php", {
+        fetch(`${BASE_URL}/api/solicitacoes/visualizar_aceitar_negar.php`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
