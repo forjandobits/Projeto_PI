@@ -1,18 +1,6 @@
-// Espera o carregamento completo do DOM antes de rodar o código
-document.addEventListener("DOMContentLoaded", () => {
-    // Seleciona a sidebar pelo ID
-    const sidebar = document.getElementById("sidebar");
-    // Por algum motivo getElementsByTagName não funcionou
+function eventoSidebar() {
+    const sidebar = document.querySelector("#sidebar");
     const main = document.querySelector("main");
-    const verModal = document.querySelectorAll(".abrir-modal");
-    const fechar = document.querySelectorAll(".fechar");
-
-    const criar = document.querySelector(".solicitar");
-    const exibir = document.querySelector(".modal");
-    const modalSolicitacoes = document.querySelector(".modal#solicitacoes");
-    const exibirSolicitacoes = document.querySelector("#modal-solicitacoes");
-
-    // Seleciona o botão de abrir/fechar (toggle)
     const botaoToggle = document.querySelector("#botao-abrefecha");
 
     // Adiciona um "ouvinte" de evento para o clique no botão
@@ -22,6 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
         sidebar.classList.toggle("open");
         main.classList.toggle("open");
     });
+}
+
+function eventoModal(){
+    const verModal = document.querySelectorAll(".abrir-modal");
+    const fechar = document.querySelectorAll(".fechar");
+    const criar = document.querySelector(".solicitar");
+    const exibir = document.querySelector(".modal");
+    const modalSolicitacoes = document.querySelector(".modal#solicitacoes");
+    const exibirSolicitacoes = document.querySelector("#modal-solicitacoes");
 
     // Verifica se o elemento está na página acessada
     if(criar){
@@ -60,4 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         })
     }
+}
+
+// Espera o carregamento completo do DOM antes de rodar o código
+document.addEventListener("DOMContentLoaded", () => {
+
+    eventoSidebar();
+
+    eventoModal();
+
 });

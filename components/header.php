@@ -52,7 +52,7 @@
 
 
     <link rel="shortcut icon" href="public/img/Cerebro.ico" type="image/x-icon"/>
-    <script src="public/js/sidebar.js"></script>
+    <script src="public/js/utils/utils.js"></script>
 </head>
 <body>
     <header>
