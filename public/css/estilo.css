@@ -78,6 +78,7 @@ main {
   width: calc(100vw - 100px);
   min-height: 90vh;
   padding: 100px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 main.open{
@@ -245,6 +246,8 @@ body {
 .mensagem_popup.sumir_animacao {
   opacity: 0;
   transform: translate(-50%, -60%);
+}
+
 .fonte-menor {
     font-size: 14px;
 }

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const exibirSolicitacoes = document.querySelector("#modal-solicitacoes");
 
     // Seleciona o botão de abrir/fechar (toggle)
-    const botaoToggle = document.getElementById("botao-abrefecha");
+    const botaoToggle = document.querySelector("#botao-abrefecha");
 
     // Adiciona um "ouvinte" de evento para o clique no botão
     botaoToggle.addEventListener("click", () => {

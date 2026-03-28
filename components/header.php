@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="public/css/modal.css">
 
     <link rel="shortcut icon" href="public/Cerebro.ico" type="image/x-icon" data-icon='cerebro' data-path='public/img/'/>
-    <script src="public/js/sidebar.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
 
