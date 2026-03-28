@@ -127,6 +127,8 @@ figure {
   flex-direction: column;
   align-items: center;
   max-height: 225px;
+  min-width: 180px;
+  width: 200px;
   max-width: 200px;
   padding: 5px;
   border-radius: 5px;

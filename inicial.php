@@ -9,71 +9,41 @@
         <!-- Área de conteúdo principal-->
         <article>
 
-            <!-- Seção de Pendências -->
             <section>
-                <h2>Pendências</h2>
+                <h2>Atalhos</h2>
                 <div class="section-tela-inicial">
-                    <!-- Cada pendência é representada como um "card" com imagem e legenda -->
-                    <a href="">
+                    <a href="./solicitacoes.php">
                         <figure>
                             <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>pendencia 1</p></figcaption>
+                            <figcaption class="card-texto"><p>Nova Solicitação</p></figcaption>
                         </figure>
                     </a>
 
-                    <a href="">
+                    <a href="./folha_de_pagamento.php">
                         <figure>
                             <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>pendencia 2</p></figcaption>
+                            <figcaption class="card-texto"><p>Novo Pagamento</p></figcaption>
                         </figure>
                     </a>
 
-                    <a href="">
+                    <a href="./controle_de_ponto.php">
                         <figure>
                             <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>pendencia 3</p></figcaption>
+                            <figcaption class="card-texto"><p>Novo Ponto</p></figcaption>
                         </figure>
                     </a>
 
-                    <a href="">
+                    <a href="./cadastro_de_funcionario.php">
                         <figure>
                             <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>pendencia 4</p></figcaption>
+                            <figcaption class="card-texto"><p>Novo Funcionário</p></figcaption>
                         </figure>
                     </a>
 
-                </div>
-            </section>
-            
-            <section>
-                <h2>Favoritos</h2>
-                <div class="section-tela-inicial">
-                    <!-- Estrutura igual às pendências, mas para os favoritos -->
-                    <a href="">
+                    <a href="./cargos.php">
                         <figure>
                             <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>favorito 1</p></figcaption>
-                        </figure>
-                    </a>
-
-                    <a href="">
-                        <figure>
-                            <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>favorito 2</p></figcaption>
-                        </figure>
-                    </a>
-
-                    <a href="">
-                        <figure>
-                            <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>favorito 3</p></figcaption>
-                        </figure>
-                    </a>
-
-                    <a href="">
-                        <figure>
-                            <img src="public/img/Cerebro.ico" alt="" class="imagem-tela-inicial">
-                            <figcaption class="card-texto"><p>favorito 4</p></figcaption>
+                            <figcaption class="card-texto"><p>Novo Cargo</p></figcaption>
                         </figure>
                     </a>
 
