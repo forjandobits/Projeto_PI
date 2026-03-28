@@ -29,7 +29,7 @@ $sql = "SELECT
       WHEN SUM(v.diferenca_horas) < 0 THEN 'Débito'
       ELSE 'Regular'
   END AS situacao
-FROM view_folha_ponto v
+FROM view_folha_ponto AS v
 WHERE
   YEAR(STR_TO_DATE(CONCAT(v.ano,' ',LPAD(v.semana,2,'0'),' 1'), '%X %V %w')) = YEAR(CURDATE())
   AND MONTH(STR_TO_DATE(CONCAT(v.ano,' ',LPAD(v.semana,2,'0'),' 1'), '%X %V %w')) = MONTH(CURDATE())
