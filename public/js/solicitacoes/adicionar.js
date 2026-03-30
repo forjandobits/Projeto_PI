@@ -1,8 +1,11 @@
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const botao = document.querySelector(".resumo button");
     const tbody = document.querySelector("table tbody");
     const form = document.querySelector(".modal-cadastro form");
+    const exibir = document.querySelector(".modal");
 
     // ================= CRIAR ÁREA DE MENSAGEM =================
     // Como não existe um elemento de mensagem no HTML,
@@ -14,38 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inserimos a caixa de mensagem no final do formulário
     form.appendChild(msgBox);
-
-
-    // ================= FUNÇÃO DE MENSAGEM =================
-    // Esta função exibe mensagens de erro, sucesso ou informação
-    function mostrarMensagem(texto, tipo) {
-
-        // Define o texto da mensagem
-        msgBox.textContent = texto;
-
-        // Reseta as classes para evitar conflito
-        msgBox.className = "mensagem-campo";
-
-        // Adiciona classe de cor dependendo do tipo
-        if (tipo === "erro") {
-            msgBox.classList.add("msg-erro"); // vermelho
-        }
-
-        if (tipo === "sucesso") {
-            msgBox.classList.add("msg-sucesso"); // verde
-        }
-
-        if (tipo === "info") {
-            msgBox.classList.add("info"); // azul
-        }
-
-        // Faz a mensagem desaparecer após 4 segundos
-        setTimeout(() => {
-            msgBox.textContent = "";
-            msgBox.className = "mensagem-campo";
-        }, 4000);
-    }
-
 
     // ================= CARREGAR SOLICITAÇÕES =================
     async function carregarSolicitacoes() {
@@ -196,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Mensagem de sucesso
             mostrarMensagem("Solicitação enviada com sucesso!", "sucesso");
+            exibir.style.display = "none";
 
             // Atualiza tabela
             carregarSolicitacoes();

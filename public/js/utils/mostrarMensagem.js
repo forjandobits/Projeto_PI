@@ -6,6 +6,7 @@ export function mostrarMensagem(texto, tipo) {
 
     const mensagem = document.createElement("div");
     mensagem.classList.add("mensagem_popup", tipo);
+    mensagem.innerHTML = "";
     mensagem.innerText = texto;
     document.body.appendChild(mensagem);
 
@@ -13,11 +14,11 @@ export function mostrarMensagem(texto, tipo) {
         mensagem.classList.add("sumir_animacao");
         blur.style.transition = "opacity 0.5s ease";
         blur.style.opacity = "0";
-    }, 5000);
+    }, 3000);
 
     setTimeout(() => {
         mensagem.remove();
         blur.remove();
-    }, 5000);
+    }, 3000);
 
 }

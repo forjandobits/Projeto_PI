@@ -164,8 +164,8 @@
     const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
 </script>
 
-<script src="public/js/solicitacoes/adicionar.js"></script>
-<script src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
+<script type="module" src="public/js/solicitacoes/adicionar.js"></script>
+<script type="module" src="public/js/solicitacoes/solicitacoes_visualizar.js"></script>
 
 </body>
 </html>
