@@ -1,3 +1,5 @@
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // ====== Seleciona campos e botões ======   
@@ -91,11 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(resposta);
 
             mensagem.className = "";
-            mensagem.textContent = "Solicitação aceita";
-            mensagem.style.display = "block";
-            mensagem.classList.add("msg-sucesso", "msg-menor");
+            mostrarMensagem("Solicitação aceita.", "sucesso");
 
-           
             setTimeout(() => {
             location.reload(); // recarrega a página
         }, 2000);
@@ -114,10 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Se o campo motivo não foi preenchido deve retornar ao campo e depois negar
         if (motivoNegar.trim() === "") {
-            mensagem.className = ""; // Limpando a classe mensagem
-            mensagem.textContent = "Motivo da recusa deve ser preenchido!";
-            mensagem.style.display = "block";
-            mensagem.classList.add("msg-erro", "msg-menor");
+            mostrarMensagem("Motivo da recusa deve ser preenchido!", "erro");
             motivo.focus(); // Coloca o cursor dentro do campo motivo
             return;
         } 
@@ -135,10 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            mensagem.className = ""; // Limpando a classe mensagem
-            mensagem.textContent = "Solicitação negada";
-            mensagem.style.display = "block";
-            mensagem.classList.add("msg-sucesso", "msg-menor");
+            mostrarMensagem("Solicitação negada.", "erro");
 
             setTimeout(() => {
             location.reload(); // recarrega a página

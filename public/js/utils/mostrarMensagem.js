@@ -6,6 +6,7 @@ export function mostrarMensagem(texto, tipo) {
 
     const mensagem = document.createElement("div");
     mensagem.classList.add("mensagem_popup", tipo);
+    mensagem.innerHTML = "";
     mensagem.innerText = texto;
     document.body.appendChild(mensagem);
 
