@@ -1,21 +1,13 @@
-
-export function mostrarMensagem(texto, tipo = "sucesso") {
-
-
-
+export function mostrarMensagem(texto, tipo) {
 
     const blur = document.createElement("div");
     blur.classList.add("mensagem_blur");
     document.body.appendChild(blur);
 
-
-
-
     const mensagem = document.createElement("div");
     mensagem.classList.add("mensagem_popup", tipo);
     mensagem.innerText = texto;
     document.body.appendChild(mensagem);
-
 
     setTimeout(() => {
         mensagem.classList.add("sumir_animacao");
@@ -23,12 +15,9 @@ export function mostrarMensagem(texto, tipo = "sucesso") {
         blur.style.opacity = "0";
     }, 5000);
 
-
-   
     setTimeout(() => {
         mensagem.remove();
         blur.remove();
-    }, 5500);
-
+    }, 5000);
 
 }

@@ -1,6 +1,7 @@
 import { listarBeneficiosDescontos, listarFuncionarios, salarioFuncionario } from "./conexoes.js";
 import { exibirDadosFolhaLancadas } from "./exibir_folhas_lancadas.js";
-import { eventoSelecionado, dataVazia, nomeVazio, valorVazio, mostrarMensagem } from "./validacoes.js";
+import { eventoSelecionado, dataVazia, nomeVazio, valorVazio} from "./validacoes.js";
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     // Arrays para armazenamento
@@ -412,7 +413,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     tabelaPagamento.textContent = "";
                     return;
                 } else {
-                    mostrarMensagem("")
+                    let mensagem = "Folha de Pagamento processada com sucesso! Aguarde..."
+                    mostrarMensagem(mensagem, "sucesso");
                     exibir.style.display = "none";
                 }
             });
@@ -450,6 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const botaoEnviar = document.querySelector("#enviar-dados");
 
         if (botaoEnviar) {
+            let mensagem = "Folha cadastrada com sucesso! Você será redirecionado. Aguarde..."
             console.log(valoresRecebidos);
             console.log(valoresUnidos);
             botaoEnviar.addEventListener("click", async (e) => {
@@ -468,6 +471,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             valoresUnidos: valoresUnidos
                         })
                     });
+                    
+                    mostrarMensagem(mensagem, "sucesso");
                     window.location.href = "pagamento.php";
 
                 } else {
@@ -486,6 +491,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             })
                         })
 
+                        mostrarMensagem(mensagem, "sucesso");
                         window.location.href = "pagamento.php";
                     }
                 }

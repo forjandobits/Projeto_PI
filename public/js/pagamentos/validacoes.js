@@ -1,12 +1,4 @@
-// "Nome Vazio" X
-// "Valor Vazio" X
-// "Opção de Evento Selecionada" X
-// "Data vazia" X
-
-// class = ".classe"
-// id = "#id"
-// tag = ""
-
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 
 export function eventoSelecionado(valores) {
     // se o evento ja foi selecionado na folha em registro ele não pode mais ser selecionado
@@ -25,8 +17,8 @@ export function eventoSelecionado(valores) {
         const duplicados = Object.keys(contagem).filter(id => contagem[id] > 1);
 
         if (duplicados.length > 0) {
-            texto = "não pode ter 2 eventos iguais!!";
-            mostrarMensagem(texto);
+            texto = "Não é possível adicionar 2 (dois) eventos selecionados iguais!";
+            mostrarMensagem(texto, "erro");
             duplicado = true;
         }
     });
@@ -46,8 +38,8 @@ export function valorVazio(valores) {
             const val = valorCada.valor;
 
             if (val === "") {
-                texto = "Você não pode deixar o valor vazio!!";
-                mostrarMensagem(texto);
+                texto = "Não é possível deixar nenhum valor vazio!";
+                mostrarMensagem(texto, "erro");
                 vazio = true;
             }
         })
@@ -66,8 +58,8 @@ export function dataVazia(data) {
     const dataR = data;
 
     if (dataR == "") {
-        texto = "Você não pode deixar a data vazia!!";
-        mostrarMensagem(texto);
+        texto = "Não é possível deixar a data vazia! Selecione uma data.";
+        mostrarMensagem(texto, "erro");
         vazio = true;
     }
 
@@ -85,8 +77,8 @@ export function nomeVazio(valores) {
     const nome = valores;
 
     if (nome == "") {
-        texto = "Você não pode deixar o nome vazio!!";
-        mostrarMensagem(texto);
+        texto = "Não é possível deixar o nome vazio! Selecione um colaborador.";
+        mostrarMensagem(texto, "erro");
         vazio = true;
     }
 
@@ -94,9 +86,9 @@ export function nomeVazio(valores) {
 };
 
 
-export function mostrarMensagem(texto) {
-    const resultado = document.querySelector("#resultado")
-    resultado.textContent = texto;
-    resultado.style.color = "red";
-    return;
-}
+// export function mostrarMensagem(texto) {
+//     const resultado = document.querySelector("#resultado")
+//     resultado.textContent = texto;
+//     resultado.style.color = "red";
+//     return;
+// }

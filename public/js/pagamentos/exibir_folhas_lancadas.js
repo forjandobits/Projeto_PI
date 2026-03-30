@@ -1,4 +1,5 @@
 import { listarBeneficiosDescontos, listarFolhasLancadas} from "./conexoes.js";
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 
 export async function dadosFolhasLancadas(dadosFolhaSelecionada){
 
@@ -145,7 +146,13 @@ async function exibirDadosFolhaLancadas(){
 
     
     } else {
-    
+        
+        const cabecalhoEdicao = document.querySelector(".cabecalhos>h1");
+        cabecalhoEdicao.textContent = "Edição - Folha de Pagamento";
+
+        let mensagem = "Abrindo modo de edição da Folha de Pagamento!";
+        mostrarMensagem(mensagem, "sucesso");
+
         const respostaFolha = await fetch(`${BASE_URL}/api/pagamentos/exibir_dados_folha.php`, {
             method: "POST",
             headers: {

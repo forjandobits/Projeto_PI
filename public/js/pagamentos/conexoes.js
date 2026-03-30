@@ -1,3 +1,5 @@
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
+
 async function listarBeneficiosDescontos() {
     try {
         const respostaBenDes = await fetch(`${BASE_URL}/api/pagamentos/exibir_beneficios_descontos.php`);
@@ -5,7 +7,8 @@ async function listarBeneficiosDescontos() {
         
         return beneficiosDescontos;
     } catch (error) {
-        alert(`Ocorreu um erro: \n${error.message}`);
+        mostrarMensagem(error.message, "erro");
+        // alert(`Ocorreu um erro: \n${error.message}`);
     }
     
 }
@@ -17,7 +20,8 @@ async function listarFolhasLancadas() {
         
         return folhaLancada;
     } catch (error) {
-        alert(`Ocorreu um erro: \n${error.message}`);
+        mostrarMensagem(error.message, "erro");
+        // alert(`Ocorreu um erro: \n${error.message}`);
     }
     
 }
@@ -29,7 +33,8 @@ async function listarFuncionarios() {
         
         return funcionarios;
     } catch (error) {
-        alert(`Ocorreu um erro: \n${error.message}`);
+        mostrarMensagem(error.message, "erro");
+        // alert(`Ocorreu um erro: \n${error.message}`);
     }
     
 }
@@ -50,7 +55,8 @@ async function salarioFuncionario(idFuncionario) {
         
         return salario;
     } catch (error) {
-        alert(`Ocorreu um erro: \n${error.message}`);
+        mostrarMensagem(error.message, "erro");
+        // alert(`Ocorreu um erro: \n${error.message}`);
     }
 }
 
