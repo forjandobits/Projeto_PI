@@ -16,11 +16,6 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     //fim Isis
     let resposta = {};
     let dados = [];
-    let id_funcionario = 0;
-    let id_jornada = 0;
-    let id_ponto = 0;
-    let linha = "";
-    let coluna = "";
     let saldo_acumulado = "";
 
     tabela.textContent = "";
@@ -50,14 +45,14 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
         saidaNome.textContent = `Espelho de Ponto - ${dados[0].nome_completo}`;
 
         dados.forEach(resultado => {
-            id_funcionario = resultado.id_funcionario;
-            id_jornada = resultado.id_jornada;
-            id_ponto = resultado.id_ponto;
+            let id_funcionario = resultado.id_funcionario;
+            let id_jornada = resultado.id_jornada;
+            let id_ponto = resultado.id_ponto;
 
-            linha = document.createElement("tr");
+            let linha = document.createElement("tr");
             linha.id = id_jornada;
 
-            coluna = document.createElement("td");
+            let coluna = document.createElement("td");
             coluna.textContent = resultado.data.split('-').reverse().join('/');
             linha.appendChild(coluna);
 
@@ -115,7 +110,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
 
                 informacoesPonto.textContent = `${dados["data"].split('-').reverse().join('/')} - ${dados["dia_semana"]}`;
                 informacoesPonto.dataset.id_funcionario = id_funcionario;
-                informacoesPonto.dataset.id_jornada = id_jornada;
+                informacoesPonto.dataset.id_jornada = linha.id;
                 informacoesPonto.dataset.id_ponto = id_ponto;
                 horaEntrada.value = dados["hora_entrada"];
                 intervaloSaida.value = dados["intervalo_inicio"];

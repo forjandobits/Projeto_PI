@@ -14,7 +14,7 @@
       <section class="areas-form">
         <div class="grupo-campo">
           <div class="campo">
-            <label for="data-inicio">Mês de Referência:</label>
+            <label for="data-mes-ano">Mês de Referência:</label>
             <input type="month" name="Mes-Ano" id="data-mes-ano">
           </div>
         </div>
@@ -71,7 +71,7 @@
     
     <section>
       <form class="form-modal">
-        <p id="informacoes-ponto">12/11/2025 - Quarta-feira:</p>
+        <p id="informacoes-ponto"></p>
         <div class="campo-linha">
           <label for="hora-entrada">Hora de entrada:</label>
           <input type="time" id="hora-entrada">
