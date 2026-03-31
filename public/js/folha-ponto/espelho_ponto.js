@@ -6,21 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const saidaMensagens = document.querySelector("#saida-erros");
     const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
     const btnFecharMes = document.querySelector("#btn-fechar");
-    const mesReferencia = 3;
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    //isis
     const campoMes = document.querySelector("#data-mes-ano");
     const hoje = new Date();
     const ano = hoje.getFullYear();
     const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-
     campoMes.value = `${ano}-${mes}`;
-    //fim isis
 
     carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
 
-    campoMes.addEventListener("change", () => {//add campoMes.value
+    campoMes.addEventListener("change", () => {
         carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
     });
 
@@ -30,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         editarPonto(saidaMensagens);
 
-        carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);//add campoMes.value
+        carregarPontos(id, campoMes.value, tabela, saidaMensagens, saidaNome);
     });
 
     btnFecharMes.addEventListener("click", () => {
