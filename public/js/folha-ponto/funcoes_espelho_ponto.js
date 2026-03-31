@@ -18,6 +18,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     let dados = [];
     let id_funcionario = 0;
     let id_jornada = 0;
+    let id_ponto = 0;
     let linha = "";
     let coluna = "";
     let saldo_acumulado = "";
