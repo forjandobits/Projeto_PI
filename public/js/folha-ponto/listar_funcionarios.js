@@ -2,7 +2,6 @@ import { enviar } from "../utils/enviar.js";
 
 enviar(`${BASE_URL}./api/folha-ponto/listar_funcionarios.php`, {})
     .then(dados => {
-        console.log(dados);
 
         const tbody = document.querySelector("#tabela-saida-ponto");
 
