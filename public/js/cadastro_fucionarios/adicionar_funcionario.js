@@ -76,7 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const resposta = await enviar(`${BASE_URL}/api/criar_funcionario.php`, formData);
 
             if (resposta.sucesso) {
-                mostrarMensagem("Funcionário cadastrado com sucesso!", "sucesso");
+                mostrarMensagem("Funcionário cadastrado com sucesso!", "erro");
+                alert("Chegou aqui!")
                 document.getElementById("formModal").reset();
                 window.location.href = "colaboradores.php";
             } else {
