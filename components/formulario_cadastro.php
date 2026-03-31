@@ -2,12 +2,6 @@
     <fieldset class="cadastro">
         <legend>Informações Pessoais</legend>
 
-        <div class="campo foto-funcionario">
-            <label for="foto-funcionario">Foto do Funcionário:</label>
-            <img src="./public/img/Avatar.png" class="icone-perfil">
-            <input type="file" name="Foto-Funcionario" id="foto-funcionario">
-        </div>
-
         <div class="campo nome-completo">
             <label for="nome-completo">Nome Completo:</label>
             <input type="text" name="Nome-Funcionario" id="nome-completo" required/>
