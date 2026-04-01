@@ -75,9 +75,6 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
             coluna.textContent = resultado.intervalo_fim;
             linha.appendChild(coluna);
 
-            coluna = document.createElement("td");
-            coluna.textContent = resultado.total_intervalo;
-            linha.appendChild(coluna);
 
             coluna = document.createElement("td");
             if (resultado.faltas == 0) {
@@ -97,6 +94,14 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
 
             coluna = document.createElement("td");
             coluna.textContent = resultado.total_horas_dia;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.total_intervalo;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.horas_extras;
             linha.appendChild(coluna);
 
             let btn = document.createElement("button");
@@ -127,6 +132,33 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
                     intervaloRetorno.disabled = true;
                     horaSaida.disabled = true;
                     feriasFaltaAbonada.disabled = true;
+                }
+            });
+
+            coluna = document.createElement("td");
+            coluna.appendChild(btn);
+            linha.appendChild(coluna);
+
+            btn = document.createElement("button");
+            btn.textContent = "✓";
+
+            btn.addEventListener("click", async () => {
+                let resposta = {};
+                let confirmacao = confirm(`Deseja mesmo confirmar o ponto do dia ${resultado.data.split('-').reverse().join('/')}`);
+
+                if (confirmacao) {
+                    resposta = await enviar(`${BASE_URL}/api/folha-ponto/confirmar_jornada.php`, { id_funcionario: id_funcionario, id_jornada: linha.id });
+                    
+                    if (resposta["status"] == "sucesso") {
+                        saidaMensagens.style.color = "green";
+                        saidaMensagens.textContent = resposta["resposta"];
+                    } else {
+                        saidaMensagens.style.color = "red";
+                        saidaMensagens.textContent = resposta["resposta"];
+                    }
+                } else {
+                    saidaMensagens.style.color = "red";
+                    saidaMensagens.textContent = "Confirmação do ponto cancelada!";
                 }
             });
 
