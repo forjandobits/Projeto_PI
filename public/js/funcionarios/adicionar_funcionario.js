@@ -3,9 +3,10 @@ import { mostrarMensagem } from '../utils/mostrarMensagem.js';
 
 async function carregarCargos() {
     try {
-        const response = await fetch("api/listar_cargos.php");
+        const response = await fetch(`${BASE_URL}/api/cargo/exibir_cargo.php`);
         const cargos = await response.json();
         const select = document.getElementById("cargo");
+        console.log(cargos);
         cargos.forEach(cargo => {
             const option = document.createElement("option");
             option.value = cargo.id_cargo;

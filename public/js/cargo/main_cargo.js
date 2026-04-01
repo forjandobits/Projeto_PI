@@ -1,12 +1,7 @@
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 import { adicionarCargo } from "./adicionar_cargo.js";
 import { atualizarCargo } from "./update_cargo.js";
-import { 
-    listarCargos, 
-    configurarEdicao, 
-    idCargoAtual,
-    resetIdCargo,
-    limparModalCampos
-} from "./exibir_cargo.js";
+import { listarCargos,  configurarEdicao,  idCargoAtual, resetIdCargo, limparModalCampos } from "./exibir_cargo.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -46,10 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (idCargoAtual) {
             // EDITAR
             resposta = await atualizarCargo(idCargoAtual, dados);
+            mostrarMensagem("Atualizado ?", resposta.status)
             console.log("Atualizado:", resposta);
         } else {
             // CRIAR
             resposta = await adicionarCargo(dados);
+            mostrarMensagem("Criado ?", resposta.status)
             console.log("Criado:", resposta);
         }
 

@@ -61,8 +61,10 @@
     </section>
   </article>
 
-  <script type="module" src="public/js/funcionarios/exibir_funcionario.js"></script>
 </main>
+
+<script type="module" src="public/js/funcionarios/adicionar_funcionario.js"></script>
+<script type="module" src="public/js/funcionarios/exibir_funcionario.js"></script>
 
 <script>
   const BASE_URL = "<?= dirname($_SERVER['SCRIPT_NAME']) ?>";
