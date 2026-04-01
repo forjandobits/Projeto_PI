@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 $requisicao = json_decode(file_get_contents("php://input"), true);
 
 if (!$requisicao || !isset($requisicao["id"])) {
-    echo json_encode(["status" => "erro", "resposta" => "requisição inválida"]);
+    echo json_encode(["status" => "erro", "resposta" => "Requisição inválida"]);
     exit;
 }
 

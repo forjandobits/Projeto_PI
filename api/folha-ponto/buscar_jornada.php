@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 $requisicao = json_decode(file_get_contents("php://input"), true);
 
 if (!$requisicao || !isset($requisicao["id_funcionario"]) || !isset($requisicao["id_jornada"])) {
-    echo json_encode(["status" => "erro", "resposta" => "requisição inválida"]);
+    echo json_encode(["status" => "erro", "resposta" => "Requisição inválida"]);
     exit;
 }
 
@@ -27,6 +27,6 @@ if ($stmt->execute()) {
 
     echo json_encode(["status" => "sucesso", "resposta" => $dados]);
 } else {
-    echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);
+    echo json_encode(["status" => "erro", "resposta" => "Não foi possível executar a consulta sql"]);
 }
 ?>

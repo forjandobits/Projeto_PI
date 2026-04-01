@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 $requisicao = json_decode(file_get_contents("php://input"), true);
 
 if (!$requisicao || !isset($requisicao["id_funcionario"]) || !isset($requisicao["id_jornada"]) || !isset($requisicao["id_ponto"])) {
-    echo json_encode(["status" => "erro", "resposta" => "requisição inválida"]);
+    echo json_encode(["status" => "erro", "resposta" => "Requisição inválida"]);
     exit;
 }
 
@@ -27,8 +27,8 @@ $stmt2 = $conn->prepare($sql);
 $stmt2->bind_param("iii", $ferias_falta, $id_funcionario, $id_ponto);
 
 if ($stmt1->execute() && $stmt2->execute()) {
-    echo json_encode(["status" => "sucesso", "resposta" => "ponto atualizado com sucesso!"]);
+    echo json_encode(["status" => "sucesso", "resposta" => "Ponto atualizado com sucesso!"]);
 } else {
-    echo json_encode(["status" => "erro", "resposta" => "não foi possível atualizar o ponto"]);
+    echo json_encode(["status" => "erro", "resposta" => "Não foi possível atualizar o ponto"]);
 }
 ?>
