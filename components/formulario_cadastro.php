@@ -249,5 +249,3 @@
     </fieldset>
 </form>
 
-<script type="module" src="public/js/cadastro_fucionarios/adicionar_funcionario.js"></script>
-

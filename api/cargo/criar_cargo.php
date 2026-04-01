@@ -7,13 +7,13 @@ $requisicao = json_decode(file_get_contents("php://input"), true);
 
 // Validação básica (evita undefined)
 if (
-    !isset($requisicao["cbo"]) ||
-    !isset($requisicao["nomeCargo"]) ||
-    !isset($requisicao["salario"]) ||
-    !isset($requisicao["cargaHoraria"]) ||
-    !isset($requisicao["regime"])
+    empty($requisicao["cbo"]) ||
+    empty($requisicao["nomeCargo"]) ||
+    empty($requisicao["salario"]) ||
+    empty($requisicao["cargaHoraria"]) ||
+    empty($requisicao["regime"])
 ) {
-    echo json_encode(["status" => "erro", "mensagem" => "Dados incompletos"]);
+    echo json_encode(["status" => "erro", "mensagem" => "Dados incompletos!"]);
     exit;
 }
 
@@ -32,7 +32,7 @@ VALUES ('$nomeCargo', '$salario', '$cargaHoraria', '$regime', '$cbo')";
 
 if ($conn->query($sql)) {
     echo json_encode([
-        "status" => "ok",
+        "status" => "sucesso",
         "mensagem" => "Cargo cadastrado com sucesso!"
     ]);
 } else {
