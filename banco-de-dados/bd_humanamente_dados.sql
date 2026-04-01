@@ -275,47 +275,47 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
 -- Extraindo dados da tabela `tb_folhaponto`
 --
 
-INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_dia`, `horas_extras`, `faltas`, `ferias_falta_abonada`, `atrasos`, `observacoes`, `fechado`) VALUES
-(1, 1, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(2, 1, '2026-04-07', 9, 1, 0, 0, 0, 'Hora extra produção pão francês', 1),
-(3, 1, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(4, 1, '2026-04-09', 8, 0, 0, 0, 1, 'Chegou atrasado', 1),
-(5, 1, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1),
-(6, 2, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(7, 2, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(8, 2, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(9, 2, '2026-04-09', 9, 1, 0, 0, 0, 'Hora extra atendimento', 1),
-(10, 2, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1),
-(11, 3, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(12, 3, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(13, 3, '2026-04-08', 0, 0, 1, 0, 0, 'Falta', 1),
-(14, 3, '2026-04-09', 8, 0, 0, 0, 0, NULL, 1),
-(15, 3, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1),
-(16, 4, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(17, 4, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(18, 4, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(19, 4, '2026-04-09', 8, 0, 0, 0, 0, NULL, 1),
-(20, 4, '2026-04-10', 9, 1, 0, 0, 0, 'Hora extra limpeza', 1),
-(21, 5, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(22, 5, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(23, 5, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(24, 5, '2026-04-09', 8, 0, 0, 0, 0, NULL, 1),
-(25, 5, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1),
-(26, 6, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(27, 6, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(28, 6, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(29, 6, '2026-04-09', 8, 0, 0, 0, 0, NULL, 1),
-(30, 6, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1),
-(31, 7, '2026-04-06', 9, 1, 0, 0, 0, 'Produção alta', 1),
-(32, 7, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(33, 7, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(34, 7, '2026-04-09', 8, 0, 0, 0, 0, NULL, 1),
-(35, 7, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1),
-(36, 8, '2026-04-06', 8, 0, 0, 0, 0, NULL, 1),
-(37, 8, '2026-04-07', 8, 0, 0, 0, 0, NULL, 1),
-(38, 8, '2026-04-08', 8, 0, 0, 0, 0, NULL, 1),
-(39, 8, '2026-04-09', 8, 0, 0, 0, 0, NULL, 1),
-(40, 8, '2026-04-10', 8, 0, 0, 0, 0, NULL, 1);
+INSERT INTO `tb_folhaponto` (`id_ponto`, `id_funcionario`, `data`, `total_horas_dia`, `horas_extras`, `faltas`, `ferias_falta_abonada`, `atrasos`, `observacoes`) VALUES
+(1, 1, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(2, 1, '2026-04-07', 9, 1, 0, 0, 0, 'Hora extra produção pão francês'),
+(3, 1, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(4, 1, '2026-04-09', 8, 0, 0, 0, 1, 'Chegou atrasado'),
+(5, 1, '2026-04-10', 8, 0, 0, 0, 0, NULL),
+(6, 2, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(7, 2, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(8, 2, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(9, 2, '2026-04-09', 9, 1, 0, 0, 0, 'Hora extra atendimento'),
+(10, 2, '2026-04-10', 8, 0, 0, 0, 0, NULL),
+(11, 3, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(12, 3, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(13, 3, '2026-04-08', 0, 0, 1, 0, 0, 'Falta'),
+(14, 3, '2026-04-09', 8, 0, 0, 0, 0, NULL),
+(15, 3, '2026-04-10', 8, 0, 0, 0, 0, NULL),
+(16, 4, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(17, 4, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(18, 4, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(19, 4, '2026-04-09', 8, 0, 0, 0, 0, NULL),
+(20, 4, '2026-04-10', 9, 1, 0, 0, 0, 'Hora extra limpeza'),
+(21, 5, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(22, 5, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(23, 5, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(24, 5, '2026-04-09', 8, 0, 0, 0, 0, NULL),
+(25, 5, '2026-04-10', 8, 0, 0, 0, 0, NULL),
+(26, 6, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(27, 6, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(28, 6, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(29, 6, '2026-04-09', 8, 0, 0, 0, 0, NULL),
+(30, 6, '2026-04-10', 8, 0, 0, 0, 0, NULL),
+(31, 7, '2026-04-06', 9, 1, 0, 0, 0, 'Produção alta'),
+(32, 7, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(33, 7, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(34, 7, '2026-04-09', 8, 0, 0, 0, 0, NULL),
+(35, 7, '2026-04-10', 8, 0, 0, 0, 0, NULL),
+(36, 8, '2026-04-06', 8, 0, 0, 0, 0, NULL),
+(37, 8, '2026-04-07', 8, 0, 0, 0, 0, NULL),
+(38, 8, '2026-04-08', 8, 0, 0, 0, 0, NULL),
+(39, 8, '2026-04-09', 8, 0, 0, 0, 0, NULL),
+(40, 8, '2026-04-10', 8, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -629,7 +629,7 @@ CREATE TABLE IF NOT EXISTS `view_saldo_mensal` (
 --
 DROP TABLE IF EXISTS `view_espelho_ponto`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, `tb_folhaponto`.`ferias_falta_abonada` AS `ferias_falta_abonada`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
 
 -- --------------------------------------------------------
 
@@ -647,7 +647,7 @@ CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DE
 --
 DROP TABLE IF EXISTS `view_saldo_mensal`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_saldo_mensal`  AS SELECT `view_folha_ponto`.`id_funcionario` AS `id_funcionario`, `view_folha_ponto`.`nome_completo` AS `nome_completo`, sum(`view_folha_ponto`.`diferenca_horas`) AS `saldo_mes` FROM `view_folha_ponto` GROUP BY `view_folha_ponto`.`id_funcionario`, `view_folha_ponto`.`nome_completo``nome_completo`  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_saldo_mensal`  AS SELECT `view_folha_ponto`.`id_funcionario` AS `id_funcionario`, `view_folha_ponto`.`nome_completo` AS `nome_completo`, sum(`view_folha_ponto`.`diferenca_horas`) AS `saldo_mes` FROM `view_folha_ponto` GROUP BY `view_folha_ponto`.`id_funcionario`, `view_folha_ponto`.`nome_completo`  ;
 
 --
 -- Restrições para despejos de tabelas
