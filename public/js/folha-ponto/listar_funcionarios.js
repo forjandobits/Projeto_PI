@@ -2,13 +2,18 @@ import { enviar } from "../utils/enviar.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const filtro = document.querySelector("#filtro");
-    const dados = await enviar(`${BASE_URL}./api/folha-ponto/listar_funcionarios.php`, {});
+    const dados = await enviar(`${BASE_URL}/api/folha-ponto/listar_funcionarios.php`, {});
 
     listarPontos(dados);
 
     filtro.addEventListener("input", () => {
-        let pesquisa = filtro.ariaValueMax.toLowerCase();
+        let pesquisa = filtro.value.toLowerCase();
 
+        const resultadoPesquisa = dados.filter(pontos => {
+            return (pontos.nome_completo.toLowerCase().includes(pesquisa));
+        })
+
+        listarPontos(resultadoPesquisa);
     })
 
 });
