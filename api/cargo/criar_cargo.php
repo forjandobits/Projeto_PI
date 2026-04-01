@@ -13,7 +13,7 @@ if (
     empty($requisicao["cargaHoraria"]) ||
     empty($requisicao["regime"])
 ) {
-    echo json_encode(["status" => "erro", "mensagem" => "Dados incompletos!"]);
+    echo json_encode(["status" => "erro", "mensagem" => "Não foi possível criar um novo cargo com as informações inseridas! Preencha todos os campos."]);
     exit;
 }
 

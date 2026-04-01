@@ -14,8 +14,8 @@ try {
     // Validação do ID
     if (!isset($respostaCargo['id_cargo'])) {
         echo json_encode([
-            "success" => false,
-            "error" => "ID não enviado"
+            "status" => "erro",
+            "mensagem" => "ID não enviado"
         ]);
         exit;
     }
@@ -46,16 +46,16 @@ try {
         echo json_encode($cargo);
     } else {
         echo json_encode([
-            "success" => false,
-            "error" => "Cargo não encontrado"
+            "status" => "erro",
+            "mensagem" => "Cargo não encontrado."
         ]);
     }
 
 } catch (Exception $e) {
     // garante que SEMPRE retorna JSON
     echo json_encode([
-        "success" => false,
-        "error" => $e->getMessage()
+        "status" => "erro",
+        "mensagem" => $e->getMessage()
     ]);
 }
 ?>

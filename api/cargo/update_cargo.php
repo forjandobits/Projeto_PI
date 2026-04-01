@@ -12,16 +12,16 @@ $requisicao = json_decode(file_get_contents("php://input"), true);
 
 // 🔹 validação básica
 if (
-    !isset($requisicao["id_cargo"]) ||
-    !isset($requisicao["cbo"]) ||
-    !isset($requisicao["nomeCargo"]) ||
-    !isset($requisicao["salario"]) ||
-    !isset($requisicao["cargaHoraria"]) ||
-    !isset($requisicao["regime"])
+    empty($requisicao["id_cargo"]) ||
+    empty($requisicao["cbo"]) ||
+    empty($requisicao["nomeCargo"]) ||
+    empty($requisicao["salario"]) ||
+    empty($requisicao["cargaHoraria"]) ||
+    empty($requisicao["regime"])
 ) {
     echo json_encode([
         "status" => "erro",
-        "mensagem" => "Dados incompletos"
+        "mensagem" => "Não foi possível atualizar as informações os dados incompletos! Preencha todos os campos."
     ]);
     exit;
 }
@@ -47,7 +47,7 @@ $sql = "UPDATE tb_cargo SET
 // 🔹 executa
 if ($conn->query($sql)) {
     echo json_encode([
-        "status" => "ok",
+        "status" => "sucesso",
         "mensagem" => "Cargo atualizado com sucesso!"
     ]);
 } else {

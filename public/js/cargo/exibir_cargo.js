@@ -1,3 +1,4 @@
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 // Função utilitária
 export function resetIdCargo() {
     idCargoAtual = null;
@@ -64,6 +65,11 @@ export function configurarEdicao() {
                 },
                 body: JSON.stringify({ id_cargo: idCargoAtual })
             });
+
+            if(resposta.status === "erro"){
+                mostrarMensagem(resposta.mensagem, resposta.status);
+                return;
+            }
 
             const dados = await resposta.json();
 
