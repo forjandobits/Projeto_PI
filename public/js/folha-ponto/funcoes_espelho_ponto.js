@@ -7,6 +7,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
     const intervaloSaida = document.querySelector("#intervalo-saida");
     const intervaloRetorno = document.querySelector("#intervalo-retorno");
     const horaSaida = document.querySelector("#hora-saida");
+    const feriasFaltaAbonada = document.querySelector("#ferias-falta-abonada");
     const campoSaldo = document.querySelector("#saldo_mes");
     //Isis
     /*    const hoje = new Date();
@@ -24,8 +25,6 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
         dados = [];
 
         resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, { id: id, mes: mes });
-
-        console.log("Resposta completa:", resposta);
 
         dados = resposta.resposta || [];
         saldo_acumulado = resposta.saldo_acumulado || "00:00:00";
@@ -81,7 +80,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
             linha.appendChild(coluna);
 
             coluna = document.createElement("td");
-            if (resultado.faltas == null) {
+            if (resultado.faltas == 0) {
                 coluna.textContent = "Não";
             } else {
                 coluna.textContent = "Sim";
@@ -89,7 +88,11 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
             linha.appendChild(coluna);
 
             coluna = document.createElement("td");
-            coluna.textContent = "Não";
+            if (resultado.ferias_falta_abonada == 0) {
+                coluna.textContent = "Não";
+            } else {
+                coluna.textContent = "Sim";
+            }
             linha.appendChild(coluna);
 
             coluna = document.createElement("td");
@@ -116,6 +119,15 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
                 intervaloSaida.value = dados["intervalo_inicio"];
                 intervaloRetorno.value = dados["intervalo_fim"];
                 horaSaida.value = dados["hora_saida"];
+                feriasFaltaAbonada.value = dados["ferias_falta_abonada"];
+
+                if (dados.fechado == 1) {
+                    horaEntrada.disabled = true;
+                    intervaloSaida.disabled = true;
+                    intervaloRetorno.disabled = true;
+                    horaSaida.disabled = true;
+                    feriasFaltaAbonada.disabled = true;
+                }
             });
 
             coluna = document.createElement("td");
