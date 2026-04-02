@@ -33,10 +33,12 @@
           <th>Hora de Saída*</th>
           <th>Intervalo Saída*</th>
           <th>Intervalo Retorno*</th>
-          <th>Total Intervalo*</th>
           <th>Falta</th>
           <th>Férias/Falta Abonada</th>
           <th>Total de Horas*</th>
+          <th>Total Intervalo*</th>
+          <th>Horas Extras*</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -94,7 +96,6 @@
             <option value="1">Sim</option>
           </select>
         </div>
-        <button type="button" class="button-claro">Adicionar outra batida</button>
         <button type="submit" id="btn-editar-ponto">Salvar</button>
       </form>
     </section>

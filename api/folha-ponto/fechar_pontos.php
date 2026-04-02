@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 $requisicao = json_decode(file_get_contents("php://input"), true);
 
 if (!$requisicao || !isset($requisicao["id_funcionario"]) || !isset($requisicao["mes_fechar"])) {
-    echo json_encode(["status" => "erro", "resposta" => "requisição inválida"]);
+    echo json_encode(["status" => "erro", "resposta" => "Requisição inválida"]);
     exit;
 }
 
@@ -25,11 +25,11 @@ if ($stmt1->execute()) {
     $stmt2->bind_param("ii", $id_funcionario, $mes_fechar);
 
     if ($stmt2->execute()) {
-        echo json_encode(["status" => "sucesso", "resposta" => "mês fechado com sucesso!"]);
+        echo json_encode(["status" => "sucesso", "resposta" => "Mês fechado com sucesso!"]);
     } else {
-        echo json_encode(["status" => "erro", "resposta" => "erro ao fechar o mês!"]);
+        echo json_encode(["status" => "erro", "resposta" => "Erro ao fechar o mês!"]);
     }
 } else {
-    echo json_encode(["status" => "erro", "resposta" => "não foi possível executar a consulta sql"]);
+    echo json_encode(["status" => "erro", "resposta" => "Não foi possível executar a consulta sql"]);
 }
 ?>

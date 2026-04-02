@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Mar-2026 às 23:42
+-- Tempo de geração: 02-Abr-2026 às 02:41
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -159,8 +159,9 @@ CREATE TABLE IF NOT EXISTS `tb_folhaponto` (
   `id_ponto` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) NOT NULL,
   `data` date NOT NULL,
-  `total_horas_dia` int(11) NOT NULL,
-  `horas_extras` int(11) DEFAULT NULL,
+  `total_horas_dia` time DEFAULT '00:00:00',
+  `total_intervalo` time DEFAULT '00:00:00',
+  `horas_extras` time DEFAULT '00:00:00',
   `faltas` int(11) DEFAULT NULL,
   `ferias_falta_abonada` int(11) DEFAULT NULL,
   `atrasos` int(11) DEFAULT NULL,
@@ -228,6 +229,37 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
   KEY `fk13` (`id_funcionario`),
   KEY `fk14` (`id_ponto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Acionadores `tb_jornada`
+--
+DELIMITER $$
+CREATE TRIGGER `trg_calcular_horas` AFTER UPDATE ON `tb_jornada` FOR EACH ROW BEGIN
+DECLARE v_total_horas_dia TIME;
+DECLARE v_total_intervalo TIME;
+DECLARE v_horas_extras TIME;
+DECLARE v_carga_horaria INT;
+DECLARE v_carga_dia TIME;
+
+IF (NEW.confirmado <> OLD.confirmado AND NEW.confirmado = 1) THEN
+	SELECT c.carga_horaria INTO v_carga_horaria FROM tb_funcionario AS f JOIN tb_cargo AS c ON c.id_cargo = f.id_cargo WHERE f.id_funcionario = NEW.id_funcionario LIMIT 1;
+    
+    SET v_carga_dia = SEC_TO_TIME((v_carga_horaria / 5) * 3600);
+    
+    SET v_total_horas_dia = sec_to_time(timestampdiff(SECOND, NEW.`hora_entrada`, NEW.`hora_saida`) - timestampdiff(SECOND, NEW.`intervalo_inicio`, NEW.`intervalo_fim`));
+    SET v_total_intervalo = sec_to_time(timestampdiff(SECOND, NEW.`intervalo_inicio`, NEW.`intervalo_fim`));
+    SET v_horas_extras = TIMEDIFF(v_total_horas_dia, v_carga_dia);
+                       
+	IF v_horas_extras < '00:00:00' THEN
+    	SET v_horas_extras = '00:00:00';
+	END IF;
+    
+    UPDATE tb_folhaponto SET total_horas_dia = v_total_horas_dia, total_intervalo = v_total_intervalo, horas_extras = v_horas_extras WHERE id_ponto = NEW.id_ponto;
+
+END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -305,9 +337,11 @@ CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 ,`hora_saida` time
 ,`intervalo_inicio` time
 ,`intervalo_fim` time
-,`total_intervalo` time
 ,`faltas` int(11)
+,`ferias_falta_abonada` int(11)
+,`total_intervalo` time
 ,`total_horas_dia` time
+,`horas_extras` time
 ,`nome_completo` varchar(100)
 ,`id_funcionario` int(11)
 ,`id_jornada` int(11)
@@ -327,8 +361,8 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 ,`carga_semanal_prevista` int(11)
 ,`ano` int(4)
 ,`semana` int(2)
-,`horas_trabalhadas_semana` decimal(32,0)
-,`diferenca_horas` decimal(33,0)
+,`horas_trabalhadas_semana` decimal(29,0)
+,`diferenca_horas` decimal(30,0)
 ,`situacao` varchar(16)
 );
 
@@ -341,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `view_folha_ponto` (
 CREATE TABLE IF NOT EXISTS `view_saldo_mensal` (
 `id_funcionario` int(11)
 ,`nome_completo` varchar(100)
-,`saldo_mes` decimal(55,0)
+,`saldo_mes` decimal(52,0)
 );
 
 -- --------------------------------------------------------
@@ -351,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `view_saldo_mensal` (
 --
 DROP TABLE IF EXISTS `view_espelho_ponto`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_intervalo`, `tb_folhaponto`.`faltas` AS `faltas`, `tb_folhaponto`.`ferias_falta_abonada` AS `ferias_falta_abonada`, sec_to_time(timestampdiff(SECOND,`tb_jornada`.`hora_entrada`,`tb_jornada`.`hora_saida`) - timestampdiff(SECOND,`tb_jornada`.`intervalo_inicio`,`tb_jornada`.`intervalo_fim`)) AS `total_horas_dia`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, `tb_folhaponto`.`faltas` AS `faltas`, `tb_folhaponto`.`ferias_falta_abonada` AS `ferias_falta_abonada`, `tb_folhaponto`.`total_intervalo` AS `total_intervalo`, `tb_folhaponto`.`total_horas_dia` AS `total_horas_dia`, `tb_folhaponto`.`horas_extras` AS `horas_extras`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
 
 -- --------------------------------------------------------
 
@@ -369,7 +403,7 @@ CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DE
 --
 DROP TABLE IF EXISTS `view_saldo_mensal`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_saldo_mensal`  AS SELECT `view_folha_ponto`.`id_funcionario` AS `id_funcionario`, `view_folha_ponto`.`nome_completo` AS `nome_completo`, sum(`view_folha_ponto`.`diferenca_horas`) AS `saldo_mes` FROM `view_folha_ponto` GROUP BY `view_folha_ponto`.`id_funcionario`, `view_folha_ponto`.`nome_completo`  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_saldo_mensal`  AS SELECT `view_folha_ponto`.`id_funcionario` AS `id_funcionario`, `view_folha_ponto`.`nome_completo` AS `nome_completo`, sum(`view_folha_ponto`.`diferenca_horas`) AS `saldo_mes` FROM `view_folha_ponto` GROUP BY `view_folha_ponto`.`id_funcionario`, `view_folha_ponto`.`nome_completo``nome_completo`  ;
 
 --
 -- Restrições para despejos de tabelas
