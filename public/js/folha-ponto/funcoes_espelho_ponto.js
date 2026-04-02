@@ -114,25 +114,31 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
 
                 resposta = await enviar(`${BASE_URL}/api/folha-ponto/buscar_jornada.php`, { id_funcionario: id_funcionario, id_jornada: id_jornada });
 
-                dados = resposta.resposta[0];
+                dados = resposta.resposta;
+                console.log(dados)
 
-                informacoesPonto.textContent = `${dados["data"].split('-').reverse().join('/')} - ${dados["dia_semana"]}`;
+                informacoesPonto.textContent = `${dados[0]["data"].split('-').reverse().join('/')} - ${dados["dia_semana"]}`;
                 informacoesPonto.dataset.id_funcionario = id_funcionario;
                 informacoesPonto.dataset.id_jornada = linha.id;
                 informacoesPonto.dataset.id_ponto = id_ponto;
-                horaEntrada.value = dados["hora_entrada"];
-                intervaloSaida.value = dados["intervalo_inicio"];
-                intervaloRetorno.value = dados["intervalo_fim"];
-                horaSaida.value = dados["hora_saida"];
-                feriasFaltaAbonada.value = dados["ferias_falta_abonada"];
 
-                if (dados.fechado == 1) {
-                    horaEntrada.disabled = true;
-                    intervaloSaida.disabled = true;
-                    intervaloRetorno.disabled = true;
-                    horaSaida.disabled = true;
-                    feriasFaltaAbonada.disabled = true;
-                }
+                let i = 0;
+                dados.forEach((jornada) => {
+                    if (jornada.confirmado == 1) {
+                        horaEntrada.disabled = true;
+                        intervaloSaida.disabled = true;
+                        intervaloRetorno.disabled = true;
+                        horaSaida.disabled = true;
+                        feriasFaltaAbonada.disabled = true;
+                    } else {
+                        horaEntrada.value = dados[i]["hora_entrada"];
+                        intervaloSaida.value = dados[i]["intervalo_inicio"];
+                        intervaloRetorno.value = dados[i]["intervalo_fim"];
+                        horaSaida.value = dados[i]["hora_saida"];
+                        feriasFaltaAbonada.value = dados[i]["ferias_falta_abonada"];
+                    }
+                    i++;
+                })
             });
 
             coluna = document.createElement("td");
@@ -148,10 +154,11 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
 
                 if (confirmacao) {
                     resposta = await enviar(`${BASE_URL}/api/folha-ponto/confirmar_jornada.php`, { id_funcionario: id_funcionario, id_jornada: linha.id });
-                    
+
                     if (resposta["status"] == "sucesso") {
                         saidaMensagens.style.color = "green";
                         saidaMensagens.textContent = resposta["resposta"];
+                        carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
                     } else {
                         saidaMensagens.style.color = "red";
                         saidaMensagens.textContent = resposta["resposta"];
