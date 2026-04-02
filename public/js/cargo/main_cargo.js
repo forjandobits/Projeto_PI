@@ -17,16 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
             limparModalCampos();
         });
     }
-    const btnSalvar = document.getElementById("btnsalvar");
+    const btnSalvar = document.querySelector("#btnsalvar");
+    const exibir = document.querySelector(".modal");
 
     // pega dados do formulário
     function pegarDadosFormulario() {
         return {
-            cbo: document.getElementById("cbo").value,
-            nomeCargo: document.getElementById("nome-cargo").value,
-            salario: document.getElementById("salario").value,
-            cargaHoraria: document.getElementById("carga-horaria").value,
-            regime: document.getElementById("regime").value
+            cbo: document.querySelector("#cbo").value,
+            nomeCargo: document.querySelector("#nome-cargo").value,
+            salario: document.querySelector("#salario").value,
+            cargaHoraria: document.querySelector("#carga-horaria").value,
+            regime: document.querySelector("#regime").value
         };
     }
 
@@ -41,13 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (idCargoAtual) {
             // EDITAR
             resposta = await atualizarCargo(idCargoAtual, dados);
-            mostrarMensagem("Atualizado ?", resposta.status)
-            console.log("Atualizado:", resposta);
+            mostrarMensagem(resposta.mensagem, resposta.status);
+            if(resposta.status === "sucesso"){
+                exibir.style.display = "none";
+            }
+
         } else {
             // CRIAR
             resposta = await adicionarCargo(dados);
-            mostrarMensagem("Criado ?", resposta.status)
-            console.log("Criado:", resposta);
+            mostrarMensagem(resposta.mensagem, resposta.status);
+            if(resposta.status === "sucesso"){
+                exibir.style.display = "none";
+            }
+            
         }
 
         // atualiza tabela
