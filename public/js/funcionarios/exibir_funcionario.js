@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 idFuncionario = e.target.id;
 
                 const dadosFuncionario = await respotaFuncionario.json();
+                console.log(dadosFuncionario);
 
                 const nomeCompleto = document.querySelector('#nome-completo');
                 const telefone = document.querySelector('#telefone');
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const pisPasep = document.querySelector('#pis-pasep')
                 const rua = document.querySelector('#rua')
                 const numeroCasa = document.querySelector('#numero-casa')
-                const complementoCasa = document.querySelector('#complemento-casa')
+                const complementoCasa = document.querySelector('#complemento')
                 const bairro = document.querySelector('#bairro')
                 const cidade = document.querySelector('#cidade')
                 const estado = document.querySelector('#estado')
@@ -126,30 +127,30 @@ document.addEventListener('DOMContentLoaded', function () {
                     nomeCompleto.value = dados.nome_completo;
                     telefone.value = dados.telefone;
                     email.value = dados.email;
-                    dataNasc.value = dados.data_nascimento
-                    cpf.value = dados.cpf
-                    rg.value = dados.rg
-                    genero.value = dados.sexo
-                    estadoCivil.value = dados.estado_civil
-                    pisPasep.value = dados.pis_pasep
-                    rua.value = dados.rua
-                    numeroCasa.value = dados.numero_casa
-                    complementoCasa.value = dados.complemento
-                    bairro.value = dados.bairro
-                    cidade.value = dados.cidade
-                    estado.value = dados.estado
-                    cep.value = dados.cep
-                    cargo.value = dados.id_cargo
-                    cbo.value = dados.cbo
-                    regime.value = dados.regime_trabalhista
-                    salario.value = dados.salario
-                    banco.value = dados.nome_banco
-                    agencia.value = dados.agencia
-                    conta.value = dados.numero_conta
-                    pix.value = dados.chave_pix
-                    ctps.value = dados.ctps
-                    nis.value = dados.nis
-                    nit.value = dados.nit
+                    dataNasc.value = dados.data_nascimento;
+                    cpf.value = dados.cpf;
+                    rg.value = dados.rg;
+                    genero.value = dados.sexo;
+                    estadoCivil.value = dados.estado_civil;
+                    pisPasep.value = dados.pis_pasep;
+                    rua.value = dados.rua;
+                    numeroCasa.value = dados.numero_casa;
+                    complementoCasa.value = dados.complemento;
+                    bairro.value = dados.bairro;
+                    cidade.value = dados.cidade;
+                    estado.value = dados.estado;
+                    cep.value = dados.cep;
+                    cargo.value = dados.id_cargo;
+                    cbo.value = dados.cbo;
+                    regime.value = dados.regime_trabalhista;
+                    salario.value = dados.salario;
+                    banco.value = dados.nome_banco;
+                    agencia.value = dados.agencia;
+                    conta.value = dados.numero_conta;
+                    pix.value = dados.chave_pix;
+                    ctps.value = dados.ctps;
+                    nis.value = dados.nis;
+                    nit.value = dados.nit;
 
                     if (dados.certidao_casamento_nascimento == "1") {
                         certidaoCasamento.checked = true

@@ -1,5 +1,22 @@
- import { mostrarMensagem } from "../utils/mostrarMensagem.js";
+import { mostrarMensagem } from "../utils/mostrarMensagem.js";
 
+export async function carregarCargos() {
+    try {
+        const response = await fetch(`${BASE_URL}/api/cargo/exibir_cargo.php`);
+        const cargos = await response.json();
+        const select = document.querySelector("#cargo");
+        console.log(cargos);
+        cargos.forEach(cargo => {
+            const option = document.createElement("option");
+            option.value = cargo.id_cargo;
+            option.textContent = cargo.nome_cargo;
+            select.appendChild(option);
+        });
+    } catch (error) {
+        mostrarMensagem("Erro ao carregar cargos.", "erro");
+        console.error(error);
+    }
+}
 
 export async function exibiInformacoesEditar(id) {
     const respotaFuncionario = await fetch(`${BASE_URL}/api/funcionarios/exibir_dados_funcionario.php`, {
@@ -34,7 +51,7 @@ export async function exibiInformacoesEditar(id) {
         pisPasep: document.querySelector('#pis-pasep'),
         rua: document.querySelector('#rua'),
         numeroCasa: document.querySelector('#numero-casa'),
-        complementoCasa: document.querySelector('#complemento-casa'),
+        complementoCasa: document.querySelector('#complemento'),
         bairro: document.querySelector('#bairro'),
         cidade: document.querySelector('#cidade'),
         estado: document.querySelector('#estado'),
@@ -128,11 +145,12 @@ export async function editarFuncionario(id) {
     });
 
 
-    const result = await resposta.json();
+    const resultado = await resposta.json();
 
 
-    if (result.success) {
+    if (resultado.status === "sucesso") {
         mostrarMensagem("Atualizado com sucesso!", "sucesso");
+        window.location.href = "colaboradores.php";
     } else {
         mostrarMensagem("Erro ao atualizar", "erro");
     }

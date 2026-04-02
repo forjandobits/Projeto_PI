@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 $dados = json_decode(file_get_contents("php://input"), true);
 
 if (!isset($dados['id_funcionario'])) {
-    echo json_encode(["success" => false, "error" => "ID não enviado"]);
+    echo json_encode(["status" => "erro", "mensagem" => "ID não enviado"]);
     exit;
 }
 
@@ -16,7 +16,7 @@ $stmt = $conn->prepare("UPDATE tb_funcionario SET situacao = 0 WHERE id_funciona
 $stmt->bind_param("i", $id);
 
 if (!$stmt->execute()) {
-    echo json_encode(["success" => false, "error" => $stmt->error]);
+    echo json_encode(["status" => "erro", "mensagem" => $stmt->error]);
     exit;
 }
 
@@ -31,13 +31,13 @@ if ($result->num_rows > 0) {
     $funcionario = $result->fetch_assoc();
 
     echo json_encode([
-        "success" => true,
-        "situacao" => $funcionario['situacao']
+        "status" => "sucesso",
+        "mensagem" => $funcionario['situacao']
     ]);
 } else {
     echo json_encode([
-        "success" => false,
-        "error" => "Funcionário não encontrado"
+        "status" => "erro",
+        "mensagem" => "Funcionário não encontrado."
     ]);
 }
 ?>

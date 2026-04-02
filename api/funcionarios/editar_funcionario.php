@@ -67,4 +67,4 @@ chave_pix='$pix'
 WHERE id_funcionario=$id");
 
 
-echo json_encode(["success" => true]);
+echo json_encode(["status" => "sucesso"]);

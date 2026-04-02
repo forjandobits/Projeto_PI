@@ -70,7 +70,7 @@
 
         <div class="campo">
             <label for="complemento-casa">Complemento:</label>
-            <input type="text" name="ComplementoCasa-Funcionario" id="complemento-casa"/>
+            <input type="text" name="ComplementoCasa-Funcionario" id="complemento"/>
         </div>
         
         <div class="campo">

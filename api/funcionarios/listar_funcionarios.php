@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 if (!$result) {
     echo json_encode([
         "sucesso" => false,
-        "erro" => $conn->error
+        "mensagem" => $conn->error
     ]);
     exit;
 }
