@@ -13,7 +13,7 @@ if (!$requisicao || !isset($requisicao["id_funcionario"]) || !isset($requisicao[
 $id_funcionario = (int)$requisicao["id_funcionario"];
 $id_jornada = (int)$requisicao["id_jornada"];
 
-$sql = "SELECT data, dia_semana, hora_entrada, hora_saida, intervalo_inicio, intervalo_fim, ferias_falta_abonada, confirmado FROM view_espelho_ponto WHERE view_espelho_ponto.id_funcionario = ? AND id_jornada = ?";
+$sql = "SELECT data, dia_semana, hora_entrada, hora_saida, intervalo_inicio, intervalo_fim, ferias_falta_abonada, fechado, confirmado FROM view_espelho_ponto WHERE view_espelho_ponto.id_funcionario = ? AND id_jornada = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $id_funcionario, $id_jornada);
 

@@ -6,7 +6,6 @@
 // - resultado: json -> json que o arquivo em local deve enviar de volta como resposta da requisição.
 export async function enviar(local, dados) {
     // Envia requisição para local
-    console.log(dados);
     const resposta = await fetch(local, {
         // Com o método POST
         method: "POST",
