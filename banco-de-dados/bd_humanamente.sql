@@ -233,7 +233,6 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 --
 -- Acionadores `tb_jornada`
 --
-DELIMITER $$
 CREATE TRIGGER `trg_calcular_horas` AFTER UPDATE ON `tb_jornada` FOR EACH ROW BEGIN
 DECLARE v_total_horas_dia TIME;
 DECLARE v_total_intervalo TIME;
@@ -257,9 +256,7 @@ IF (NEW.confirmado <> OLD.confirmado AND NEW.confirmado = 1) THEN
     UPDATE tb_folhaponto SET total_horas_dia = v_total_horas_dia, total_intervalo = v_total_intervalo, horas_extras = v_horas_extras WHERE id_ponto = NEW.id_ponto;
 
 END IF;
-END
-$$
-DELIMITER ;
+END ;
 
 -- --------------------------------------------------------
 
@@ -403,7 +400,7 @@ CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DE
 --
 DROP TABLE IF EXISTS `view_saldo_mensal`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_saldo_mensal`  AS SELECT `view_folha_ponto`.`id_funcionario` AS `id_funcionario`, `view_folha_ponto`.`nome_completo` AS `nome_completo`, sum(`view_folha_ponto`.`diferenca_horas`) AS `saldo_mes` FROM `view_folha_ponto` GROUP BY `view_folha_ponto`.`id_funcionario`, `view_folha_ponto`.`nome_completo``nome_completo`  ;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_saldo_mensal`  AS SELECT `view_folha_ponto`.`id_funcionario` AS `id_funcionario`, `view_folha_ponto`.`nome_completo` AS `nome_completo`, sum(`view_folha_ponto`.`diferenca_horas`) AS `saldo_mes` FROM `view_folha_ponto` GROUP BY `view_folha_ponto`.`id_funcionario`, `view_folha_ponto`.`nome_completo`  ;
 
 --
 -- Restrições para despejos de tabelas
