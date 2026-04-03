@@ -1,4 +1,4 @@
- import { exibiInformacoesEditar, editarFuncionario, carregarCargos } from './funcoes.js';
+import { exibiInformacoesEditar, editarFuncionario, carregarCargos } from './funcoes.js';
 import { enviar } from '../utils/enviar.js';
 import { mostrarMensagem } from '../utils/mostrarMensagem.js';
 
@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     pisPasep: document.getElementById("pis-pasep").value,
                     nis: document.getElementById("nis").value,
                     nit: document.getElementById("nit").value,
-                    ctps: document.querySelector("#ctps").value
+                    ctps: document.querySelector("#ctps").value,
+                    filhos: document.getElementById("filhos").checked,
+                    num_filhos: document.querySelector("#qtd-filhos").value
                 };
 
                 const resposta = await fetch(`${BASE_URL}/api/funcionarios/criar_funcionario.php`, {

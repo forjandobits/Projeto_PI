@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+import { mostrarMensagem } from '../utils/mostrarMensagem.js';
 
+document.addEventListener('DOMContentLoaded', function () {
+    
     function limparTabela() {
         const tbody = document.querySelector("#tabela-saida-colaboradores");
         if (tbody) {
@@ -214,31 +216,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const resultado = await resposta.json();
 
-                if (!resultado.success) {
+                console.log(resultado);
+
+                if (resultado.status === "erro") {
                     console.log("Erro ao desligar funcionário");
+                    mostrarMensagem("Erro ao desligar funcionário.", "erro");
                     return;
+                } else {
+                    // 2. REGISTRAR DEMISSÃO
+                    try {
+                        await fetch(`${BASE_URL}/api/funcionarios/mandar_demissao.php`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                id_funcionario: idFuncionario,
+                                nome_funcionario: nomeFuncionario,
+                                data_demissao: new Date().toISOString().split("T")[0],
+                            })
+                        });
+                        
+                        mostrarMensagem("Funcionário desligado!", "sucesso");
+                    } catch (erro) {
+                        console.error("Erro ao registrar demissão:", erro);
+                    }
+    
+                    // 3. ATUALIZA TABELA
+                    await recarregarTabela();
                 }
 
-                // 2. REGISTRAR DEMISSÃO
-                try {
-                    await fetch(`${BASE_URL}/api/funcionarios/mandar_demissao.php`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            id_funcionario: idFuncionario,
-                            nome_funcionario: nomeFuncionario,
-                            data_demissao: new Date().toISOString().split("T")[0],
-                        })
-                    });
-
-                } catch (erro) {
-                    console.error("Erro ao registrar demissão:", erro);
-                }
-
-                // 3. ATUALIZA TABELA
-                await recarregarTabela();
             }
         });
     }
