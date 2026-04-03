@@ -461,7 +461,7 @@ DECLARE v_horas_extras TIME;
 DECLARE v_carga_horaria INT;
 DECLARE v_carga_dia TIME;
 
-IF (NEW.confirmado <> OLD.confirmado AND NEW.confirmado = 1) THEN
+IF (NEW.confirmado = 1 || OLD.confirmado = 1) THEN
 	SELECT c.carga_horaria INTO v_carga_horaria FROM tb_funcionario AS f JOIN tb_cargo AS c ON c.id_cargo = f.id_cargo WHERE f.id_funcionario = NEW.id_funcionario LIMIT 1;
     
     SET v_carga_dia = SEC_TO_TIME((v_carga_horaria / 5) * 3600);
