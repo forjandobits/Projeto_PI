@@ -38,10 +38,6 @@
                     <div class="campo">
                         <input type="text" name="Filtro" id="filtro" placeholder="Ex.: Nome do Funcionário" required>
                     </div>
-
-                    <div class="campo">
-                        <button type="submit">Buscar</button>
-                    </div>
                 </section>
             </form>
         </article>
