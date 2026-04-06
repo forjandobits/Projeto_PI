@@ -410,24 +410,24 @@ CREATE TABLE IF NOT EXISTS `tb_jornada` (
 --
 
 INSERT INTO `tb_jornada` (`id_jornada`, `id_funcionario`, `id_ponto`, `hora_entrada`, `hora_saida`, `intervalo_inicio`, `intervalo_fim`, `dia_semana`, `confirmado`) VALUES
-(1, 1, 1, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Segunda', 1),
-(2, 1, 2, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Terça', 1),
-(3, 1, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 1),
-(4, 1, 4, '08:10:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 1),
-(5, 1, 5, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 1),
-(6, 2, 6, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 1),
-(7, 2, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 1),
-(8, 2, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 1),
-(9, 2, 9, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quinta', 1),
-(10, 2, 10, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 1),
-(11, 3, 11, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 1),
+(1, 1, 1, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
+(2, 1, 2, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Terça', 0),
+(3, 1, 3, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
+(4, 1, 4, '08:10:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
+(5, 1, 5, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 0),
+(6, 2, 6, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
+(7, 2, 7, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
+(8, 2, 8, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
+(9, 2, 9, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
+(10, 2, 10, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 0),
+(11, 3, 11, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
 (12, 3, 12, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
 (13, 3, 13, '00:00:00', '00:00:00', '00:00:00', '00:00:00', 'Quarta', 0),
 (14, 3, 14, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
 (15, 3, 15, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Sexta', 0),
 (16, 4, 16, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
 (17, 4, 17, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Terça', 0),
-(18, 4, 18, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 1),
+(18, 4, 18, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quarta', 0),
 (19, 4, 19, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Quinta', 0),
 (20, 4, 20, '08:00:00', '18:00:00', '12:00:00', '13:00:00', 'Sexta', 0),
 (21, 5, 21, '08:00:00', '17:00:00', '12:00:00', '13:00:00', 'Segunda', 0),
@@ -461,7 +461,7 @@ DECLARE v_horas_extras TIME;
 DECLARE v_carga_horaria INT;
 DECLARE v_carga_dia TIME;
 
-IF (NEW.confirmado <> OLD.confirmado AND NEW.confirmado = 1) THEN
+IF (NEW.confirmado = 1 || OLD.confirmado = 1) THEN
 	SELECT c.carga_horaria INTO v_carga_horaria FROM tb_funcionario AS f JOIN tb_cargo AS c ON c.id_cargo = f.id_cargo WHERE f.id_funcionario = NEW.id_funcionario LIMIT 1;
     
     SET v_carga_dia = SEC_TO_TIME((v_carga_horaria / 5) * 3600);
@@ -661,7 +661,7 @@ CREATE TABLE IF NOT EXISTS `view_saldo_mensal` (
 --
 DROP TABLE IF EXISTS `view_espelho_ponto`;
 
-CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, `tb_folhaponto`.`faltas` AS `faltas`, `tb_folhaponto`.`ferias_falta_abonada` AS `ferias_falta_abonada`, `tb_folhaponto`.`total_intervalo` AS `total_intervalo`, `tb_folhaponto`.`total_horas_dia` AS `total_horas_dia`, `tb_folhaponto`.`horas_extras` AS `horas_extras`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_jornada`.`confirmado` AS `confirmado`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_espelho_ponto`  AS SELECT `tb_folhaponto`.`data` AS `data`, `tb_jornada`.`dia_semana` AS `dia_semana`, `tb_jornada`.`hora_entrada` AS `hora_entrada`, `tb_jornada`.`hora_saida` AS `hora_saida`, `tb_jornada`.`intervalo_inicio` AS `intervalo_inicio`, `tb_jornada`.`intervalo_fim` AS `intervalo_fim`, `tb_folhaponto`.`faltas` AS `faltas`, `tb_folhaponto`.`ferias_falta_abonada` AS `ferias_falta_abonada`, `tb_folhaponto`.`total_intervalo` AS `total_intervalo`, `tb_folhaponto`.`total_horas_dia` AS `total_horas_dia`, `tb_folhaponto`.`horas_extras` AS `horas_extras`, `tb_funcionario`.`nome_completo` AS `nome_completo`, `tb_jornada`.`confirmado` AS `confirmado`, `tb_folhaponto`.`fechado` AS `fechado`, `tb_funcionario`.`id_funcionario` AS `id_funcionario`, `tb_jornada`.`id_jornada` AS `id_jornada`, `tb_jornada`.`id_ponto` AS `id_ponto` FROM (((`tb_funcionario` join `tb_cargo` on(`tb_funcionario`.`id_cargo` = `tb_cargo`.`id_cargo`)) join `tb_folhaponto` on(`tb_funcionario`.`id_funcionario` = `tb_folhaponto`.`id_funcionario`)) join `tb_jornada` on(`tb_funcionario`.`id_funcionario` = `tb_jornada`.`id_funcionario` and `tb_folhaponto`.`id_ponto` = `tb_jornada`.`id_ponto`))  ;
 
 -- --------------------------------------------------------
 
