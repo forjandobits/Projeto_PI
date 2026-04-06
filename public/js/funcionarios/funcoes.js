@@ -113,26 +113,40 @@ export async function editarFuncionario(id) {
     const dados = {
         id_funcionario: id,
         nome_completo: document.querySelector('#nome-completo').value,
+        telefone: document.querySelector('#telefone').value,
         email: document.querySelector('#email').value,
         data_nascimento: document.querySelector('#data-nasc').value,
+        cpf: document.getElementById("cpf").value,
+        rg: document.getElementById("rg").value,
         sexo: document.querySelector('#genero').value,
         estado_civil: document.querySelector('#estado-civil').value,
         id_cargo: document.querySelector('#cargo').value,
 
-
-        telefone: document.querySelector('#telefone').value,
-
-
         rua: document.querySelector('#rua').value,
         numero_casa: document.querySelector('#numero-casa').value,
+        complemento: document.getElementById("complemento").value,
         bairro: document.querySelector('#bairro').value,
         cidade: document.querySelector('#cidade').value,
+        estado: document.getElementById("estado").value,
         cep: document.querySelector('#cep').value,
 
+        cargo: document.getElementById("cargo").value,
 
+        banco: document.getElementById("banco").value,
         agencia: document.querySelector('#agencia').value,
         numero_conta: document.querySelector('#numero-conta').value,
-        chave_pix: document.querySelector('#chave-pix').value
+        chave_pix: document.querySelector('#chave-pix').value,
+
+        certidaoCasamento: document.querySelector("#certidao-casamento").checked ? 1 : 0,
+        pcd: document.querySelector("#pcd").checked ? 1 : 0,
+        cam: document.querySelector("#cam").checked ? 1 : 0,
+        cnh: document.querySelector("#cnh").checked ? 1 : 0,
+        pisPasep: document.getElementById("pis-pasep").value,
+        nis: document.getElementById("nis").value,
+        nit: document.getElementById("nit").value,
+        ctps: document.querySelector("#ctps").value,
+        filhos: document.querySelector("#filhos").checked ? 1 : 0,
+        qtdFilhos: document.querySelector("#qtd-filhos").value || 0
     };
 
 
