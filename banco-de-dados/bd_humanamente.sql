@@ -340,6 +340,7 @@ CREATE TABLE IF NOT EXISTS `view_espelho_ponto` (
 ,`total_horas_dia` time
 ,`horas_extras` time
 ,`nome_completo` varchar(100)
+,`confirmado` tinyint(1)
 ,`id_funcionario` int(11)
 ,`id_jornada` int(11)
 ,`id_ponto` int(11)
