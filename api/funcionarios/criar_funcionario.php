@@ -99,7 +99,7 @@ $sql5 = "INSERT INTO tb_documento (
             '$idFuncionario', '$rg', '$cpf', '$pisPasep', '$cam', '$certidaoCasamento', '$pcd', '$nis', '$nit', '$ctps', '$cnh'
          )";
 
-$sql5 = "INSERT INTO tb_filho (
+$sql6 = "INSERT INTO tb_filho (
             id_funcionario, tem_filho, num_filho
          ) VALUES (
             '$idFuncionario', '$tem_filho', '$num_filhos'
@@ -110,7 +110,8 @@ if (
     $conn->query($sql2) &&
     $conn->query($sql3) &&
     $conn->query($sql4) &&
-    $conn->query($sql5)
+    $conn->query($sql5) &&
+    $conn->query($sql6) 
 ) {
     echo json_encode(["status" => "sucesso", "mensagem" => "Funcionário cadastrado com sucesso!"]);
 } else {
