@@ -21,17 +21,50 @@ require_once __DIR__ . "/../../banco-de-dados/conexao.php";
 // pega as diferenças semanais, descobre quais semanas pertencem ao mês atual e soma tudo para gerar o saldo mensal
 
 $sql = "SELECT
-  v.id_funcionario,
-  v.nome_completo,
-  SUM(v.diferenca_horas) AS saldo_mes,
-  CASE
-      WHEN SUM(v.diferenca_horas) > 0 THEN 'Crédito'
-      WHEN SUM(v.diferenca_horas) < 0 THEN 'Débito'
-      ELSE 'Regular'
-  END AS situacao
-FROM view_folha_ponto v
-WHERE v.ano = YEAR(CURDATE())
-GROUP BY v.id_funcionario, v.nome_completo;
+    f.id_funcionario,
+    f.nome_completo,
+
+    TIME_FORMAT(
+        SEC_TO_TIME(
+            COALESCE(SUM(
+                TIME_TO_SEC(p.total_horas_dia)
+                -
+                ((c.carga_horaria * 3600) / 5)
+            ), 0)
+        ),
+        '%H:%i'
+    ) AS banco_horas,
+
+    CASE
+        WHEN COALESCE(SUM(
+            TIME_TO_SEC(p.total_horas_dia)
+            -
+            ((c.carga_horaria * 3600) / 5)
+        ), 0) > 0 THEN 'Crédito'
+
+        WHEN COALESCE(SUM(
+            TIME_TO_SEC(p.total_horas_dia)
+            -
+            ((c.carga_horaria * 3600) / 5)
+        ), 0) < 0 THEN 'Débito'
+
+        ELSE 'Regular'
+    END AS situacao
+
+FROM tb_funcionario f
+
+JOIN tb_cargo c 
+    ON f.id_cargo = c.id_cargo
+
+LEFT JOIN tb_folhaponto p 
+    ON f.id_funcionario = p.id_funcionario
+
+LEFT JOIN tb_jornada j 
+    ON j.id_ponto = p.id_ponto
+    AND j.id_funcionario = f.id_funcionario
+    AND j.confirmado = 1  
+
+GROUP BY f.id_funcionario, f.nome_completo;
 ";
 
 $result = $conn->query($sql);
