@@ -213,3 +213,90 @@ export async function fecharMes(id, mesReferencia, saidaMensagens) {
         saidaMensagens.textContent = resposta["resposta"];
     }
 }
+
+export async function carregarPontosRelatorio(id, mes, tabela, saidaNome, saidaData, saidaSaldo) {
+    let resposta = {};
+    let dados = [];
+    let saldo_acumulado = "";
+
+    tabela.textContent = "";
+
+    if (id != null && id != "") {
+        dados = [];
+
+        resposta = await enviar(`${BASE_URL}/api/folha-ponto/espelho_ponto.php`, { id: id, mes: mes });
+
+        dados = resposta.resposta || [];
+        saldo_acumulado = resposta.saldo_acumulado || "00:00:00";
+
+        
+        saidaNome.textContent = `${dados[0].nome_completo}`;
+        
+        saidaData.textContent = `${mes.split('-').reverse().join('/')}`;
+
+        saidaSaldo.textContent = `Banco de Horas(*): ${saldo_acumulado}`;
+
+        dados.forEach(resultado => {
+
+            let linha = document.createElement("tr");
+
+            let coluna = document.createElement("td");
+            coluna.textContent = resultado.data.split('-').reverse().join('/');
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.dia_semana;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.hora_entrada;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.hora_saida;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.intervalo_inicio;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.intervalo_fim;
+            linha.appendChild(coluna);
+
+
+            coluna = document.createElement("td");
+            if (resultado.faltas == 0) {
+                coluna.textContent = "Não";
+            } else {
+                coluna.textContent = "Sim";
+            }
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            if (resultado.ferias_falta_abonada == 0) {
+                coluna.textContent = "Não";
+            } else {
+                coluna.textContent = "Sim";
+            }
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.total_horas_dia;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.total_intervalo;
+            linha.appendChild(coluna);
+
+            coluna = document.createElement("td");
+            coluna.textContent = resultado.horas_extras;
+            linha.appendChild(coluna);
+
+            tabela.appendChild(linha);
+        });
+    } else {
+        saidaMensagens.style.color = "red";
+        saidaMensagens.textContent = "Acesso inapropriado, por favor acesse a página pelo controle de ponto";
+    }
+}

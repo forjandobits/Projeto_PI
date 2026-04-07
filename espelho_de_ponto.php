@@ -59,7 +59,7 @@
     
     <section class="resumo-final">
       <p id = "saldo_mes"></p>
-      <button>Relatório</button>
+      <button id="btn-relatorio-ponto">Relatório</button>
       <button id="btn-fechar">Fechar</button>
     </section>
   </article>

@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const saidaMensagens = document.querySelector("#saida-erros");
     const btnSalvarPonto = document.querySelector("#btn-editar-ponto");
     const btnFecharMes = document.querySelector("#btn-fechar");
+    const btnRelatorioPonto = document.querySelector("#btn-relatorio-ponto")
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
     const campoMes = document.querySelector("#data-mes-ano");
@@ -38,5 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
             saidaMensagens.style.color = "red";
             saidaMensagens.textContent = "Fechamento de mês cancelado!";
         }
-    })
+    });
+
+    btnRelatorioPonto.addEventListener("click", () => {
+        window.location.href = `${BASE_URL}/relatorio_ponto.php?id=${id}&mes=${mes}&ano=${ano}`;
+    });
 });
