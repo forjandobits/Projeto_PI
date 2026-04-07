@@ -408,8 +408,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dataRecebe = dataVazia(mesSelecionado.value);
                 const nomeRecebe = nomeVazio(nome.value);
                 
-                if ((beneRecebe !== false) || (valorRecebe !== false) || (dataRecebe !== false) || (nomeRecebe !== false)) {
-                    // ---- Valor Vazio ----
+                if (beneRecebe !== false){
+                    tabelaPagamento.textContent = "";
+                    return;
+                } else if (valorRecebe !== false) {
+                    tabelaPagamento.textContent = "";
+                    return;
+                } else if (dataRecebe !== false){
+                    tabelaPagamento.textContent = "";
+                    return;
+                } else if (nomeRecebe !== false) {
                     tabelaPagamento.textContent = "";
                     return;
                 } else {

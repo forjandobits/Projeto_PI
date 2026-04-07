@@ -13,7 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (id) {
         exibiInformacoesEditar(id);
+        
+        const cabecalhoEdicao = document.querySelector(".cabecalhos>h1");
+        const btnEdicao = document.querySelector(".botao-editar");
+        cabecalhoEdicao.textContent = "Edição - Funcionário";
+        btnEdicao.style.display = "none";
 
+        let mensagem = "Abrindo modo de edição dos dados do Funcionário!";
+        mostrarMensagem(mensagem, "sucesso");
 
         if (btnSalvar) {
             btnSalvar.innerText = "Atualizar";
@@ -22,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     carregarCargos();
-    console.log(`${BASE_URL}/api/funcionarios/criar_funcionario.php`);
     // Event delegation: o form pode ser criado dinamicamente
     document.addEventListener("submit", async (e) => {
 

@@ -5,7 +5,7 @@ export async function carregarCargos() {
         const response = await fetch(`${BASE_URL}/api/cargo/exibir_cargo.php`);
         const cargos = await response.json();
         const select = document.querySelector("#cargo");
-        console.log(cargos);
+        // console.log(cargos);
         cargos.forEach(cargo => {
             const option = document.createElement("option");
             option.value = cargo.id_cargo;
@@ -40,36 +40,40 @@ export async function exibiInformacoesEditar(id) {
 
     // Seleciona todos os campos
     const campos = {
-        nomeCompleto: document.querySelector('#nome-completo'),
-        telefone: document.querySelector('#telefone'),
-        email: document.querySelector('#email'),
-        dataNasc: document.querySelector('#data-nasc'),
-        cpf: document.querySelector('#cpf'),
-        rg: document.querySelector('#rg'),
-        genero: document.querySelector('#genero'),
-        estadoCivil: document.querySelector('#estado-civil'),
-        pisPasep: document.querySelector('#pis-pasep'),
-        rua: document.querySelector('#rua'),
-        numeroCasa: document.querySelector('#numero-casa'),
-        complementoCasa: document.querySelector('#complemento'),
-        bairro: document.querySelector('#bairro'),
-        cidade: document.querySelector('#cidade'),
-        estado: document.querySelector('#estado'),
-        cep: document.querySelector('#cep'),
-        cargo: document.querySelector('#cargo'),
-        cbo: document.querySelector('#cbo'),
-        regime: document.querySelector('#regime'),
-        salario: document.querySelector('#remuneracao'),
-        banco: document.querySelector('#banco'),
-        agencia: document.querySelector('#agencia'),
-        conta: document.querySelector('#numero-conta'),
-        pix: document.querySelector('#chave-pix'),
-        nis: document.querySelector('#nis'),
-        nit: document.querySelector('#nit'),
-        ctps: document.querySelector('#ctps'),
-        certCasamento: document.querySelector('#certidao-casamento')
+        nomeCompleto : document.querySelector('#nome-completo'),
+        telefone : document.querySelector('#telefone'),
+        email : document.querySelector('#email'),
+        dataNasc : document.querySelector('#data-nasc'),
+        cpf : document.querySelector('#cpf'),
+        rg : document.querySelector('#rg'),
+        genero : document.querySelector('#genero'),
+        estadoCivil : document.querySelector('#estado-civil'),
+        pisPasep : document.querySelector('#pis-pasep'),
+        rua : document.querySelector('#rua'),
+        numeroCasa : document.querySelector('#numero-casa'),
+        complementoCasa : document.querySelector('#complemento'),
+        bairro : document.querySelector('#bairro'),
+        cidade : document.querySelector('#cidade'),
+        estado : document.querySelector('#estado'),
+        cep : document.querySelector('#cep'),
+        cargo : document.querySelector('#cargo'),
+        cbo : document.querySelector('#cbo'),
+        regime : document.querySelector('#regime'),
+        salario : document.querySelector('#remuneracao'),
+        banco : document.querySelector('#banco'),
+        agencia : document.querySelector('#agencia'),
+        conta : document.querySelector('#numero-conta'),
+        pix : document.querySelector('#chave-pix'),
+        nis : document.querySelector('#nis'),
+        nit : document.querySelector('#nit'),
+        ctps : document.querySelector('#ctps'),
+        certidaoCasamento : document.querySelector('#certidao-casamento'),
+        cnh : document.querySelector('#cnh'),
+        pcd : document.querySelector('#pcd'),
+        certificadoAlistamento : document.querySelector('#cam'),
+        temFilhos : document.querySelector('#filhos'),
+        qtdFilhos : document.querySelector('#qtd-filhos')
     }
-
 
     // Preenche os campos com segurança
     dadosFuncionario.forEach(dados => {
@@ -89,7 +93,7 @@ export async function exibiInformacoesEditar(id) {
         campos.cidade.value = valorSeguro(dados.cidade);
         campos.estado.value = valorSeguro(dados.estado);
         campos.cep.value = valorSeguro(dados.cep);
-        campos.cargo.value = valorSeguro(dados.nome_cargo);
+        campos.cargo.value = (valorSeguro(dados.id_cargo));
         campos.cbo.value = valorSeguro(dados.cbo);
         campos.regime.value = valorSeguro(dados.regime_trabalhista);
         campos.salario.value = valorSeguro(dados.salario, 'number');
@@ -100,16 +104,21 @@ export async function exibiInformacoesEditar(id) {
         campos.ctps.value = valorSeguro(dados.ctps);
         campos.nis.value = valorSeguro(dados.nis);
         campos.nit.value = valorSeguro(dados.nit);
+        campos.qtdFilhos.value = valorSeguro(dados.numero_filho);
 
 
-        campos.certCasamento.checked = dados.certidao_casamento_nascimento === "1";
+        campos.certidaoCasamento.checked = dados.certidao_casamento_nascimento === "1";
+        campos.certificadoAlistamento.checked = dados.cam === "1";
+        campos.cnh.checked = dados.cnh === "1";
+        campos.pcd.checked = dados.laudo_pcd === "1";
+        campos.temFilhos.checked = dados.tem_filho === "1";
     })
 }
 
 
 export async function editarFuncionario(id) {
 
-
+    
     const dados = {
         id_funcionario: id,
         nome_completo: document.querySelector('#nome-completo').value,

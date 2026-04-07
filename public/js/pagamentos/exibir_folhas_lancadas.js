@@ -9,6 +9,7 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
     const campoNome = document.querySelector("#nome");
     const nomeCargo = document.querySelector("#cargo-exibido");
     const mes = document.querySelector("#mes");
+    const mesExibido = document.querySelector("#data-mes-ano");
     const resumoLiquido = document.querySelector(".resumo-final>p");
 
     let valorLiquido = 0;
@@ -30,6 +31,11 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
         
         if(campoNome){
             campoNome.value = valoresRetornados.nome_completo;
+        }
+
+        if(mesExibido){
+            const [meses, ano] = data.split('/');
+            mesExibido.value = `${ano}-${meses}`;
         }
 
         tabelaFolhaSelecionada.textContent = "";
