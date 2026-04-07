@@ -36,12 +36,12 @@ function listarPontos(dados) {
         colunaNome.textContent = funcionario.nome_completo;
 
         const colunaBanco = document.createElement("td");
-        colunaBanco.textContent = funcionario.saldo_mes;
+        colunaBanco.textContent = funcionario.banco_horas;
 
         const colunaSituacao = document.createElement("td");
         colunaSituacao.textContent = funcionario.situacao;
 
-        if (parseInt(funcionario.saldo_mes) < 0) {
+        if (parseInt(funcionario.banco_horas) < 0) {
             colunaBanco.style.color = "red";
         }
         const colunaBotao = document.createElement("td");
