@@ -37,7 +37,7 @@ export async function carregarPontos(id, mes, tabela, saidaMensagens, saidaNome)
 
         //se nao tiver registros no mes corrente
         if (!dados || dados.length === 0) {
-            tabela.innerHTML = "<tr><td colspan='11'>Nenhum registro encontrado</td></tr>";
+            tabela.innerHTML = "<tr><td colspan='13'>Nenhum registro encontrado</td></tr>";
             return;
         }
 
