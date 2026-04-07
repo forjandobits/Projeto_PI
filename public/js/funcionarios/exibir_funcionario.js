@@ -124,6 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const cnh = document.querySelector('#cnh')
                 const pcd = document.querySelector('#pcd')
                 const certificadoAlistamento = document.querySelector('#cam')
+                const temFilhos = document.querySelector('#filhos')
+                const qtdFilhos = document.querySelector('#qtd-filhos')
 
                 dadosFuncionario.forEach(dados => {
                     nomeCompleto.value = dados.nome_completo;
@@ -153,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     ctps.value = dados.ctps;
                     nis.value = dados.nis;
                     nit.value = dados.nit;
+                    qtdFilhos.value = dados.numero_filho;
 
                     if (dados.certidao_casamento_nascimento == "1") {
                         certidaoCasamento.checked = true
@@ -176,6 +179,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         certificadoAlistamento.checked = true
                     } else {
                         certificadoAlistamento.checked = false
+                    }
+
+                    if (dados.tem_filho == "1") {
+                        temFilhos.checked = true
+                    } else {
+                        temFilhos.checked = false
                     }
 
                 })

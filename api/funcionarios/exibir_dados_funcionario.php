@@ -20,6 +20,7 @@ LEFT JOIN tb_banco b ON f.id_funcionario = b.id_funcionario
 LEFT JOIN tb_documento d ON f.id_funcionario = d.id_funcionario
 LEFT JOIN tb_telefone t ON f.id_funcionario = t.id_funcionario
 LEFT JOIN tb_endereco e ON f.id_funcionario = e.id_funcionario
+LEFT JOIN tb_filho fi ON f.id_funcionario = fi.id_funcionario
 WHERE f.id_funcionario = $id_funcionario
 ";
 
