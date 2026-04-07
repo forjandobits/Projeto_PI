@@ -148,7 +148,7 @@ figure:hover {
 }
 
 .imagem-tela-inicial {
-  object-fit: cover;
+  object-fit: contain;
   width: 150px;
   height: 150px;
 }
@@ -277,7 +277,7 @@ body.tema-claro{
   --cor-background-sidebar-hover: #d7e6ee;
   --logo-hm-cerebro: url("../img/logo-hm-cerebro-claro.png");
   --icone-avatar: url("../img/avatar-claro.png");
-  --icone-cerebro: url("../img/cerebro.png");
+  --icone-cerebro: url("../img/Cerebro.ico");
   --icone-banco-de-horas: url("../img/icones/pontos-contraste.png");
   --icone-configuracoes: url("../img/icones/configuracoes-contraste.png");
   --icone-funcionarios: url("../img/icones/funcionarios-contraste.png");

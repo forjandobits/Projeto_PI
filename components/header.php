@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="public/css/correcoes.css">
     <link rel="stylesheet" href="public/css/modal.css">
 
-    <link rel="shortcut icon" href="public/Cerebro.ico" type="image/x-icon" data-icon='cerebro' data-path='public/img/'/>
+    <link rel="shortcut icon" href="public/img/Cerebro.ico" type="image/x-icon" data-icon='cerebro' data-path='public/img/'/>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
 
