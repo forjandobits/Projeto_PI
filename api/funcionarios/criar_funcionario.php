@@ -46,7 +46,7 @@ $nome_banco = $conn->real_escape_string($requisicao["banco"]);
 $agencia = $conn->real_escape_string($requisicao["agencia"]);
 $numeroConta = $conn->real_escape_string($requisicao["numeroConta"]);
 $chavePix = $conn->real_escape_string($requisicao["chavePix"]);
-$num_filhos = $conn->real_escape_string($requisicao["num_filhos"]);
+$num_filhos = $conn->real_escape_string($requisicao["qtdFilhos"]);
 $certidaoCasamento = !empty($requisicao["certidaoCasamento"]) ? 1 : 0;
 $cnh = !empty($requisicao["cnh"]) ? 1 : 0;
 $pcd = !empty($requisicao["pcd"]) ? 1 : 0;
@@ -100,7 +100,7 @@ $sql5 = "INSERT INTO tb_documento (
          )";
 
 $sql6 = "INSERT INTO tb_filho (
-            id_funcionario, tem_filho, num_filho
+            id_funcionario, tem_filho, numero_filho
          ) VALUES (
             '$idFuncionario', '$tem_filho', '$num_filhos'
          )";

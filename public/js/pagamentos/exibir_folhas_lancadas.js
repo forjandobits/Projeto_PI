@@ -34,8 +34,7 @@ export async function dadosFolhasLancadas(dadosFolhaSelecionada){
         }
 
         if(mesExibido){
-            const [meses, ano] = data.split('/');
-            mesExibido.value = `${ano}-${meses}`;
+            mesExibido.value = valoresRetornados.mes_referencia;
         }
 
         tabelaFolhaSelecionada.textContent = "";
