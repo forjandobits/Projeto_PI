@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resposta => {
             console.log(resposta);
 
-            mostrarMensagem("Solicitação negada.", "erro");
+            mostrarMensagem("Solicitação negada.", "sucesso");
 
             setTimeout(() => {
             location.reload(); // recarrega a página
