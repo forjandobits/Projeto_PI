@@ -43,7 +43,7 @@
 
                     <tbody id="tabela-folhas-lancadas">
                         <!-- Exemplo de sáida -->
-                        <tr>
+                        <!-- <tr>
                             <td>Gustavo</td>
                             <td>Padeiro</td>
                             <td>12/2025</td>
@@ -56,7 +56,7 @@
                             <td>12/2025</td>
                             <td><button class='abrir-modal'>Visualizar</button></td>
                             <td><button>Baixar</button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
 
