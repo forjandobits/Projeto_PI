@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_humanamente_apresentacao`
+-- Banco de dados: `bd_humanamente_dados`
 --
-CREATE DATABASE IF NOT EXISTS `bd_humanamente_apresentacao` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bd_humanamente_apresentacao`;
+CREATE DATABASE IF NOT EXISTS `bd_humanamente_dados` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_humanamente_dados`;
 
 -- --------------------------------------------------------
 
@@ -61,9 +61,9 @@ CREATE TABLE IF NOT EXISTS `tb_banco` (
 --
 
 INSERT INTO `tb_banco` (`id_banco`, `id_funcionario`, `nome_banco`, `agencia`, `numero_conta`, `tipo_conta`, `chave_pix`) VALUES
-(1, 2, 'Banco do Brasil', '1111', '111111-1', '', '+55 32 91111-1111'),
-(2, 3, 'Caixa Econômica', '2222', '222222-2', '', 'mariana@teste.com'),
-(3, 4, 'Bradesco', '3333', '333333-3', '', '333.333.333-33');
+(1, 1, 'Banco do Brasil', '1111', '111111-1', '', '+55 32 91111-1111'),
+(2, 2, 'Caixa Econômica', '2222', '222222-2', '', 'mariana@teste.com'),
+(3, 3, 'Bradesco', '3333', '333333-3', '', '333.333.333-33');
 
 -- --------------------------------------------------------
 
