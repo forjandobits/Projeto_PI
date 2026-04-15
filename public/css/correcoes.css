@@ -1,0 +1,88 @@
+/* Configurações gerais */
+h1 {
+  color: var(--cor-titulo-azul);
+  font-size: 3em;
+}
+
+.cabecalhos {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cabecalhos>div{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.cabecalhos>div>button{
+  min-width: 300px;
+}
+
+button {
+  font-size: xx-large;
+  cursor: pointer;
+  border: none;
+  text-transform: capitalize;
+  background-color: var(--cor-background-azul);
+  color: var(--cor-texto-padrao);
+  border-radius: 10px;
+  width: 100%;
+  min-height: 50px;
+  max-width: 300px;
+  padding: 5px 15px;
+}
+
+button>a{
+  color: var(--cor-texto-padrao);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+button:hover, .sair:hover {
+  background-color: var(--cor-background-hover);
+}
+
+button.aceitar:hover{
+  background-color: var(--cor-background-aceitar);
+}
+
+button.negar:hover{
+  background-color: var(--cor-background-negar);
+}
+
+section{
+  width: 100%;
+  min-width: 80%;
+}
+
+.ocultar{
+  display: none;
+}
+
+/* Animações para urgências e pendências */
+
+.pendente , .pendente:nth-child(odd) , .pendente:hover {
+  background-color: var(--cor-pendencia);
+}
+
+.aprovado , .aprovado:nth-child(odd) , .aprovado:hover {
+  background-color: var(--cor-aprovado);
+}
+
+.negado , .negado:nth-child(odd) , .negado:hover {
+  background-color: var(--cor-negado);
+}
+
+/* @keyframes pulsar-amarelo {
+  50%{
+    background-color: var(--cor-pendencia);
+  }
+}
+
+@keyframes pulsar-vermelho {
+  50%{
+    background-color: var(--cor-urgencia);
+  }
+} */
